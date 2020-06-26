@@ -67,5 +67,16 @@ class ContactServiceProvider extends ServiceProvider
                 'contact_address' => __('Contact address'),
                 'contact_content' => __('Contact content'),
             ]);
+
+        $this->app->booted(function () {
+            if (defined('CUSTOM_FIELD_MODULE_SCREEN_NAME')) {
+                \CustomField::registerModule(Contact::class)
+                    ->expandRule('other', 'Model', 'model_name', function () {
+                        return [
+                            Contact::class => __('Contact'),
+                        ];
+                    });
+            }
+        });
     }
 }
