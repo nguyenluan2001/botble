@@ -221,14 +221,12 @@ else
   # [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy"  ] && $MKDIR  -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy &&
 fi
 
-## https://askubuntu.com/questions/20414/find-and-replace-text-within-a-file-using-commands
-## https://clubmate.fi/replace-strings-in-files-with-the-sed-bash-command/
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.json' -exec sed -i '' 's/\"botble\/api\"\: \"\*\@dev\"\,/\"botble\/assets\"\: \"\*\@dev\"\,\"botble\/api\"\: \"\*\@dev\"\,/g' {} \;)
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/\"botble\/api\"\: \"\*\@dev\"\,/\"botble\/assets\"\: \"\*\@dev\"\,\"botble\/api\"\: \"\*\@dev\"\,/g')
 
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -exec sed -i '' 's/\"botble\/assets\"\: \"\^1\.0\"\,//g' {} \;)
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -exec sed -i '' 's/botble_cookie_consent/cms_cookie_consent/g' {} \;)
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/\"botble\/assets\"\: \"\^1\.0\"\,//g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php'  | xargs -n 1 sed -i '' -e 's/botble_cookie_consent/cms_cookie_consent/g')
 
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -exec sed -i '' 's/Botble CMS/Laravel CMS/g' {} \;)
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php'  | xargs -n 1 sed -i '' -e 's/Botble CMS/Laravel CMS/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/Botble CMS/Laravel CMS/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' | xargs -n 1 sed -i '' -e 's/Botble BOT/Anonymous BOT/g')
