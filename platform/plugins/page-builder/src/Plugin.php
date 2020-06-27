@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\PageBuilder;
+namespace Platform\PageBuilder;
 
-use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
+use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
 
 class Plugin extends PluginOperationAbstract
 {

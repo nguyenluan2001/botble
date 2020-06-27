@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\PostScheduler\Facades;
+namespace Platform\PostScheduler\Facades;
 
-use Botble\PostScheduler\Supports\PostScheduler;
+use Platform\PostScheduler\Supports\PostScheduler;
 use Illuminate\Support\Facades\Facade;
 
 class PostSchedulerFacade extends Facade

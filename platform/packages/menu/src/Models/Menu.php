@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Menu\Models;
+namespace Platform\Menu\Models;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Traits\EnumCastable;
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Traits\EnumCastable;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Menu extends BaseModel

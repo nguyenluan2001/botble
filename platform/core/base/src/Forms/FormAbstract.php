@@ -1,17 +1,17 @@
 <?php
 
-namespace Botble\Base\Forms;
+namespace Platform\Base\Forms;
 
 use Assets;
-use Botble\Base\Forms\Fields\AutocompleteField;
-use Botble\Base\Forms\Fields\ColorField;
-use Botble\Base\Forms\Fields\CustomRadioField;
-use Botble\Base\Forms\Fields\CustomSelectField;
-use Botble\Base\Forms\Fields\EditorField;
-use Botble\Base\Forms\Fields\HtmlField;
-use Botble\Base\Forms\Fields\MediaImageField;
-use Botble\Base\Forms\Fields\OnOffField;
-use Botble\Base\Forms\Fields\TimeField;
+use Platform\Base\Forms\Fields\AutocompleteField;
+use Platform\Base\Forms\Fields\ColorField;
+use Platform\Base\Forms\Fields\CustomRadioField;
+use Platform\Base\Forms\Fields\CustomSelectField;
+use Platform\Base\Forms\Fields\EditorField;
+use Platform\Base\Forms\Fields\HtmlField;
+use Platform\Base\Forms\Fields\MediaImageField;
+use Platform\Base\Forms\Fields\OnOffField;
+use Platform\Base\Forms\Fields\TimeField;
 use Exception;
 use Illuminate\Support\Arr;
 use JsValidator;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\PageBuilder\Http\Controllers;
+namespace Platform\PageBuilder\Http\Controllers;
 
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Page\Repositories\Interfaces\PageInterface;
-use Botble\PageBuilder\Http\Requests\PageBuilderRequest;
-use Botble\Setting\Supports\SettingStore;
-use Botble\Theme\Asset;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Page\Repositories\Interfaces\PageInterface;
+use Platform\PageBuilder\Http\Requests\PageBuilderRequest;
+use Platform\Setting\Supports\SettingStore;
+use Platform\Theme\Asset;
 use Theme;
 
 class PageBuilderController extends BaseController

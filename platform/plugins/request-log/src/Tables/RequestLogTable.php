@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\RequestLog\Tables;
+namespace Platform\RequestLog\Tables;
 
-use Botble\RequestLog\Models\RequestLog;
+use Platform\RequestLog\Models\RequestLog;
 use Illuminate\Support\Facades\Auth;
-use Botble\RequestLog\Repositories\Interfaces\RequestLogInterface;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\RequestLog\Repositories\Interfaces\RequestLogInterface;
+use Platform\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;

@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Blog\Models\Post;
+use Platform\Blog\Models\Post;
 
 return [
     'supported' => [

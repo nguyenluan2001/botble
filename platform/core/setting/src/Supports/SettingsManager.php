@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Setting\Supports;
+namespace Platform\Setting\Supports;
 
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\Manager;

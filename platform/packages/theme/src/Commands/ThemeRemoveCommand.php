@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Theme\Commands;
+namespace Platform\Theme\Commands;
 
-use Botble\Theme\Commands\Traits\ThemeTrait;
-use Botble\Theme\Services\ThemeService;
+use Platform\Theme\Commands\Traits\ThemeTrait;
+use Platform\Theme\Services\ThemeService;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 

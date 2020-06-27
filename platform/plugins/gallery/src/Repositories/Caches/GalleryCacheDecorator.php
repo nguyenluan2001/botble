@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Gallery\Repositories\Caches;
+namespace Platform\Gallery\Repositories\Caches;
 
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
-use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
 
 class GalleryCacheDecorator extends CacheAbstractDecorator implements GalleryInterface
 {

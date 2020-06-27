@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Blog\Services;
+namespace Platform\Blog\Services;
 
-use Botble\Blog\Models\Post;
-use Botble\Blog\Services\Abstracts\StoreCategoryServiceAbstract;
+use Platform\Blog\Models\Post;
+use Platform\Blog\Services\Abstracts\StoreCategoryServiceAbstract;
 use Illuminate\Http\Request;
 
 class StoreCategoryService extends StoreCategoryServiceAbstract

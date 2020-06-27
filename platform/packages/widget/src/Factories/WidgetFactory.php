@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Widget\Factories;
+namespace Platform\Widget\Factories;
 
-use Botble\Widget\Misc\InvalidWidgetClassException;
+use Platform\Widget\Misc\InvalidWidgetClassException;
 use Exception;
 
 class WidgetFactory extends AbstractWidgetFactory

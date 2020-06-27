@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\ACL\Commands;
+namespace Platform\ACL\Commands;
 
-use Botble\ACL\Repositories\Interfaces\UserInterface;
-use Botble\ACL\Services\ActivateUserService;
+use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Platform\ACL\Services\ActivateUserService;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
@@ -22,7 +22,7 @@ class UserCreateCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a super user for Botble CMS';
+    protected $description = 'Create a super user for Laravel CMS';
 
     /**
      * @var UserInterface

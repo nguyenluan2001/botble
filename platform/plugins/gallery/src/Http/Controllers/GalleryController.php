@@ -1,22 +1,22 @@
 <?php
 
-namespace Botble\Gallery\Http\Controllers;
+namespace Platform\Gallery\Http\Controllers;
 
-use Botble\Base\Events\BeforeEditContentEvent;
-use Botble\Base\Forms\FormBuilder;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Base\Traits\HasDeleteManyItemsTrait;
-use Botble\Gallery\Forms\GalleryForm;
-use Botble\Gallery\Tables\GalleryTable;
-use Botble\Gallery\Http\Requests\GalleryRequest;
-use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
+use Platform\Base\Events\BeforeEditContentEvent;
+use Platform\Base\Forms\FormBuilder;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Traits\HasDeleteManyItemsTrait;
+use Platform\Gallery\Forms\GalleryForm;
+use Platform\Gallery\Tables\GalleryTable;
+use Platform\Gallery\Http\Requests\GalleryRequest;
+use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
 
 class GalleryController extends BaseController
 {

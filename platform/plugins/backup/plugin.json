@@ -1,8 +1,8 @@
 {
     "name": "Backup",
-    "namespace": "Botble\\Backup\\",
-    "provider": "Botble\\Backup\\Providers\\BackupServiceProvider",
-    "author": "Botble Technologies",
+    "namespace": "Platform\\Backup\\",
+    "provider": "Platform\\Backup\\Providers\\BackupServiceProvider",
+    "author": "Laravel Technologies",
     "url": "https://botble.com",
     "version": "5.4",
     "description": "Backup & restore database, uploads folder"

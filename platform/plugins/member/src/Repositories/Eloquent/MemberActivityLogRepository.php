@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Member\Repositories\Eloquent;
+namespace Platform\Member\Repositories\Eloquent;
 
-use Botble\Member\Repositories\Interfaces\MemberActivityLogInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\Member\Repositories\Interfaces\MemberActivityLogInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 class MemberActivityLogRepository extends RepositoriesAbstract implements MemberActivityLogInterface
 {

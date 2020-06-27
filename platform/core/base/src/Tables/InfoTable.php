@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Base\Tables;
+namespace Platform\Base\Tables;
 
-use Botble\Base\Supports\SystemManagement;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\Base\Supports\SystemManagement;
+use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Support\Collection;

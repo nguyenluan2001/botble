@@ -1,8 +1,8 @@
 {
     "name": "Impersonate",
-    "namespace": "Botble\\Impersonate\\",
-    "provider": "Botble\\Impersonate\\Providers\\ImpersonateServiceProvider",
-    "author": "Sang Nguyen",
+    "namespace": "Platform\\Impersonate\\",
+    "provider": "Platform\\Impersonate\\Providers\\ImpersonateServiceProvider",
+    "author": "Developer Team",
     "url": "https://sangnguyen.info",
     "version": "5.3",
     "description": "The description for plugin impersonate"

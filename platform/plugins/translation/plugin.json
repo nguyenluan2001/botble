@@ -1,8 +1,8 @@
 {
     "name": "Translation",
-    "namespace": "Botble\\Translation\\",
-    "provider": "Botble\\Translation\\Providers\\TranslationServiceProvider",
-    "author": "Botble Technologies",
+    "namespace": "Platform\\Translation\\",
+    "provider": "Platform\\Translation\\Providers\\TranslationServiceProvider",
+    "author": "Laravel Technologies",
     "url": "https://botble.com",
     "version": "5.4",
     "description": "Manage translation text"

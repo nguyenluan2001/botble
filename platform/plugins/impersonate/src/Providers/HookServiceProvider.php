@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Impersonate\Providers;
+namespace Platform\Impersonate\Providers;
 
-use Botble\ACL\Models\User;
-use Botble\ACL\Repositories\Interfaces\ActivationInterface;
+use Platform\ACL\Models\User;
+use Platform\ACL\Repositories\Interfaces\ActivationInterface;
 use Html;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;

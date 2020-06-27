@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\MaintenanceMode\Http\Requests;
+namespace Platform\MaintenanceMode\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class MaintenanceModeRequest extends Request
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\PluginGenerator\Commands;
+namespace Platform\PluginGenerator\Commands;
 
 use File;
 use Illuminate\Console\Command;

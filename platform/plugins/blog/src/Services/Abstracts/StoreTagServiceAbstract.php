@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Blog\Services\Abstracts;
+namespace Platform\Blog\Services\Abstracts;
 
-use Botble\Blog\Models\Post;
-use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Platform\Blog\Models\Post;
+use Platform\Blog\Repositories\Interfaces\TagInterface;
 use Illuminate\Http\Request;
 
 abstract class StoreTagServiceAbstract

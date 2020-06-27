@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\MaintenanceMode\Supports;
+namespace Platform\MaintenanceMode\Supports;
 
 use Illuminate\Http\Request;
 

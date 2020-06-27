@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\Member\Http\Controllers\API;
+namespace Platform\Member\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Member\Http\Requests\LoginRequest;
-use Botble\Member\Http\Requests\RegisterRequest;
-use Botble\Member\Notifications\API\ConfirmEmailNotification;
-use Botble\Member\Repositories\Interfaces\MemberInterface;
-use Botble\ACL\Traits\RegistersUsers;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Member\Http\Requests\LoginRequest;
+use Platform\Member\Http\Requests\RegisterRequest;
+use Platform\Member\Notifications\API\ConfirmEmailNotification;
+use Platform\Member\Repositories\Interfaces\MemberInterface;
+use Platform\ACL\Traits\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

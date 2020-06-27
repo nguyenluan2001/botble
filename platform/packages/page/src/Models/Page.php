@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Page\Models;
+namespace Platform\Page\Models;
 
-use Botble\ACL\Models\User;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Traits\EnumCastable;
-use Botble\Revision\RevisionableTrait;
-use Botble\Slug\Traits\SlugTrait;
-use Botble\Base\Models\BaseModel;
+use Platform\ACL\Models\User;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Traits\EnumCastable;
+use Platform\Revision\RevisionableTrait;
+use Platform\Slug\Traits\SlugTrait;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Page extends BaseModel

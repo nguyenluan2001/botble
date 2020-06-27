@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Member\Http\Requests;
+namespace Platform\Member\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class MemberChangeAvatarRequest extends Request
 {

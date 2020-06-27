@@ -28,7 +28,7 @@
     {!! Form::error('publish_time', $errors) !!}
 </div>
 
-@if ($data && $data->status != \Botble\Base\Enums\BaseStatusEnum::PUBLISHED)
+@if ($data && $data->status != \Platform\Base\Enums\BaseStatusEnum::PUBLISHED)
     <div class="form-group">
         {!! Form::onOff('update_time_to_current', 0) !!}
         <label class="control-label">{{ __('Update published time to current time') }}</label>

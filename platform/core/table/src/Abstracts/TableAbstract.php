@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Table\Abstracts;
+namespace Platform\Table\Abstracts;
 
 use Assets;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
-use Botble\Table\Supports\TableExportHandler;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Table\Supports\TableExportHandler;
 use Carbon\Carbon;
 use Form;
 use Html;

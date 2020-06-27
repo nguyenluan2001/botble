@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\{Module}\Forms;
+namespace Platform\{Module}\Forms;
 
-use Botble\Base\Forms\FormAbstract;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\{Module}\Http\Requests\{Name}Request;
-use Botble\{Module}\Models\{Name};
+use Platform\Base\Forms\FormAbstract;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\{Module}\Http\Requests\{Name}Request;
+use Platform\{Module}\Models\{Name};
 
 class {Name}Form extends FormAbstract
 {

@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Botble\Impersonate\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Platform\Impersonate\Http\Controllers', 'middleware' => 'web'], function () {
 
     Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
 

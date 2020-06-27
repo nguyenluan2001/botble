@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\DevTool\Commands;
+namespace Platform\DevTool\Commands;
 
-use Botble\ACL\Repositories\Interfaces\UserInterface;
+use Platform\ACL\Repositories\Interfaces\UserInterface;
 use DB;
 use Exception;
 use Illuminate\Console\Command;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\PageBuilder\Providers;
+namespace Platform\PageBuilder\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Route;
 
 class PageBuilderServiceProvider extends ServiceProvider

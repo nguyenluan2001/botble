@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\RequestLog\Models;
+namespace Platform\RequestLog\Models;
 
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 
 class RequestLog extends BaseModel
 {

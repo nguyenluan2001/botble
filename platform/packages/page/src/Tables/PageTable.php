@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\Page\Tables;
+namespace Platform\Page\Tables;
 
-use Botble\Page\Models\Page;
+use Platform\Page\Models\Page;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Page\Repositories\Interfaces\PageInterface;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Page\Repositories\Interfaces\PageInterface;
+use Platform\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Support\Arr;

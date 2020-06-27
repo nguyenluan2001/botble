@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\MaintenanceMode\Providers;
+namespace Platform\MaintenanceMode\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Botble\Base\Supports\Helper;
+use Platform\Base\Supports\Helper;
 use Illuminate\Routing\Events\RouteMatched;
 use Event;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 
 class MaintenanceModeServiceProvider extends ServiceProvider
 {

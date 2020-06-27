@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Media\Repositories\Caches;
+namespace Platform\Media\Repositories\Caches;
 
-use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class MediaFolderCacheDecorator extends CacheAbstractDecorator implements MediaFolderInterface
 {

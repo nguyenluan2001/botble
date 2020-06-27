@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Blog\Listeners;
+namespace Platform\Blog\Listeners;
 
-use Botble\Blog\Repositories\Interfaces\CategoryInterface;
-use Botble\Blog\Repositories\Interfaces\PostInterface;
-use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Platform\Blog\Repositories\Interfaces\CategoryInterface;
+use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Platform\Blog\Repositories\Interfaces\TagInterface;
 use SiteMapManager;
 
 class RenderingSiteMapListener

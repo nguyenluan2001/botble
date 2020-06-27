@@ -1,8 +1,8 @@
 {
     "name": "Page Builder",
-    "namespace": "Botble\\PageBuilder\\",
-    "provider": "Botble\\PageBuilder\\Providers\\PageBuilderServiceProvider",
-    "author": "Sang Nguyen",
+    "namespace": "Platform\\PageBuilder\\",
+    "provider": "Platform\\PageBuilder\\Providers\\PageBuilderServiceProvider",
+    "author": "Developer Team",
     "url": "https://sangnguyen.info",
     "version": "5.4",
     "description": "Drag and drop website editor. No coding needed."

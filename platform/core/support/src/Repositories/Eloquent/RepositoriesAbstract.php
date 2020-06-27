@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Support\Repositories\Eloquent;
+namespace Platform\Support\Repositories\Eloquent;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\CustomField\Repositories\Eloquent;
+namespace Platform\CustomField\Repositories\Eloquent;
 
-use Botble\CustomField\Repositories\Interfaces\CustomFieldInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\CustomField\Repositories\Interfaces\CustomFieldInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 class CustomFieldRepository extends RepositoriesAbstract implements CustomFieldInterface
 {

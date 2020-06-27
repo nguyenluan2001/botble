@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\ACL\Tables;
+namespace Platform\ACL\Tables;
 
-use Botble\ACL\Models\Role;
+use Platform\ACL\Models\Role;
 use Html;
 use Illuminate\Support\Facades\Auth;
-use Botble\ACL\Repositories\Interfaces\RoleInterface;
-use Botble\ACL\Repositories\Interfaces\UserInterface;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\ACL\Repositories\Interfaces\RoleInterface;
+use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;
 

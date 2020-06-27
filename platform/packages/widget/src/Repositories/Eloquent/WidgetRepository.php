@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Widget\Repositories\Eloquent;
+namespace Platform\Widget\Repositories\Eloquent;
 
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Botble\Widget\Repositories\Interfaces\WidgetInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\Widget\Repositories\Interfaces\WidgetInterface;
 
 class WidgetRepository extends RepositoriesAbstract implements WidgetInterface
 {

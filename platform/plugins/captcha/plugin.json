@@ -1,8 +1,8 @@
 {
   "name": "Captcha",
-  "namespace": "Botble\\Captcha\\",
-  "provider": "Botble\\Captcha\\Providers\\CaptchaServiceProvider",
-  "author": "Botble Technologies",
+  "namespace": "Platform\\Captcha\\",
+  "provider": "Platform\\Captcha\\Providers\\CaptchaServiceProvider",
+  "author": "Laravel Technologies",
   "url": "https://botble.com",
   "version": "5.4",
   "description": "Captcha for higher security"

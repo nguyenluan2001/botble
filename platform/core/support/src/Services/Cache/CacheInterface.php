@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Support\Services\Cache;
+namespace Platform\Support\Services\Cache;
 
 interface CacheInterface
 {

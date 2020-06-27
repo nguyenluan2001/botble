@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Member\Http\Controllers;
+namespace Platform\Member\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Botble\ACL\Traits\SendsPasswordResetEmails;
+use Platform\ACL\Traits\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\Password;
 use SeoHelper;
 

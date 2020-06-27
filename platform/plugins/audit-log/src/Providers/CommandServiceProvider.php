@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\AuditLog\Providers;
+namespace Platform\AuditLog\Providers;
 
-use Botble\AuditLog\Commands\ActivityLogClearCommand;
+use Platform\AuditLog\Commands\ActivityLogClearCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

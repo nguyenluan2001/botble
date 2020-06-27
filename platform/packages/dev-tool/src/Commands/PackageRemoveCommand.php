@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\DevTool\Commands;
+namespace Platform\DevTool\Commands;
 
-use Botble\Base\Supports\Helper;
+use Platform\Base\Supports\Helper;
 use DB;
 use Exception;
 use File;

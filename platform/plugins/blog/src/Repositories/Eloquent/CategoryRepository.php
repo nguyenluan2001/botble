@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Blog\Repositories\Eloquent;
+namespace Platform\Blog\Repositories\Eloquent;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\Blog\Repositories\Interfaces\CategoryInterface;
 use Eloquent;
 
 class CategoryRepository extends RepositoriesAbstract implements CategoryInterface

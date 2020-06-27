@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Widget;
+namespace Platform\Widget;
 
-use Botble\Widget\Repositories\Interfaces\WidgetInterface;
+use Platform\Widget\Repositories\Interfaces\WidgetInterface;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;

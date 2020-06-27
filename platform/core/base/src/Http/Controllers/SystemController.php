@@ -1,15 +1,15 @@
 <?php
 
-namespace Botble\Base\Http\Controllers;
+namespace Platform\Base\Http\Controllers;
 
 use Assets;
-use Botble\ACL\Models\UserMeta;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Base\Supports\Helper;
-use Botble\Base\Supports\MembershipAuthorization;
-use Botble\Base\Supports\SystemManagement;
-use Botble\Base\Tables\InfoTable;
-use Botble\Table\TableBuilder;
+use Platform\ACL\Models\UserMeta;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Supports\MembershipAuthorization;
+use Platform\Base\Supports\SystemManagement;
+use Platform\Base\Tables\InfoTable;
+use Platform\Table\TableBuilder;
 use Exception;
 use File;
 use Illuminate\Contracts\View\Factory;

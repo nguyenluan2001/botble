@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Base\Models;
+namespace Platform\Base\Models;
 
 use Eloquent;
 

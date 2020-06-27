@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Chart\Supports;
+namespace Platform\Chart\Supports;
 
 use Assets;
 use Illuminate\Support\Str;

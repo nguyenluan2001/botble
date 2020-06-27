@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Member\Notifications\API;
+namespace Platform\Member\Notifications\API;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

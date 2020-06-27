@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Theme\Events;
+namespace Platform\Theme\Events;
 
-use Botble\Base\Events\Event;
-use Botble\Slug\Models\Slug;
+use Platform\Base\Events\Event;
+use Platform\Slug\Models\Slug;
 use Illuminate\Queue\SerializesModels;
 
 class RenderingSingleEvent extends Event

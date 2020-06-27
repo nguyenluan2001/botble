@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\CustomField\Models;
+namespace Platform\CustomField\Models;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Traits\EnumCastable;
-use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Traits\EnumCastable;
+use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FieldGroup extends BaseModel

@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Translation;
+namespace Platform\Translation;
 
 use Exception;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Events\Dispatcher;
-use Botble\Translation\Models\Translation;
+use Platform\Translation\Models\Translation;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\CustomField\Models;
+namespace Platform\CustomField\Models;
 
-use Botble\CustomField\Repositories\Interfaces\CustomFieldInterface;
-use Botble\Base\Models\BaseModel;
+use Platform\CustomField\Repositories\Interfaces\CustomFieldInterface;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

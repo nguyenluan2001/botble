@@ -2,7 +2,7 @@
     "name": "Ripple",
     "namespace": "Theme\\Ripple\\",
     "description": "Ripple is default theme for Botble since v2.0",
-    "author": "Botble Technologies",
+    "author": "Laravel Technologies",
     "version": "5.4",
     "required_plugins": [
         "blog",

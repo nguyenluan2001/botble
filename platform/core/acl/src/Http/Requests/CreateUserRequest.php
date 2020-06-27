@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\ACL\Http\Requests;
+namespace Platform\ACL\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class CreateUserRequest extends Request
 {

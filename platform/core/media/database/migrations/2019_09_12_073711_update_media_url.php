@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Media\Models\MediaFile;
+use Platform\Media\Models\MediaFile;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateMediaUrl extends Migration

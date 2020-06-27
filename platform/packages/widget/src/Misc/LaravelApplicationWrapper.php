@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Widget\Misc;
+namespace Platform\Widget\Misc;
 
 use App;
-use Botble\Widget\Contracts\ApplicationWrapperContract;
+use Platform\Widget\Contracts\ApplicationWrapperContract;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\BindingResolutionException;
 

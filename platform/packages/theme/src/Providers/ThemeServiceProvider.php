@@ -1,17 +1,17 @@
 <?php
 
-namespace Botble\Theme\Providers;
+namespace Platform\Theme\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Theme\Commands\ThemeAssetsPublishCommand;
-use Botble\Theme\Commands\ThemeAssetsRemoveCommand;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Theme\Commands\ThemeActivateCommand;
-use Botble\Theme\Commands\ThemeRemoveCommand;
-use Botble\Theme\Contracts\Theme as ThemeContract;
-use Botble\Theme\Facades\ThemeFacade;
-use Botble\Theme\Http\Middleware\AdminBarMiddleware;
-use Botble\Theme\Theme;
+use Platform\Base\Supports\Helper;
+use Platform\Theme\Commands\ThemeAssetsPublishCommand;
+use Platform\Theme\Commands\ThemeAssetsRemoveCommand;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Theme\Commands\ThemeActivateCommand;
+use Platform\Theme\Commands\ThemeRemoveCommand;
+use Platform\Theme\Contracts\Theme as ThemeContract;
+use Platform\Theme\Facades\ThemeFacade;
+use Platform\Theme\Http\Middleware\AdminBarMiddleware;
+use Platform\Theme\Theme;
 use Event;
 use File;
 use Illuminate\Routing\Events\RouteMatched;

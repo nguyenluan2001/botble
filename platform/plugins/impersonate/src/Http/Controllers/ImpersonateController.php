@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Impersonate\Http\Controllers;
+namespace Platform\Impersonate\Http\Controllers;
 
-use Botble\ACL\Repositories\Interfaces\UserInterface;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Supports\Helper;
+use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Supports\Helper;
 use Illuminate\Http\Request;
 
 class ImpersonateController extends BaseController

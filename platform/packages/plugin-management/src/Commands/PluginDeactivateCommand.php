@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\PluginManagement\Commands;
+namespace Platform\PluginManagement\Commands;
 
-use Botble\PluginManagement\Services\PluginService;
+use Platform\PluginManagement\Services\PluginService;
 use Exception;
 use Illuminate\Console\Command;
 

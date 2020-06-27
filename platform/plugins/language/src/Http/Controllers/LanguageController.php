@@ -1,25 +1,25 @@
 <?php
 
-namespace Botble\Language\Http\Controllers;
+namespace Platform\Language\Http\Controllers;
 
 use Assets;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Base\Supports\Language;
-use Botble\Language\LanguageManager;
-use Botble\Language\Repositories\Interfaces\LanguageMetaInterface;
-use Botble\Language\Http\Requests\LanguageRequest;
-use Botble\Language\Repositories\Interfaces\LanguageInterface;
-use Botble\Setting\Supports\SettingStore;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Supports\Language;
+use Platform\Language\LanguageManager;
+use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
+use Platform\Language\Http\Requests\LanguageRequest;
+use Platform\Language\Repositories\Interfaces\LanguageInterface;
+use Platform\Setting\Supports\SettingStore;
 use DB;
 use Exception;
 use File;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Language as LanguageFacade;

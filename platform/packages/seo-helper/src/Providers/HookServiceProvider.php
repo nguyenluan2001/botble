@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\SeoHelper\Providers;
+namespace Platform\SeoHelper\Providers;
 
 use Assets;
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;

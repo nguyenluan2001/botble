@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\SocialLogin;
+namespace Platform\SocialLogin;
 
-use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
+use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
 
 class Plugin extends PluginOperationAbstract
 {

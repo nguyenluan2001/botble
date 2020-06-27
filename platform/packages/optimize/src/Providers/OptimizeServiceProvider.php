@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Optimize\Providers;
+namespace Platform\Optimize\Providers;
 
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Optimize\Http\Middleware\CollapseWhitespace;
-use Botble\Optimize\Http\Middleware\ElideAttributes;
-use Botble\Optimize\Http\Middleware\InlineCss;
-use Botble\Optimize\Http\Middleware\InsertDNSPrefetch;
-use Botble\Optimize\Http\Middleware\RemoveComments;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Optimize\Http\Middleware\CollapseWhitespace;
+use Platform\Optimize\Http\Middleware\ElideAttributes;
+use Platform\Optimize\Http\Middleware\InlineCss;
+use Platform\Optimize\Http\Middleware\InsertDNSPrefetch;
+use Platform\Optimize\Http\Middleware\RemoveComments;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 

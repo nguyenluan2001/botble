@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\SeoHelper;
+namespace Platform\SeoHelper;
 
-use Botble\Base\Models\BaseModel;
-use Botble\SeoHelper\Contracts\SeoHelperContract;
-use Botble\SeoHelper\Contracts\SeoMetaContract;
-use Botble\SeoHelper\Contracts\SeoOpenGraphContract;
-use Botble\SeoHelper\Contracts\SeoTwitterContract;
+use Platform\Base\Models\BaseModel;
+use Platform\SeoHelper\Contracts\SeoHelperContract;
+use Platform\SeoHelper\Contracts\SeoMetaContract;
+use Platform\SeoHelper\Contracts\SeoOpenGraphContract;
+use Platform\SeoHelper\Contracts\SeoTwitterContract;
 use Exception;
 use Illuminate\Http\Request;
 

@@ -1,8 +1,8 @@
 {
     "name": "Custom Fields",
-    "namespace": "Botble\\CustomField\\",
-    "provider": "Botble\\CustomField\\Providers\\CustomFieldServiceProvider",
-    "author": "Botble Technologies",
+    "namespace": "Platform\\CustomField\\",
+    "provider": "Platform\\CustomField\\Providers\\CustomFieldServiceProvider",
+    "author": "Laravel Technologies",
     "url": "https://botble.com",
     "version": "5.4",
     "description": "Custom Fields"

@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\CustomField\Actions;
+namespace Platform\CustomField\Actions;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
 
 class UpdateCustomFieldAction extends AbstractAction
 {

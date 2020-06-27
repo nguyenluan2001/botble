@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Media\Repositories\Eloquent;
+namespace Platform\Media\Repositories\Eloquent;
 
-use Botble\Media\Repositories\Interfaces\MediaFileInterface;
-use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\Media\Repositories\Interfaces\MediaFileInterface;
+use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Eloquent;
 use Exception;
 use File;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\AuditLog\Http\Controllers;
+namespace Platform\AuditLog\Http\Controllers;
 
-use Botble\AuditLog\Repositories\Interfaces\AuditLogInterface;
-use Botble\AuditLog\Tables\AuditLogTable;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Base\Traits\HasDeleteManyItemsTrait;
+use Platform\AuditLog\Repositories\Interfaces\AuditLogInterface;
+use Platform\AuditLog\Tables\AuditLogTable;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Traits\HasDeleteManyItemsTrait;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\Translation\Http\Controllers;
+namespace Platform\Translation\Http\Controllers;
 
 use Assets;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Translation\Http\Requests\TranslationRequest;
-use Botble\Translation\Manager;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Translation\Http\Requests\TranslationRequest;
+use Platform\Translation\Manager;
 use Illuminate\Http\Request;
-use Botble\Translation\Models\Translation;
+use Platform\Translation\Models\Translation;
 use Illuminate\Support\Collection;
 
 class TranslationController extends BaseController

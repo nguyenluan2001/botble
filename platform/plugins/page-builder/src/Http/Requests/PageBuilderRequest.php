@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\PageBuilder\Http\Requests;
+namespace Platform\PageBuilder\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class PageBuilderRequest extends Request
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Base\Supports;
+namespace Platform\Base\Supports;
 
 use Exception;
 use Illuminate\Support\Facades\Auth;

@@ -1,18 +1,18 @@
 <?php
 
-namespace Botble\Blog\Http\Controllers\API;
+namespace Platform\Blog\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Blog\Http\Resources\CategoryResource;
-use Botble\Blog\Http\Resources\ListCategoryResource;
-use Botble\Blog\Repositories\Interfaces\CategoryInterface;
-use Botble\Blog\Supports\FilterCategory;
-use Botble\Slug\Repositories\Interfaces\SlugInterface;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Blog\Http\Resources\CategoryResource;
+use Platform\Blog\Http\Resources\ListCategoryResource;
+use Platform\Blog\Repositories\Interfaces\CategoryInterface;
+use Platform\Blog\Supports\FilterCategory;
+use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Botble\Blog\Models\Category;
+use Platform\Blog\Models\Category;
 
 class CategoryController extends Controller
 {

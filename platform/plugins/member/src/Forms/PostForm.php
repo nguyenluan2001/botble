@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Member\Forms;
+namespace Platform\Member\Forms;
 
-use Botble\Blog\Models\Post;
-use Botble\Member\Forms\Fields\CustomEditorField;
-use Botble\Member\Forms\Fields\CustomImageField;
-use Botble\Member\Http\Requests\PostRequest;
+use Platform\Blog\Models\Post;
+use Platform\Member\Forms\Fields\CustomEditorField;
+use Platform\Member\Forms\Fields\CustomImageField;
+use Platform\Member\Http\Requests\PostRequest;
 
-class PostForm extends \Botble\Blog\Forms\PostForm
+class PostForm extends \Platform\Blog\Forms\PostForm
 {
 
     /**

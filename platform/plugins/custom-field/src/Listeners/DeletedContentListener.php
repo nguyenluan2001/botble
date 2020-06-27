@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\CustomField\Listeners;
+namespace Platform\CustomField\Listeners;
 
-use Botble\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
 use CustomField;
 use Exception;
 

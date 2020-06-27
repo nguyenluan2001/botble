@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\MaintenanceMode\Http\Controllers;
+namespace Platform\MaintenanceMode\Http\Controllers;
 
 use Assets;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\MaintenanceMode\Supports\MaintenanceMode;
-use Botble\MaintenanceMode\Http\Requests\MaintenanceModeRequest;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\MaintenanceMode\Supports\MaintenanceMode;
+use Platform\MaintenanceMode\Http\Requests\MaintenanceModeRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 

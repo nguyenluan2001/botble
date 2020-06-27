@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Language\Listeners;
+namespace Platform\Language\Listeners;
 
-use Botble\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
 use Exception;
 use Language;
 

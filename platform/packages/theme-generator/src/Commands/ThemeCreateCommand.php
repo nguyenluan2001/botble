@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\ThemeGenerator\Commands;
+namespace Platform\ThemeGenerator\Commands;
 
-use Botble\DevTool\Commands\Abstracts\BaseMakeCommand;
-use Botble\Theme\Commands\Traits\ThemeTrait;
-use Botble\Theme\Services\ThemeService;
+use Platform\DevTool\Commands\Abstracts\BaseMakeCommand;
+use Platform\Theme\Commands\Traits\ThemeTrait;
+use Platform\Theme\Services\ThemeService;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem as File;
 use Illuminate\Support\Str;

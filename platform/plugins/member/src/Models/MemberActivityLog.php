@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Member\Models;
+namespace Platform\Member\Models;
 
 use Html;
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 
 class MemberActivityLog extends BaseModel
 {

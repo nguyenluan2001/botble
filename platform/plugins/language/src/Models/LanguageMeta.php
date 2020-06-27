@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Language\Models;
+namespace Platform\Language\Models;
 
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class LanguageMeta extends BaseModel

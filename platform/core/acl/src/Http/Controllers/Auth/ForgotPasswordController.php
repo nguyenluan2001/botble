@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\ACL\Http\Controllers\Auth;
+namespace Platform\ACL\Http\Controllers\Auth;
 
 use Assets;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\View\Factory;
-use Botble\ACL\Traits\SendsPasswordResetEmails;
+use Platform\ACL\Traits\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 

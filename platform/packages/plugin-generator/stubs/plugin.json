@@ -1,8 +1,8 @@
 {
     "name": "{Module}",
-    "namespace": "Botble\\{Module}\\",
-    "provider": "Botble\\{Module}\\Providers\\{Module}ServiceProvider",
-    "author": "Botble Technologies",
+    "namespace": "Platform\\{Module}\\",
+    "provider": "Platform\\{Module}\\Providers\\{Module}ServiceProvider",
+    "author": "Laravel Technologies",
     "url": "https://botble.com",
     "version": "1.0",
     "description": "The description for module {module}"

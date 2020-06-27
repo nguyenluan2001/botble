@@ -1,15 +1,15 @@
 <?php
 
-namespace Botble\Language\Providers;
+namespace Platform\Language\Providers;
 
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\Language\Listeners\CreatedContentListener;
-use Botble\Language\Listeners\DeletedContentListener;
-use Botble\Language\Listeners\ThemeRemoveListener;
-use Botble\Language\Listeners\UpdatedContentListener;
-use Botble\Theme\Events\ThemeRemoveEvent;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\Language\Listeners\CreatedContentListener;
+use Platform\Language\Listeners\DeletedContentListener;
+use Platform\Language\Listeners\ThemeRemoveListener;
+use Platform\Language\Listeners\UpdatedContentListener;
+use Platform\Theme\Events\ThemeRemoveEvent;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider

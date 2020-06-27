@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Impersonate\Providers;
+namespace Platform\Impersonate\Providers;
 
-use Botble\Impersonate\Models\User;
+use Platform\Impersonate\Models\User;
 use Illuminate\Support\ServiceProvider;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 
 class ImpersonateServiceProvider extends ServiceProvider
 {

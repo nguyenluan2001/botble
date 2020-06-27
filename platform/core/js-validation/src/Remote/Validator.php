@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\JsValidation\Remote;
+namespace Platform\JsValidation\Remote;
 
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
@@ -8,8 +8,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\ValidationRuleParser;
 use Illuminate\Validation\Validator as BaseValidator;
-use Botble\JsValidation\Support\AccessProtectedTrait;
-use Botble\JsValidation\Support\RuleListTrait;
+use Platform\JsValidation\Support\AccessProtectedTrait;
+use Platform\JsValidation\Support\RuleListTrait;
 
 class Validator
 {

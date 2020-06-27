@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\PostScheduler\Providers;
+namespace Platform\PostScheduler\Providers;
 
 use Assets;
 use Auth;

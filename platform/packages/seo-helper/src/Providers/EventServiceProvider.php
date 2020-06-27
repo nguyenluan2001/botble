@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\SeoHelper\Providers;
+namespace Platform\SeoHelper\Providers;
 
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\SeoHelper\Listeners\CreatedContentListener;
-use Botble\SeoHelper\Listeners\DeletedContentListener;
-use Botble\SeoHelper\Listeners\UpdatedContentListener;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\SeoHelper\Listeners\CreatedContentListener;
+use Platform\SeoHelper\Listeners\DeletedContentListener;
+use Platform\SeoHelper\Listeners\UpdatedContentListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider

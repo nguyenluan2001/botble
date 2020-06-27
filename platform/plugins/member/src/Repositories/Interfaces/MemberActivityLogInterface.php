@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Member\Repositories\Interfaces;
+namespace Platform\Member\Repositories\Interfaces;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 interface MemberActivityLogInterface extends RepositoryInterface

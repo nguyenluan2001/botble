@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\PostScheduler\Supports;
+namespace Platform\PostScheduler\Supports;
 
 class PostScheduler
 {

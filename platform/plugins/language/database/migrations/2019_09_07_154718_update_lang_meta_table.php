@@ -18,9 +18,9 @@ class UpdateLangMetaTable extends Migration
             $table->renameColumn('lang_meta_reference', 'reference_type');
         });
 
-        DB::table('language_meta')->where('reference_type', 'page')->update(['reference_type' => 'Botble\Page\Models\Page']);
-        DB::table('language_meta')->where('reference_type', 'menu')->update(['reference_type' => 'Botble\Menu\Models\Menu']);
-        DB::table('language_meta')->where('reference_type', 'menu_location')->update(['reference_type' => 'Botble\Menu\Models\MenuLocation']);
+        DB::table('language_meta')->where('reference_type', 'page')->update(['reference_type' => 'Platform\Page\Models\Page']);
+        DB::table('language_meta')->where('reference_type', 'menu')->update(['reference_type' => 'Platform\Menu\Models\Menu']);
+        DB::table('language_meta')->where('reference_type', 'menu_location')->update(['reference_type' => 'Platform\Menu\Models\MenuLocation']);
     }
 
     /**
@@ -30,9 +30,9 @@ class UpdateLangMetaTable extends Migration
      */
     public function down()
     {
-        DB::table('language_meta')->where('reference_type', 'Botble\Menu\Models\Menu')->update(['reference_type' => 'menu']);
-        DB::table('language_meta')->where('reference_type', 'Botble\Menu\Models\MenuLocation')->update(['reference_type' => 'menu_location']);
-        DB::table('language_meta')->where('reference_type', 'Botble\Page\Models\Page')->update(['reference_type' => 'page']);
+        DB::table('language_meta')->where('reference_type', 'Platform\Menu\Models\Menu')->update(['reference_type' => 'menu']);
+        DB::table('language_meta')->where('reference_type', 'Platform\Menu\Models\MenuLocation')->update(['reference_type' => 'menu_location']);
+        DB::table('language_meta')->where('reference_type', 'Platform\Page\Models\Page')->update(['reference_type' => 'page']);
 
         Schema::table('language_meta', function (Blueprint $table) {
             $table->renameColumn('reference_id', 'lang_meta_content_id');

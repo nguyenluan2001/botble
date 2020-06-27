@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Setting\Facades;
+namespace Platform\Setting\Facades;
 
-use Botble\Setting\Supports\SettingStore;
+use Platform\Setting\Supports\SettingStore;
 use Illuminate\Support\Facades\Facade;
 
 class SettingFacade extends Facade

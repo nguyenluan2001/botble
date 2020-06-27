@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\PostScheduler\Providers;
+namespace Platform\PostScheduler\Providers;
 
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\PostScheduler\Facades\PostSchedulerFacade;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\PostScheduler\Facades\PostSchedulerFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
