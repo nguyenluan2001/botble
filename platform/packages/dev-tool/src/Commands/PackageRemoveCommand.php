@@ -7,7 +7,6 @@ use DB;
 use Exception;
 use File;
 use Illuminate\Console\Command;
-use League\Flysystem\FileNotFoundException;
 
 class PackageRemoveCommand extends Command
 {
@@ -25,12 +24,6 @@ class PackageRemoveCommand extends Command
      */
     protected $description = 'Remove a package in the /platform/packages directory.';
 
-    /**
-     * Execute the console command.
-     *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     * @throws FileNotFoundException
-     */
     public function handle()
     {
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('name'))) {
@@ -54,7 +47,6 @@ class PackageRemoveCommand extends Command
      * @param string $location
      * @return boolean
      * @throws Exception
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     protected function processRemove(string $package, string $location): bool
     {

@@ -9,6 +9,7 @@ use Botble\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;
 use Botble\{Module}\Models\{Name};
+use Html;
 
 class {Name}Table extends TableAbstract
 {
@@ -52,7 +53,7 @@ class {Name}Table extends TableAbstract
                 if (!Auth::user()->hasPermission('{-name}.edit')) {
                     return $item->name;
                 }
-                return anchor_link(route('{-name}.edit', $item->id), $item->name);
+                return Html::link(route('{-name}.edit', $item->id), $item->name);
             })
             ->editColumn('checkbox', function ($item) {
                 return table_checkbox($item->id);

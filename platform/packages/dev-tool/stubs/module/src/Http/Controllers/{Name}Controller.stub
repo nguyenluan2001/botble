@@ -32,7 +32,7 @@ class {Name}Controller extends BaseController
     }
 
     /**
-     * @param {Name}Table $dataTable
+     * @param {Name}Table $table
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Throwable
      */
@@ -56,6 +56,7 @@ class {Name}Controller extends BaseController
 
     /**
      * @param {Name}Request $request
+     * @param BaseHttpResponse $response
      * @return BaseHttpResponse
      */
     public function store({Name}Request $request, BaseHttpResponse $response)
@@ -90,6 +91,7 @@ class {Name}Controller extends BaseController
     /**
      * @param $id
      * @param {Name}Request $request
+     * @param BaseHttpResponse $response
      * @return BaseHttpResponse
      */
     public function update($id, {Name}Request $request, BaseHttpResponse $response)
@@ -110,6 +112,7 @@ class {Name}Controller extends BaseController
     /**
      * @param $id
      * @param Request $request
+     * @param BaseHttpResponse $response
      * @return BaseHttpResponse
      */
     public function destroy(Request $request, $id, BaseHttpResponse $response)
@@ -125,7 +128,7 @@ class {Name}Controller extends BaseController
         } catch (Exception $exception) {
             return $response
                 ->setError()
-                ->setMessage(trans('core/base::notices.cannot_delete'));
+                ->setMessage($exception->getMessage());
         }
     }
 
