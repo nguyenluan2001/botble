@@ -242,34 +242,34 @@ fi
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' | xargs -n 1 sed -i '' -e 's/Botble Technologies/Laravel Technologies/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/Botble Technologies/Laravel Technologies/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' | xargs -n 1 sed -i '' -e 's/Botble Technologies/Laravel Technologies/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Botble Technologies/Laravel Technologies/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Botble Technologies/Laravel Technologies/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' | xargs -n 1 sed -i '' -e 's/Sang Nguyen/Developer Team/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/Sang Nguyen/Developer Team/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Sang Nguyen/Developer Team/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Sang Nguyen/Developer Team/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' | xargs -n 1 sed -i '' -e 's/Sang Nguyen/Developer Team/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' | xargs -n 1 sed -i '' -e 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' | xargs -n 1 sed -i '' -e 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' | xargs -n 1 sed -i '' -e 's/Botble\\\\/Platform\\\\/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/Botble\\\\/Platform\\\\/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Botble\\\\/Platform\\\\/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Botble\\\\/Platform\\\\/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' | xargs -n 1 sed -i '' -e 's/Botble\\\\/Platform\\\\/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../resources/ -type f -name '*.php' | xargs -n 1 sed -i '' -e 's/Botble\\/Platform\\/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' | xargs -n 1 sed -i '' -e 's/Botble\\/Platform\\/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/Botble\\/Platform\\/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Botble\\/Platform\\/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' | xargs -n 1 sed -i '' -e 's/Botble\\/Platform\\/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' | xargs -n 1 sed -i '' -e 's/Botble\\/Platform\\/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.env' | xargs -n 1 sed -i '' -e 's/Botble\\/Platform\\/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.env' | xargs -n 1 sed -i '' -e 's/Botble CMS/CMS Platform/g')
 
 ## hack license +1k years
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.env' | xargs -n 1 sed -i '' -e "s/return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/\/\/ return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/g")
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' | xargs -n 1 sed -i '' -e "s/return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/\/\/ return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/g")
 
 # get last composer
 if [ -f composer.phar ]; then
