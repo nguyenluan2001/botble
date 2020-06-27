@@ -16,7 +16,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
-        "botble/api": "*@dev",
+        "botble/assets": "*@dev","botble/api": "*@dev",
         "botble/menu": "*@dev",
         "botble/optimize": "*@dev",
         "botble/page": "*@dev",
