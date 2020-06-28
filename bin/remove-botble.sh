@@ -226,6 +226,7 @@ fi
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/\"botble\/assets\"\: \"\^1\.0\"\,//g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php'  | xargs -n 1 sed -i '' -e 's/botble_cookie_consent/cms_cookie_consent/g')
 
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../resources/ -type f -name '*.php'  | xargs -n 1 sed -i '' -e 's/Botble CMS/Laravel CMS/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php'  | xargs -n 1 sed -i '' -e 's/Botble CMS/Laravel CMS/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' | xargs -n 1 sed -i '' -e 's/Botble CMS/Laravel CMS/g')
 

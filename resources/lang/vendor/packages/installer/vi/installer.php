@@ -21,9 +21,9 @@ return [
      *
      */
     'welcome'      => [
-        'templateTitle' => 'Botble CMS',
-        'title'         => 'Botble CMS',
-        'message'       => 'Welcome to Botble CMS. Before getting started, we need some information on the database. You will need to know the following items before proceeding.',
+        'templateTitle' => 'Laravel CMS',
+        'title'         => 'Laravel CMS',
+        'message'       => 'Welcome to Laravel CMS. Before getting started, we need some information on the database. You will need to know the following items before proceeding.',
         'next'          => 'Let\'s go',
     ],
 
