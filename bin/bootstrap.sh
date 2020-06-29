@@ -219,35 +219,23 @@ if [ -f artisan ]; then
   $RM -rf $SCRIPT_PATH/../bootstrap/cache/*.php
   $RM -rf $SCRIPT_PATH/../composer.lock
 
-  [ ! -d "$SCRIPT_PATH/../storage/framework/cache" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/cache
-  if [ ! -f "$SCRIPT_PATH/../storage/framework/cache/.gitignore" ]; then
-    $TOUCH $SCRIPT_PATH/../storage/framework/cache/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/cache/.gitignore
-  fi
+  [ ! -d "$SCRIPT_PATH/../storage/framework/cache" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/cache || echo $SCRIPT_PATH/../storage/framework/cache
+  [ -f "$SCRIPT_PATH/../storage/framework/cache/.gitignore" ] && $ECHO "Found" || $TOUCH $SCRIPT_PATH/../storage/framework/cache/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/cache/.gitignore
 
   [ ! -d "$SCRIPT_PATH/../storage/framework/sessions" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/sessions
-  if [ ! -f "$SCRIPT_PATH/../storage/framework/sessions/.gitignore" ]; then
-    $TOUCH $SCRIPT_PATH/../storage/framework/sessions/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/sessions/.gitignore
-  fi
+  [ -f "$SCRIPT_PATH/../storage/framework/sessions/.gitignore" ] && $ECHO "Found" || $TOUCH $SCRIPT_PATH/../storage/framework/sessions/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/sessions/.gitignore
 
   [ ! -d "$SCRIPT_PATH/../storage/framework/testing" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/testing
-  if [ ! -f "$SCRIPT_PATH/../storage/framework/testing/.gitignore" ]; then
-    $TOUCH $SCRIPT_PATH/../storage/framework/testing/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/testing/.gitignore
-  fi
+  [ -f "$SCRIPT_PATH/../storage/framework/testing/.gitignore" ] && $ECHO "Found" || $TOUCH $SCRIPT_PATH/../storage/framework/testing/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/testing/.gitignore
 
   [ ! -d "$SCRIPT_PATH/../storage/framework/views" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/views
-  if [ ! -f "$SCRIPT_PATH/../storage/framework/views/.gitignore" ]; then
-    $TOUCH $SCRIPT_PATH/../storage/framework/views/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/views/.gitignore
-  fi
+  [ -f "$SCRIPT_PATH/../storage/framework/views/.gitignore" ] && $ECHO "Found" || $TOUCH $SCRIPT_PATH/../storage/framework/views/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/framework/views/.gitignore
 
   [ ! -d "$SCRIPT_PATH/../storage/logs" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/logs
-  if [ ! -f "$SCRIPT_PATH/../storage/logs/.gitignore" ]; then
-    $TOUCH $SCRIPT_PATH/../storage/logs/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/logs/.gitignore
-  fi
+  [ -f "$SCRIPT_PATH/../storage/logs/.gitignore" ] && $ECHO "Found" || $TOUCH $SCRIPT_PATH/../storage/logs/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../storage/logs/.gitignore
 
   [ ! -d "$SCRIPT_PATH/../bootstrap/cache" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../bootstrap/cache
-  if [ ! -f "$SCRIPT_PATH/../bootstrap/cache/.gitignore" ]; then
-    $TOUCH $SCRIPT_PATH/../bootstrap/cache/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../bootstrap/cache/.gitignore
-  fi
+  [ -f "$SCRIPT_PATH/../bootstrap/cache/.gitignore" ] && $ECHO "Found" || $TOUCH $SCRIPT_PATH/../bootstrap/cache/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../bootstrap/cache/.gitignore
 
   # [ ! -d "$SCRIPT_PATH/../storage/DoctrineModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineModule && touch $SCRIPT_PATH/../storage/DoctrineModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineModule/.gitignore
   # [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineORMModule && touch $SCRIPT_PATH/../storage/DoctrineORMModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineORMModule/.gitignore
