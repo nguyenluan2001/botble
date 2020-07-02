@@ -222,8 +222,8 @@ else
 fi
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/\"botble\/api\"\: \"\*\@dev\"\,/\"botble\/assets\"\: \"\*\@dev\"\,\"botble\/api\"\: \"\*\@dev\"\,/g')
-
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/\"botble\/assets\"\: \"\^1\.0\"\,//g')
+
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php'  -print0 | xargs -0 perl -i -pe 's/botble_cookie_consent/cms_cookie_consent/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../resources/ -type f -name '*.php'  -print0 | xargs -0 perl -i -pe 's/Botble CMS/Laravel CMS/g')
@@ -271,7 +271,7 @@ fi
 ## ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe "s/return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/\/\/ return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/g")
 
 # get last composer
-if [ -f composer.phar ]; then
+if [ -f "$SCRIPT_PATH/../composer.phar" ]; then
   php $PHPCOPTS composer.phar config --global discard-changes true
   php $PHPCOPTS composer.phar self-update
 else
@@ -283,7 +283,7 @@ else
 fi
 
 ## install or update with composer
-if [ -f composer.lock ]; then
+if [ -f "$SCRIPT_PATH/../composer.lock" ]; then
   php $PHPCOPTS composer.phar config --global discard-changes true
   php $PHPCOPTS composer.phar update -o -a
   ## php $PHPCOPTS composer.phar $DEVMODE update -o -a;
@@ -293,7 +293,7 @@ else
 fi
 
 ## for laravel
-if [ -f artisan ]; then
+if [ -f "$SCRIPT_PATH/../artisan" ]; then
   ($CD $SCRIPT_PATH/../ && $PHP artisan vendor:publish --tag=public --force)
   ($CD $SCRIPT_PATH/../ && $PHP artisan config:clear && $PHP artisan cache:clear && composer dump-autoload)
 fi
