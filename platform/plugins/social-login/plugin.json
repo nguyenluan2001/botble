@@ -3,7 +3,7 @@
     "namespace": "Platform\\SocialLogin\\",
     "provider": "Platform\\SocialLogin\\Providers\\SocialLoginServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "5.4",
     "description": "Social login for Laravel CMS"
 }

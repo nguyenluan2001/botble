@@ -3,7 +3,7 @@
     "namespace": "Platform\\Language\\",
     "provider": "Platform\\Language\\Providers\\LanguageServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "5.4",
     "description": "Multilingual for Laravel CMS"
 }

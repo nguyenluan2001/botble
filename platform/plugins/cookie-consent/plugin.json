@@ -3,7 +3,7 @@
     "namespace": "Platform\\CookieConsent\\",
     "provider": "Platform\\CookieConsent\\Providers\\CookieConsentServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "5.4",
     "description": "Cookie Consent"
 }

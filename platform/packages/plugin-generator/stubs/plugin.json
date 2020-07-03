@@ -3,7 +3,7 @@
     "namespace": "Platform\\{Module}\\",
     "provider": "Platform\\{Module}\\Providers\\{Module}ServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "1.0",
     "description": "The description for module {module}"
 }

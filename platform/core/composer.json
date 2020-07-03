@@ -6,15 +6,15 @@
         "botble cms",
         "botble platform"
     ],
-    "homepage": "https://botble.com",
+    "homepage": "https://gistensal.com",
     "support": {
         "issues": "https://botble.ticksy.com",
-        "document": "https://docs.botble.com"
+        "document": "https://docs.gistensal.com"
     },
     "authors": [
         {
             "name": "Laravel Technologies",
-            "email": "contact@botble.com"
+            "email": "contact@gistensal.com"
         }
     ],
     "type": "project",

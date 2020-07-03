@@ -3,7 +3,7 @@
     "namespace": "Platform\\Translation\\",
     "provider": "Platform\\Translation\\Providers\\TranslationServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "5.4",
     "description": "Manage translation text"
 }

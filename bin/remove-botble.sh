@@ -166,61 +166,6 @@ fi
 ### settings / options
 PHPCOPTS="-d memory_limit=-1"
 
-if [[ "$platform" != 'window' ]]; then
-  $RM -rf $SCRIPT_PATH/../storage/framework/cache/*.php
-  $RM -rf $SCRIPT_PATH/../storage/framework/sessions/*.php
-  $RM -rf $SCRIPT_PATH/../storage/framework/testing/*.php
-  $RM -rf $SCRIPT_PATH/../storage/framework/views/*.php
-  $RM -rf $SCRIPT_PATH/../bootstrap/cache/*.php
-  $RM -rf $SCRIPT_PATH/../composer.lock
-  $RM -rf $SCRIPT_PATH/../vendor
-  # $RM -Rf $SCRIPT_PATH/../storage/DoctrineModule
-  # $RM -Rf $SCRIPT_PATH/../storage/DoctrineORMModule
-  # $RM -Rf $SCRIPT_PATH/../storage/DoctrineMongoODMModule
-else
-  $RM -rf $SCRIPT_PATH/../storage/framework/cache
-  $RM -rf $SCRIPT_PATH/../storage/framework/sessions
-  $RM -rf $SCRIPT_PATH/../storage/framework/testing
-  $RM -rf $SCRIPT_PATH/../storage/framework/views
-  $RM -rf $SCRIPT_PATH/../bootstrap/cache/*.php
-  $RM -rf $SCRIPT_PATH/../composer.lock
-  # $RM -rf $SCRIPT_PATH/../storage/DoctrineModule
-  # $RM -rf $SCRIPT_PATH/../storage/DoctrineORMModule
-  # $RM -rf $SCRIPT_PATH/../storage/DoctrineMongoODMModule
-fi
-
-if [[ "$platform" != 'window' ]]; then
-  [ ! -d "$SCRIPT_PATH/../storage/framework/cache" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/cache
-  [ ! -d "$SCRIPT_PATH/../storage/framework/sessions" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/sessions
-  [ ! -d "$SCRIPT_PATH/../storage/framework/testing" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/testing
-  [ ! -d "$SCRIPT_PATH/../storage/framework/views" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/framework/views
-  [ ! -d "$SCRIPT_PATH/../storage/logs" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/logs
-  [ ! -d "$SCRIPT_PATH/../bootstrap/cache" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../bootstrap/cache
-
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineModule
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineORMModule
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule/Proxy"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineORMModule/Proxy
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy &&
-else
-  [ ! -d "$SCRIPT_PATH/../storage/framework/cache" ] && $MKDIR -p $SCRIPT_PATH/../storage/framework/cache
-  [ ! -d "$SCRIPT_PATH/../storage/framework/sessions" ] && $MKDIR -p $SCRIPT_PATH/../storage/framework/sessions
-  [ ! -d "$SCRIPT_PATH/../storage/framework/testing" ] && $MKDIR -p $SCRIPT_PATH/../storage/framework/testing
-  [ ! -d "$SCRIPT_PATH/../storage/framework/views" ] && $MKDIR -p $SCRIPT_PATH/../storage/framework/views
-  [ ! -d "$SCRIPT_PATH/../storage/logs" ] && $MKDIR -p $SCRIPT_PATH/../storage/logs
-  [ ! -d "$SCRIPT_PATH/../bootstrap/cache" ] && $MKDIR -p $SCRIPT_PATH/../bootstrap/cache
-
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineModule"  ] && $MKDIR -p $SCRIPT_PATH/../storage/DoctrineModule
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule"  ] && $MKDIR  -p $SCRIPT_PATH/../storage/DoctrineORMModule
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator"  ] && $MKDIR  -p $SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule/Proxy"  ] && $MKDIR  -p $SCRIPT_PATH/../storage/DoctrineORMModule/Proxy
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule"  ] && $MKDIR  -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator"  ] && $MKDIR  -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator
-  # [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy"  ] && $MKDIR  -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy &&
-fi
-
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/\"botble\/api\"\: \"\*\@dev\"\,/\"botble\/assets\"\: \"\*\@dev\"\,\"botble\/api\"\: \"\*\@dev\"\,/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/\"botble\/assets\"\: \"\^1\.0\"\,//g')
 
@@ -297,8 +242,8 @@ fi
 
 ## for laravel
 if [ -f "$SCRIPT_PATH/../artisan" ]; then
-  ($CD $SCRIPT_PATH/../ && $PHP artisan vendor:publish --tag=public --force)
-  ($CD $SCRIPT_PATH/../ && $PHP artisan config:clear && $PHP artisan cache:clear && composer dump-autoload)
+  ## ($CD $SCRIPT_PATH/../ && $PHP artisan vendor:publish --tag=public --force)
+  ($CD $SCRIPT_PATH/../ && $PHP $PHPCOPTS artisan config:clear && $PHP $PHPCOPTS artisan cache:clear && $PHP $PHPCOPTS composer.phar dump-autoload)
 fi
 
 ($CD $SCRIPT_PATH/../ && $CHMOD -R 0777 $SCRIPT_PATH/../storage/)

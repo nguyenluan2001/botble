@@ -3,7 +3,7 @@
     "namespace": "Platform\\AuditLog\\",
     "provider": "Platform\\AuditLog\\Providers\\AuditLogServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "5.4",
     "description": "Record activities logs"
 }

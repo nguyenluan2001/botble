@@ -3,7 +3,7 @@
     "namespace": "Platform\\Backup\\",
     "provider": "Platform\\Backup\\Providers\\BackupServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "5.4",
     "description": "Backup & restore database, uploads folder"
 }

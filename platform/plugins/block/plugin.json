@@ -3,7 +3,7 @@
     "namespace": "Platform\\Block\\",
     "provider": "Platform\\Block\\Providers\\BlockServiceProvider",
     "author": "Laravel Technologies",
-    "url": "https://botble.com",
+    "url": "https://gistensal.com",
     "version": "5.4",
     "description": "Manage static block (HTML, Text) on your theme"
 }
