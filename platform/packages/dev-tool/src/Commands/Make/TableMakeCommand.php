@@ -32,7 +32,7 @@ class TableMakeCommand extends BaseMakeCommand
     {
         if (!preg_match('/^[a-z0-9\-\_]+$/i', $this->argument('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $name = $this->argument('name');
@@ -45,7 +45,7 @@ class TableMakeCommand extends BaseMakeCommand
 
         $this->info('Created successfully <comment>' . $path . '</comment>!');
 
-        return true;
+        return 0;
     }
 
     /**

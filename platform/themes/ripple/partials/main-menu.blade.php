@@ -8,10 +8,10 @@
         @if ($row->has_child)
             {!!
                 Menu::generateMenu([
-                    'slug'      => $menu->slug,
-                    'view'      => 'main-menu',
-                    'options'   => ['class' => 'sub-menu'],
-                    'parent_id' => $row->id,
+                    'menu'       => $menu,
+                    'menu_nodes' => $row->child,
+                    'view'       => 'main-menu',
+                    'options'    => ['class' => 'sub-menu'],
                 ])
             !!}
         @endif

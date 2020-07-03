@@ -64,11 +64,11 @@ class MenuNode extends BaseModel
     public function getUrlAttribute($value)
     {
         if (!$this->reference_type) {
-            return $value ? url($value) : url('');
+            return $value ? (string)$value : '';
         }
 
         if (!$this->reference) {
-            return url('');
+            return '';
         }
 
         return $this->reference->url;
@@ -79,10 +79,6 @@ class MenuNode extends BaseModel
      */
     public function setUrlAttribute($value)
     {
-        if (Str::contains(url(''), $value)) {
-            $value = str_replace(url(''), '', $value);
-        }
-
         $this->attributes['url'] = $value;
     }
 

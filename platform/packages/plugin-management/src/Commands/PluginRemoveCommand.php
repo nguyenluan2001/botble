@@ -46,12 +46,12 @@ class PluginRemoveCommand extends Command
     public function handle()
     {
         if (!$this->confirmToProceed('Are you sure you want to permanently delete?', true)) {
-            return false;
+            return 1;
         }
 
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $plugin = strtolower($this->argument('name'));
@@ -59,11 +59,11 @@ class PluginRemoveCommand extends Command
 
         if ($result['error']) {
             $this->error($result['message']);
-            return false;
+            return 1;
         }
 
         $this->info($result['message']);
 
-        return true;
+        return 0;
     }
 }

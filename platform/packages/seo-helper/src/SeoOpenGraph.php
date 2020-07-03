@@ -4,6 +4,7 @@ namespace Platform\SeoHelper;
 
 use Platform\SeoHelper\Contracts\Entities\OpenGraphContract;
 use Platform\SeoHelper\Contracts\SeoOpenGraphContract;
+use RvMedia;
 
 class SeoOpenGraph implements SeoOpenGraphContract
 {
@@ -124,6 +125,14 @@ class SeoOpenGraph implements SeoOpenGraphContract
     }
 
     /**
+     * @return bool
+     */
+    public function hasImage()
+    {
+        return $this->openGraph->hasImage();
+    }
+
+    /**
      * Set site name property.
      *
      * @param string $siteName
@@ -173,6 +182,10 @@ class SeoOpenGraph implements SeoOpenGraphContract
      */
     public function render()
     {
+        if (!$this->hasImage() && theme_option('seo_og_image')) {
+            $this->setImage(RvMedia::url(theme_option('seo_og_image')));
+        }
+
         return $this->openGraph->render();
     }
 

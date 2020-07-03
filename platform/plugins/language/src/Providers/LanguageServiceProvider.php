@@ -264,9 +264,11 @@ class LanguageServiceProvider extends ServiceProvider
             );
             $value = $request->input('ref_lang');
         }
+
         if ($meta) {
             $related = Language::getRelatedLanguageItem($meta->reference_id, $meta->lang_meta_origin);
         }
+
         $currentLanguage = self::checkCurrentLanguage($languages, $value);
 
         if (!$currentLanguage) {
@@ -278,6 +280,7 @@ class LanguageServiceProvider extends ServiceProvider
         }
 
         $route = $this->getRoutes();
+
         return view('plugins/language::language-box',
             compact('args', 'languages', 'currentLanguage', 'related', 'route'))->render();
     }
@@ -488,9 +491,7 @@ class LanguageServiceProvider extends ServiceProvider
      */
     public function languageSwitcher($options = [])
     {
-        $supportedLocales = Language::getSupportedLocales();
-
-        return view('plugins/language::partials.switcher', compact('options', 'supportedLocales'))->render();
+        return view('plugins/language::partials.switcher', compact('options'))->render();
     }
 
     /**

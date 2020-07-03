@@ -20,6 +20,7 @@ use Log;
 use RvMedia;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Theme;
 use Throwable;
 use URL;
 
@@ -66,8 +67,8 @@ class Handler extends ExceptionHandler
                     return $response;
                 }
             }
-        } elseif (app()->isDownForMaintenance() && view()->exists('theme.' . setting('theme') . '::views.503')) {
-            return response()->view('theme.' . setting('theme') . '::views.503', ['exception' => $exception], 503);
+        } elseif (app()->isDownForMaintenance() && view()->exists(Theme::getThemeNamespace() . '::views.503')) {
+            return response()->view(Theme::getThemeNamespace() . '::views.503', ['exception' => $exception], 503);
         }
 
         return parent::render($request, $exception);
@@ -111,8 +112,8 @@ class Handler extends ExceptionHandler
             return response()->view('core/base::errors.' . $code, [], $code);
         }
 
-        if (view()->exists('theme.' . setting('theme') . '::views.' . $code)) {
-            return response()->view('theme.' . setting('theme') . '::views.' . $code, [], $code);
+        if (view()->exists(Theme::getThemeNamespace() . '::views.' . $code)) {
+            return response()->view(Theme::getThemeNamespace() . '::views.' . $code, [], $code);
         }
 
         return false;

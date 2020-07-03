@@ -48,6 +48,8 @@ class PageTable extends TableAbstract
      */
     public function ajax()
     {
+        $pageTemplates = get_page_templates();
+
         $data = $this->table
             ->eloquent($this->query())
             ->editColumn('name', function ($item) {
@@ -68,8 +70,8 @@ class PageTable extends TableAbstract
             ->editColumn('checkbox', function ($item) {
                 return table_checkbox($item->id);
             })
-            ->editColumn('template', function ($item) {
-                return Arr::get(get_page_templates(), $item->template);
+            ->editColumn('template', function ($item) use ($pageTemplates) {
+                return Arr::get($pageTemplates, $item->template);
             })
             ->editColumn('created_at', function ($item) {
                 return date_from_database($item->created_at, config('core.base.general.date_format.date'));

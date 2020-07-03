@@ -7,10 +7,10 @@
         @if ($row->has_child)
             {!!
                 Menu::generateMenu([
-                    'slug' => $menu->slug,
-                    'view' => 'main-menu',
-                    'options' => ['class' => 'dropdown-menu'],
-                    'parent_id' => $row->id,
+                    'menu'       => $menu,
+                    'view'       => 'main-menu',
+                    'options'    => ['class' => 'dropdown-menu'],
+                    'menu_nodes' => $row->child,
                 ])
             !!}
         @endif

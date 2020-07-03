@@ -61,7 +61,7 @@ abstract class AbstractWidget
 
         $this->widgetRepository = app(WidgetInterface::class);
 
-        $this->theme = setting('theme') . $this->getCurrentLocaleCode();
+        $this->theme = Theme::getThemeName() . $this->getCurrentLocaleCode();
     }
 
     /**
@@ -95,7 +95,7 @@ abstract class AbstractWidget
      */
     public function run()
     {
-        Theme::uses(setting('theme'));
+        Theme::uses(Theme::getThemeName());
         $args = func_get_args();
         $data = $this->widgetRepository->getFirstBy([
             'widget_id'  => $this->getId(),
@@ -138,7 +138,7 @@ abstract class AbstractWidget
      */
     public function form($sidebarId = null, $position = 0)
     {
-        Theme::uses(setting('theme'));
+        Theme::uses(Theme::getThemeName());
         if (!empty($sidebarId)) {
             $data = $this->widgetRepository->getFirstBy([
                 'widget_id'  => $this->getId(),

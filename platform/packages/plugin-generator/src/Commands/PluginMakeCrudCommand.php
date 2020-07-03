@@ -34,7 +34,7 @@ class PluginMakeCrudCommand extends BaseMakeCommand
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('plugin')) || !preg_match('/^[a-z0-9\-]+$/i',
                 $this->argument('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $plugin = strtolower($this->argument('plugin'));
@@ -42,7 +42,7 @@ class PluginMakeCrudCommand extends BaseMakeCommand
 
         if (!File::isDirectory($location)) {
             $this->error('Plugin named [' . $plugin . '] does not exists.');
-            return false;
+            return 1;
         }
 
         $name = strtolower($this->argument('name'));
@@ -70,7 +70,7 @@ class PluginMakeCrudCommand extends BaseMakeCommand
             $this->info($this->replacementSubModule($replacement));
         }
 
-        return true;
+        return 0;
     }
 
     /**

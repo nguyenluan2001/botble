@@ -53,23 +53,23 @@ class ThemeAssetsPublishCommand extends Command
     {
         if ($this->option('name') && !preg_match('/^[a-z0-9\-]+$/i', $this->option('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         if ($this->option('name') && !File::isDirectory($this->getPath())) {
             $this->error('Theme "' . $this->getTheme() . '" is not exists.');
-            return false;
+            return 1;
         }
 
         $result = $this->themeService->publishAssets($this->option('name'));
 
         if ($result['error']) {
             $this->error($result['message']);
-            return false;
+            return 1;
         }
 
         $this->info($result['message']);
 
-        return true;
+        return 0;
     }
 }

@@ -486,3 +486,13 @@ h4.modal-title {
         filter: alpha(opacity=50);
     }
 }
+
+.sp-palette-container {
+    display: none;
+}
+
+.sp-picker-container {
+    .sp-input {
+        background: #fff;
+    }
+}

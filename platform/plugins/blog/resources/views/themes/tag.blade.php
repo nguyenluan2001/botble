@@ -8,13 +8,13 @@
         @foreach ($posts as $post)
             <article>
                 <div>
-                    <a href="{{ $post->url }}"><img src="{{ url($post->image) }}" alt="{{ $post->name }}"></a>
+                    <a href="{{ $post->url }}"><img src="{{ get_image_url($post->image) }}" alt="{{ $post->name }}"></a>
                 </div>
                 <div>
                     <header>
                         <h3><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
                         <div>
-                            <a href="#">{{ date_from_database($post->created_at, 'M d, Y') }}</a> - <span>{{ $post->user->getFullName() }}</span>>
+                            {{ date_from_database($post->created_at, 'M d, Y') }} - <span>{{ $post->user->getFullName() }}</span>>
                             @if ($post->categories->first())
                                 <a href="{{ $post->categories->first()->url }}">{{ $post->categories->first()->name }}</a>
                             @endif

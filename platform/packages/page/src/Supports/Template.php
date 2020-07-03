@@ -2,6 +2,8 @@
 
 namespace Platform\Page\Supports;
 
+use Theme;
+
 class Template
 {
     /**
@@ -30,7 +32,7 @@ class Template
      */
     protected static function getExistsTemplate()
     {
-        $files = scan_folder(theme_path(setting('theme') . DIRECTORY_SEPARATOR . config('packages.theme.general.containerDir.layout')));
+        $files = scan_folder(theme_path(Theme::getThemeName() . DIRECTORY_SEPARATOR . config('packages.theme.general.containerDir.layout')));
         foreach ($files as $key => $file) {
             $files[$key] = str_replace('.blade.php', '', $file);
         }

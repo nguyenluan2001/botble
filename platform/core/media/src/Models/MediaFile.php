@@ -45,6 +45,11 @@ class MediaFile extends BaseModel
     ];
 
     /**
+     * @var string[]
+     */
+    protected $guarded = ['is_folder'];
+
+    /**
      * @var array
      */
     protected $casts = [
@@ -126,7 +131,6 @@ class MediaFile extends BaseModel
     public function canGenerateThumbnails(): bool
     {
         return is_image($this->mime_type) &&
-            !in_array($this->mime_type, ['image/svg+xml', 'image/x-icon']) &&
-            Storage::exists($this->url);
+            !in_array($this->mime_type, ['image/svg+xml', 'image/x-icon']);
     }
 }

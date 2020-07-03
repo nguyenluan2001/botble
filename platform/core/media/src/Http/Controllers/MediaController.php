@@ -250,9 +250,14 @@ class MediaController extends Controller
         }
 
         $breadcrumbs = array_merge($breadcrumbs, $this->getBreadcrumbs($request));
-        $selected_file_id = $request->input('selected_file_id');
+        $selectedFileId = $request->input('selected_file_id');
 
-        return RvMedia::responseSuccess(compact('files', 'folders', 'breadcrumbs', 'selected_file_id'));
+        return RvMedia::responseSuccess([
+            'files'            => $files,
+            'folders'          => $folders,
+            'breadcrumbs'      => $breadcrumbs,
+            'selected_file_id' => $selectedFileId,
+        ]);
     }
 
     /**
@@ -459,6 +464,7 @@ class MediaController extends Controller
                     'key'     => 'favorites',
                     'user_id' => Auth::user()->getKey(),
                 ]);
+
                 if (!empty($meta->value)) {
                     $meta->value = array_merge($meta->value, $request->input('selected', []));
                 } else {
@@ -475,6 +481,7 @@ class MediaController extends Controller
                     'key'     => 'favorites',
                     'user_id' => Auth::user()->getKey(),
                 ]);
+
                 if (!empty($meta)) {
                     $value = $meta->value;
                     if (!empty($value)) {

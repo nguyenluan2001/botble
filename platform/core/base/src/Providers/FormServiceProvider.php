@@ -16,6 +16,12 @@ class FormServiceProvider extends ServiceProvider
             'attributes' => [],
         ]);
 
+        Form::component('mediaFile', 'core/base::forms.partials.file', [
+            'name',
+            'value'      => null,
+            'attributes' => [],
+        ]);
+
         Form::component('modalAction', 'core/base::forms.partials.modal', [
             'name',
             'title',

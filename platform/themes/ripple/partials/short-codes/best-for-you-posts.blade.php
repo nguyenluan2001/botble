@@ -10,9 +10,9 @@
                         </div>
                         <div class="post-group__content">
                             <div class="row">
-                                @foreach (get_featured_categories(2) as $category)
+                                @foreach (get_featured_categories(2, ['slugable', 'posts', 'posts.slugable']) as $category)
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        @foreach ($category->posts()->limit(3)->get() as $post)
+                                        @foreach ($category->posts->take(3) as $post)
                                             @if ($loop->first)
                                                 <article class="post post__vertical post__vertical--single post__vertical--simple">
                                                     <div class="post__thumbnail">
@@ -36,7 +36,7 @@
                                                     <div class="post__content-wrap">
                                                         <header class="post__header">
                                                             <h3 class="post__title"><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
-                                                            <div class="post__meta"><span class="post__created-at"><a href="#">{{ date_from_database($post->created_at, 'M d, Y') }}</a></span></div>
+                                                            <div class="post__meta"><span class="post__created-at">{{ date_from_database($post->created_at, 'M d, Y') }}</span></div>
                                                         </header>
                                                     </div>
                                                 </article>

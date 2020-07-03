@@ -11,11 +11,12 @@ use Illuminate\Support\Arr;
 if (!function_exists('get_featured_posts')) {
     /**
      * @param int $limit
+     * @param array $with
      * @return array
      */
-    function get_featured_posts($limit)
+    function get_featured_posts($limit, array $with = [])
     {
-        return app(PostInterface::class)->getFeatured($limit);
+        return app(PostInterface::class)->getFeatured($limit, $with);
     }
 }
 
@@ -106,11 +107,12 @@ if (!function_exists('get_recent_posts')) {
 if (!function_exists('get_featured_categories')) {
     /**
      * @param int $limit
+     * @param array $with
      * @return array
      */
-    function get_featured_categories($limit)
+    function get_featured_categories($limit, array $with = [])
     {
-        return app(CategoryInterface::class)->getFeaturedCategories($limit);
+        return app(CategoryInterface::class)->getFeaturedCategories($limit, $with);
     }
 }
 

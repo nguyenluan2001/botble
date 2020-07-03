@@ -158,7 +158,7 @@ class Theme implements ThemeContract
 
         $this->breadcrumb = $breadcrumb;
 
-        self::uses(setting('theme'))->layout(setting('layout', 'default'));
+        self::uses($this->getThemeName())->layout(setting('layout', 'default'));
 
         SeoHelper::meta()
             ->setGoogle(setting('google_analytics'))
@@ -379,7 +379,15 @@ class Theme implements ThemeContract
      */
     public function getThemeName()
     {
-        return $this->theme;
+        if ($this->theme) {
+            return $this->theme;
+        }
+
+        if (setting('theme')) {
+            return setting('theme');
+        }
+
+        return Arr::first(scan_folder(theme_path()));
     }
 
     /**
@@ -1043,7 +1051,7 @@ class Theme implements ThemeContract
                 $languageCode = $currentLocale && $currentLocale != Language::getDefaultLocaleCode() ? '-' . $currentLocale : null;
             }
 
-            $widgets = app(WidgetInterface::class)->getByTheme(setting('theme') . $languageCode);
+            $widgets = app(WidgetInterface::class)->getByTheme(Theme::getThemeName() . $languageCode);
 
             foreach ($widgets as $widget) {
                 WidgetGroup::group($widget->sidebar_id)

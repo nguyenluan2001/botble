@@ -33,7 +33,7 @@ class PluginCreateCommand extends BaseMakeCommand
     {
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $plugin = strtolower($this->argument('name'));
@@ -41,7 +41,7 @@ class PluginCreateCommand extends BaseMakeCommand
 
         if (File::isDirectory($location)) {
             $this->error('A plugin named [' . $plugin . '] already exists.');
-            return false;
+            return 1;
         }
 
         $this->publishStubs($this->getStub(), $location);
@@ -55,7 +55,7 @@ class PluginCreateCommand extends BaseMakeCommand
         $this->line('------------------');
         $this->call('cache:clear');
 
-        return true;
+        return 0;
     }
 
     /**

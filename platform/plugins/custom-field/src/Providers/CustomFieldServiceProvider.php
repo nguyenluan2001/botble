@@ -173,21 +173,13 @@ class CustomFieldServiceProvider extends ServiceProvider
             return false;
         }
 
-        $categories = get_categories();
-
-        $categoriesArr = [];
-        foreach ($categories as $row) {
-            $categoriesArr[$row->id] = $row->indent_text . ' ' . $row->name;
-        }
-
         return CustomFieldSupportFacade::registerRuleGroup('blog')
-            ->registerRule('blog', trans('plugins/custom-field::rules.category'), Category::class,
-                function () use ($categoriesArr) {
-                    return $categoriesArr;
-                })
+            ->registerRule('blog', trans('plugins/custom-field::rules.category'), Category::class, function () {
+                return $this->getBlogCategoryIds();
+            })
             ->registerRule('blog', trans('plugins/custom-field::rules.post_with_related_category'),
-                Post::class . '_post_with_related_category', function () use ($categoriesArr) {
-                    return $categoriesArr;
+                Post::class . '_post_with_related_category', function () {
+                    return $this->getBlogCategoryIds();
                 })
             ->registerRule('blog', trans('plugins/custom-field::rules.post_format'),
                 Post::class . '_post_format', function () {
@@ -203,5 +195,20 @@ class CustomFieldServiceProvider extends ServiceProvider
                     Category::class => trans('plugins/custom-field::rules.model_name_category'),
                 ];
             });
+    }
+
+    /**
+     * @return array
+     */
+    protected function getBlogCategoryIds()
+    {
+        $categories = get_categories();
+
+        $categoriesArr = [];
+        foreach ($categories as $row) {
+            $categoriesArr[$row->id] = $row->indent_text . ' ' . $row->name;
+        }
+
+        return $categoriesArr;
     }
 }

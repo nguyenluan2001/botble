@@ -12,12 +12,22 @@ class MenuRepository extends RepositoriesAbstract implements MenuInterface
     /**
      * {@inheritDoc}
      */
-    public function findBySlug($slug, $active, array $selects = [])
+    public function findBySlug($slug, $active, array $select = [], array $with = [])
     {
         $data = $this->model->where('menus.slug', $slug);
+
         if ($active) {
-            $data = $data->where('menus.status', BaseStatusEnum::PUBLISHED)->select($selects);
+            $data = $data->where('menus.status', BaseStatusEnum::PUBLISHED);
         }
+
+        if (!empty($select)) {
+            $data = $data->select($select);
+        }
+
+        if (!empty($with)) {
+            $data = $data->with($with);
+        }
+
         $data = $this->applyBeforeExecuteQuery($data, true)->first();
 
         $this->resetModel();

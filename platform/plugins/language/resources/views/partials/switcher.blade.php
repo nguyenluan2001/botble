@@ -1,3 +1,16 @@
+@php
+    $supportedLocales = Language::getSupportedLocales();
+    if (!isset($options) || empty($options)) {
+        $options = [
+            'before' => '',
+            'lang_flag' => true,
+            'lang_name' => true,
+            'class' => '',
+            'after' => '',
+        ];
+    }
+@endphp
+
 @if ($supportedLocales && count($supportedLocales) > 1)
     @php
         $languageDisplay = setting('language_display', 'all');

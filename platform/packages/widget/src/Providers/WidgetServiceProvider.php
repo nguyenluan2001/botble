@@ -17,6 +17,7 @@ use File;
 use Illuminate\Foundation\Application;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\ServiceProvider;
+use Theme;
 use WidgetGroup;
 
 class WidgetServiceProvider extends ServiceProvider
@@ -75,7 +76,7 @@ class WidgetServiceProvider extends ServiceProvider
 
             register_widget(Text::class);
 
-            $widgetPath = theme_path(setting('theme') . '/widgets');
+            $widgetPath = theme_path(Theme::getThemeName() . '/widgets');
             $widgets = scan_folder($widgetPath);
             if (!empty($widgets) && is_array($widgets)) {
                 foreach ($widgets as $widget) {

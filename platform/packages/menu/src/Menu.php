@@ -13,7 +13,6 @@ use Exception;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Theme;
@@ -275,33 +274,31 @@ class Menu
      */
     public function generateMenu(array $args = [])
     {
-        $slug = Arr::get($args, 'slug');
-        if (!$slug) {
-            return null;
-        }
-
         $view = Arr::get($args, 'view');
         $theme = Arr::get($args, 'theme', true);
+
+        $menu = Arr::get($args, 'menu');
+
+        $slug = Arr::get($args, 'slug');
+        if (!$menu && !$slug) {
+            return null;
+        }
 
         $cacheKey = md5('cache-menu-' . serialize($args));
         if (!$this->cache->has($cacheKey) || $this->config->get('packages.menu.general.cache.enabled') == false) {
             $parentId = Arr::get($args, 'parent_id', 0);
             $active = Arr::get($args, 'active', true);
 
-            if ($slug instanceof Model) {
-                $menu = $slug;
-                if (empty($menu)) {
-                    return null;
-                }
-                $menu_nodes = $menu->child;
-            } else {
+            if (!$menu) {
                 $menu = $this->menuRepository->findBySlug($slug, $active, ['menus.id', 'menus.slug']);
+            }
 
-                if (!$menu) {
-                    return null;
-                }
+            if (!$menu) {
+                return null;
+            }
 
-                $menu_nodes = $this->menuNodeRepository->getByMenuId($menu->id, $parentId, [
+            if (!Arr::has($args, 'menu_nodes')) {
+                $menuNodes = $this->menuNodeRepository->getByMenuId($menu->id, $parentId, [
                     'menu_nodes.id',
                     'menu_nodes.menu_id',
                     'menu_nodes.parent_id',
@@ -313,11 +310,16 @@ class Menu
                     'menu_nodes.url',
                     'menu_nodes.title',
                     'menu_nodes.has_child',
-                    'slugs.key',
                 ]);
+            } else {
+                $menuNodes = Arr::get($args, 'menu_nodes', []);
             }
 
-            $data = compact('menu_nodes', 'menu');
+            $data = [
+                'menu'       => $menu,
+                'menu_nodes' => $menuNodes,
+            ];
+
             $this->cache->put($cacheKey, $data);
             $this->nodes[$slug] = $data;
         } else {

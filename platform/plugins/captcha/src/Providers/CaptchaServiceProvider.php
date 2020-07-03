@@ -3,9 +3,9 @@
 namespace Platform\Captcha\Providers;
 
 use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Captcha\CaptchaV3;
 use Platform\Captcha\Facades\CaptchaFacade;
 use Platform\Captcha\Captcha;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -28,9 +28,14 @@ class CaptchaServiceProvider extends ServiceProvider
         config([
             'plugins.captcha.general.secret'   => setting('captcha_secret'),
             'plugins.captcha.general.site_key' => setting('captcha_site_key'),
+            'plugins.captcha.general.type'     => setting('captcha_type'),
         ]);
 
         $this->app->singleton('captcha', function ($app) {
+            if (config('plugins.captcha.general.type') == 'v3') {
+                return new CaptchaV3($app);
+            }
+
             return new Captcha($app);
         });
 
@@ -73,11 +78,19 @@ class CaptchaServiceProvider extends ServiceProvider
              */
             $request = $app['request'];
 
-            return $captcha->verify($value, $request->getClientIp(), $this->mapParameterToOptions($parameters));
+            if (config('plugins.captcha.general.type') == 'v3') {
+                if (empty($parameters)) {
+                    $parameters = ['form', '0.6'];
+                }
+            } else {
+                $parameters = $this->mapParameterToOptions($parameters);
+            }
+
+            return $captcha->verify($value, $request->getClientIp(), $parameters);
         });
 
         $validator->replacer('captcha', function ($message) {
-            return $message === 'validation.captcha' ? 'Failed to validate the captcha.' : $message;
+            return $message === 'validation.captcha' ? __('Failed to validate the captcha.') : $message;
         });
 
         if ($app->bound('form')) {

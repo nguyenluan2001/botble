@@ -16,6 +16,7 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Theme;
 use ThemeOption;
 
 class ThemeController extends BaseController
@@ -122,12 +123,11 @@ class ThemeController extends BaseController
     /**
      * @param CustomCssRequest $request
      * @param BaseHttpResponse $response
-     * @param SettingStore $setting
      * @return BaseHttpResponse
      */
-    public function postCustomCss(CustomCssRequest $request, BaseHttpResponse $response, SettingStore $setting)
+    public function postCustomCss(CustomCssRequest $request, BaseHttpResponse $response)
     {
-        $file = public_path('themes/' . $setting->get('theme') . '/css/style.integration.css');
+        $file = public_path('themes/' . Theme::getThemeName() . '/css/style.integration.css');
         $css = $request->input('custom_css');
         $css = htmlspecialchars(htmlentities(strip_tags($css)));
         save_file_data($file, $css, false);

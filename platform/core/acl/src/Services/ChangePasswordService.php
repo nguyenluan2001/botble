@@ -2,7 +2,7 @@
 
 namespace Platform\ACL\Services;
 
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Platform\ACL\Repositories\Interfaces\UserInterface;
 use Platform\Support\Services\ProduceServiceInterface;
 use Exception;
@@ -38,9 +38,15 @@ class ChangePasswordService implements ProduceServiceInterface
         }
 
         $user = $this->userRepository->findOrFail($request->input('id', $request->user()->getKey()));
-        $this->userRepository->update(['id' => $user->id], [
-            'password' => Hash::make($request->input('password')),
-        ]);
+
+        if ($user->id != $request->user()->id) {
+            Auth::setUser($user);
+            Auth::logoutOtherDevices($request->input('password'));
+        } else {
+            $this->userRepository->update(['id' => $user->id], [
+                'password' => Hash::make($request->input('password')),
+            ]);
+        }
 
         do_action(USER_ACTION_AFTER_UPDATE_PASSWORD, USER_MODULE_SCREEN_NAME, $request, $user);
 

@@ -161,13 +161,13 @@ class Description implements DescriptionContract
     {
         if (!is_int($max)) {
             throw new InvalidArgumentException(
-                'The description maximum lenght must be integer.'
+                'The description maximum length must be integer.'
             );
         }
 
         if ($max <= 0) {
             throw new InvalidArgumentException(
-                'The description maximum lenght must be greater 0.'
+                'The description maximum length must be greater 0.'
             );
         }
     }

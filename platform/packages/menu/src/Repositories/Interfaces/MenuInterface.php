@@ -10,10 +10,11 @@ interface MenuInterface extends RepositoryInterface
     /**
      * @param string $slug
      * @param bool $active
-     * @param array $selects
+     * @param array $select
+     * @param array $with
      * @return mixed
      */
-    public function findBySlug($slug, $active, array $selects = []);
+    public function findBySlug($slug, $active, array $select = [], array $with = []);
 
     /**
      * @param string $name

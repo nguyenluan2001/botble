@@ -15,7 +15,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     /**
      * {@inheritDoc}
      */
-    public function getFeatured($limit = 5)
+    public function getFeatured(int $limit = 5, array $with = [])
     {
         $data = $this->model
             ->where([
@@ -23,7 +23,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
                 'posts.is_featured' => 1,
             ])
             ->limit($limit)
-            ->with('slugable')
+            ->with(array_merge(['slugable'], $with))
             ->orderBy('posts.created_at', 'desc');
 
         return $this->applyBeforeExecuteQuery($data)->get();
@@ -141,14 +141,14 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      */
     public function getRecentPosts($limit = 5, $categoryId = 0)
     {
-        $posts = $this->model->where(['posts.status' => BaseStatusEnum::PUBLISHED]);
+        $data = $this->model->where(['posts.status' => BaseStatusEnum::PUBLISHED]);
 
         if ($categoryId != 0) {
-            $posts = $posts->join('post_categories', 'post_categories.post_id', '=', 'posts.id')
+            $data = $data->join('post_categories', 'post_categories.post_id', '=', 'posts.id')
                 ->where('post_categories.category_id', $categoryId);
         }
 
-        $data = $posts->limit($limit)
+        $data = $data->limit($limit)
             ->with('slugable')
             ->select('posts.*')
             ->orderBy('posts.created_at', 'desc');
@@ -161,12 +161,12 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      */
     public function getSearch($query, $limit = 10, $paginate = 10)
     {
-        $posts = $this->model->with('slugable')->where('status', BaseStatusEnum::PUBLISHED);
+        $data = $this->model->with('slugable')->where('posts.status', BaseStatusEnum::PUBLISHED);
         foreach (explode(' ', $query) as $term) {
-            $posts = $posts->where('name', 'LIKE', '%' . $term . '%');
+            $data = $data->where('posts.name', 'LIKE', '%' . $term . '%');
         }
 
-        $data = $posts->select('posts.*')
+        $data = $data->select('posts.*')
             ->orderBy('posts.created_at', 'desc');
 
         if ($limit) {
@@ -244,40 +244,41 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         }
 
         if ($filters['categories_exclude'] !== null) {
-            $categories_exclude = $filters['categories_exclude'];
-            $this->model = $this->model->whereHas('categories', function ($query) use ($categories_exclude) {
-                $query->whereNotIn('categories.id', $categories_exclude);
+            $excludeCategories = $filters['categories_exclude'];
+            $this->model = $this->model->whereHas('categories', function ($query) use ($excludeCategories) {
+                $query->whereNotIn('categories.id', $excludeCategories);
             });
         }
 
         if ($filters['exclude'] !== null) {
-            $this->model = $this->model->whereNotIn('id', $filters['exclude']);
+            $this->model = $this->model->whereNotIn('posts.id', $filters['exclude']);
         }
 
         if ($filters['include'] !== null) {
-            $this->model = $this->model->whereNotIn('id', $filters['include']);
+            $this->model = $this->model->whereNotIn('posts.id', $filters['include']);
         }
 
         if ($filters['author'] !== null) {
-            $this->model = $this->model->whereIn('author_id', $filters['author']);
+            $this->model = $this->model->whereIn('posts.author_id', $filters['author']);
         }
 
         if ($filters['author_exclude'] !== null) {
-            $this->model = $this->model->whereNotIn('author_id', $filters['author_exclude']);
+            $this->model = $this->model->whereNotIn('posts.author_id', $filters['author_exclude']);
         }
 
         if ($filters['featured'] !== null) {
-            $this->model = $this->model->where('is_featured', $filters['featured']);
+            $this->model = $this->model->where('posts.is_featured', $filters['featured']);
         }
 
         if ($filters['search'] !== null) {
-            $this->model = $this->model->where('name', 'like', '%' . $filters['search'] . '%')
-                ->orWhere('content', 'like', '%' . $filters['search'] . '%');
+            $this->model = $this->model->where('posts.name', 'like', '%' . $filters['search'] . '%')
+                ->orWhere('posts.content', 'like', '%' . $filters['search'] . '%');
         }
 
-        $order_by = isset($filters['order_by']) ? $filters['order_by'] : 'updated_at';
+        $orderBy = isset($filters['order_by']) ? $filters['order_by'] : 'updated_at';
         $order = isset($filters['order']) ? $filters['order'] : 'desc';
-        $this->model->where('status', BaseStatusEnum::PUBLISHED)->orderBy($order_by, $order);
+
+        $this->model->where('posts.status', BaseStatusEnum::PUBLISHED)->orderBy($orderBy, $order);
 
         return $this->applyBeforeExecuteQuery($this->model)->paginate((int)$filters['per_page']);
     }

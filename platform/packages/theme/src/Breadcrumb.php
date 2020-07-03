@@ -46,16 +46,6 @@ class Breadcrumb
     }
 
     /**
-     * Get crumbs.
-     *
-     * @return array
-     */
-    public function getCrumbs(): array
-    {
-        return $this->crumbs;
-    }
-
-    /**
      * Render breadcrumbs.
      *
      * @return string
@@ -67,5 +57,15 @@ class Breadcrumb
         $crumbs = $this->getCrumbs();
 
         return view('packages/theme::partials.breadcrumb', compact('crumbs'))->render();
+    }
+
+    /**
+     * Get crumbs.
+     *
+     * @return array
+     */
+    public function getCrumbs(): array
+    {
+        return $this->crumbs;
     }
 }

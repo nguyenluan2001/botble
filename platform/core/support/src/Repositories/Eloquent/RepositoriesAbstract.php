@@ -360,9 +360,9 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         $data = $this->applyBeforeExecuteQuery($data);
 
         if (!empty(Arr::get($args, 'paginate'))) {
-            return $data->paginate($args['paginate']);
+            return $data->paginate((int)$args['paginate']);
         } elseif (!empty(Arr::get($args, 'limit'))) {
-            return $data->limit($args['limit']);
+            return $data->limit((int)$args['limit']);
         }
 
         return $data->get();
@@ -394,6 +394,10 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         }
 
         foreach ($params['order_by'] as $column => $direction) {
+            if (!in_array(strtolower($direction), ['asc', 'desc'])) {
+                continue;
+            }
+
             if ($direction !== null) {
                 $data = $data->orderBy($column, $direction);
             }
@@ -403,21 +407,25 @@ abstract class RepositoriesAbstract implements RepositoryInterface
             $data = $data->with($with);
         }
 
+        if (!empty($params['withCount'])) {
+            $data = $data->withCount($params['withCount']);
+        }
+
         if ($params['take'] == 1) {
             $result = $this->applyBeforeExecuteQuery($data, true)->first();
         } elseif ($params['take']) {
-            $result = $this->applyBeforeExecuteQuery($data)->take($params['take'])->get();
+            $result = $this->applyBeforeExecuteQuery($data)->take((int)$params['take'])->get();
         } elseif ($params['paginate']['per_page']) {
-            $paginate_type = 'paginate';
+            $paginateType = 'paginate';
             if (Arr::get($params, 'paginate.type') && method_exists($data, Arr::get($params, 'paginate.type'))) {
-                $paginate_type = Arr::get($params, 'paginate.type');
+                $paginateType = Arr::get($params, 'paginate.type');
             }
             $result = $this->applyBeforeExecuteQuery($data)
-                ->$paginate_type(
-                    Arr::get($params, 'paginate.per_page', 10),
+                ->$paginateType(
+                    (int)Arr::get($params, 'paginate.per_page', 10),
                     [$this->originalModel->getTable() . '.' . $this->originalModel->getKeyName()],
                     'page',
-                    Arr::get($params, 'paginate.current_paged', 1)
+                    (int)Arr::get($params, 'paginate.current_paged', 1)
                 );
         } else {
             $result = $this->applyBeforeExecuteQuery($data)->get();

@@ -59,7 +59,7 @@ return [
                 ->usePath()->add('bootstrap-css', 'plugins/bootstrap/css/bootstrap.min.css')
                 ->usePath()->add('font-awesome', 'plugins/font-awesome/css/font-awesome.min.css')
                 ->usePath()->add('ionicons', 'plugins/ionicons/css/ionicons.min.css')
-                ->usePath()->add('style', 'css/style.css');
+                ->usePath()->add('style', 'css/style.css', [], [], '5.5');
 
             if (function_exists('shortcode')) {
                 $theme->composer(['page', 'post', 'index'], function (\Platform\Shortcode\View\View $view) {

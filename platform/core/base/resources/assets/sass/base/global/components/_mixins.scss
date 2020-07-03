@@ -72,7 +72,7 @@
 }
 
 @mixin pulsate($animation-name, $start-size: 0.75, $end-size: 1, $duration: 1.5s) {
-    @keyframes "#{$animation-name}" {
+    @keyframes #{$animationName} {
         0%, 100% {
             transform: scale($start-size);
         }
@@ -105,7 +105,7 @@
 }
 
 @mixin transform($degree) {
-    webkit-transform: $degree;
+    -webkit-transform: $degree;
     -moz-transform: $degree;
     -ms-transform: $degree;
     -o-transform: $degree;
@@ -113,9 +113,8 @@
 }
 
 @mixin transition($transition) {
-    webkit-transition: #{$transition};
+    -webkit-transition: #{$transition};
     -moz-transition: #{$transition};
-    -ms-transition: #{$transition};
     -o-transition: #{$transition};
     transition: #{$transition};
 }

@@ -48,7 +48,7 @@ class UserCreateCommand extends Command
     }
 
     /**
-     * @return bool
+     * @return int
      */
     public function handle()
     {
@@ -69,11 +69,11 @@ class UserCreateCommand extends Command
                 $this->info('Super user is created.');
             }
 
-            return true;
+            return 0;
         } catch (Exception $exception) {
             $this->error('User could not be created.');
             $this->error($exception->getMessage());
-            return false;
+            return 1;
         }
     }
 

@@ -11,6 +11,7 @@ use Platform\Widget\Repositories\Interfaces\WidgetInterface;
 use Exception;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
+use Theme;
 
 class ThemeService
 {
@@ -74,7 +75,7 @@ class ThemeService
             return $validate;
         }
 
-        if ($theme == setting('theme')) {
+        if ($theme == Theme::getThemeName()) {
             return [
                 'error'   => true,
                 'message' => 'Theme "' . $theme . '" is activated already!',
@@ -196,7 +197,7 @@ class ThemeService
             return $validate;
         }
 
-        if ($this->settingStore->get('theme') == $theme) {
+        if (Theme::getThemeName() == $theme) {
             return [
                 'error'   => true,
                 'message' => __('Cannot remove activated theme, please activate another theme before removing ":name"!',

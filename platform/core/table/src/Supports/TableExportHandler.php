@@ -62,26 +62,30 @@ class TableExportHandler extends DataTablesExportHandler implements WithEvents
     {
         $totalColumns = count(array_filter($this->headings()));
         $lastColumnName = $this->getNameFromNumber($totalColumns);
-        $dimensions = 'A1:' . $lastColumnName . '1';
-        $event->sheet->getDelegate()->getStyle($dimensions)->applyFromArray(
-            [
-                'font'      => [
-                    'bold'  => true,
-                    'color' => [
-                        'argb' => 'ffffff',
+        try {
+            $dimensions = 'A1:' . $lastColumnName . '1';
+            $event->sheet->getDelegate()->getStyle($dimensions)->applyFromArray(
+                [
+                    'font'      => [
+                        'bold'  => true,
+                        'color' => [
+                            'argb' => 'ffffff',
+                        ],
                     ],
-                ],
-                'alignment' => [
-                    'horizontal' => Alignment::HORIZONTAL_CENTER,
-                ],
-                'fill'      => [
-                    'fillType'   => Fill::FILL_SOLID,
-                    'startColor' => [
-                        'argb' => '1d9977',
+                    'alignment' => [
+                        'horizontal' => Alignment::HORIZONTAL_CENTER,
                     ],
-                ],
-            ]
-        );
+                    'fill'      => [
+                        'fillType'   => Fill::FILL_SOLID,
+                        'startColor' => [
+                            'argb' => '1d9977',
+                        ],
+                    ],
+                ]
+            );
+        } catch (Exception $exception) {
+            info($exception->getMessage());
+        }
 
         $event->sheet->getDelegate()->getColumnDimension('A')->setWidth(10);
         $event->sheet->getDelegate()->getRowDimension(1)->setRowHeight(20);

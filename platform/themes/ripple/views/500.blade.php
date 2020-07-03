@@ -1,4 +1,4 @@
-@extends('theme.' . setting('theme') . '::views.error-master')
+@extends(Theme::getThemeNamespace() . '::views.error-master')
 
 @section('code', '500')
 @section('title', __('Page could not be loaded'))

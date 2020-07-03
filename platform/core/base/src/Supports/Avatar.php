@@ -118,6 +118,39 @@ class Avatar
     }
 
     /**
+     * @param string $color
+     * @return $this
+     */
+    public function setBackground(string $color): self
+    {
+        $this->background = $color;
+
+        return $this;
+    }
+
+    /**
+     * @param string $color
+     * @return $this
+     */
+    public function setForeground(string $color): self
+    {
+        $this->foreground = $color;
+
+        return $this;
+    }
+
+    /**
+     * @param string $shape
+     * @return $this
+     */
+    public function setShape(string $shape): self
+    {
+        $this->shape = $shape;
+
+        return $this;
+    }
+
+    /**
      * @param array $array
      * @param string $default
      * @return mixed

@@ -34,14 +34,14 @@ class SlugService
         $index = 1;
         $baseSlug = $slug;
         while ($this->checkIfExistedSlug($slug, $slugId, $model)) {
-            $slug = $baseSlug . '-' . $index++;
+            $slug = apply_filters(FILTER_SLUG_EXISTED_STRING, $baseSlug . '-' . $index++, $baseSlug, $index, $model);
         }
 
         if (empty($slug)) {
             $slug = time();
         }
 
-        return $slug;
+        return apply_filters(FILTER_SLUG_STRING, $slug, $model);
     }
 
     /**

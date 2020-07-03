@@ -2,11 +2,8 @@
 
 namespace Platform\Theme;
 
-use App;
-use Config;
 use Exception;
 use File;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -82,7 +79,7 @@ class AssetContainer
 
         // Finding asset url config.
         if (empty($assetUrl)) {
-            $assetUrl = Config::get('packages.theme.general.assetUrl', '');
+            $assetUrl = config('packages.theme.general.assetUrl', '');
         }
 
         // Using asset url, if available.
@@ -140,20 +137,6 @@ class AssetContainer
     }
 
     /**
-     * Alias add an asset to container.
-     *
-     * @param string $name
-     * @param string $source
-     * @param array $dependencies
-     * @param array $attributes
-     */
-    public function add($name, $source, $dependencies = [], $attributes = [])
-    {
-        $this->added($name, $source, $dependencies, $attributes);
-        return $this;
-    }
-
-    /**
      * Add an asset to the container.
      *
      * The extension of the asset source will be used to determine the type of
@@ -175,15 +158,16 @@ class AssetContainer
      * @param string $source
      * @param array $dependencies
      * @param array $attributes
+     * @param null $version
      * @return AssetContainer
      */
-    protected function added($name, $source, $dependencies = [], $attributes = [])
+    public function add($name, $source, $dependencies = [], $attributes = [], $version = null)
     {
         if (is_array($source)) {
             foreach ($source as $path) {
                 $name = $name . '-' . md5($path);
 
-                $this->added($name, $path, $dependencies, $attributes);
+                $this->add($name, $path, $dependencies, $attributes);
             }
         } else {
             $type = File::extension($source) == 'css' ? 'style' : 'script';
@@ -193,8 +177,13 @@ class AssetContainer
                 $source = ltrim($source, '/');
             }
 
+            if ($version) {
+                $source .= '?v=' . $version;
+            }
+
             return $this->$type($name, $source, $dependencies, $attributes);
         }
+
         return $this;
     }
 
@@ -218,7 +207,7 @@ class AssetContainer
      * Write a content to the container.
      *
      * @param string $name
-     * @param string string
+     * @param string $type
      * @param string $source
      * @param array $dependencies
      * @return AssetContainer
@@ -264,7 +253,6 @@ class AssetContainer
      * Write a style to the container.
      *
      * @param string $name
-     * @param string string
      * @param string $source
      * @param array $dependencies
      * @return AssetContainer
@@ -296,8 +284,8 @@ class AssetContainer
      * @param string $source
      * @param array $dependencies
      * @param array $attributes
+     * @param null $version
      * @return AssetContainer
-     * @throws FileNotFoundException
      */
     public function style($name, $source, $dependencies = [], $attributes = [])
     {
@@ -340,7 +328,7 @@ class AssetContainer
 
         // Make theme to use few features.
         if (!$theme) {
-            $theme = App::make('theme');
+            $theme = app('theme');
         }
 
         // Switch path to another theme.
@@ -540,7 +528,6 @@ class AssetContainer
         // This line fixing config path.
         $asset['source'] = $this->configAssetUrl($asset['source']);
 
-        //return Html::$group($asset['source'], $asset['attributes']);
         return $this->html($group, $asset['source'], $asset['attributes']);
     }
 
@@ -595,7 +582,7 @@ class AssetContainer
 
         // For numeric keys we will assume that the key and the value are the same
         // as this will convert HTML attributes such as "required" to a correct
-        // form like required="required" instead of using incorrect numerics.
+        // form like required="required" instead of using incorrect numeric.
         foreach ((array)$attributes as $key => $value) {
             $element = $this->attributeElement($key, $value);
 
@@ -628,7 +615,7 @@ class AssetContainer
     }
 
     /**
-     * @param $group
+     * @param string $group
      * @return array
      * @throws Exception
      */

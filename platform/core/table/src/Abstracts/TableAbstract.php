@@ -320,7 +320,7 @@ abstract class TableAbstract extends DataTable
         $columns = $this->columns();
 
         if ($this->type == self::TABLE_TYPE_SIMPLE) {
-            return $columns;
+            return apply_filters(BASE_FILTER_TABLE_HEADINGS, $columns, $this->repository->getModel());
         }
 
         foreach ($columns as $key => &$column) {

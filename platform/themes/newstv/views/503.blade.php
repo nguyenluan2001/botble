@@ -1,4 +1,4 @@
-@extends('theme.' . setting('theme') . '::views.error-master')
+@extends(Theme::getThemeNamespace() . '::views.error-master')
 
 @section('code', '503')
 @section('title', __('Service Unavailable'))

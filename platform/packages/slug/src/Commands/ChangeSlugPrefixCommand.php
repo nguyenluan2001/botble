@@ -38,6 +38,6 @@ class ChangeSlugPrefixCommand extends Command
 
         $this->info('Processed ' . $data . ' item(s)!');
 
-        return true;
+        return 0;
     }
 }

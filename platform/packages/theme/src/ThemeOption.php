@@ -56,12 +56,15 @@ class ThemeOption
         $args = isset($this->args[$this->optName]) ? $this->args[$this->optName] : [];
 
         $args['opt_name'] = $this->optName;
+
         if (!isset($args['menu_title'])) {
             $args['menu_title'] = ucfirst($this->optName) . ' Options';
         }
+
         if (!isset($args['page_title'])) {
             $args['page_title'] = ucfirst($this->optName) . ' Options';
         }
+
         if (!isset($args['page_slug'])) {
             $args['page_slug'] = $this->optName . '_options';
         }
@@ -77,9 +80,11 @@ class ThemeOption
     public function constructSections(): array
     {
         $sections = [];
+
         if (!isset($this->sections[$this->optName])) {
             return $sections;
         }
+
         foreach ($this->sections[$this->optName] as $sectionId => $section) {
             $section['fields'] = $this->constructFields($sectionId);
             $priority = $section['priority'];
@@ -187,6 +192,7 @@ class ThemeOption
                 $this->setSection($section);
             }
         }
+
         return $this;
     }
 

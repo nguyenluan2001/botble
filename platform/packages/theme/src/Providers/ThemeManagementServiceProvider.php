@@ -8,6 +8,7 @@ use File;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Theme;
 
 class ThemeManagementServiceProvider extends ServiceProvider
 {
@@ -16,7 +17,7 @@ class ThemeManagementServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $theme = setting('theme');
+        $theme = Theme::getThemeName();
         if (!empty($theme)) {
             $this->app->make('translator')->addJsonPath(theme_path($theme . '/lang'));
         }
@@ -24,11 +25,11 @@ class ThemeManagementServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        if (!setting('theme')) {
+        if (!Theme::getThemeName()) {
             setting()->set('theme', Arr::first(scan_folder(theme_path())));
         }
 
-        $theme = setting('theme');
+        $theme = Theme::getThemeName();
 
         if (!empty($theme)) {
             $themePath = theme_path($theme);

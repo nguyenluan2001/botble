@@ -40,7 +40,7 @@ class GenerateThumbnailCommand extends Command
     }
 
     /**
-     * @return bool
+     * @return int
      */
     public function handle()
     {
@@ -73,8 +73,10 @@ class GenerateThumbnailCommand extends Command
             $this->info('We are unable to regenerate thumbnail for these files:');
 
             $this->table(['File directory'], $errors);
+
+            return 1;
         }
 
-        return true;
+        return 0;
     }
 }

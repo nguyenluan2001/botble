@@ -29,7 +29,7 @@ Bootstrap Datepicker
 }
 
 /* change z-index when opened in modal */
-.modal-open .datepicker {
+.modal-open .modal-body .datepicker {
     z-index: 10055 !important;
 }
 
@@ -56,4 +56,4 @@ Bootstrap Datepicker
 
 .datepicker .fa-angle-right:before {
     content: "\f105"#{'/*rtl:"\f104"*/'};
-} 
+}

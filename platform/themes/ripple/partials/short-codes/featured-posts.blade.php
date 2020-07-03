@@ -1,6 +1,6 @@
 @if (is_plugin_active('blog'))
     @php
-        $featured = get_featured_posts(5);
+        $featured = get_featured_posts(5, ['user', 'categories' => function ($query) { $query->limit(1); }]);
         $featuredList = [];
         if (!empty($featured)) {
             $featuredList = $featured->pluck('id')->all();
@@ -23,7 +23,7 @@
                                         <div class="post__meta"><span class="post-category"><i class="ion-cube"></i>
                                                 @if (!$featureItem->categories->isEmpty())<a href="{{ $featureItem->categories->first()->url }}">{{ $featureItem->categories->first()->name }}</a>@endif
                                         </span>
-                                            <span class="created_at"><i class="ion-clock"></i><a href="#">{{ date_from_database($featureItem->created_at, 'M d Y') }}</a></span>
+                                            <span class="created_at"><i class="ion-clock"></i>{{ date_from_database($featureItem->created_at, 'M d Y') }}</span>
                                             @if ($featureItem->user->username)
                                                 <span class="post-author"><i class="ion-android-person"></i><span>{{ $featureItem->user->getFullName() }}</span></span>
                                             @endif

@@ -63,6 +63,6 @@ class BackupListCommand extends Command
             $this->error($exception->getMessage());
         }
 
-        return true;
+        return 0;
     }
 }

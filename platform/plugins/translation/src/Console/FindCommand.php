@@ -47,6 +47,6 @@ class FindCommand extends Command
         $counter = $this->manager->findTranslations(null);
         $this->info('Done importing, processed ' . $counter . ' items!');
 
-        return $counter;
+        return 0;
     }
 }

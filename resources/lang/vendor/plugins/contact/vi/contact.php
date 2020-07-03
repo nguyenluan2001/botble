@@ -51,7 +51,6 @@ return [
             'required' => 'Hãy xác minh không phải là robot trước khi gửi tin nhắn.',
             'captcha'  => 'Bạn chưa xác minh không phải là robot thành công.',
         ],
-    'confirm_not_robot'    => 'Xác nhận không phải người máy',
     'contact_sent_from'    => 'Liên hệ này được gửi từ',
     'form_address'         => 'Địa chỉ',
     'form_email'           => 'Thư điện tử',

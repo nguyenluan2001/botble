@@ -24,6 +24,7 @@ use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Language as LanguageFacade;
 use Schema;
+use Theme;
 use Throwable;
 
 class LanguageController extends BaseController
@@ -98,10 +99,10 @@ class LanguageController extends BaseController
             $this->createLocaleInPath(resource_path('lang/vendor/packages'), $locale);
             $this->createLocaleInPath(resource_path('lang/vendor/plugins'), $locale);
 
-            $themeLocale = Arr::first(scan_folder(theme_path(setting('theme') . '/lang')));
+            $themeLocale = Arr::first(scan_folder(theme_path(Theme::getThemeName() . '/lang')));
 
             if ($themeLocale) {
-                File::copy(theme_path(setting('theme') . '/lang/' . $themeLocale), resource_path('lang/' . $locale . '.json'));
+                File::copy(theme_path(Theme::getThemeName() . '/lang/' . $themeLocale), resource_path('lang/' . $locale . '.json'));
             }
 
             event(new CreatedContentEvent(LANGUAGE_MODULE_SCREEN_NAME, $request, $language));
@@ -383,14 +384,14 @@ class LanguageController extends BaseController
             $jsonFile = resource_path('lang/' . $group['lang_locale'] . '.json');
 
             if (!File::exists($jsonFile)) {
-                $jsonFile = theme_path(setting('theme') . '/lang/' . $group['lang_locale'] . '.json');
+                $jsonFile = theme_path(Theme::getThemeName() . '/lang/' . $group['lang_locale'] . '.json');
             }
 
             if (!File::exists($jsonFile)) {
-                $languages = scan_folder(theme_path(setting('theme') . '/lang'));
+                $languages = scan_folder(theme_path(Theme::getThemeName() . '/lang'));
 
                 if (!empty($languages)) {
-                    $jsonFile = theme_path(setting('theme') . '/lang/' . Arr::first($languages));
+                    $jsonFile = theme_path(Theme::getThemeName() . '/lang/' . Arr::first($languages));
                 }
             }
 

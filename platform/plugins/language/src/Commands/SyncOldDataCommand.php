@@ -32,17 +32,17 @@ class SyncOldDataCommand extends Command
     {
         if (!preg_match('/^[a-z\-_]+$/i', $this->argument('table'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         if (!Schema::hasTable($this->argument('table'))) {
             $this->error('That table is not existed!');
-            return false;
+            return 1;
         }
 
         if (!Schema::hasColumn($this->argument('table'), 'id')) {
             $this->error('That table does not have ID column!');
-            return false;
+            return 1;
         }
 
         $data = DB::table($this->argument('table'))->get();
@@ -64,6 +64,7 @@ class SyncOldDataCommand extends Command
         }
 
         $this->info('Processed ' . count($data) . ' item(s)!');
-        return true;
+
+        return 0;
     }
 }

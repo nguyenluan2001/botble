@@ -17,6 +17,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Language;
+use Theme;
 use Throwable;
 use WidgetGroup;
 
@@ -35,13 +36,12 @@ class WidgetController extends BaseController
     /**
      * WidgetController constructor.
      * @param WidgetInterface $widgetRepository
-     * @param SettingStore $setting
      * @throws FileNotFoundException
      */
-    public function __construct(WidgetInterface $widgetRepository, SettingStore $setting)
+    public function __construct(WidgetInterface $widgetRepository)
     {
         $this->widgetRepository = $widgetRepository;
-        $this->theme = $setting->get('theme') . $this->getCurrentLocaleCode();
+        $this->theme = Theme::getThemeName() . $this->getCurrentLocaleCode();
     }
 
     /**

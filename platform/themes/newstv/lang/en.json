@@ -45,5 +45,15 @@
     "Change": "Change",
     "Current Password": "Current Password",
     "New Password": "New Password",
-    "Password Confirmation": "Password Confirmation"
+    "Password Confirmation": "Password Confirmation",
+
+    "Name": "Name",
+    "Address": "Address",
+    "Subject": "Subject",
+    "Message": "Message",
+    "Please confirm you are not robot": "Please confirm you are not robot",
+    "The field with (<span style=\"color:#FF0000;\">*</span>) is required.": "The field with (<span style=\"color:#FF0000;\">*</span>) is required.",
+    "Send": "Send",
+    "Send message successfully!": "Send message successfully!",
+    "Can't send message on this time, please try again later!": "Can't send message on this time, please try again later!"
 }

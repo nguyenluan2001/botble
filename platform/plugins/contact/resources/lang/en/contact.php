@@ -41,7 +41,6 @@ return [
     'form_subject'                  => 'Subject',
     'form_phone'                    => 'Phone',
     'form_message'                  => 'Message',
-    'confirm_not_robot'             => 'Please confirm you are not robot',
     'required_field'                => 'The field with (<span style="color: red">*</span>) is required.',
     'send_btn'                      => 'Send message',
     'new_msg_notice'                => 'You have <span class="bold">:count</span> New Messages',

@@ -302,7 +302,7 @@ class DatabaseSettingStore extends SettingStore
     /**
      * Create a new query builder instance.
      *
-     * @param  $insert  boolean  Whether the query is an insert or not.
+     * @param boolean $insert  Whether the query is an insert or not.
      *
      * @return Builder
      */

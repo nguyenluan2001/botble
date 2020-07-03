@@ -15,7 +15,7 @@ class TinyMceField extends FormField
     protected function getTemplate()
     {
         Assets::addScriptsDirectly([
-            'vendor/core/libraries/tinymce/tinymce.js',
+            'vendor/core/libraries/tinymce/tinymce.min.js',
             'vendor/core/js/editor.js',
         ]);
 

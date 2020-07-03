@@ -2,13 +2,15 @@
 
     <link rel="stylesheet" href="{{ asset('vendor/core/plugins/cookie-consent/css/cookie-consent.css') }}">
     <div class="js-cookie-consent cookie-consent">
-        <span class="cookie-consent__message">
-            {{ theme_option('cookie_consent_message', 'Your experience on this site will be improved by allowing cookies.') }}
-        </span>
+        <div class="cookie-consent-body">
+            <span class="cookie-consent__message">
+                {{ theme_option('cookie_consent_message', 'Your experience on this site will be improved by allowing cookies.') }}
+            </span>
 
-        <button class="js-cookie-consent-agree cookie-consent__agree">
-            {{ theme_option('cookie_consent_button_text', 'Allow cookies') }}
-        </button>
+            <button class="js-cookie-consent-agree cookie-consent__agree">
+                {{ theme_option('cookie_consent_button_text', 'Allow cookies') }}
+            </button>
+        </div>
     </div>
 
     <script>

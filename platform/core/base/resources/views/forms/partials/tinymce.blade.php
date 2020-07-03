@@ -1,6 +1,6 @@
 @php
     Assets::addScriptsDirectly([
-        'vendor/core/libraries/tinymce/tinymce.js',
+        'vendor/core/libraries/tinymce/tinymce.min.js',
         'vendor/core/js/editor.js',
     ]);
 

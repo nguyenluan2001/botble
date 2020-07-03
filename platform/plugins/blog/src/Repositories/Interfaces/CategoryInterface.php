@@ -15,8 +15,9 @@ interface CategoryInterface extends RepositoryInterface
 
     /**
      * @param int $limit
+     * @param array $with
      */
-    public function getFeaturedCategories($limit);
+    public function getFeaturedCategories($limit, array $with = []);
 
     /**
      * @param array $condition

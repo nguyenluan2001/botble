@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 interface RepositoryInterface
 {
     /**
-     * @param $data
+     * @param Builder $data
      * @param bool $isSingle
      * @return Builder
      */
@@ -59,14 +59,14 @@ interface RepositoryInterface
     /**
      * Retrieve model by id regardless of status.
      *
-     * @param $id
+     * @param int $id
      * @param array $with
      * @return mixed
      */
     public function findById($id, array $with = []);
 
     /**
-     * @param $id
+     * @param int $id
      * @param array $with
      * @return mixed
      */
@@ -152,7 +152,7 @@ interface RepositoryInterface
 
     /**
      * @param array $condition
-     * @return mixed
+     * @return int
      */
     public function count(array $condition = []);
 

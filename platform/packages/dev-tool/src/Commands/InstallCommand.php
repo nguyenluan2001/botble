@@ -27,7 +27,7 @@ class InstallCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return bool
+     * @return int
      */
     public function handle()
     {
@@ -44,6 +44,6 @@ class InstallCommand extends Command
 
         $this->info('Installed CMS successfully!');
 
-        return true;
+        return 0;
     }
 }

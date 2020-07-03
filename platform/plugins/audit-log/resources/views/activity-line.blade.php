@@ -16,5 +16,5 @@
     @endif
     .
 </span>
-<span class="small italic">{{ Carbon\Carbon::parse($history->created_at)->diffForHumans() }} </span>
+<span class="small italic">{{ $history->created_at->diffForHumans() }} </span>
 <span>(<a href="https://whatismyipaddress.com/ip/{{ $history->ip_address }}" target="_blank" title="{{ $history->ip_address }}">{{ $history->ip_address }}</a>)</span>

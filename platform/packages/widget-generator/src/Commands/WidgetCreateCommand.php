@@ -6,6 +6,7 @@ use Platform\DevTool\Commands\Abstracts\BaseMakeCommand;
 use Illuminate\Filesystem\Filesystem as File;
 use Illuminate\Support\Str;
 use League\Flysystem\FileNotFoundException;
+use Theme;
 
 class WidgetCreateCommand extends BaseMakeCommand
 {
@@ -53,7 +54,7 @@ class WidgetCreateCommand extends BaseMakeCommand
 
         if ($this->files->isDirectory($path)) {
             $this->error('Widget "' . $widget . '" is already exists.');
-            return false;
+            return 1;
         }
 
         $this->publishStubs($this->getStub(), $path);
@@ -62,7 +63,7 @@ class WidgetCreateCommand extends BaseMakeCommand
 
         $this->info('Widget "' . $widget . '" has been created in ' . $path . '.');
 
-        return true;
+        return 0;
     }
 
     /**
@@ -82,7 +83,7 @@ class WidgetCreateCommand extends BaseMakeCommand
      */
     protected function getPath()
     {
-        return theme_path(setting('theme') . '/widgets/' . $this->getWidget());
+        return theme_path(Theme::getThemeName() . '/widgets/' . $this->getWidget());
     }
 
     /**

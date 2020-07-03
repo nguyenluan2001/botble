@@ -57,7 +57,7 @@ class Cache implements CacheInterface
     }
 
     /**
-     * @param $key
+     * @param string $key
      * @return string
      */
     public function generateCacheKey($key)
@@ -92,7 +92,7 @@ class Cache implements CacheInterface
     /**
      * Store cache key to file
      *
-     * @param $key
+     * @param string $key
      * @return bool
      * @throws FileNotFoundException
      */

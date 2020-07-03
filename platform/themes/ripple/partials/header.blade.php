@@ -6,12 +6,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1" name="viewport"/>
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
         <!-- Fonts-->
-        <link href="https://fonts.googleapis.com/css?family={{ theme_option('primary_font', 'Roboto') }}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family={{ urlencode(theme_option('primary_font', 'Nunito Sans')) }}" rel="stylesheet" type="text/css">
         <!-- CSS Library-->
 
         <style>
@@ -28,7 +28,7 @@
     <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
     <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
     <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
-    <body>
+    <body @if (class_exists('Language', false) && Language::getCurrentLocaleRTL()) dir="rtl" @endif>
     <header class="header" id="header">
         <div class="header-wrap">
             <nav class="nav-top">

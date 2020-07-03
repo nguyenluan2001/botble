@@ -40,6 +40,8 @@
 
     @yield('javascript')
 
-    @stack('footer')
+    <div id="stack-footer">
+        @stack('footer')
+    </div>
 </body>
 </html>

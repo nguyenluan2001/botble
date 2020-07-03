@@ -9,6 +9,7 @@ use Platform\Base\Forms\Fields\CustomRadioField;
 use Platform\Base\Forms\Fields\CustomSelectField;
 use Platform\Base\Forms\Fields\EditorField;
 use Platform\Base\Forms\Fields\HtmlField;
+use Platform\Base\Forms\Fields\MediaFileField;
 use Platform\Base\Forms\Fields\MediaImageField;
 use Platform\Base\Forms\Fields\OnOffField;
 use Platform\Base\Forms\Fields\TimeField;
@@ -268,6 +269,7 @@ abstract class FormAbstract extends Form
             'onOff'        => OnOffField::class,
             'customRadio'  => CustomRadioField::class,
             'mediaImage'   => MediaImageField::class,
+            'mediaFile'    => MediaFileField::class,
             'customColor'  => ColorField::class,
             'time'         => TimeField::class,
             'autocomplete' => AutocompleteField::class,

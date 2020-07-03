@@ -9,7 +9,6 @@ use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Blog\Repositories\Interfaces\TagInterface;
 use Platform\SeoHelper\SeoOpenGraph;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Arr;

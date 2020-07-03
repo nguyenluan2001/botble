@@ -5,7 +5,7 @@ namespace Platform\CustomField\Forms;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Forms\FormAbstract;
 use Platform\CustomField\Http\Requests\CreateFieldGroupRequest;
-use Platform\CustomField\Models\CustomField as CustomFieldModel;
+use Platform\CustomField\Models\FieldGroup;
 use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
 use CustomField;
 
@@ -38,7 +38,7 @@ class CustomFieldForm extends FormAbstract
             $this->setActionButtons(view('plugins/custom-field::actions', ['object' => $this->getModel()])->render());
         }
         $this
-            ->setupModel(new CustomFieldModel)
+            ->setupModel(new FieldGroup)
             ->setValidatorClass(CreateFieldGroupRequest::class)
             ->setFormOption('class', 'form-update-field-group')
             ->withCustomFields()

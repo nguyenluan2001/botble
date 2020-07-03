@@ -28,7 +28,7 @@ class PackageRemoveCommand extends Command
     {
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $package = strtolower($this->argument('name'));
@@ -36,7 +36,7 @@ class PackageRemoveCommand extends Command
 
         if (!File::isDirectory($location)) {
             $this->error('This package is not existed!');
-            return false;
+            return 1;
         }
 
         return $this->processRemove($package, $location);
@@ -67,6 +67,6 @@ class PackageRemoveCommand extends Command
 
         $this->line('<info>Remove</info> <comment>"botble/' . $package . '": "*@dev"</comment> to composer.json then run <comment>composer update</comment> to remove this package!');
 
-        return true;
+        return 0;
     }
 }

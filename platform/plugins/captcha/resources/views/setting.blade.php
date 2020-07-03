@@ -28,6 +28,22 @@
 
             <div class="form-group">
                 <label class="text-title-field"
+                       for="captcha_type">{{ __('Type') }}
+                </label>
+                <label class="hrv-label">
+                    <input type="radio" name="captcha_type" class="hrv-radio"
+                           value="v2"
+                           @if (setting('captcha_type', 'v2') == 'v2') checked @endif>{{ __('V2 (Verify requests with a challenge)') }}
+                </label>
+                <label class="hrv-label">
+                    <input type="radio" name="captcha_type" class="hrv-radio"
+                           value="v3"
+                           @if (!setting('captcha_type', 'v2') == 'v3') checked @endif>{{ __('V3 (Verify requests with a score)') }}
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label class="text-title-field"
                        for="captcha_site_key">{{ trans('plugins/captcha::captcha.settings.captcha_site_key') }}</label>
                 <input data-counter="120" type="text" class="next-input" name="captcha_site_key" id="captcha_site_key"
                        value="{{ setting('captcha_site_key', config('plugins.captcha.general.site_key')) }}" placeholder="{{ trans('plugins/captcha::captcha.settings.captcha_site_key') }}">

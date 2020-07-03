@@ -50,7 +50,7 @@ class ImportCommand extends Command
         $counter = $this->manager->importTranslations($replace);
         $this->info('Done importing, processed ' . $counter . ' items!');
 
-        return $counter;
+        return 0;
     }
 
     /**

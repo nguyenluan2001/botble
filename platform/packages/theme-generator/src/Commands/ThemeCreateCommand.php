@@ -67,7 +67,7 @@ class ThemeCreateCommand extends BaseMakeCommand
 
         if ($this->files->isDirectory($path)) {
             $this->error('Theme "' . $theme . '" is already exists.');
-            return false;
+            return 1;
         }
 
         $this->publishStubs($this->getStub(), $path);
@@ -84,7 +84,7 @@ class ThemeCreateCommand extends BaseMakeCommand
 
         $this->info('Theme "' . $theme . '" has been created.');
 
-        return true;
+        return 0;
     }
 
     /**

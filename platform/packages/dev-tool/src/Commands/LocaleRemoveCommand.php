@@ -25,17 +25,17 @@ class LocaleRemoveCommand extends Command
     protected $description = 'Remove a locale';
 
     /**
-     * Execute the console command.
+     * @return int
      */
     public function handle()
     {
         if (!$this->confirmToProceed('Are you sure you want to permanently delete?', true)) {
-            return false;
+            return 1;
         }
 
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('locale'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $defaultLocale = resource_path('lang/' . $this->argument('locale'));
@@ -48,7 +48,7 @@ class LocaleRemoveCommand extends Command
         $this->removeLocaleInPath(resource_path('lang/vendor/packages'));
         $this->removeLocaleInPath(resource_path('lang/vendor/plugins'));
 
-        return true;
+        return 0;
     }
 
     /**

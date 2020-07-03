@@ -9,7 +9,6 @@ use Platform\Blog\Models\Post;
 use Platform\Blog\Models\Tag;
 use Platform\Dashboard\Supports\DashboardWidgetInstance;
 use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Routing\Events\RouteMatched;
 use Platform\Base\Supports\Helper;
 use Platform\Page\Models\Page;
@@ -274,7 +273,7 @@ class HookServiceProvider extends ServiceProvider
         $posts = $this->app->make(PostInterface::class)->getAllPosts($shortcode->paginate);
 
         $view = 'plugins/blog::themes.templates.posts';
-        $themeView = 'theme.' . setting('theme') . '::views.templates.posts';
+        $themeView = Theme::getThemeNamespace() . '::views.templates.posts';
         if (view()->exists($themeView)) {
             $view = $themeView;
         }
@@ -293,8 +292,8 @@ class HookServiceProvider extends ServiceProvider
         if ($page->id == setting('blog_page_id')) {
             $view = 'plugins/blog::themes.loop';
 
-            if (view()->exists('theme.' . setting('theme') . '::views.loop')) {
-                $view = 'theme.' . setting('theme') . '::views.loop';
+            if (view()->exists(Theme::getThemeNamespace() . '::views.loop')) {
+                $view = Theme::getThemeNamespace() . '::views.loop';
             }
             return view($view, ['posts' => get_all_posts()])->render();
         }

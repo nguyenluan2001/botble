@@ -251,7 +251,7 @@ class PostTable extends TableAbstract
             case 'category':
                 return $query->join('post_categories', 'post_categories.post_id', '=', 'posts.id')
                     ->join('categories', 'post_categories.category_id', '=', 'categories.id')
-                    ->where('post_categories.category_id', $operator, $value);
+                    ->where('post_categories.category_id', '=', $value);
         }
 
         return parent::applyFilterCondition($query, $key, $operator, $value);

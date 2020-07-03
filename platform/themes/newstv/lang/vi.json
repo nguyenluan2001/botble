@@ -42,5 +42,15 @@
     "Change": "Thay đổi",
     "Current Password": "Mật khẩu hiện tại",
     "New Password": "Mật khẩu mới",
-    "Password Confirmation": "Xác nhận mật khẩu mới"
+    "Password Confirmation": "Xác nhận mật khẩu mới",
+
+    "Name": "Tên",
+    "Address": "Địa chỉ",
+    "Subject": "Tiêu đề",
+    "Message": "Nội dung",
+    "Please confirm you are not robot": "Vui lòng xác nhận không phải người máy",
+    "The field with (<span style=\"color:#FF0000;\">*</span>) is required.": "Các mục (<span style=\"color:#FF0000;\">*</span>) là bắt buộc.",
+    "Send": "Gửi",
+    "Send message successfully!": "Send message successfully!",
+    "Can't send message on this time, please try again later!": "Can't send message on this time, please try again later!"
 }

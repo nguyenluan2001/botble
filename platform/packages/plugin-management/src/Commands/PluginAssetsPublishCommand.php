@@ -46,7 +46,7 @@ class PluginAssetsPublishCommand extends Command
     {
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $plugin = strtolower($this->argument('name'));
@@ -54,11 +54,11 @@ class PluginAssetsPublishCommand extends Command
 
         if ($result['error']) {
             $this->error($result['message']);
-            return false;
+            return 1;
         }
 
         $this->info($result['message']);
 
-        return true;
+        return 0;
     }
 }

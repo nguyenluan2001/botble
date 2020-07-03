@@ -20,6 +20,7 @@ class Graph implements OpenGraphContract
     public function __construct()
     {
         $this->meta = new MetaCollection;
+        $this->setSiteName(theme_option('seo_title'));
     }
 
     /**
@@ -94,6 +95,14 @@ class Graph implements OpenGraphContract
     public function setImage($image)
     {
         return $this->addProperty('image', $image);
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasImage()
+    {
+        return $this->meta->has('image');
     }
 
     /**

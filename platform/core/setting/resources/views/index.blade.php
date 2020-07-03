@@ -134,11 +134,13 @@
                                               @if (setting('enable_change_admin_theme')) checked @endif name="enable_change_admin_theme"> {{ trans('core/setting::setting.general.enable_change_admin_theme') }} </label>
                         </div>
 
-                        <div class="form-group">
-                            <input type="hidden" name="enable_multi_language_in_admin" value="0">
-                            <label><input type="checkbox" class="hrv-checkbox" value="1"
-                                          @if (setting('enable_multi_language_in_admin')) checked @endif name="enable_multi_language_in_admin"> {{ trans('core/setting::setting.general.enable_multi_language_in_admin') }} </label>
-                        </div>
+                        @if (count(Assets::getAdminLocales()) > 1)
+                            <div class="form-group">
+                                <input type="hidden" name="enable_multi_language_in_admin" value="0">
+                                <label><input type="checkbox" class="hrv-checkbox" value="1"
+                                              @if (setting('enable_multi_language_in_admin')) checked @endif name="enable_multi_language_in_admin"> {{ trans('core/setting::setting.general.enable_multi_language_in_admin') }} </label>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

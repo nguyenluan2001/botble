@@ -82,6 +82,15 @@ class HookServiceProvider extends ServiceProvider
                             ],
                         ],
                     ],
+                    [
+                        'id'         => 'seo_og_image',
+                        'type'       => 'mediaImage',
+                        'label'      => __('SEO default Open Graph image'),
+                        'attributes' => [
+                            'name'    => 'seo_og_image',
+                            'value'   => null,
+                        ],
+                    ],
                 ],
             ])
             ->setSection([

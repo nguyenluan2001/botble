@@ -91,7 +91,7 @@ class HookServiceProvider extends ServiceProvider
 
             if ($slug->reference_type === Page::class) {
                 $page = $this->app->make(PageInterface::class)
-                    ->getFirstBy($condition);
+                    ->getFirstBy($condition, ['*'], ['slugable']);
                 if (!empty($page)) {
                     SeoHelper::setTitle($page->name)->setDescription($page->description);
 
@@ -107,7 +107,7 @@ class HookServiceProvider extends ServiceProvider
                     SeoHelper::setSeoOpenGraph($meta);
 
                     if ($page->template) {
-                        Theme::uses(setting('theme'))->layout($page->template);
+                        Theme::uses(Theme::getThemeName())->layout($page->template);
                     }
 
                     admin_bar()

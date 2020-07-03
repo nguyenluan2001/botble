@@ -9,7 +9,6 @@ use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Platform\Theme\Commands\ThemeActivateCommand;
 use Platform\Theme\Commands\ThemeRemoveCommand;
 use Platform\Theme\Contracts\Theme as ThemeContract;
-use Platform\Theme\Facades\ThemeFacade;
 use Platform\Theme\Http\Middleware\AdminBarMiddleware;
 use Platform\Theme\Theme;
 use Event;
@@ -17,6 +16,7 @@ use File;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Theme as ThemeFacade;
 
 class ThemeServiceProvider extends ServiceProvider
 {
@@ -97,12 +97,11 @@ class ThemeServiceProvider extends ServiceProvider
         });
 
         $this->app->booted(function () {
-            $theme = setting('theme');
+            $theme = ThemeFacade::getThemeName();
             if ($theme) {
                 $file = 'themes/' . $theme . '/css/style.integration.css';
                 if (File::exists(public_path($file))) {
-                    ThemeFacade::getFacadeRoot()
-                        ->asset()
+                    ThemeFacade::asset()
                         ->container('after_header')
                         ->add('theme-style-integration-css', $file);
                 }

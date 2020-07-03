@@ -9,9 +9,10 @@ interface PostInterface extends RepositoryInterface
 {
     /**
      * @param int $limit
+     * @param array $with
      * @return mixed
      */
-    public function getFeatured($limit = 5);
+    public function getFeatured(int $limit = 5, array $with = []);
 
     /**
      * @param array $filters

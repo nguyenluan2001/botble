@@ -26,15 +26,16 @@ class PackageMakeCrudCommand extends BaseMakeCommand
     /**
      * Execute the console command.
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @return int
      * @throws FileNotFoundException
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function handle()
     {
         if (!preg_match('/^[a-z0-9\-]+$/i', $this->argument('package')) || !preg_match('/^[a-z0-9\-]+$/i',
                 $this->argument('name'))) {
             $this->error('Only alphabetic characters are allowed.');
-            return false;
+            return 1;
         }
 
         $package = strtolower($this->argument('package'));
@@ -42,7 +43,7 @@ class PackageMakeCrudCommand extends BaseMakeCommand
 
         if (!File::isDirectory($location)) {
             $this->error('Plugin named [' . $package . '] does not exists.');
-            return false;
+            return 1;
         }
 
         $name = strtolower($this->argument('name'));
@@ -69,7 +70,7 @@ class PackageMakeCrudCommand extends BaseMakeCommand
             $this->info($this->replacementSubModule($replacement));
         }
 
-        return true;
+        return 0;
     }
 
     /**

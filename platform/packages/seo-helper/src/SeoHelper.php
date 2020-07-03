@@ -116,7 +116,9 @@ class SeoHelper implements SeoHelperContract
     {
         $this->meta()->setTitle($title, $siteName, $separator);
         $this->openGraph()->setTitle($title);
-        $this->openGraph()->setSiteName($siteName);
+        if ($siteName) {
+            $this->openGraph()->setSiteName($siteName);
+        }
         $this->twitter()->setTitle($title);
 
         return $this;

@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
+use Theme;
 
 class WidgetRemoveCommand extends Command
 {
@@ -63,7 +64,7 @@ class WidgetRemoveCommand extends Command
     public function handle()
     {
         if (!$this->confirmToProceed('Are you sure you want to permanently delete?', true)) {
-            return false;
+            return 1;
         }
 
         $widget = $this->getWidget();
@@ -71,14 +72,14 @@ class WidgetRemoveCommand extends Command
 
         if (!$this->files->isDirectory($path)) {
             $this->error('Widget "' . $widget . '" is not existed.');
-            return false;
+            return 1;
         }
 
         try {
             $this->files->deleteDirectory($path);
             $this->widgetRepository->deleteBy([
                 'widget_id' => Str::studly($widget) . 'Widget',
-                'theme'     => setting('theme'),
+                'theme'     => Theme::getThemeName(),
             ]);
 
             $this->info('Widget "' . $widget . '" has been deleted.');
@@ -86,7 +87,7 @@ class WidgetRemoveCommand extends Command
             $this->info($exception->getMessage());
         }
 
-        return true;
+        return 0;
     }
 
     /**
@@ -106,6 +107,6 @@ class WidgetRemoveCommand extends Command
      */
     protected function getPath()
     {
-        return theme_path(setting('theme') . '/widgets/' . $this->getWidget());
+        return theme_path(Theme::getThemeName() . '/widgets/' . $this->getWidget());
     }
 }
