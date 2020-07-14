@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Gallery;
+namespace Botble\Gallery;
 
-use Platform\Gallery\Repositories\Interfaces\GalleryMetaInterface;
+use Botble\Gallery\Repositories\Interfaces\GalleryMetaInterface;
 use Illuminate\Support\Arr;
 use Theme;
 

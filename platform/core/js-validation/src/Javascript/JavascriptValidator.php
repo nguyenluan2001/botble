@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\JsValidation\Javascript;
+namespace Botble\JsValidation\Javascript;
 
 use Exception;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\View;
-use Platform\JsValidation\Exceptions\PropertyNotFoundException;
+use Botble\JsValidation\Exceptions\PropertyNotFoundException;
 
 class JavascriptValidator implements Arrayable
 {

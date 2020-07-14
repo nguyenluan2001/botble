@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Captcha;
+namespace Botble\Captcha;
 
 use GuzzleHttp\Client;
 use Illuminate\Contracts\Foundation\Application;
@@ -85,7 +85,12 @@ class CaptchaV3
         $name = Arr::get($options, 'name', 'g-recaptcha-response');
 
         $fieldId = uniqid($name . '-', false);
-        $html = $this->initJs() . '<input type="hidden" name="' . $name . '" id="' . $fieldId . '">';
+        $html = '<input type="hidden" name="' . $name . '" id="' . $fieldId . '">';
+
+        if (Arr::get($attributes, 'add-js', true)) {
+            $html .= $this->initJs();
+        }
+
         $html .= "<script>
   grecaptcha.ready(function() {
       grecaptcha.execute('" . $this->siteKey . "', {action: '" . $action . "'}).then(function(token) {
@@ -101,6 +106,6 @@ class CaptchaV3
      */
     public function initJs()
     {
-        return '<script src="' . $this->origin . '/api.js?render=' . $this->siteKey . '"></script>';
+        return '<script src="' . $this->origin . '/api.js?render=' . $this->siteKey . '&hl=' . app()->getLocale() . '"></script>';
     }
 }

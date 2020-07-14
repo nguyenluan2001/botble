@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Forms;
+namespace Botble\Base\Forms;
 
 use Kris\LaravelFormBuilder\FormBuilder as BaseFormBuilder;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Blog\Forms\Fields;
+namespace Botble\Blog\Forms\Fields;
 
 use Kris\LaravelFormBuilder\Fields\FormField;
 

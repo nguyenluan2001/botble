@@ -1,10 +1,10 @@
 {
     "name": "botble/theme",
-    "description": "Theme package for Laravel CMS application",
+    "description": "Theme package for Botble CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Platform\\Theme\\": "src"
+            "Botble\\Theme\\": "src"
         }
     },
     "require": {
@@ -17,15 +17,15 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\Theme\\Providers\\ThemeServiceProvider",
-                "Platform\\Theme\\Providers\\RouteServiceProvider"
+                "Botble\\Theme\\Providers\\ThemeServiceProvider",
+                "Botble\\Theme\\Providers\\RouteServiceProvider"
             ],
             "aliases": {
-                "Theme": "Platform\\Theme\\Facades\\ThemeFacade",
-                "ThemeOption": "Platform\\Theme\\Facades\\ThemeOptionFacade",
-                "ThemeManager": "Platform\\Theme\\Facades\\ManagerFacade",
-                "AdminBar": "Platform\\Theme\\Facades\\AdminBarFacade",
-                "SiteMapManager": "Platform\\Theme\\Facades\\SiteMapManagerFacade"
+                "Theme": "Botble\\Theme\\Facades\\ThemeFacade",
+                "ThemeOption": "Botble\\Theme\\Facades\\ThemeOptionFacade",
+                "ThemeManager": "Botble\\Theme\\Facades\\ManagerFacade",
+                "AdminBar": "Botble\\Theme\\Facades\\AdminBarFacade",
+                "SiteMapManager": "Botble\\Theme\\Facades\\SiteMapManagerFacade"
             }
         }
     }

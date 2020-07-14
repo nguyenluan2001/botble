@@ -1,18 +1,18 @@
 <?php
 
-namespace Platform\Media\Http\Controllers;
+namespace Botble\Media\Http\Controllers;
 
-use Platform\Media\Chunks\Handler\DropZoneUploadHandler;
+use Botble\Media\Chunks\Handler\DropZoneUploadHandler;
 use Exception;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Arr;
-use Platform\Media\Chunks\Exceptions\UploadMissingFileException;
-use Platform\Media\Chunks\Receiver\FileReceiver;
+use Botble\Media\Chunks\Exceptions\UploadMissingFileException;
+use Botble\Media\Chunks\Receiver\FileReceiver;
 use RvMedia;
 
 /**

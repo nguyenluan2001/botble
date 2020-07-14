@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\CookieConsent;
+namespace Botble\CookieConsent;
 
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
 
 class Plugin extends PluginOperationAbstract
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\CookieConsent\Providers;
+namespace Botble\CookieConsent\Providers;
 
-use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Cookie;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;

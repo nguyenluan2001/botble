@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Api\Providers;
+namespace Botble\Api\Providers;
 
-use Platform\Api\Http\Middleware\ForceJsonResponseMiddleware;
+use Botble\Api\Http\Middleware\ForceJsonResponseMiddleware;
 use Illuminate\Support\ServiceProvider;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
 
 class ApiServiceProvider extends ServiceProvider
 {

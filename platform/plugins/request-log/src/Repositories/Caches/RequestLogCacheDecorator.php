@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\RequestLog\Repositories\Caches;
+namespace Botble\RequestLog\Repositories\Caches;
 
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
-use Platform\RequestLog\Repositories\Interfaces\RequestLogInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\RequestLog\Repositories\Interfaces\RequestLogInterface;
 
 class RequestLogCacheDecorator extends CacheAbstractDecorator implements RequestLogInterface
 {

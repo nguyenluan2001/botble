@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
 class Language
 {
@@ -369,16 +369,47 @@ class Language
     /**
      * @return array
      */
-    public static function getListLanguages(): array
+    public static function getListLanguageFlags(): array
     {
-        return self::$languages;
+        return self::$flags;
     }
 
     /**
      * @return array
      */
-    public static function getListLanguageFlags(): array
+    public static function getAvailableLocales(): array
     {
-        return self::$flags;
+        $languages = [];
+        $locales = scan_folder(resource_path('lang'));
+        if (in_array('vendor', $locales)) {
+            $locales = array_merge($locales, scan_folder(resource_path('lang/vendor')));
+        }
+
+        foreach ($locales as $locale) {
+            if ($locale === 'vendor') {
+                continue;
+            }
+            foreach (Language::getListLanguages() as $key => $language) {
+                if (in_array($key, [$locale, str_replace('-', '_', $locale)]) ||
+                    in_array($language[0], [$locale, str_replace('-', '_', $locale)])
+                ) {
+                    $languages[$locale] = [
+                        'locale' => $locale,
+                        'name'   => $language[2],
+                        'flag'   => $language[4],
+                    ];
+                }
+            }
+        }
+
+        return $languages;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getListLanguages(): array
+    {
+        return self::$languages;
     }
 }

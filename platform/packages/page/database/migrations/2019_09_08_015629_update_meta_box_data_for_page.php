@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Page\Models\Page;
+use Botble\Page\Models\Page;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateMetaBoxDataForPage extends Migration

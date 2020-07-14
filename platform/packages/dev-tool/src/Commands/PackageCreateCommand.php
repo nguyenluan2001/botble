@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\DevTool\Commands;
+namespace Botble\DevTool\Commands;
 
-use Platform\DevTool\Commands\Abstracts\BaseMakeCommand;
+use Botble\DevTool\Commands\Abstracts\BaseMakeCommand;
 use File;
 use Illuminate\Support\Str;
 use League\Flysystem\FileNotFoundException;

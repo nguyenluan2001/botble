@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\JsValidation;
+namespace Botble\JsValidation;
 
 use Closure;
 use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Illuminate\Http\Request;
-use Platform\JsValidation\Remote\Resolver;
-use Platform\JsValidation\Remote\Validator as RemoteValidator;
+use Botble\JsValidation\Remote\Resolver;
+use Botble\JsValidation\Remote\Validator as RemoteValidator;
 
 class RemoteValidationMiddleware
 {

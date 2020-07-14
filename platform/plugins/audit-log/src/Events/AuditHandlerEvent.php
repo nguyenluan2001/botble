@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\AuditLog\Events;
+namespace Botble\AuditLog\Events;
 
 use Event;
 use Illuminate\Support\Facades\Auth;

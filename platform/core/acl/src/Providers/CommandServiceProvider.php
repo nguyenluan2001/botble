@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\ACL\Providers;
+namespace Botble\ACL\Providers;
 
-use Platform\ACL\Commands\UserCreateCommand;
+use Botble\ACL\Commands\UserCreateCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

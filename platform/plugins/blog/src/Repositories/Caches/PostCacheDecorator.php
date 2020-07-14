@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Blog\Repositories\Caches;
+namespace Botble\Blog\Repositories\Caches;
 
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
 
 class PostCacheDecorator extends CacheAbstractDecorator implements PostInterface
 {

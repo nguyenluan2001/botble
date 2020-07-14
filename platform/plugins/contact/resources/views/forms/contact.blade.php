@@ -67,7 +67,7 @@
     @if (setting('enable_captcha') && is_plugin_active('captcha'))
         <div class="col-md-12">
             <div class="form-group">
-                {!! Captcha::display([], ['lang' => app()->getLocale()]) !!}
+                {!! Captcha::display() !!}
             </div>
         </div>
     @endif

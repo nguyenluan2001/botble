@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Media\Facades;
+namespace Botble\Media\Facades;
 
-use Platform\Media\RvMedia;
+use Botble\Media\RvMedia;
 use Illuminate\Support\Facades\Facade;
 
 class RvMediaFacade extends Facade

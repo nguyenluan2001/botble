@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\ACL\Http\Requests;
+namespace Botble\ACL\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class RoleCreateRequest extends Request
 {

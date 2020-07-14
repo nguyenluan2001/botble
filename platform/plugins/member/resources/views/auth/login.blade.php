@@ -44,7 +44,7 @@
               </div>
 
                 <div class="text-center">
-                    {!! apply_filters(BASE_FILTER_AFTER_LOGIN_OR_REGISTER_FORM, null, \Platform\Member\Models\Member::class) !!}
+                    {!! apply_filters(BASE_FILTER_AFTER_LOGIN_OR_REGISTER_FORM, null, \Botble\Member\Models\Member::class) !!}
                 </div>
             </form>
           </div>
@@ -55,5 +55,5 @@
 @endsection
 @push('scripts')
   <script type="text/javascript" src="{{ asset('vendor/core/js/js-validation.js')}}"></script>
-  {!! JsValidator::formRequest(\Platform\Member\Http\Requests\LoginRequest::class); !!}
+  {!! JsValidator::formRequest(\Botble\Member\Http\Requests\LoginRequest::class); !!}
 @endpush

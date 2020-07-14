@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Setting\Http\Requests;
+namespace Botble\Setting\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class EmailTemplateRequest extends Request
 {

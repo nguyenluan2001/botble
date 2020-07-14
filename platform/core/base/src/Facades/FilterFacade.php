@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Facades;
+namespace Botble\Base\Facades;
 
-use Platform\Base\Supports\Filter;
+use Botble\Base\Supports\Filter;
 use Illuminate\Support\Facades\Facade;
 
 class FilterFacade extends Facade

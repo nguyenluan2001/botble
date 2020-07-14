@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Language\Listeners;
+namespace Botble\Language\Listeners;
 
-use Platform\Setting\Repositories\Interfaces\SettingInterface;
-use Platform\Theme\Events\ThemeRemoveEvent;
-use Platform\Widget\Repositories\Interfaces\WidgetInterface;
+use Botble\Setting\Repositories\Interfaces\SettingInterface;
+use Botble\Theme\Events\ThemeRemoveEvent;
+use Botble\Widget\Repositories\Interfaces\WidgetInterface;
 use Exception;
 use Language;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Api\Http\Requests;
+namespace Botble\Api\Http\Requests;
 
-use Platform\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Concerns\InteractsWithInput;

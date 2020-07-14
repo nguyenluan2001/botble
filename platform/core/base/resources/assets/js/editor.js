@@ -163,12 +163,12 @@ class EditorManagement {
             }
 
             if ($('.editor-ckeditor').length > 0) {
-                CKEDITOR.instances[$('.add_shortcode_btn_trigger').data('result')].insertHtml('[' + $shortCodeKey.val() + attributes + ']' + content + '[/' + $shortCodeKey.val() + ']');
+                CKEDITOR.instances[$('.add_shortcode_btn_trigger').data('result')].insertHtml('<div>[' + $shortCodeKey.val() + attributes + ']' + content + '[/' + $shortCodeKey.val() + ']</div>');
             } else {
                 tinymce.get($('.add_shortcode_btn_trigger').data('result')).execCommand(
                     'mceInsertContent',
                     false,
-                    '[' + $shortCodeKey.val() + attributes + ']' + content + '[/' + $shortCodeKey.val() + ']'
+                    '<div>[' + $shortCodeKey.val() + attributes + ']' + content + '[/' + $shortCodeKey.val() + ']</div>'
                 );
             }
             $(this).closest('.modal').modal('hide');

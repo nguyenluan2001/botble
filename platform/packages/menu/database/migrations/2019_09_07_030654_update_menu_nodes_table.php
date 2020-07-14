@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Page\Models\Page;
+use Botble\Page\Models\Page;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Slug\Services;
+namespace Botble\Slug\Services;
 
-use Platform\Base\Models\BaseModel;
-use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use Botble\Base\Models\BaseModel;
+use Botble\Slug\Repositories\Interfaces\SlugInterface;
 use Illuminate\Support\Str;
 use SlugHelper;
 

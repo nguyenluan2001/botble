@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\Theme;
+namespace Botble\Theme;
 
-use Platform\Theme\Contracts\Theme as ThemeContract;
-use Platform\Theme\Exceptions\UnknownLayoutFileException;
-use Platform\Theme\Exceptions\UnknownPartialFileException;
-use Platform\Theme\Exceptions\UnknownThemeException;
-use Platform\Widget\Repositories\Interfaces\WidgetInterface;
+use Botble\Theme\Contracts\Theme as ThemeContract;
+use Botble\Theme\Exceptions\UnknownLayoutFileException;
+use Botble\Theme\Exceptions\UnknownPartialFileException;
+use Botble\Theme\Exceptions\UnknownThemeException;
+use Botble\Widget\Repositories\Interfaces\WidgetInterface;
 use Closure;
 use Exception;
 use File;
@@ -981,9 +981,9 @@ class Theme implements ThemeContract
         }
 
         $content->withHeaders([
-            'Author'            => 'Laravel Technologies (contact@gistensal.com)',
-            'Author-Team'       => 'https://gistensal.com',
-            'CMS'               => 'Laravel CMS',
+            'Author'            => 'Botble Technologies (contact@botble.com)',
+            'Author-Team'       => 'https://botble.com',
+            'CMS'               => 'Botble CMS',
             'CMS-Version'       => get_cms_version(),
             'Authorization-At'  => setting('membership_authorization_at'),
             'Activated-License' => !empty(setting('licensed_to')) ? 'Yes' : 'No',

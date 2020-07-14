@@ -8,13 +8,13 @@
             <li class="nav-item">
                 <a href="#tab_settings" class="nav-link" data-toggle="tab">{{ trans('plugins/language::language.settings') }}</a>
             </li>
-            {!! apply_filters(BASE_FILTER_REGISTER_CONTENT_TABS, null, new \Platform\Language\Models\Language) !!}
+            {!! apply_filters(BASE_FILTER_REGISTER_CONTENT_TABS, null, new \Botble\Language\Models\Language) !!}
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tab_detail">
                 <div class="row">
                     <div class="col-md-5">
-                        @php do_action(BASE_ACTION_META_BOXES, 'top', new \Platform\Language\Models\Language) @endphp
+                        @php do_action(BASE_ACTION_META_BOXES, 'top', new \Botble\Language\Models\Language) @endphp
                         <div class="main-form">
                             <div class="form-wrap">
                                 <div class="form-group">
@@ -78,7 +78,7 @@
                                 </p>
                             </div>
                         </div>
-                        @php do_action(BASE_ACTION_META_BOXES, 'advanced', new \Platform\Language\Models\Language) @endphp
+                        @php do_action(BASE_ACTION_META_BOXES, 'advanced', new \Botble\Language\Models\Language) @endphp
                     </div>
                     <div class="col-md-7">
                         <div class="table-responsive">
@@ -86,12 +86,12 @@
                                 <thead>
                                 <tr>
                                     <th class="text-left"><span>{{ trans('plugins/language::language.full_name') }}</span></th>
-                                    <th><span>{{ trans('plugins/language::language.locale') }}</span></th>
-                                    <th><span>{{ trans('plugins/language::language.code') }}</span></th>
-                                    <th><span>{{ trans('plugins/language::language.default_language') }}</span></th>
-                                    <th><span>{{ trans('plugins/language::language.order') }}</span></th>
-                                    <th><span>{{ trans('plugins/language::language.flag') }}</span></th>
-                                    <th><span>{{ trans('plugins/language::language.actions') }}</span></th>
+                                    <th class="text-center"><span>{{ trans('plugins/language::language.locale') }}</span></th>
+                                    <th class="text-center"><span>{{ trans('plugins/language::language.code') }}</span></th>
+                                    <th class="text-center"><span>{{ trans('plugins/language::language.default_language') }}</span></th>
+                                    <th class="text-center"><span>{{ trans('plugins/language::language.order') }}</span></th>
+                                    <th class="text-center"><span>{{ trans('plugins/language::language.flag') }}</span></th>
+                                    <th class="text-center"><span>{{ trans('plugins/language::language.actions') }}</span></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -192,7 +192,7 @@
         'type' => 'danger',
         'name' => 'modal-confirm-delete',
         'title' => trans('core/base::tables.confirm_delete'),
-        'content' => 'Do you really want to delete this language? It also deletes all items in this language and cannot rollback!',
+        'content' => __('Do you really want to delete this language? It also deletes all items in this language and cannot rollback!'),
         'action_name' => trans('core/base::tables.delete'),
         'action_button_attributes' => [
             'class' => 'delete-crud-entry',

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Traits;
+namespace Botble\Base\Traits;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;

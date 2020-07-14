@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Member\Http\Requests\API;
+namespace Botble\Member\Http\Requests\API;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class ForgotPasswordRequest extends Request
 {

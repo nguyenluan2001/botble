@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\AuditLog;
+namespace Botble\AuditLog;
 
-use Platform\ACL\Models\User;
-use Platform\AuditLog\Events\AuditHandlerEvent;
+use Botble\ACL\Models\User;
+use Botble\AuditLog\Events\AuditHandlerEvent;
 use Eloquent;
 use stdClass;
 

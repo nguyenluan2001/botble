@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Http\Responses;
+namespace Botble\Base\Http\Responses;
 
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\JsonResponse;

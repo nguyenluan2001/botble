@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Assets;
+namespace Botble\Assets;
 
 use Illuminate\Config\Repository;
 use Illuminate\Support\Arr;

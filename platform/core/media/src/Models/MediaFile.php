@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Media\Models;
+namespace Botble\Media\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;

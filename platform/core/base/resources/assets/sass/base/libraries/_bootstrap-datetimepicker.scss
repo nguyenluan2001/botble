@@ -5,11 +5,11 @@ Bootstrap  Datetimepicker
 .datetimepicker table td {
     color: #000000;
     font-weight: 300 !important;
-    font-family: 'Open Sans' !important;
+    font-family: $font-family-primary;
 }
 
 .datetimepicker table th {
-    font-family: 'Open Sans' !important;
+    font-family: $font-family-primary;
     font-weight: 400 !important;
 }
 

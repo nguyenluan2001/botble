@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Member\Repositories\Caches;
+namespace Botble\Member\Repositories\Caches;
 
-use Platform\Member\Repositories\Interfaces\MemberInterface;
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class MemberCacheDecorator extends CacheAbstractDecorator implements MemberInterface
 {

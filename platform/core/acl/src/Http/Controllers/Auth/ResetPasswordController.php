@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\ACL\Http\Controllers\Auth;
+namespace Botble\ACL\Http\Controllers\Auth;
 
 use Assets;
-use Platform\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Controllers\BaseController;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\View\Factory;
-use Platform\ACL\Traits\ResetsPasswords;
+use Botble\ACL\Traits\ResetsPasswords;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

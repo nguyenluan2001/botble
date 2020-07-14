@@ -1,10 +1,10 @@
 {
   "name": "botble/{-name}",
-  "description": "{Name} package for Laravel CMS application",
+  "description": "{Name} package for Botble CMS application",
   "type": "package",
   "autoload": {
     "psr-4": {
-      "Platform\\{Name}\\": "src"
+      "Botble\\{Name}\\": "src"
     }
   },
   "require": {
@@ -13,7 +13,7 @@
   "extra":{
     "laravel":{
       "providers":[
-        "Platform\\{Name}\\Providers\\{Name}ServiceProvider"
+        "Botble\\{Name}\\Providers\\{Name}ServiceProvider"
       ]
     }
   }

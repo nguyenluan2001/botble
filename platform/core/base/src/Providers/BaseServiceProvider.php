@@ -1,21 +1,21 @@
 <?php
 
-namespace Platform\Base\Providers;
+namespace Botble\Base\Providers;
 
-use Platform\Base\Exceptions\Handler;
-use Platform\Base\Http\Middleware\DisableInDemoModeMiddleware;
-use Platform\Base\Http\Middleware\HttpsProtocolMiddleware;
-use Platform\Base\Http\Middleware\LocaleMiddleware;
-use Platform\Base\Models\MetaBox as MetaBoxModel;
-use Platform\Base\Repositories\Caches\MetaBoxCacheDecorator;
-use Platform\Base\Repositories\Eloquent\MetaBoxRepository;
-use Platform\Base\Repositories\Interfaces\MetaBoxInterface;
-use Platform\Base\Supports\CustomResourceRegistrar;
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
-use Platform\Setting\Providers\SettingServiceProvider;
-use Platform\Setting\Supports\SettingStore;
-use Platform\Base\Supports\BreadcrumbsManager;
+use Botble\Base\Exceptions\Handler;
+use Botble\Base\Http\Middleware\DisableInDemoModeMiddleware;
+use Botble\Base\Http\Middleware\HttpsProtocolMiddleware;
+use Botble\Base\Http\Middleware\LocaleMiddleware;
+use Botble\Base\Models\MetaBox as MetaBoxModel;
+use Botble\Base\Repositories\Caches\MetaBoxCacheDecorator;
+use Botble\Base\Repositories\Eloquent\MetaBoxRepository;
+use Botble\Base\Repositories\Interfaces\MetaBoxInterface;
+use Botble\Base\Supports\CustomResourceRegistrar;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Setting\Providers\SettingServiceProvider;
+use Botble\Setting\Supports\SettingStore;
+use Botble\Base\Supports\BreadcrumbsManager;
 use Event;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Debug\ExceptionHandler;
@@ -59,7 +59,7 @@ class BaseServiceProvider extends ServiceProvider
         $config->set([
             'app.timezone'                     => $setting->get('time_zone', $config->get('app.timezone')),
             'ziggy.blacklist'                  => ['debugbar.*'],
-            'session.cookie'                   => 'platform_session',
+            'session.cookie'                   => 'botble_session',
             'filesystems.default'              => $setting->get('media_driver', 'public'),
             'filesystems.disks.s3.key'         => $setting
                 ->get('media_aws_access_key_id', $config->get('filesystems.disks.s3.key')),

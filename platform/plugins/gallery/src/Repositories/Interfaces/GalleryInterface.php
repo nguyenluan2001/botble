@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Gallery\Repositories\Interfaces;
+namespace Botble\Gallery\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface GalleryInterface extends RepositoryInterface
 {

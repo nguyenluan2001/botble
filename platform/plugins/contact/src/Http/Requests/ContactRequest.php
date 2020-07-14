@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Contact\Http\Requests;
+namespace Botble\Contact\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class ContactRequest extends Request
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
 use BadMethodCallException;
 use JsonSerializable;
@@ -45,7 +45,7 @@ abstract class Enum implements JsonSerializable
             return;
         }
 
-        if (!$this->isValid($value)) {
+        if ($value !== null && !$this->isValid($value)) {
             Log::error('Value ' . $value . ' is not part of the enum ' . get_called_class());
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Assets;
+namespace Botble\Assets;
 
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Support\HtmlString;

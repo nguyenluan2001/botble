@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\PluginManagement\Commands;
+namespace Botble\PluginManagement\Commands;
 
-use Platform\PluginManagement\Services\PluginService;
+use Botble\PluginManagement\Services\PluginService;
 use Illuminate\Console\Command;
 
 class PluginActivateCommand extends Command

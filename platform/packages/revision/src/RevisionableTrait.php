@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Revision;
+namespace Botble\Revision;
 
 use Illuminate\Support\Facades\Auth;
 use DateTime;

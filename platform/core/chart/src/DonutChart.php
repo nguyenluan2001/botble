@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Chart;
+namespace Botble\Chart;
 
-use Platform\Chart\Supports\Chart;
-use Platform\Chart\Supports\ChartTypes;
+use Botble\Chart\Supports\Chart;
+use Botble\Chart\Supports\ChartTypes;
 
 class DonutChart extends Chart
 {

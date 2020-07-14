@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Block;
+namespace Botble\Block;
 
 use Schema;
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
 
 class Plugin extends PluginOperationAbstract
 {

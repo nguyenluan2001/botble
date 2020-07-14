@@ -1,23 +1,23 @@
 <?php
 
-namespace Platform\Setting\Http\Controllers;
+namespace Botble\Setting\Http\Controllers;
 
 use Assets;
-use Platform\Base\Supports\Core;
-use Platform\Setting\Http\Requests\EmailTemplateRequest;
-use Platform\Setting\Http\Requests\LicenseSettingRequest;
-use Platform\Setting\Http\Requests\MediaSettingRequest;
-use Platform\Setting\Http\Requests\SendTestEmailRequest;
-use Platform\Setting\Repositories\Interfaces\SettingInterface;
-use Platform\Setting\Supports\SettingStore;
+use Botble\Base\Supports\Core;
+use Botble\Setting\Http\Requests\EmailTemplateRequest;
+use Botble\Setting\Http\Requests\LicenseSettingRequest;
+use Botble\Setting\Http\Requests\MediaSettingRequest;
+use Botble\Setting\Http\Requests\SendTestEmailRequest;
+use Botble\Setting\Repositories\Interfaces\SettingInterface;
+use Botble\Setting\Supports\SettingStore;
 use Carbon\Carbon;
 use EmailHandler;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Facades\File;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Throwable;
@@ -249,22 +249,17 @@ class SettingController extends BaseController
      */
     public function getVerifyLicense(Core $coreApi, BaseHttpResponse $response)
     {
-        // if (!File::exists(storage_path('.license'))) {
-        //    return $response->setError()->setMessage('Your license is invalid, please contact support.');
-        // }
+        if (!File::exists(storage_path('.license'))) {
+            return $response->setError()->setMessage('Your license is invalid, please contact support.');
+        }
 
-        // $result = $coreApi->verifyLicense(true);
-        $result = [
-            'status' => true,
-            'message' => 'Verified! Thanks for purchasing.'
-        ];
+        $result = $coreApi->verifyLicense(true);
 
         if (!$result['status']) {
             return $response->setError()->setMessage($result['message']);
         }
 
-        // $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
-        $activatedAt = Carbon::now('Asia/Ho_Chi_Minh')->addYears(1000);
+        $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
 
         $data = [
             'activated_at' => $activatedAt->format('M d Y'),

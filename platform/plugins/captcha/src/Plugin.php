@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Captcha;
+namespace Botble\Captcha;
 
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
 
 class Plugin extends PluginOperationAbstract
 {

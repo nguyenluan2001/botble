@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\Gallery\Tables;
+namespace Botble\Gallery\Tables;
 
-use Platform\Gallery\Models\Gallery;
+use Botble\Gallery\Models\Gallery;
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
+use Botble\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Validation\Rule;

@@ -1,15 +1,15 @@
 <?php
 
-namespace Platform\{Module}\Providers;
+namespace Botble\{Module}\Providers;
 
-use Platform\{Module}\Models\{Name};
+use Botble\{Module}\Models\{Name};
 use Illuminate\Support\ServiceProvider;
-use Platform\{Module}\Repositories\Caches\{Name}CacheDecorator;
-use Platform\{Module}\Repositories\Eloquent\{Name}Repository;
-use Platform\{Module}\Repositories\Interfaces\{Name}Interface;
-use Platform\Base\Supports\Helper;
+use Botble\{Module}\Repositories\Caches\{Name}CacheDecorator;
+use Botble\{Module}\Repositories\Eloquent\{Name}Repository;
+use Botble\{Module}\Repositories\Interfaces\{Name}Interface;
+use Botble\Base\Supports\Helper;
 use Event;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Illuminate\Routing\Events\RouteMatched;
 
 class {Module}ServiceProvider extends ServiceProvider

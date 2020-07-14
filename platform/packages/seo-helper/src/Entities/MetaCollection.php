@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\SeoHelper\Entities;
+namespace Botble\SeoHelper\Entities;
 
-use Platform\SeoHelper\Bases\MetaCollection as BaseMetaCollection;
-use Platform\SeoHelper\Helpers\Meta;
+use Botble\SeoHelper\Bases\MetaCollection as BaseMetaCollection;
+use Botble\SeoHelper\Helpers\Meta;
 
 class MetaCollection extends BaseMetaCollection
 {

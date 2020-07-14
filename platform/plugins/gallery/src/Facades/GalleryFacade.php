@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Gallery\Facades;
+namespace Botble\Gallery\Facades;
 
-use Platform\Gallery\Gallery;
+use Botble\Gallery\Gallery;
 use Illuminate\Support\Facades\Facade;
 
 class GalleryFacade extends Facade

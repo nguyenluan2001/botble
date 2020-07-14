@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Blog\Repositories\Eloquent;
+namespace Botble\Blog\Repositories\Eloquent;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Eloquent;
 use Exception;
 use Illuminate\Database\Query\Builder;

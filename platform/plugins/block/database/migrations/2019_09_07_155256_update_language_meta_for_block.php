@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Block\Models\Block;
+use Botble\Block\Models\Block;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateLanguageMetaForBlock extends Migration

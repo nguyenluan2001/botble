@@ -1,10 +1,10 @@
 {
     "name": "botble/optimize",
-    "description": "Optimize page speed package for Laravel CMS application",
+    "description": "Optimize page speed package for Botble CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Platform\\Optimize\\": "src"
+            "Botble\\Optimize\\": "src"
         }
     },
     "require": {
@@ -13,7 +13,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\Optimize\\Providers\\OptimizeServiceProvider"
+                "Botble\\Optimize\\Providers\\OptimizeServiceProvider"
             ]
         }
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Member\Forms;
+namespace Botble\Member\Forms;
 
 use Assets;
-use Platform\Base\Forms\FormAbstract;
-use Platform\Member\Http\Requests\MemberCreateRequest;
-use Platform\Member\Models\Member;
+use Botble\Base\Forms\FormAbstract;
+use Botble\Member\Http\Requests\MemberCreateRequest;
+use Botble\Member\Models\Member;
 
 class MemberForm extends FormAbstract
 {

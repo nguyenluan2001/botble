@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\JsValidation\Facades;
+namespace Botble\JsValidation\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

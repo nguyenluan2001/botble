@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\JsValidation\Exceptions;
+namespace Botble\JsValidation\Exceptions;
 
 use Exception;
 

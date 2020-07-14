@@ -1,14 +1,14 @@
 <?php
 
-namespace Platform\{Module}\Tables;
+namespace Botble\{Module}\Tables;
 
 use Auth;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\{Module}\Repositories\Interfaces\{Name}Interface;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\{Module}\Repositories\Interfaces\{Name}Interface;
+use Botble\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;
-use Platform\{Module}\Models\{Name};
+use Botble\{Module}\Models\{Name};
 use Html;
 
 class {Name}Table extends TableAbstract

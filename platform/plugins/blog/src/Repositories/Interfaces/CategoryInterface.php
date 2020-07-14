@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Blog\Repositories\Interfaces;
+namespace Botble\Blog\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 use Illuminate\Support\Collection;
 
 interface CategoryInterface extends RepositoryInterface

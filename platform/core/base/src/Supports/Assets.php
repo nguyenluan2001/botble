@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
-use Platform\Assets\Assets as BaseAssets;
-use Platform\Assets\HtmlBuilder;
+use Botble\Assets\Assets as BaseAssets;
+use Botble\Assets\HtmlBuilder;
 use File;
 use Illuminate\Config\Repository;
 use Illuminate\Support\Str;
@@ -67,30 +67,7 @@ class Assets extends BaseAssets
      */
     public function getAdminLocales(): array
     {
-        $languages = [];
-        $locales = scan_folder(resource_path('lang'));
-        if (in_array('vendor', $locales)) {
-            $locales = array_merge($locales, scan_folder(resource_path('lang/vendor')));
-        }
-
-        foreach ($locales as $locale) {
-            if ($locale === 'vendor') {
-                continue;
-            }
-            foreach (Language::getListLanguages() as $key => $language) {
-                if (in_array($key, [$locale, str_replace('-', '_', $locale)]) ||
-                    in_array($language[0], [$locale, str_replace('-', '_', $locale)])
-                ) {
-                    $languages[$locale] = [
-                        'locale' => $locale,
-                        'name'   => $language[2],
-                        'flag'   => $language[4],
-                    ];
-                }
-            }
-        }
-
-        return $languages;
+        return Language::getAvailableLocales();
     }
 
     /**

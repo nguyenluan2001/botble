@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Page\Providers;
+namespace Botble\Page\Providers;
 
 use Auth;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Dashboard\Supports\DashboardWidgetInstance;
-use Platform\Page\Models\Page;
-use Platform\Page\Repositories\Interfaces\PageInterface;
-use Platform\SeoHelper\SeoOpenGraph;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
+use Botble\Page\Models\Page;
+use Botble\Page\Repositories\Interfaces\PageInterface;
+use Botble\SeoHelper\SeoOpenGraph;
 use Eloquent;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Arr;

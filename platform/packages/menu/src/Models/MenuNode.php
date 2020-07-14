@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Menu\Models;
+namespace Botble\Menu\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;

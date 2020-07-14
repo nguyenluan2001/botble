@@ -1,6 +1,6 @@
 <?php
 
-use Platform\ACL\Enums\UserStatusEnum;
+use Botble\ACL\Enums\UserStatusEnum;
 
 return [
     'delete_user_logged_in'      => 'Không thể xóa người dùng đang đăng nhập hệ thống!',

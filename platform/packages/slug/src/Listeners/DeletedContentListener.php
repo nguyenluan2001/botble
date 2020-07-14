@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Slug\Listeners;
+namespace Botble\Slug\Listeners;
 
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Slug\Repositories\Interfaces\SlugInterface;
 use Exception;
 use SlugHelper;
 

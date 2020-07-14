@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Assets\Facades;
+namespace Botble\Assets\Facades;
 
-use Platform\Assets\Assets;
+use Botble\Assets\Assets;
 use Illuminate\Support\Facades\Facade;
 
 /**

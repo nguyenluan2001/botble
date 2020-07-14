@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\WidgetGenerator\Commands;
+namespace Botble\WidgetGenerator\Commands;
 
-use Platform\Widget\Repositories\Interfaces\WidgetInterface;
+use Botble\Widget\Repositories\Interfaces\WidgetInterface;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Analytics\Cache;
+namespace Botble\Analytics\Cache;
 
 use DateInterval;
 use DateTimeImmutable;

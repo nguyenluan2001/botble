@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Entities;
+namespace Botble\SeoHelper\Entities;
 
-use Platform\SeoHelper\Contracts\Entities\AnalyticsContract;
+use Botble\SeoHelper\Contracts\Entities\AnalyticsContract;
 
 class Analytics implements AnalyticsContract
 {

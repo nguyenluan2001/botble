@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Setting\Supports;
+namespace Botble\Setting\Supports;
 
-use Platform\Base\Supports\Helper;
+use Botble\Base\Supports\Helper;
 use Closure;
 use Exception;
 use File;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Listeners;
+namespace Botble\SeoHelper\Listeners;
 
-use Platform\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
 use Exception;
 use SeoHelper;
 

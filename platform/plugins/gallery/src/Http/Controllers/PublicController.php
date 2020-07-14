@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Gallery\Http\Controllers;
+namespace Botble\Gallery\Http\Controllers;
 
 use Auth;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Gallery\Models\Gallery as GalleryModel;
-use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
-use Platform\SeoHelper\SeoOpenGraph;
-use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Gallery\Models\Gallery as GalleryModel;
+use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
+use Botble\SeoHelper\SeoOpenGraph;
+use Botble\Slug\Repositories\Interfaces\SlugInterface;
 use Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

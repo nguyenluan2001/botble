@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Member\Http\Requests;
+namespace Botble\Member\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class AvatarRequest extends Request
 {

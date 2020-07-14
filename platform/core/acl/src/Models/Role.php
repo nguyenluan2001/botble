@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\ACL\Models;
+namespace Botble\ACL\Models;
 
-use Platform\ACL\Traits\PermissionTrait;
-use Platform\Base\Models\BaseModel;
+use Botble\ACL\Traits\PermissionTrait;
+use Botble\Base\Models\BaseModel;
 use Exception;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

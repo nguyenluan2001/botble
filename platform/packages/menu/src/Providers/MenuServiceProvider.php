@@ -1,21 +1,21 @@
 <?php
 
-namespace Platform\Menu\Providers;
+namespace Botble\Menu\Providers;
 
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
-use Platform\Menu\Models\Menu as MenuModel;
-use Platform\Menu\Models\MenuLocation;
-use Platform\Menu\Models\MenuNode;
-use Platform\Menu\Repositories\Caches\MenuCacheDecorator;
-use Platform\Menu\Repositories\Caches\MenuLocationCacheDecorator;
-use Platform\Menu\Repositories\Caches\MenuNodeCacheDecorator;
-use Platform\Menu\Repositories\Eloquent\MenuLocationRepository;
-use Platform\Menu\Repositories\Eloquent\MenuNodeRepository;
-use Platform\Menu\Repositories\Eloquent\MenuRepository;
-use Platform\Menu\Repositories\Interfaces\MenuInterface;
-use Platform\Menu\Repositories\Interfaces\MenuLocationInterface;
-use Platform\Menu\Repositories\Interfaces\MenuNodeInterface;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Menu\Models\Menu as MenuModel;
+use Botble\Menu\Models\MenuLocation;
+use Botble\Menu\Models\MenuNode;
+use Botble\Menu\Repositories\Caches\MenuCacheDecorator;
+use Botble\Menu\Repositories\Caches\MenuLocationCacheDecorator;
+use Botble\Menu\Repositories\Caches\MenuNodeCacheDecorator;
+use Botble\Menu\Repositories\Eloquent\MenuLocationRepository;
+use Botble\Menu\Repositories\Eloquent\MenuNodeRepository;
+use Botble\Menu\Repositories\Eloquent\MenuRepository;
+use Botble\Menu\Repositories\Interfaces\MenuInterface;
+use Botble\Menu\Repositories\Interfaces\MenuLocationInterface;
+use Botble\Menu\Repositories\Interfaces\MenuNodeInterface;
 use Event;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\ServiceProvider;

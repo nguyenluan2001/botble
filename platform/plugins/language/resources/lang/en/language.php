@@ -51,8 +51,4 @@ return [
     'show_all'                                                  => 'Show all',
     'change_language'                                           => 'Language',
     'language_show_default_item_if_current_version_not_existed' => 'Show item in default language if it is not existed in current language',
-    'theme-translations'                                        => 'Theme translations',
-    'translate_from'                                            => 'Translate from',
-    'to'                                                        => 'to',
-    'no_other_languages'                                        => 'No other language to translate!',
 ];

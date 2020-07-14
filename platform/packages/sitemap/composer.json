@@ -6,13 +6,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Platform\\Sitemap\\": "src"
+			"Botble\\Sitemap\\": "src"
 		}
 	},
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Platform\\Sitemap\\Providers\\SitemapServiceProvider"
+				"Botble\\Sitemap\\Providers\\SitemapServiceProvider"
 			]
 		}
 	},

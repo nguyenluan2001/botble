@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Theme\Supports;
+namespace Botble\Theme\Supports;
 
 use AdminBar;
 use Illuminate\Contracts\Container\BindingResolutionException;
-use Platform\Sitemap\Sitemap;
+use Botble\Sitemap\Sitemap;
 
 class SiteMapManager
 {

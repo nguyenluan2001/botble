@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\JsValidation\Javascript;
+namespace Botble\JsValidation\Javascript;
 
-use Platform\JsValidation\Support\DelegatedValidator;
-use Platform\JsValidation\Support\UseDelegatedValidatorTrait;
+use Botble\JsValidation\Support\DelegatedValidator;
+use Botble\JsValidation\Support\UseDelegatedValidatorTrait;
 
 class ValidatorHandler
 {

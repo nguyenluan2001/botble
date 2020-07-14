@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Block\Models;
+namespace Botble\Block\Models;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Traits\EnumCastable;
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Traits\EnumCastable;
+use Botble\Base\Models\BaseModel;
 
 class Block extends BaseModel
 {

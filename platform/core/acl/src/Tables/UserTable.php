@@ -1,15 +1,15 @@
 <?php
 
-namespace Platform\ACL\Tables;
+namespace Botble\ACL\Tables;
 
-use Platform\ACL\Models\User;
+use Botble\ACL\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Platform\ACL\Enums\UserStatusEnum;
-use Platform\ACL\Repositories\Interfaces\ActivationInterface;
-use Platform\ACL\Repositories\Interfaces\UserInterface;
-use Platform\ACL\Services\ActivateUserService;
-use Platform\Base\Events\UpdatedContentEvent;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\ACL\Enums\UserStatusEnum;
+use Botble\ACL\Repositories\Interfaces\ActivationInterface;
+use Botble\ACL\Repositories\Interfaces\UserInterface;
+use Botble\ACL\Services\ActivateUserService;
+use Botble\Base\Events\UpdatedContentEvent;
+use Botble\Table\Abstracts\TableAbstract;
 use Exception;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;

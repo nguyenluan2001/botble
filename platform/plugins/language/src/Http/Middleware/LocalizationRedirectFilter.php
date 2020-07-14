@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Language\Http\Middleware;
+namespace Botble\Language\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\RedirectResponse;

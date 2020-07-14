@@ -265,7 +265,7 @@ return [
                 'location' => 'footer',
                 'src'      => [
                     'local' => '/vendor/core/libraries/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js',
-                    'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/js/bootstrap-datetimepicker.min.js',
+                    'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js',
                 ],
             ],
             'jquery-waypoints'       => [
@@ -445,7 +445,7 @@ return [
                 'location' => 'header',
                 'src'      => [
                     'local' => '/vendor/core/libraries/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
-                    'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/css/bootstrap-datetimepicker.min.css',
+                    'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css',
                 ],
             ],
             'colorpicker'         => [

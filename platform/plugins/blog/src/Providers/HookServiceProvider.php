@@ -1,30 +1,30 @@
 <?php
 
-namespace Platform\Blog\Providers;
+namespace Botble\Blog\Providers;
 
 use Assets;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Blog\Models\Category;
-use Platform\Blog\Models\Post;
-use Platform\Blog\Models\Tag;
-use Platform\Dashboard\Supports\DashboardWidgetInstance;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Blog\Models\Category;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Models\Tag;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Routing\Events\RouteMatched;
-use Platform\Base\Supports\Helper;
-use Platform\Page\Models\Page;
-use Platform\Page\Repositories\Interfaces\PageInterface;
-use Platform\SeoHelper\SeoOpenGraph;
+use Botble\Base\Supports\Helper;
+use Botble\Page\Models\Page;
+use Botble\Page\Repositories\Interfaces\PageInterface;
+use Botble\SeoHelper\SeoOpenGraph;
 use Eloquent;
 use Event;
 use Html;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
-use Platform\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Blog\Repositories\Interfaces\TagInterface;
 use Illuminate\Support\Str;
 use Menu;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Illuminate\Support\Facades\Auth;
 use SeoHelper;
 use stdClass;

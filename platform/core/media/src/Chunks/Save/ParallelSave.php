@@ -1,14 +1,14 @@
 <?php
 
-namespace Platform\Media\Chunks\Save;
+namespace Botble\Media\Chunks\Save;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
-use Platform\Media\Chunks\ChunkFile;
-use Platform\Media\Chunks\Exceptions\MissingChunkFilesException;
-use Platform\Media\Chunks\FileMerger;
-use Platform\Media\Chunks\Handler\AbstractHandler;
-use Platform\Media\Chunks\Storage\ChunkStorage;
+use Botble\Media\Chunks\ChunkFile;
+use Botble\Media\Chunks\Exceptions\MissingChunkFilesException;
+use Botble\Media\Chunks\FileMerger;
+use Botble\Media\Chunks\Handler\AbstractHandler;
+use Botble\Media\Chunks\Storage\ChunkStorage;
 
 class ParallelSave extends ChunkSave
 {
@@ -74,7 +74,7 @@ class ParallelSave extends ChunkSave
 
     /**
      * {@inheritDoc}
-     * @throws \Platform\Media\Chunks\Exceptions\ChunkSaveException
+     * @throws \Botble\Media\Chunks\Exceptions\ChunkSaveException
      * @throws MissingChunkFilesException
      */
     protected function buildFullFileFromChunks()

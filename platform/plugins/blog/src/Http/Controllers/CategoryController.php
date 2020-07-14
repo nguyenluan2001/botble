@@ -1,22 +1,22 @@
 <?php
 
-namespace Platform\Blog\Http\Controllers;
+namespace Botble\Blog\Http\Controllers;
 
-use Platform\Base\Events\BeforeEditContentEvent;
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Blog\Forms\CategoryForm;
-use Platform\Blog\Tables\CategoryTable;
-use Platform\Blog\Http\Requests\CategoryRequest;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Base\Events\BeforeEditContentEvent;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Blog\Forms\CategoryForm;
+use Botble\Blog\Tables\CategoryTable;
+use Botble\Blog\Http\Requests\CategoryRequest;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
 use Illuminate\View\View;
 use Throwable;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Slug\Providers;
+namespace Botble\Slug\Providers;
 
 use Assets;
-use Platform\Base\Forms\FormAbstract;
-use Platform\Base\Models\BaseModel;
-use Platform\Slug\Forms\Fields\PermalinkField;
+use Botble\Base\Forms\FormAbstract;
+use Botble\Base\Models\BaseModel;
+use Botble\Slug\Forms\Fields\PermalinkField;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;

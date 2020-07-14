@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\ACL\Repositories\Eloquent;
+namespace Botble\ACL\Repositories\Eloquent;
 
-use Platform\ACL\Repositories\Interfaces\RoleInterface;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\ACL\Repositories\Interfaces\RoleInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Illuminate\Support\Str;
 
 class RoleRepository extends RepositoriesAbstract implements RoleInterface

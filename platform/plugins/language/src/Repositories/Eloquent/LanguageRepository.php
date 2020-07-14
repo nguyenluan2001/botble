@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Language\Repositories\Eloquent;
+namespace Botble\Language\Repositories\Eloquent;
 
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Platform\Language\Repositories\Interfaces\LanguageInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Language\Repositories\Interfaces\LanguageInterface;
 
 class LanguageRepository extends RepositoriesAbstract implements LanguageInterface
 {

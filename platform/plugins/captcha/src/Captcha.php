@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Captcha;
+namespace Botble\Captcha;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
@@ -63,6 +63,10 @@ class Captcha
     {
         if (is_string($attributes)) {
             $attributes = [];
+        }
+
+        if (!Arr::get($options, 'lang')) {
+            $options['lang'] = app()->getLocale();
         }
 
         $isMultiple = (bool)$this->optionOrConfig($options, 'options.multiple');

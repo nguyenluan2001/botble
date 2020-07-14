@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Contact\Providers;
+namespace Botble\Contact\Providers;
 
 use Html;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use Platform\Contact\Repositories\Interfaces\ContactInterface;
+use Botble\Contact\Repositories\Interfaces\ContactInterface;
 
 class HookServiceProvider extends ServiceProvider
 {

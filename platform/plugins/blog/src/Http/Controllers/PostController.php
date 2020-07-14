@@ -1,28 +1,28 @@
 <?php
 
-namespace Platform\Blog\Http\Controllers;
+namespace Botble\Blog\Http\Controllers;
 
-use Platform\Base\Events\BeforeEditContentEvent;
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Traits\HasDeleteManyItemsTrait;
-use Platform\Blog\Forms\PostForm;
-use Platform\Blog\Http\Requests\PostRequest;
-use Platform\Blog\Models\Post;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Platform\Blog\Tables\PostTable;
-use Platform\Blog\Repositories\Interfaces\TagInterface;
-use Platform\Blog\Services\StoreCategoryService;
-use Platform\Blog\Services\StoreTagService;
+use Botble\Base\Events\BeforeEditContentEvent;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Traits\HasDeleteManyItemsTrait;
+use Botble\Blog\Forms\PostForm;
+use Botble\Blog\Http\Requests\PostRequest;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Tables\PostTable;
+use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Blog\Services\StoreCategoryService;
+use Botble\Blog\Services\StoreTagService;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
 use Illuminate\View\View;
 use Throwable;
 

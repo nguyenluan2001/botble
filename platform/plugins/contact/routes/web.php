@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Platform\Contact\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Botble\Contact\Http\Controllers', 'middleware' => 'web'], function () {
     Route::post('contact/send', [
         'as'   => 'public.send.contact',
         'uses' => 'PublicController@postSendContact',

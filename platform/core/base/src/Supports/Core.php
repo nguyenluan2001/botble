@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
 use Illuminate\Support\Arr;
 
@@ -52,7 +52,7 @@ class Core
      */
     public function __construct()
     {
-        $this->apiUrl = 'https://license.gistensal.com/';
+        $this->apiUrl = 'https://license.botble.com/';
         $this->apiKey = 'CAF4B17F6D3F656125F9';
         $this->apiLanguage = 'english';
         $this->verificationPeriod = 1;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Member\Http\Controllers;
+namespace Botble\Member\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Platform\ACL\Traits\LogoutGuardTrait;
-use Platform\ACL\Traits\AuthenticatesUsers;
+use Botble\ACL\Traits\LogoutGuardTrait;
+use Botble\ACL\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -39,7 +39,6 @@ class LoginController extends Controller
      * Create a new controller instance.
      *
      * @return void
-     *
      */
     public function __construct()
     {
@@ -58,7 +57,6 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     *
      */
     public function showLoginForm()
     {
@@ -70,7 +68,6 @@ class LoginController extends Controller
      * Get the guard to be used during authentication.
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
-     *
      */
     protected function guard()
     {
@@ -82,7 +79,6 @@ class LoginController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Illuminate\Validation\ValidationException
      * @throws \Illuminate\Validation\ValidationException
-     *
      */
     public function login(Request $request)
     {
@@ -115,7 +111,6 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return bool
      * @throws ValidationException
-     *
      */
     protected function attemptLogin(Request $request)
     {

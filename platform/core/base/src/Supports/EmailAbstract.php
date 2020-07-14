@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

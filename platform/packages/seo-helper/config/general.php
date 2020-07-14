@@ -75,7 +75,7 @@ return [
     ],
 
     'supported' => [
-        'Platform\Page\Models\Page',
+        'Botble\Page\Models\Page',
     ],
 
 ];

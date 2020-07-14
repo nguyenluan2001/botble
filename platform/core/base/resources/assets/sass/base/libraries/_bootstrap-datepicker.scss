@@ -36,12 +36,12 @@ Bootstrap Datepicker
 .datepicker table td {
     color: #000000;
     font-weight: 300 !important;
-    font-family: 'Open Sans' !important;
+    font-family: $font-family-primary;
 }
 
 .datepicker table th {
     color: #333333;
-    font-family: 'Open Sans' !important;
+    font-family: $font-family-primary;
     font-weight: 400 !important;
 }
 

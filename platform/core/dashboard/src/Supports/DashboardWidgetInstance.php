@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Dashboard\Supports;
+namespace Botble\Dashboard\Supports;
 
 use Illuminate\Support\Facades\Auth;
-use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
 use Illuminate\Support\Collection;
 use Throwable;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Captcha\Facades;
+namespace Botble\Captcha\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

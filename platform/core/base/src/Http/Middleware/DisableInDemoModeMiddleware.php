@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Http\Middleware;
+namespace Botble\Base\Http\Middleware;
 
-use Platform\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Closure;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;

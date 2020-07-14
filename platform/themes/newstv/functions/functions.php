@@ -42,7 +42,7 @@ theme_option()
         'label'      => __('Copyright'),
         'attributes' => [
             'name'    => 'copyright',
-            'value'   => __('© 2020 Laravel Technologies. All right reserved. Designed by Developer Team'),
+            'value'   => __('© 2020 Botble Technologies. All right reserved. Designed by Nghia Minh'),
             'options' => [
                 'class'        => 'form-control',
                 'placeholder'  => __('Change copyright'),

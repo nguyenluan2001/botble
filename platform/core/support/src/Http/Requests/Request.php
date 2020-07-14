@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Support\Http\Requests;
+namespace Botble\Support\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Concerns\InteractsWithInput;

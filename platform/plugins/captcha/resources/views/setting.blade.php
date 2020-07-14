@@ -38,7 +38,7 @@
                 <label class="hrv-label">
                     <input type="radio" name="captcha_type" class="hrv-radio"
                            value="v3"
-                           @if (!setting('captcha_type', 'v2') == 'v3') checked @endif>{{ __('V3 (Verify requests with a score)') }}
+                           @if (setting('captcha_type', 'v2') == 'v3') checked @endif>{{ __('V3 (Verify requests with a score)') }}
                 </label>
             </div>
 

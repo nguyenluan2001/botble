@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\CustomField\Forms;
+namespace Botble\CustomField\Forms;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Forms\FormAbstract;
-use Platform\CustomField\Http\Requests\CreateFieldGroupRequest;
-use Platform\CustomField\Models\FieldGroup;
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Forms\FormAbstract;
+use Botble\CustomField\Http\Requests\CreateFieldGroupRequest;
+use Botble\CustomField\Models\FieldGroup;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
 use CustomField;
 
 class CustomFieldForm extends FormAbstract

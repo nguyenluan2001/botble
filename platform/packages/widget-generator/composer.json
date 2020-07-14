@@ -4,7 +4,7 @@
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Platform\\WidgetGenerator\\": "src"
+            "Botble\\WidgetGenerator\\": "src"
         }
     },
     "require": {
@@ -14,7 +14,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\WidgetGenerator\\Providers\\WidgetGeneratorServiceProvider"
+                "Botble\\WidgetGenerator\\Providers\\WidgetGeneratorServiceProvider"
             ]
         }
     }

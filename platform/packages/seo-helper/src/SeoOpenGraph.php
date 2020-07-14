@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\SeoHelper;
+namespace Botble\SeoHelper;
 
-use Platform\SeoHelper\Contracts\Entities\OpenGraphContract;
-use Platform\SeoHelper\Contracts\SeoOpenGraphContract;
+use Botble\SeoHelper\Contracts\Entities\OpenGraphContract;
+use Botble\SeoHelper\Contracts\SeoOpenGraphContract;
 use RvMedia;
 
 class SeoOpenGraph implements SeoOpenGraphContract

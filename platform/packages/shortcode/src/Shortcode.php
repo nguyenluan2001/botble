@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Shortcode;
+namespace Botble\Shortcode;
 
-use Platform\Shortcode\Compilers\ShortcodeCompiler;
+use Botble\Shortcode\Compilers\ShortcodeCompiler;
 use Illuminate\Support\Str;
 
 class Shortcode

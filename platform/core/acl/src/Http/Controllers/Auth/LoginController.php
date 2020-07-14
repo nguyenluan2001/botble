@@ -1,14 +1,14 @@
 <?php
 
-namespace Platform\ACL\Http\Controllers\Auth;
+namespace Botble\ACL\Http\Controllers\Auth;
 
 use Assets;
-use Platform\ACL\Repositories\Interfaces\ActivationInterface;
-use Platform\ACL\Repositories\Interfaces\UserInterface;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
+use Botble\ACL\Repositories\Interfaces\ActivationInterface;
+use Botble\ACL\Repositories\Interfaces\UserInterface;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\View\Factory;
-use Platform\ACL\Traits\AuthenticatesUsers;
+use Botble\ACL\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;

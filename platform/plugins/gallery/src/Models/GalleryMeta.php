@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Gallery\Models;
+namespace Botble\Gallery\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 
 class GalleryMeta extends BaseModel
 {

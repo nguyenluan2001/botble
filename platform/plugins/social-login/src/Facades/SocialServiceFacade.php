@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SocialLogin\Facades;
+namespace Botble\SocialLogin\Facades;
 
-use Platform\SocialLogin\Supports\SocialService;
+use Botble\SocialLogin\Supports\SocialService;
 use Illuminate\Support\Facades\Facade;
 
 class SocialServiceFacade extends Facade

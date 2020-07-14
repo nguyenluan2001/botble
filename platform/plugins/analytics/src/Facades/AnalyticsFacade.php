@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\Analytics\Facades;
+namespace Botble\Analytics\Facades;
 
-use Platform\Analytics\Analytics;
+use Botble\Analytics\Analytics;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Platform\Analytics\Analytics
+ * @see \Botble\Analytics\Analytics
  */
 class AnalyticsFacade extends Facade
 {

@@ -2,8 +2,8 @@
 
 return [
     'supported' => [
-        'Platform\Page\Models\Page',
-        'Platform\Blog\Models\Post',
-        'Platform\Blog\Models\Category',
+        'Botble\Page\Models\Page',
+        'Botble\Blog\Models\Post',
+        'Botble\Blog\Models\Category',
     ],
 ];

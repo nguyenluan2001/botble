@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Gallery\Forms;
+namespace Botble\Gallery\Forms;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Forms\FormAbstract;
-use Platform\Gallery\Http\Requests\GalleryRequest;
-use Platform\Gallery\Models\Gallery;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Forms\FormAbstract;
+use Botble\Gallery\Http\Requests\GalleryRequest;
+use Botble\Gallery\Models\Gallery;
 
 class GalleryForm extends FormAbstract
 {

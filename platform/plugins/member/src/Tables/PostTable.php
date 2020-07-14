@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Member\Tables;
+namespace Botble\Member\Tables;
 
-use Platform\Blog\Models\Post;
-use Platform\Member\Models\Member;
+use Botble\Blog\Models\Post;
+use Botble\Member\Models\Member;
 use Html;
 use Illuminate\Support\Arr;
 
-class PostTable extends \Platform\Blog\Tables\PostTable
+class PostTable extends \Botble\Blog\Tables\PostTable
 {
     /**
      * @var bool

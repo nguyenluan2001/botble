@@ -2,7 +2,7 @@
     "name": "NewsTV",
     "namespace": "Theme\\NewsTv\\",
     "description": "A magazine theme",
-    "author": "Laravel Technologies",
+    "author": "Botble Technologies",
     "version": "5.4",
     "required_plugins": [
         "blog",

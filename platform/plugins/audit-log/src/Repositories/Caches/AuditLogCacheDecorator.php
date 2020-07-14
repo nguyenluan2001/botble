@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\AuditLog\Repositories\Caches;
+namespace Botble\AuditLog\Repositories\Caches;
 
-use Platform\AuditLog\Repositories\Interfaces\AuditLogInterface;
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\AuditLog\Repositories\Interfaces\AuditLogInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
 
 /**
  * @since 16/09/2016 10:55 AM

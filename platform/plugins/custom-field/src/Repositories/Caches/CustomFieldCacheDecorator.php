@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\CustomField\Repositories\Caches;
+namespace Botble\CustomField\Repositories\Caches;
 
-use Platform\CustomField\Repositories\Interfaces\CustomFieldInterface;
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\CustomField\Repositories\Interfaces\CustomFieldInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class CustomFieldCacheDecorator extends CacheAbstractDecorator implements CustomFieldInterface
 {

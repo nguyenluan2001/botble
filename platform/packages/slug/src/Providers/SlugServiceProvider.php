@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Slug\Providers;
+namespace Botble\Slug\Providers;
 
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
-use Platform\Slug\Models\Slug;
-use Platform\Slug\Repositories\Caches\SlugCacheDecorator;
-use Platform\Slug\Repositories\Eloquent\SlugRepository;
-use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Slug\Models\Slug;
+use Botble\Slug\Repositories\Caches\SlugCacheDecorator;
+use Botble\Slug\Repositories\Eloquent\SlugRepository;
+use Botble\Slug\Repositories\Interfaces\SlugInterface;
 use Illuminate\Support\ServiceProvider;
 
 class SlugServiceProvider extends ServiceProvider
