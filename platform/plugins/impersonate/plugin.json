@@ -3,7 +3,7 @@
     "namespace": "Platform\\Impersonate\\",
     "provider": "Platform\\Impersonate\\Providers\\ImpersonateServiceProvider",
     "author": "Developer Team",
-    "url": "https://sangnguyen.info",
+    "url": "https://laravel-cms.gistensal.com",
     "version": "5.3",
     "description": "The description for plugin impersonate"
 }
