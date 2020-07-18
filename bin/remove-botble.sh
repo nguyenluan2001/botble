@@ -361,7 +361,7 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../database/ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/Botble\\/Platform\\/g')
 
 ## hack license +1k years
-## ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 $PERL -i -pe "s/return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/\/\/ return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/g")
+## ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 $PERL -i -pe "s/return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid, please contact support\'\)\;/\/\/ return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid, please contact support.\'\)\;/g")
 
 ############################ VERY IMPORTANT: Below lines MUST BE run at the end of ABOVE process
 ############################ BEGIN: make sure all botble.com domain already have replaced by gistensal.com
