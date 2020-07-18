@@ -1,5 +1,5 @@
 {
-    "name": "botble/theme",
+    "name": "platform/theme",
     "description": "Theme package for Laravel CMS application",
     "type": "package",
     "autoload": {
@@ -8,11 +8,11 @@
         }
     },
     "require": {
-        "botble/platform": "*@dev",
-        "botble/sitemap": "*@dev",
-        "botble/widget": "*@dev",
-        "botble/slug": "*@dev",
-        "botble/seo-helper": "*@dev"
+        "platform/platform": "*@dev",
+        "platform/sitemap": "*@dev",
+        "platform/widget": "*@dev",
+        "platform/slug": "*@dev",
+        "platform/seo-helper": "*@dev"
     },
     "extra": {
         "laravel": {

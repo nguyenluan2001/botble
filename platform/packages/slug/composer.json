@@ -1,5 +1,5 @@
 {
-    "name": "botble/slug",
+    "name": "platform/slug",
     "description": "Slug/Permalink for Laravel CMS application",
     "type": "package",
     "autoload": {
@@ -8,7 +8,7 @@
         }
     },
     "require": {
-        "botble/platform": "*@dev"
+        "platform/platform": "*@dev"
     },
     "extra": {
         "laravel": {

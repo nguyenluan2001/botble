@@ -16,14 +16,14 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
-        "botble/api": "*@dev",
-        "botble/menu": "*@dev",
-        "botble/optimize": "*@dev",
-        "botble/page": "*@dev",
-        "botble/platform": "*@dev",
-        "botble/shortcode": "*@dev",
-        "botble/theme": "*@dev",
-        "botble/plugin-management": "*@dev",
+        "platform/assets": "*@dev","platform/api": "*@dev",
+        "platform/menu": "*@dev",
+        "platform/optimize": "*@dev",
+        "platform/page": "*@dev",
+        "platform/platform": "*@dev",
+        "platform/shortcode": "*@dev",
+        "platform/theme": "*@dev",
+        "platform/plugin-management": "*@dev",
         "wikimedia/composer-merge-plugin": "^1.4",
         "doctrine/dbal": "^2.9",
         "league/flysystem-aws-s3-v3": "^1.0"
@@ -35,10 +35,10 @@
         "nunomaduro/collision": "^4.1",
         "phpunit/phpunit": "^8.5",
         "laravel/tinker": "^2.0",
-        "botble/dev-tool": "*@dev",
-        "botble/plugin-generator": "*@dev",
-        "botble/theme-generator": "*@dev",
-        "botble/widget-generator": "*@dev"
+        "platform/dev-tool": "*@dev",
+        "platform/plugin-generator": "*@dev",
+        "platform/theme-generator": "*@dev",
+        "platform/widget-generator": "*@dev"
     },
     "autoload": {
         "classmap": [

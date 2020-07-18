@@ -1,5 +1,5 @@
 {
-    "name": "botble/api",
+    "name": "platform/api",
     "description": "API package for Laravel CMS application",
     "type": "package",
     "autoload": {
@@ -8,7 +8,7 @@
         }
     },
     "require": {
-        "botble/platform": "*@dev",
+        "platform/platform": "*@dev",
         "laravel/passport": "^9.0",
         "knuckleswtf/scribe": "^1.0",
         "fruitcake/laravel-cors": "^2.0"

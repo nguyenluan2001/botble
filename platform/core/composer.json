@@ -1,14 +1,14 @@
 {
-    "name": "botble/platform",
+    "name": "platform/platform",
     "description": "The Laravel Platform based on Laravel Framework.",
     "keywords": [
-        "botble",
-        "botble cms",
-        "botble platform"
+        "Laravel Framework",
+        "Laravel CMS",
+        "Laravel CMS Platform"
     ],
     "homepage": "https://laravel-cms.gistensal.com",
     "support": {
-        "issues": "https://botble.ticksy.com",
+        "issues": "https://laravel-cms.gistensal.com",
         "document": "https://docs.laravel-cms.gistensal.com"
     },
     "authors": [

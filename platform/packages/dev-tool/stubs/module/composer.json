@@ -1,5 +1,5 @@
 {
-  "name": "botble/{-name}",
+  "name": "platform/{-name}",
   "description": "{Name} package for Laravel CMS application",
   "type": "package",
   "autoload": {

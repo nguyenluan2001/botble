@@ -1,12 +1,12 @@
 {
-    "name": "botble/assets",
+    "name": "platform/assets",
     "description": "Laravel assets management",
     "license": "MIT",
     "keywords": [
-        "botble",
-        "botble cms",
-        "botble platform",
-        "botble assets"
+        "Laravel Framework",
+        "Laravel CMS",
+        "Laravel CMS Platform",
+        "Laravel CMS Assets"
     ],
     "homepage": "https://laravel-cms.gistensal.com",
     "authors": [

@@ -1,5 +1,5 @@
 {
-    "name": "botble/plugin-management",
+    "name": "platform/plugin-management",
     "description": "Plugin management package for Laravel CMS application",
     "type": "package",
     "autoload": {
@@ -8,7 +8,7 @@
         }
     },
     "require": {
-        "botble/platform": "*@dev"
+        "platform/platform": "*@dev"
     },
     "extra": {
         "laravel": {

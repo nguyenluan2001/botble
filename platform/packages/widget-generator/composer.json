@@ -1,5 +1,5 @@
 {
-    "name": "botble/widget-generator",
+    "name": "platform/widget-generator",
     "description": "Widget generator",
     "type": "package",
     "autoload": {
@@ -8,8 +8,8 @@
         }
     },
     "require": {
-        "botble/platform": "*@dev",
-        "botble/widget": "*@dev"
+        "platform/platform": "*@dev",
+        "platform/widget": "*@dev"
     },
     "extra": {
         "laravel": {
