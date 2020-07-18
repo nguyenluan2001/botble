@@ -1,16 +1,16 @@
 <?php
 
-namespace Botble\AuditLog\Providers;
+namespace Platform\AuditLog\Providers;
 
-use Botble\AuditLog\Events\AuditHandlerEvent;
-use Botble\AuditLog\Listeners\AuditHandlerListener;
-use Botble\AuditLog\Listeners\CreatedContentListener;
-use Botble\AuditLog\Listeners\DeletedContentListener;
-use Botble\AuditLog\Listeners\LoginListener;
-use Botble\AuditLog\Listeners\UpdatedContentListener;
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
+use Platform\AuditLog\Events\AuditHandlerEvent;
+use Platform\AuditLog\Listeners\AuditHandlerListener;
+use Platform\AuditLog\Listeners\CreatedContentListener;
+use Platform\AuditLog\Listeners\DeletedContentListener;
+use Platform\AuditLog\Listeners\LoginListener;
+use Platform\AuditLog\Listeners\UpdatedContentListener;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 

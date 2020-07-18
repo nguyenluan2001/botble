@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\ThemeGenerator\Providers;
+namespace Platform\ThemeGenerator\Providers;
 
-use Botble\ThemeGenerator\Commands\ThemeCreateCommand;
+use Platform\ThemeGenerator\Commands\ThemeCreateCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

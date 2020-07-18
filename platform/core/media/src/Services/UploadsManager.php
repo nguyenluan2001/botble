@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Media\Services;
+namespace Platform\Media\Services;
 
 use Carbon\Carbon;
 use Exception;

@@ -1,16 +1,16 @@
 <?php
 
-namespace Botble\Media;
+namespace Platform\Media;
 
-use Botble\Media\Http\Resources\FileResource;
-use Botble\Media\Models\MediaFile;
+use Platform\Media\Http\Resources\FileResource;
+use Platform\Media\Models\MediaFile;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Botble\Media\Repositories\Interfaces\MediaFileInterface;
-use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
-use Botble\Media\Services\UploadsManager;
-use Botble\Media\Services\ThumbnailService;
+use Platform\Media\Repositories\Interfaces\MediaFileInterface;
+use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
+use Platform\Media\Services\UploadsManager;
+use Platform\Media\Services\ThumbnailService;
 use Exception;
 use File;
 use Illuminate\Support\Arr;
@@ -321,7 +321,7 @@ class RvMedia
     }
 
     /**
-     * @param \Botble\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
      * @return bool
      */
     public function generateThumbnails(MediaFile $file): bool
@@ -355,7 +355,7 @@ class RvMedia
     }
 
     /**
-     * @param \Botble\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
      * @return bool
      */
     public function deleteThumbnails(MediaFile $file): bool
@@ -374,7 +374,7 @@ class RvMedia
     }
 
     /**
-     * @param \Botble\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
      * @return bool
      */
     public function deleteFile(MediaFile $file): bool

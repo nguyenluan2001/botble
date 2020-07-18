@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Language\Http\Requests;
+namespace Platform\Language\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class LanguageRequest extends Request
 {

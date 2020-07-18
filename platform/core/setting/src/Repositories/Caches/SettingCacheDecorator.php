@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Setting\Repositories\Caches;
+namespace Platform\Setting\Repositories\Caches;
 
-use Botble\Setting\Repositories\Interfaces\SettingInterface;
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Setting\Repositories\Interfaces\SettingInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class SettingCacheDecorator extends CacheAbstractDecorator implements SettingInterface
 {

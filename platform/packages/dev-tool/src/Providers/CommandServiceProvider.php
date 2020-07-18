@@ -1,23 +1,23 @@
 <?php
 
-namespace Botble\DevTool\Providers;
+namespace Platform\DevTool\Providers;
 
-use Botble\DevTool\Commands\InstallCommand;
-use Botble\DevTool\Commands\LocaleCreateCommand;
-use Botble\DevTool\Commands\LocaleRemoveCommand;
-use Botble\DevTool\Commands\Make\ControllerMakeCommand;
-use Botble\DevTool\Commands\Make\FormMakeCommand;
-use Botble\DevTool\Commands\Make\ModelMakeCommand;
-use Botble\DevTool\Commands\Make\RepositoryMakeCommand;
-use Botble\DevTool\Commands\Make\RequestMakeCommand;
-use Botble\DevTool\Commands\Make\RouteMakeCommand;
-use Botble\DevTool\Commands\Make\TableMakeCommand;
-use Botble\DevTool\Commands\PackageCreateCommand;
-use Botble\DevTool\Commands\PackageRemoveCommand;
-use Botble\DevTool\Commands\RebuildPermissionsCommand;
-use Botble\DevTool\Commands\TestSendMailCommand;
-use Botble\DevTool\Commands\TruncateTablesCommand;
-use Botble\DevTool\Commands\PackageMakeCrudCommand;
+use Platform\DevTool\Commands\InstallCommand;
+use Platform\DevTool\Commands\LocaleCreateCommand;
+use Platform\DevTool\Commands\LocaleRemoveCommand;
+use Platform\DevTool\Commands\Make\ControllerMakeCommand;
+use Platform\DevTool\Commands\Make\FormMakeCommand;
+use Platform\DevTool\Commands\Make\ModelMakeCommand;
+use Platform\DevTool\Commands\Make\RepositoryMakeCommand;
+use Platform\DevTool\Commands\Make\RequestMakeCommand;
+use Platform\DevTool\Commands\Make\RouteMakeCommand;
+use Platform\DevTool\Commands\Make\TableMakeCommand;
+use Platform\DevTool\Commands\PackageCreateCommand;
+use Platform\DevTool\Commands\PackageRemoveCommand;
+use Platform\DevTool\Commands\RebuildPermissionsCommand;
+use Platform\DevTool\Commands\TestSendMailCommand;
+use Platform\DevTool\Commands\TruncateTablesCommand;
+use Platform\DevTool\Commands\PackageMakeCrudCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

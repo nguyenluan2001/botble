@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Widget\AbstractWidget;
+use Platform\Widget\AbstractWidget;
 
 class PopularPostsWidget extends AbstractWidget
 {

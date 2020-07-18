@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\Blog\Http\Controllers\API;
+namespace Platform\Blog\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Blog\Http\Resources\TagResource;
-use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Blog\Http\Resources\TagResource;
+use Platform\Blog\Repositories\Interfaces\TagInterface;
 use Illuminate\Http\Request;
 
 class TagController extends Controller

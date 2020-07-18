@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Blog\Models\Category;
+use Platform\Blog\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateMenuNodeReferenceTypeForCategory extends Migration

@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Theme\Exceptions;
+namespace Platform\Theme\Exceptions;
 
 use UnexpectedValueException;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\ThemeGenerator\Providers;
+namespace Platform\ThemeGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 
 class ThemeGeneratorServiceProvider extends ServiceProvider
 {

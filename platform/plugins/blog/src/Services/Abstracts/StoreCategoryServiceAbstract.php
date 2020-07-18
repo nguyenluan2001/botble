@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Blog\Services\Abstracts;
+namespace Platform\Blog\Services\Abstracts;
 
-use Botble\Blog\Models\Post;
-use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Platform\Blog\Models\Post;
+use Platform\Blog\Repositories\Interfaces\CategoryInterface;
 use Illuminate\Http\Request;
 
 abstract class StoreCategoryServiceAbstract

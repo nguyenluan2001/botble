@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\RequestLog;
+namespace Platform\RequestLog;
 
-use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
 use Schema;
 
 class Plugin extends PluginOperationAbstract

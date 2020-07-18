@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\Member\Http\Controllers;
+namespace Platform\Member\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Member\Models\Member;
-use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Member\Models\Member;
+use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
-use Botble\ACL\Traits\RegistersUsers;
+use Platform\ACL\Traits\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use SeoHelper;

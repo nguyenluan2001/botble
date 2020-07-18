@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\JsValidation\Remote;
+namespace Platform\JsValidation\Remote;
 
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Validator as BaseValidator;
-use Botble\JsValidation\Support\AccessProtectedTrait;
+use Platform\JsValidation\Support\AccessProtectedTrait;
 
 class Resolver
 {

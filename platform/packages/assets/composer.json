@@ -8,11 +8,11 @@
         "botble platform",
         "botble assets"
     ],
-    "homepage": "https://botble.com",
+    "homepage": "https://laravel-cms.gistensal.com",
     "authors": [
         {
-            "name": "Sang Nguyen",
-            "email": "sangnguyenplus@gmail.com"
+            "name": "Developer Team",
+            "email": "developer-team@gistensal.com"
         }
     ],
     "require": {
@@ -25,21 +25,21 @@
     },
     "autoload": {
         "psr-4": {
-            "Botble\\Assets\\": "src"
+            "Platform\\Assets\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Botble\\Assets\\Tests\\": "tests"
+            "Platform\\Assets\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Botble\\Assets\\Providers\\AssetsServiceProvider"
+                "Platform\\Assets\\Providers\\AssetsServiceProvider"
             ],
             "aliases": {
-                "Assets": "Botble\\Assets\\Facades\\AssetsFacade"
+                "Assets": "Platform\\Assets\\Facades\\AssetsFacade"
             }
         }
     },

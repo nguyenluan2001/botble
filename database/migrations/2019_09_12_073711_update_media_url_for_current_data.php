@@ -1,7 +1,7 @@
 <?php
 
-use Botble\Blog\Models\Post;
-use Botble\Gallery\Models\GalleryMeta;
+use Platform\Blog\Models\Post;
+use Platform\Gallery\Models\GalleryMeta;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateMediaUrlForCurrentData extends Migration
@@ -18,7 +18,7 @@ class UpdateMediaUrlForCurrentData extends Migration
         }
 
         if (defined('GALLERY_MODULE_SCREEN_NAME')) {
-            $this->fixUrl(\Botble\Gallery\Models\Gallery::get());
+            $this->fixUrl(\Platform\Gallery\Models\Gallery::get());
             $galleryMeta = GalleryMeta::get();
 
             foreach ($galleryMeta as $meta) {

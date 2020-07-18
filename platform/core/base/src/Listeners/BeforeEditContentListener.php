@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Base\Listeners;
+namespace Platform\Base\Listeners;
 
-use Botble\Base\Events\BeforeEditContentEvent;
+use Platform\Base\Events\BeforeEditContentEvent;
 use Exception;
 
 class BeforeEditContentListener

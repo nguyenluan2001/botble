@@ -1,15 +1,15 @@
 <?php
 
-namespace Botble\Translation\Providers;
+namespace Platform\Translation\Providers;
 
 use Illuminate\Routing\Events\RouteMatched;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Translation\Console\CleanCommand;
-use Botble\Translation\Console\ExportCommand;
-use Botble\Translation\Console\FindCommand;
-use Botble\Translation\Console\ImportCommand;
-use Botble\Translation\Console\ResetCommand;
-use Botble\Translation\Manager;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Translation\Console\CleanCommand;
+use Platform\Translation\Console\ExportCommand;
+use Platform\Translation\Console\FindCommand;
+use Platform\Translation\Console\ImportCommand;
+use Platform\Translation\Console\ResetCommand;
+use Platform\Translation\Manager;
 use Event;
 use Illuminate\Support\ServiceProvider;
 

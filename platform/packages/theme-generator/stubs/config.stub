@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Theme\Theme;
+use Platform\Theme\Theme;
 
 return [
 
@@ -55,7 +55,7 @@ return [
             $theme->asset()->container('footer')->usePath()->add('script', 'script.js');
 
             if (function_exists('shortcode')) {
-                $theme->composer(['index', 'page', 'post'], function (\Botble\Shortcode\View\View $view) {
+                $theme->composer(['index', 'page', 'post'], function (\Platform\Shortcode\View\View $view) {
                     $view->withShortcodes();
                 });
             }

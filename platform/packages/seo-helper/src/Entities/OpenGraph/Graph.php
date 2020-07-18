@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\SeoHelper\Entities\OpenGraph;
+namespace Platform\SeoHelper\Entities\OpenGraph;
 
-use Botble\SeoHelper\Contracts\Entities\MetaCollectionContract;
-use Botble\SeoHelper\Contracts\Entities\OpenGraphContract;
+use Platform\SeoHelper\Contracts\Entities\MetaCollectionContract;
+use Platform\SeoHelper\Contracts\Entities\OpenGraphContract;
 
 class Graph implements OpenGraphContract
 {

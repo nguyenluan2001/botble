@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\Member\Tables;
+namespace Platform\Member\Tables;
 
-use Botble\Member\Models\Member;
+use Platform\Member\Models\Member;
 use Html;
 use Illuminate\Support\Facades\Auth;
-use Botble\Member\Repositories\Interfaces\MemberInterface;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\Member\Repositories\Interfaces\MemberInterface;
+use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;
 

@@ -4,7 +4,7 @@
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Botble\\ThemeGenerator\\": "src"
+            "Platform\\ThemeGenerator\\": "src"
         }
     },
     "require": {
@@ -14,7 +14,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Botble\\ThemeGenerator\\Providers\\ThemeGeneratorServiceProvider"
+                "Platform\\ThemeGenerator\\Providers\\ThemeGeneratorServiceProvider"
             ]
         }
     }

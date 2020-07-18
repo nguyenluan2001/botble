@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Widget\AbstractWidget;
+use Platform\Widget\AbstractWidget;
 
 class FacebookWidget extends AbstractWidget
 {

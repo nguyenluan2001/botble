@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Member\Http\Requests;
+namespace Platform\Member\Http\Requests;
 
-class PostRequest extends \Botble\Blog\Http\Requests\PostRequest
+class PostRequest extends \Platform\Blog\Http\Requests\PostRequest
 {
 
     /**

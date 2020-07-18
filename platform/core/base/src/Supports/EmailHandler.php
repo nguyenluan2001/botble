@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Base\Supports;
+namespace Platform\Base\Supports;
 
-use Botble\Base\Events\SendMailEvent;
-use Botble\Base\Jobs\SendMailJob;
+use Platform\Base\Events\SendMailEvent;
+use Platform\Base\Jobs\SendMailJob;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Arr;
@@ -349,7 +349,7 @@ class EmailHandler
     /**
      * @param string $template
      * @param string $type
-     * @return array|\Botble\Setting\Supports\SettingStore|string|null
+     * @return array|\Platform\Setting\Supports\SettingStore|string|null
      */
     public function getTemplateSubject(string $template, string $type = 'plugins')
     {
@@ -359,7 +359,7 @@ class EmailHandler
     /**
      * @param string $template
      * @param string $type
-     * @return array|\Botble\Setting\Supports\SettingStore|string|null
+     * @return array|\Platform\Setting\Supports\SettingStore|string|null
      */
     public function templateEnabled(string $template, string $type = 'plugins')
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Contact\Repositories\Caches;
+namespace Platform\Contact\Repositories\Caches;
 
-use Botble\Contact\Repositories\Interfaces\ContactReplyInterface;
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Contact\Repositories\Interfaces\ContactReplyInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class ContactReplyCacheDecorator extends CacheAbstractDecorator implements ContactReplyInterface
 {

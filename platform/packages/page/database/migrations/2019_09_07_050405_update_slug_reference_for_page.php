@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Page\Models\Page;
+use Platform\Page\Models\Page;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateSlugReferenceForPage extends Migration

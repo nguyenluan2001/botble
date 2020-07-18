@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Member\Notifications;
+namespace Platform\Member\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;

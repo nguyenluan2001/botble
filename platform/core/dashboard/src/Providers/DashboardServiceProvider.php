@@ -1,17 +1,17 @@
 <?php
 
-namespace Botble\Dashboard\Providers;
+namespace Platform\Dashboard\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Dashboard\Models\DashboardWidget;
-use Botble\Dashboard\Models\DashboardWidgetSetting;
-use Botble\Dashboard\Repositories\Caches\DashboardWidgetCacheDecorator;
-use Botble\Dashboard\Repositories\Caches\DashboardWidgetSettingCacheDecorator;
-use Botble\Dashboard\Repositories\Eloquent\DashboardWidgetRepository;
-use Botble\Dashboard\Repositories\Eloquent\DashboardWidgetSettingRepository;
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Dashboard\Models\DashboardWidget;
+use Platform\Dashboard\Models\DashboardWidgetSetting;
+use Platform\Dashboard\Repositories\Caches\DashboardWidgetCacheDecorator;
+use Platform\Dashboard\Repositories\Caches\DashboardWidgetSettingCacheDecorator;
+use Platform\Dashboard\Repositories\Eloquent\DashboardWidgetRepository;
+use Platform\Dashboard\Repositories\Eloquent\DashboardWidgetSettingRepository;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;

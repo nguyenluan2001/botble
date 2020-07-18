@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Blog\Repositories\Interfaces;
+namespace Platform\Blog\Repositories\Interfaces;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface TagInterface extends RepositoryInterface
 {

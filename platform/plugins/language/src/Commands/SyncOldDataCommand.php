@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Language\Commands;
+namespace Platform\Language\Commands;
 
 use DB;
 use Illuminate\Console\Command;

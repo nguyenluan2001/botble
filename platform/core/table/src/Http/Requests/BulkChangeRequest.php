@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Table\Http\Requests;
+namespace Platform\Table\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class BulkChangeRequest extends Request
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Dashboard\Http\Controllers;
+namespace Platform\Dashboard\Http\Controllers;
 
 use Assets;
-use Botble\ACL\Repositories\Interfaces\UserInterface;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
+use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\HasMany;

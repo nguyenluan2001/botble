@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Analytics\Exceptions;
+namespace Platform\Analytics\Exceptions;
 
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\ACL\Repositories\Interfaces;
+namespace Platform\ACL\Repositories\Interfaces;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface UserInterface extends RepositoryInterface
 {

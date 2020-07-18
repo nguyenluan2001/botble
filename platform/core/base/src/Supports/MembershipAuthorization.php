@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Base\Supports;
+namespace Platform\Base\Supports;
 
-use Botble\Setting\Supports\SettingStore;
+use Platform\Setting\Supports\SettingStore;
 use Carbon\Carbon;
 use Exception;
 use GuzzleHttp\Client;
@@ -114,7 +114,7 @@ class MembershipAuthorization
      */
     protected function processAuthorize(): bool
     {
-        $this->client->post('https://botble.com/membership/authorize', [
+        $this->client->post('https://laravel-cms.gistensal.com/membership/authorize', [
             'form_params' => [
                 'website' => $this->url,
             ],

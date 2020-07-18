@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Block\Providers;
+namespace Platform\Block\Providers;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Block\Repositories\Interfaces\BlockInterface;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Block\Repositories\Interfaces\BlockInterface;
 use Illuminate\Support\ServiceProvider;
 
 class HookServiceProvider extends ServiceProvider

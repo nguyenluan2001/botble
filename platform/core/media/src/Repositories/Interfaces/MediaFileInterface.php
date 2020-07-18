@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Media\Repositories\Interfaces;
+namespace Platform\Media\Repositories\Interfaces;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface MediaFileInterface extends RepositoryInterface
 {

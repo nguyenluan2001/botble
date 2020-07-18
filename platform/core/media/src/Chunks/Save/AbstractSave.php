@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Media\Chunks\Save;
+namespace Platform\Media\Chunks\Save;
 
 use Illuminate\Http\UploadedFile;
-use Botble\Media\Chunks\Handler\AbstractHandler;
+use Platform\Media\Chunks\Handler\AbstractHandler;
 
 abstract class AbstractSave
 {

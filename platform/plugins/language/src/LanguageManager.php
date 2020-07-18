@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Language;
+namespace Platform\Language;
 
-use Botble\Base\Supports\Helper;
-use Botble\Language\Models\Language;
-use Botble\Language\Repositories\Interfaces\LanguageInterface;
-use Botble\Language\Repositories\Interfaces\LanguageMetaInterface;
+use Platform\Base\Supports\Helper;
+use Platform\Language\Models\Language;
+use Platform\Language\Repositories\Interfaces\LanguageInterface;
+use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
 use Eloquent;
 use Exception;
 use Illuminate\Contracts\Routing\UrlRoutable;

@@ -1,24 +1,24 @@
 <?php
 
-namespace Botble\Contact\Http\Controllers;
+namespace Platform\Contact\Http\Controllers;
 
-use Botble\Base\Forms\FormBuilder;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Base\Traits\HasDeleteManyItemsTrait;
-use Botble\Contact\Enums\ContactStatusEnum;
-use Botble\Contact\Forms\ContactForm;
-use Botble\Contact\Http\Requests\ContactReplyRequest;
-use Botble\Contact\Http\Requests\EditContactRequest;
-use Botble\Contact\Repositories\Interfaces\ContactReplyInterface;
-use Botble\Contact\Tables\ContactTable;
-use Botble\Contact\Repositories\Interfaces\ContactInterface;
-use Botble\Setting\Supports\SettingStore;
+use Platform\Base\Forms\FormBuilder;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Traits\HasDeleteManyItemsTrait;
+use Platform\Contact\Enums\ContactStatusEnum;
+use Platform\Contact\Forms\ContactForm;
+use Platform\Contact\Http\Requests\ContactReplyRequest;
+use Platform\Contact\Http\Requests\EditContactRequest;
+use Platform\Contact\Repositories\Interfaces\ContactReplyInterface;
+use Platform\Contact\Tables\ContactTable;
+use Platform\Contact\Repositories\Interfaces\ContactInterface;
+use Platform\Setting\Supports\SettingStore;
 use EmailHandler;
 use Exception;
 use Illuminate\Http\Request;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
 
 class ContactController extends BaseController
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\ACL\Traits;
+namespace Platform\ACL\Traits;
 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\StatefulGuard;

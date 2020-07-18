@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Backup\Providers;
+namespace Platform\Backup\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Event;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\ServiceProvider;

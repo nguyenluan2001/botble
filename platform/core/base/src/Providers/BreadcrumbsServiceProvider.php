@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Base\Providers;
+namespace Platform\Base\Providers;
 
-use Botble\Base\Supports\BreadcrumbsGenerator;
+use Platform\Base\Supports\BreadcrumbsGenerator;
 use Breadcrumbs;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;

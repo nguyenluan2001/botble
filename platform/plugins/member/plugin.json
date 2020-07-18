@@ -1,9 +1,9 @@
 {
   "name": "Member",
-  "namespace": "Botble\\Member\\",
-  "provider": "Botble\\Member\\Providers\\MemberServiceProvider",
-  "author": "Botble Technologies",
-  "url": "https://botble.com",
+  "namespace": "Platform\\Member\\",
+  "provider": "Platform\\Member\\Providers\\MemberServiceProvider",
+  "author": "Laravel Technologies",
+  "url": "https://laravel-cms.gistensal.com",
   "version": "5.4",
   "description": "Manage member, user register/login"
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Blog\Services;
+namespace Platform\Blog\Services;
 
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Blog\Models\Post;
-use Botble\Blog\Services\Abstracts\StoreTagServiceAbstract;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Blog\Models\Post;
+use Platform\Blog\Services\Abstracts\StoreTagServiceAbstract;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

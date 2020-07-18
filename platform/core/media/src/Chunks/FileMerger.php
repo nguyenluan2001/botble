@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Media\Chunks;
+namespace Platform\Media\Chunks;
 
-use Botble\Media\Chunks\Exceptions\ChunkSaveException;
+use Platform\Media\Chunks\Exceptions\ChunkSaveException;
 
 class FileMerger
 {

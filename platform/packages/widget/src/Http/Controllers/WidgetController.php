@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\Widget\Http\Controllers;
+namespace Platform\Widget\Http\Controllers;
 
 use Assets;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Setting\Supports\SettingStore;
-use Botble\Widget\Factories\AbstractWidgetFactory;
-use Botble\Widget\Repositories\Interfaces\WidgetInterface;
-use Botble\Widget\WidgetId;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Setting\Supports\SettingStore;
+use Platform\Widget\Factories\AbstractWidgetFactory;
+use Platform\Widget\Repositories\Interfaces\WidgetInterface;
+use Platform\Widget\WidgetId;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

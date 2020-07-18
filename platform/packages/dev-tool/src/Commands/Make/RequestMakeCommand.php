@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\DevTool\Commands\Make;
+namespace Platform\DevTool\Commands\Make;
 
-use Botble\DevTool\Commands\Abstracts\BaseMakeCommand;
+use Platform\DevTool\Commands\Abstracts\BaseMakeCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Str;
 

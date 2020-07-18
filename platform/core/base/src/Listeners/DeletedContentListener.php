@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Base\Listeners;
+namespace Platform\Base\Listeners;
 
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Repositories\Interfaces\MetaBoxInterface;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Repositories\Interfaces\MetaBoxInterface;
 use Exception;
 
 class DeletedContentListener

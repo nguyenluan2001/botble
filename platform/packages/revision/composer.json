@@ -1,10 +1,10 @@
 {
     "name": "botble/revision",
-    "description": "Revision package for Botble CMS application",
+    "description": "Revision package for Laravel CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Botble\\Revision\\": "src"
+            "Platform\\Revision\\": "src"
         }
     },
     "require": {
@@ -13,7 +13,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Botble\\Revision\\Providers\\RevisionServiceProvider"
+                "Platform\\Revision\\Providers\\RevisionServiceProvider"
             ]
         }
     }

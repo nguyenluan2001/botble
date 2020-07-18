@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Member\Models;
+namespace Platform\Member\Models;
 
-use Botble\Base\Supports\Avatar;
-use Botble\Media\Models\MediaFile;
-use Botble\Member\Notifications\ResetPasswordNotification;
+use Platform\Base\Supports\Avatar;
+use Platform\Media\Models\MediaFile;
+use Platform\Member\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -110,6 +110,6 @@ class Member extends Authenticatable
      */
     public function posts()
     {
-        return $this->morphMany('Botble\Blog\Models\Post', 'author');
+        return $this->morphMany('Platform\Blog\Models\Post', 'author');
     }
 }

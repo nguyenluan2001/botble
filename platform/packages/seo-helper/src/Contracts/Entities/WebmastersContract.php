@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\SeoHelper\Contracts\Entities;
+namespace Platform\SeoHelper\Contracts\Entities;
 
-use Botble\SeoHelper\Contracts\RenderableContract;
+use Platform\SeoHelper\Contracts\RenderableContract;
 
 interface WebmastersContract extends RenderableContract
 {

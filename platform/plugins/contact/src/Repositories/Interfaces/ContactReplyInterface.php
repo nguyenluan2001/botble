@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Contact\Repositories\Interfaces;
+namespace Platform\Contact\Repositories\Interfaces;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface ContactReplyInterface extends RepositoryInterface
 {

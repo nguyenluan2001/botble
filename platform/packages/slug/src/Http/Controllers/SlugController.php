@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Slug\Http\Controllers;
+namespace Platform\Slug\Http\Controllers;
 
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Slug\Http\Requests\SlugRequest;
-use Botble\Slug\Repositories\Interfaces\SlugInterface;
-use Botble\Slug\Services\SlugService;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Slug\Http\Requests\SlugRequest;
+use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use Platform\Slug\Services\SlugService;
 
 class SlugController extends BaseController
 {

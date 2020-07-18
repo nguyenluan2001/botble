@@ -1,9 +1,9 @@
 {
     "name": "Cookie Consent",
-    "namespace": "Botble\\CookieConsent\\",
-    "provider": "Botble\\CookieConsent\\Providers\\CookieConsentServiceProvider",
-    "author": "Botble Technologies",
-    "url": "https://botble.com",
+    "namespace": "Platform\\CookieConsent\\",
+    "provider": "Platform\\CookieConsent\\Providers\\CookieConsentServiceProvider",
+    "author": "Laravel Technologies",
+    "url": "https://laravel-cms.gistensal.com",
     "version": "5.4",
     "description": "Cookie Consent"
 }

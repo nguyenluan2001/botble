@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Setting\Models;
+namespace Platform\Setting\Models;
 
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 
 class Setting extends BaseModel
 {

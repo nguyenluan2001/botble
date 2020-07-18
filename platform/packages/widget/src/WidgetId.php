@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Widget;
+namespace Platform\Widget;
 
 class WidgetId
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Member\Listeners;
+namespace Platform\Member\Listeners;
 
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\Member\Models\Member;
-use Botble\Member\Repositories\Interfaces\MemberActivityLogInterface;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\Member\Models\Member;
+use Platform\Member\Repositories\Interfaces\MemberActivityLogInterface;
 use Exception;
 
 class UpdatedContentListener

@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Contact\Http\Controllers;
+namespace Platform\Contact\Http\Controllers;
 
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Contact\Http\Requests\ContactRequest;
-use Botble\Contact\Repositories\Interfaces\ContactInterface;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Contact\Http\Requests\ContactRequest;
+use Platform\Contact\Repositories\Interfaces\ContactInterface;
 use EmailHandler;
 use Exception;
 use Illuminate\Routing\Controller;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Blog\Forms;
+namespace Platform\Blog\Forms;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Forms\FormAbstract;
-use Botble\Blog\Http\Requests\TagRequest;
-use Botble\Blog\Models\Tag;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Forms\FormAbstract;
+use Platform\Blog\Http\Requests\TagRequest;
+use Platform\Blog\Models\Tag;
 
 class TagForm extends FormAbstract
 {

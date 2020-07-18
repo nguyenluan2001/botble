@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\DevTool\Commands;
+namespace Platform\DevTool\Commands;
 
 use File;
 use Illuminate\Console\Command;

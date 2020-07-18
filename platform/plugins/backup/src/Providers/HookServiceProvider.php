@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Backup\Providers;
+namespace Platform\Backup\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

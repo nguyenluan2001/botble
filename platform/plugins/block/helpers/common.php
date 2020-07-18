@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Block\Repositories\Interfaces\BlockInterface;
+use Platform\Block\Repositories\Interfaces\BlockInterface;
 
 if (!function_exists('get_list_blocks')) {
     /**

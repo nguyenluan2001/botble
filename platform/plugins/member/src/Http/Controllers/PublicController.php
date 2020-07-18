@@ -1,20 +1,20 @@
 <?php
 
-namespace Botble\Member\Http\Controllers;
+namespace Platform\Member\Http\Controllers;
 
 use Assets;
-use Botble\Media\Services\ThumbnailService;
-use Botble\Member\Http\Resources\ActivityLogResource;
+use Platform\Media\Services\ThumbnailService;
+use Platform\Member\Http\Resources\ActivityLogResource;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Media\Repositories\Interfaces\MediaFileInterface;
-use Botble\Member\Http\Requests\AvatarRequest;
-use Botble\Member\Http\Requests\SettingRequest;
-use Botble\Member\Http\Requests\UpdatePasswordRequest;
-use Botble\Member\Repositories\Interfaces\MemberActivityLogInterface;
-use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Media\Repositories\Interfaces\MediaFileInterface;
+use Platform\Member\Http\Requests\AvatarRequest;
+use Platform\Member\Http\Requests\SettingRequest;
+use Platform\Member\Http\Requests\UpdatePasswordRequest;
+use Platform\Member\Repositories\Interfaces\MemberActivityLogInterface;
+use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Exception;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Routing\Controller;

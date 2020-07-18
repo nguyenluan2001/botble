@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Media\Chunks\Storage;
+namespace Platform\Media\Chunks\Storage;
 
 use Closure;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Collection;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\FilesystemInterface;
-use Botble\Media\Chunks\ChunkFile;
+use Platform\Media\Chunks\ChunkFile;
 use RuntimeException;
 use Storage;
 

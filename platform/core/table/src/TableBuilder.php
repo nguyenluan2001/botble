@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Table;
+namespace Platform\Table;
 
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Container\Container;
 use InvalidArgumentException;

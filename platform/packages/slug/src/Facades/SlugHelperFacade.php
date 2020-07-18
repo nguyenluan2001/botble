@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Slug\Facades;
+namespace Platform\Slug\Facades;
 
-use Botble\Slug\SlugHelper;
+use Platform\Slug\SlugHelper;
 use Illuminate\Support\Facades\Facade;
 
 class SlugHelperFacade extends Facade

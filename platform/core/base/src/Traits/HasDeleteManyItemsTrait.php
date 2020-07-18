@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Base\Traits;
+namespace Platform\Base\Traits;
 
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 use Exception;
 use Illuminate\Http\Request;
 

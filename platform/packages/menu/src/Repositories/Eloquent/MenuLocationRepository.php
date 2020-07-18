@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Menu\Repositories\Eloquent;
+namespace Platform\Menu\Repositories\Eloquent;
 
-use Botble\Menu\Repositories\Interfaces\MenuLocationInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\Menu\Repositories\Interfaces\MenuLocationInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 class MenuLocationRepository extends RepositoriesAbstract implements MenuLocationInterface
 {

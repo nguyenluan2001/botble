@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Member;
+namespace Platform\Member;
 
-use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
+use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
 use Schema;
 
 class Plugin extends PluginOperationAbstract

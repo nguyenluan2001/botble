@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\SeoHelper;
+namespace Platform\SeoHelper;
 
-use Botble\SeoHelper\Contracts\Entities\TwitterCardContract;
-use Botble\SeoHelper\Contracts\SeoTwitterContract;
+use Platform\SeoHelper\Contracts\Entities\TwitterCardContract;
+use Platform\SeoHelper\Contracts\SeoTwitterContract;
 
 class SeoTwitter implements SeoTwitterContract
 {

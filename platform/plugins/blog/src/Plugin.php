@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Blog;
+namespace Platform\Blog;
 
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
 use Schema;
-use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
+use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
 
 class Plugin extends PluginOperationAbstract
 {

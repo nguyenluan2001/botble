@@ -1,12 +1,12 @@
 {
   "name": "botble/captcha",
   "description": "Captcha plugin",
-  "homepage": "https://botble.com",
+  "homepage": "https://laravel-cms.gistensal.com",
   "authors": [
     {
-      "name": "Botble Technologies",
-      "email": "minhsang2603@gmail.com",
-      "homepage": "https://botble.com"
+      "name": "Laravel Technologies",
+      "email": "developer-team@gistensal.com",
+      "homepage": "https://laravel-cms.gistensal.com"
     }
   ],
   "require": {

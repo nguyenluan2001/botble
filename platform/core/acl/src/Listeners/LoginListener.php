@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\ACL\Listeners;
+namespace Platform\ACL\Listeners;
 
 use Assets;
 use Exception;
 use Illuminate\Support\Facades\Auth;
-use Botble\ACL\Models\User;
-use Botble\ACL\Models\UserMeta;
+use Platform\ACL\Models\User;
+use Platform\ACL\Models\UserMeta;
 use Illuminate\Auth\Events\Login;
 
 class LoginListener

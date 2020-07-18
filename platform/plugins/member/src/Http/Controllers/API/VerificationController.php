@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Member\Http\Controllers\API;
+namespace Platform\Member\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Member\Http\Requests\API\ResendEmailVerificationRequest;
-use Botble\Member\Http\Requests\API\VerifyEmailRequest;
-use Botble\Member\Notifications\ConfirmEmailNotification;
-use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Member\Http\Requests\API\ResendEmailVerificationRequest;
+use Platform\Member\Http\Requests\API\VerifyEmailRequest;
+use Platform\Member\Notifications\ConfirmEmailNotification;
+use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Hash;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Str;

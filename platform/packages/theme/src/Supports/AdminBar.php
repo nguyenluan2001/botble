@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Theme\Supports;
+namespace Platform\Theme\Supports;
 
 use Throwable;
 
