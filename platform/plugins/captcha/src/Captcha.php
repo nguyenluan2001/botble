@@ -61,6 +61,10 @@ class Captcha
      */
     public function display($attributes = [], $options = [])
     {
+        if (!$this->optionOrConfig($options, 'site_key')) {
+            return null;
+        }
+
         if (is_string($attributes)) {
             $attributes = [];
         }

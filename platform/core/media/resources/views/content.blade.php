@@ -579,7 +579,7 @@
 <script type="text/x-custom-template" id="rv_media_rename_item">
     <div class="form-group">
         <div class="input-group">
-            <div class="input-group-prepend">
+            <div class="input-group-prepend" style="background: none;">
                 <div class="input-group-text">
                     <i class="__icon__"></i>
                 </div>

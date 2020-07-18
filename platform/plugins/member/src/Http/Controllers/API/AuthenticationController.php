@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Laravel\Passport\Token;
 
 class AuthenticationController extends Controller
 {
@@ -125,7 +124,7 @@ class AuthenticationController extends Controller
             $token = Auth::guard('member')->user()->createToken('Laravel Password Grant Client')->accessToken;
 
             return $response
-                ->setData(['token' => $token]);
+                ->setData(compact('token'));
         }
 
         return $response
@@ -146,11 +145,7 @@ class AuthenticationController extends Controller
      */
     public function logout(Request $request, BaseHttpResponse $response)
     {
-        /**
-         * @var Token $token
-         */
-        $token = $request->user()->token();
-        $token->revoke();
+        $request->user()->token()->revoke();
 
         return $response
             ->setMessage(__('You have been successfully logged out!'));

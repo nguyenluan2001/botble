@@ -7,3 +7,7 @@ if (!defined('CONTACT_MODULE_SCREEN_NAME')) {
 if (!defined('CONTACT_UNREAD_COUNT')) {
     define('CONTACT_UNREAD_COUNT', 'contact_unread_count');
 }
+
+if (!defined('CONTACT_FORM_TEMPLATE_VIEW')) {
+    define('CONTACT_FORM_TEMPLATE_VIEW', 'contact-form-template-view');
+}

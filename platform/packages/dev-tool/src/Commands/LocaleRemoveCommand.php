@@ -48,6 +48,8 @@ class LocaleRemoveCommand extends Command
         $this->removeLocaleInPath(resource_path('lang/vendor/packages'));
         $this->removeLocaleInPath(resource_path('lang/vendor/plugins'));
 
+        $this->info('Removed locale "' . $this->argument('locale') . '" successfully!');
+
         return 0;
     }
 
@@ -57,6 +59,10 @@ class LocaleRemoveCommand extends Command
      */
     protected function removeLocaleInPath(string $path)
     {
+        if (!File::isDirectory($path)) {
+            return 0;
+        }
+
         $folders = File::directories($path);
 
         foreach ($folders as $module) {

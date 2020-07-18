@@ -7,6 +7,7 @@ use Cookie;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use Theme;
 use Throwable;
 
 class CookieConsentServiceProvider extends ServiceProvider
@@ -34,6 +35,8 @@ class CookieConsentServiceProvider extends ServiceProvider
         });
 
         if (defined('THEME_FRONT_FOOTER') && setting('cookie_consent_enable', true)) {
+            Theme::asset()->usePath(false)->add('cookie-consent-css', 'vendor/core/plugins/cookie-consent/css/cookie-consent.css');
+
             add_filter(THEME_FRONT_FOOTER, [$this, 'registerCookieConsent'], 1346);
         }
 

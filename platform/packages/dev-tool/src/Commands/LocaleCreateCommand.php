@@ -50,6 +50,10 @@ class LocaleCreateCommand extends Command
      */
     protected function createLocaleInPath(string $path)
     {
+        if (!File::isDirectory($path)) {
+            return 0;
+        }
+
         $folders = File::directories($path);
 
         foreach ($folders as $module) {

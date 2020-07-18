@@ -372,6 +372,7 @@ class Botble {
             $('.color-picker').colorpicker({
                 inline: false,
                 container: true,
+                format: 'hex',
                 extensions: [
                     {
                         name: 'swatches',

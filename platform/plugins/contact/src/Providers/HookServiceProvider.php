@@ -69,7 +69,7 @@ class HookServiceProvider extends ServiceProvider
      */
     public function form($shortcode)
     {
-        $view = 'plugins/contact::forms.contact';
+        $view = apply_filters(CONTACT_FORM_TEMPLATE_VIEW, 'plugins/contact::forms.contact');
 
         if ($shortcode->view && view()->exists($shortcode->view)) {
             $view = $shortcode->view;

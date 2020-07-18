@@ -172,12 +172,168 @@ class RvMedia
     }
 
     /**
+     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @return bool
+     */
+    public function deleteFile(MediaFile $file): bool
+    {
+        $this->deleteThumbnails($file);
+
+        return Storage::delete($file->url);
+    }
+
+    /**
+     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @return bool
+     */
+    public function deleteThumbnails(MediaFile $file): bool
+    {
+        if (!$file->canGenerateThumbnails()) {
+            return false;
+        }
+
+        $filename = pathinfo($file->url, PATHINFO_FILENAME);
+        $files = [];
+        foreach ($this->getSizes() as $size) {
+            $files[] = str_replace($filename, $filename . '-' . $size, $file->url);
+        }
+
+        return Storage::delete($files);
+    }
+
+    /**
+     * @return array
+     */
+    public function getPermissions(): array
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * @param array $permissions
+     */
+    public function setPermissions(array $permissions)
+    {
+        $this->permissions = $permissions;
+    }
+
+    /**
+     * @param string $permission
+     */
+    public function removePermission($permission)
+    {
+        Arr::forget($this->permissions, $permission);
+    }
+
+    /**
+     * @param string $permission
+     */
+    public function addPermission($permission)
+    {
+        $this->permissions[] = $permission;
+    }
+
+    /**
+     * @param string $permission
+     * @return bool
+     */
+    public function hasPermission($permission): bool
+    {
+        return in_array($permission, $this->permissions);
+    }
+
+    /**
+     * @param array $permissions
+     * @return bool
+     */
+    public function hasAnyPermission(array $permissions): bool
+    {
+        $hasPermission = false;
+        foreach ($permissions as $permission) {
+            if (in_array($permission, $this->permissions)) {
+                $hasPermission = true;
+                break;
+            }
+        }
+
+        return $hasPermission;
+    }
+
+    /**
+     * @param string $name
+     * @param int $width
+     * @param int $height
+     * @return $this
+     */
+    public function addSize(string $name, int $width, int $height): self
+    {
+        config(['core.media.media.sizes.' . $name => $width . 'x' . $height]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function removeSize(string $name): self
+    {
+        $sizes = $this->getSizes();
+        Arr::forget($sizes, $name);
+
+        config(['core.media.media.sizes' => $sizes]);
+
+        return $this;
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|JsonResponse|\Illuminate\Http\Response
+     */
+    public function uploadFromEditor(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'upload' => 'required|image|mimes:jpg,jpeg,png',
+        ]);
+
+        if ($validator->fails()) {
+            return response('<script>alert("' . trans('core/media::media.can_not_detect_file_type') . '")</script>')
+                ->header('Content-Type', 'text/html');
+        }
+
+        $result = $this->handleUpload($request->file('upload'), 0, $request->input('upload_type'));
+
+        if ($result['error'] == false) {
+            $file = $result['data'];
+            if ($request->input('upload_type') == 'tinymce') {
+                return response('<script>parent.setImageValue("' . $this->url($file->url) . '"); </script>')->header('Content-Type',
+                    'text/html');
+            }
+
+            if (!$request->input('CKEditorFuncNum')) {
+                return response()->json([
+                    'fileName' => File::name($this->url($file->url)),
+                    'uploaded' => 1,
+                    'url'      => $this->url($file->url),
+                ]);
+            }
+
+            return response('<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction("' . $request->input('CKEditorFuncNum') . '", "' . $this->url($file->url) . '", "");</script>')
+                ->header('Content-Type', 'text/html');
+        }
+
+        return response('<script>alert("' . Arr::get($result, 'message') . '")</script>')
+            ->header('Content-Type', 'text/html');
+    }
+
+    /**
      * @param \Illuminate\Http\UploadedFile $fileUpload
      * @param int $folderId
      * @param string $folderSlug
+     * @param bool $skipValidation
      * @return \Illuminate\Http\JsonResponse|array
      */
-    public function handleUpload($fileUpload, $folderId = 0, $folderSlug = null): array
+    public function handleUpload($fileUpload, $folderId = 0, $folderSlug = null, $skipValidation = false): array
     {
         if (!$fileUpload) {
             return [
@@ -189,15 +345,17 @@ class RvMedia
         if (!config('core.media.media.chunk.enabled')) {
             request()->merge(['uploaded_file' => $fileUpload]);
 
-            $validator = Validator::make(request()->all(), [
-                'uploaded_file' => 'required|mimes:' . config('core.media.media.allowed_mime_types'),
-            ]);
+            if (!$skipValidation) {
+                $validator = Validator::make(request()->all(), [
+                    'uploaded_file' => 'required|mimes:' . config('core.media.media.allowed_mime_types'),
+                ]);
 
-            if ($validator->fails()) {
-                return [
-                    'error'   => true,
-                    'message' => $validator->getMessageBag()->first(),
-                ];
+                if ($validator->fails()) {
+                    return [
+                        'error'   => true,
+                        'message' => $validator->getMessageBag()->first(),
+                    ];
+                }
             }
 
             $maxSize = $this->getServerConfigMaxUploadFileSize();
@@ -242,7 +400,11 @@ class RvMedia
 
             $folderPath = $this->folderRepository->getFullPath($folderId);
 
-            $fileName = $this->fileRepository->createSlug($file->name, $fileExtension, RvMedia::getRealPath($folderPath));
+            $fileName = $this->fileRepository->createSlug(
+                $file->name,
+                $fileExtension,
+                Storage::path($folderPath)
+            );
 
             $filePath = $fileName;
 
@@ -321,6 +483,24 @@ class RvMedia
     }
 
     /**
+     * @param string $url
+     * @return string
+     */
+    public function getRealPath($url)
+    {
+        switch (config('filesystems.default')) {
+            case 'local':
+            case 'public':
+                return Storage::path($url);
+            case 's3':
+            case 'do_spaces':
+                return Storage::url($url);
+        }
+
+        return Storage::path($url);
+    }
+
+    /**
      * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
      * @return bool
      */
@@ -355,94 +535,6 @@ class RvMedia
     }
 
     /**
-     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
-     * @return bool
-     */
-    public function deleteThumbnails(MediaFile $file): bool
-    {
-        if (!$file->canGenerateThumbnails()) {
-            return false;
-        }
-
-        $filename = pathinfo($file->url, PATHINFO_FILENAME);
-        $files = [];
-        foreach ($this->getSizes() as $size) {
-            $files[] = str_replace($filename, $filename . '-' . $size, $file->url);
-        }
-
-        return Storage::delete($files);
-    }
-
-    /**
-     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
-     * @return bool
-     */
-    public function deleteFile(MediaFile $file): bool
-    {
-        $this->deleteThumbnails($file);
-
-        return Storage::delete($file->url);
-    }
-
-    /**
-     * @return array
-     */
-    public function getPermissions(): array
-    {
-        return $this->permissions;
-    }
-
-    /**
-     * @param array $permissions
-     */
-    public function setPermissions(array $permissions)
-    {
-        $this->permissions = $permissions;
-    }
-
-    /**
-     * @param string $permission
-     */
-    public function removePermission($permission)
-    {
-        Arr::forget($this->permissions, $permission);
-    }
-
-    /**
-     * @param string $permission
-     */
-    public function addPermission($permission)
-    {
-        $this->permissions[] = $permission;
-    }
-
-    /**
-     * @param string $permission
-     * @return bool
-     */
-    public function hasPermission($permission): bool
-    {
-        return in_array($permission, $this->permissions);
-    }
-
-    /**
-     * @param array $permissions
-     * @return bool
-     */
-    public function hasAnyPermission(array $permissions): bool
-    {
-        $hasPermission = false;
-        foreach ($permissions as $permission) {
-            if (in_array($permission, $this->permissions)) {
-                $hasPermission = true;
-                break;
-            }
-        }
-
-        return $hasPermission;
-    }
-
-    /**
      * @param string $path
      * @return string
      */
@@ -456,94 +548,25 @@ class RvMedia
     }
 
     /**
-     * @param string $name
-     * @return string
+     * @param string $image
+     * @param null $size
+     * @param bool $relativePath
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
      */
-    public function getSize(string $name): ?string
+    public function getObjectImage($image, $size = null, $relativePath = false)
     {
-        return config('core.media.media.sizes.' . $name);
-    }
+        if (!empty($image)) {
+            if (empty($size) || $image == '__value__') {
+                if ($relativePath) {
+                    return $image;
+                }
 
-    /**
-     * @param string $name
-     * @param int $width
-     * @param int $height
-     * @return $this
-     */
-    public function addSize(string $name, int $width, int $height): self
-    {
-        config(['core.media.media.sizes.' . $name => $width . 'x' . $height]);
-
-        return $this;
-    }
-
-    /**
-     * @param string $name
-     * @return $this
-     */
-    public function removeSize(string $name): self
-    {
-        $sizes = $this->getSizes();
-        Arr::forget($sizes, $name);
-
-        config(['core.media.media.sizes' => $sizes]);
-
-        return $this;
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|JsonResponse|\Illuminate\Http\Response
-     */
-    public function uploadFromEditor(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'upload' => 'required|image|mimes:jpg,jpeg,png',
-        ]);
-
-        if ($validator->fails()) {
-            return response('<script>alert("' . trans('core/media::media.can_not_detect_file_type') . '")</script>')
-                ->header('Content-Type', 'text/html');
-        }
-
-        $result = $this->handleUpload($request->file('upload'), 0, $request->input('upload_type'));
-
-        if ($result['error'] == false) {
-            $file = $result['data'];
-            if ($request->input('upload_type') == 'tinymce') {
-                return response('<script>parent.setImageValue("' . $this->url($file->url) . '"); </script>')->header('Content-Type',
-                    'text/html');
+                return $this->url($image);
             }
-
-            if (!$request->input('CKEditorFuncNum')) {
-                return response()->json([
-                    'fileName' => File::name($this->url($file->url)),
-                    'uploaded' => 1,
-                    'url'      => $this->url($file->url),
-                ]);
-            }
-
-            return response('<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction("' . $request->input('CKEditorFuncNum') . '", "' . $this->url($file->url) . '", "");</script>')
-                ->header('Content-Type', 'text/html');
+            return $this->getImageUrl($image, $size, $relativePath);
         }
 
-        return response('<script>alert("' . Arr::get($result, 'message') . '")</script>')
-            ->header('Content-Type', 'text/html');
-    }
-
-    /**
-     * @param bool $relative
-     * @return string
-     */
-    public function getDefaultImage(bool $relative = true): string
-    {
-        $default = config('core.media.media.default_image');
-
-        if ($default && !$relative) {
-            return url($default);
-        }
-
-        return $default;
+        return $this->getImageUrl($this->getDefaultImage(), null, $relativePath);
     }
 
     /**
@@ -583,25 +606,27 @@ class RvMedia
     }
 
     /**
-     * @param string $image
-     * @param null $size
-     * @param bool $relativePath
-     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     * @param bool $relative
+     * @return string
      */
-    public function getObjectImage($image, $size = null, $relativePath = false)
+    public function getDefaultImage(bool $relative = true): string
     {
-        if (!empty($image)) {
-            if (empty($size) || $image == '__value__') {
-                if ($relativePath) {
-                    return $image;
-                }
+        $default = config('core.media.media.default_image');
 
-                return $this->url($image);
-            }
-            return $this->getImageUrl($image, $size, $relativePath);
+        if ($default && !$relative) {
+            return url($default);
         }
 
-        return $this->getImageUrl($this->getDefaultImage(), null, $relativePath);
+        return $default;
+    }
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    public function getSize(string $name): ?string
+    {
+        return config('core.media.media.sizes.' . $name);
     }
 
     /**
@@ -611,23 +636,6 @@ class RvMedia
     public function isImage($mimeType)
     {
         return Str::startsWith($mimeType, 'image/');
-    }
-
-    /**
-     * @param string $url
-     * @return string
-     */
-    public function getRealPath($url)
-    {
-        switch (config('filesystems.default')) {
-            case 'local':
-            case 'public':
-                return Storage::path($url);
-            case 's3':
-                return Storage::url($url);
-        }
-
-        return Storage::path($url);
     }
 
     /**

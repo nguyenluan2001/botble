@@ -21,8 +21,9 @@
                         </label>
                         <div class="ui-select-wrapper">
                             <select name="media_driver" class="ui-select" id="media_driver">
-                                <option value="public" @if (config('filesystems.default') === 'public') selected @endif>Public</option>
+                                <option value="public" @if (config('filesystems.default') === 'public') selected @endif>Local disk</option>
                                 <option value="s3" @if (config('filesystems.default') === 's3') selected @endif>Amazon S3</option>
+                                <option value="do_spaces" @if (config('filesystems.default') === 'do_spaces') selected @endif>DigitalOcean Spaces</option>
                             </select>
                             <svg class="svg-next-icon svg-next-icon-size-16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
@@ -60,6 +61,39 @@
                                    for="media_aws_url">{{ trans('core/setting::setting.media.aws_url') }}</label>
                             <input type="text" class="next-input" name="media_aws_url" id="media_aws_url"
                                    value="{{ config('filesystems.disks.s3.url') }}" placeholder="Ex: https://s3-ap-southeast-1.amazonaws.com/your-key">
+                        </div>
+                    </div>
+
+                    <div class="do-spaces-config-wrapper" @if (config('filesystems.default') !== 'do_spaces') style="display: none;" @endif>
+                        <div class="form-group">
+                            <label class="text-title-field"
+                                   for="media_do_spaces_access_key_id">{{ trans('core/setting::setting.media.do_spaces_access_key_id') }}</label>
+                            <input type="text" class="next-input" name="media_do_spaces_access_key_id" id="media_do_spaces_access_key_id"
+                                   value="{{ config('filesystems.disks.do_spaces.key') }}" placeholder="Ex: AKIAIKYXBSNBXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-title-field"
+                                   for="media_do_spaces_secret_key">{{ trans('core/setting::setting.media.do_spaces_secret_key') }}</label>
+                            <input type="text" class="next-input" name="media_do_spaces_secret_key" id="media_do_spaces_secret_key"
+                                   value="{{ config('filesystems.disks.do_spaces.secret') }}" placeholder="Ex: +fivlGCeTJCVVnzpM2WfzzrFIMLHGhxxxxxxx">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-title-field"
+                                   for="media_do_spaces_default_region">{{ trans('core/setting::setting.media.do_spaces_default_region') }}</label>
+                            <input type="text" class="next-input" name="media_do_spaces_default_region" id="media_do_spaces_default_region"
+                                   value="{{ config('filesystems.disks.do_spaces.region') }}" placeholder="Ex: SGP1">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-title-field"
+                                   for="media_do_spaces_bucket">{{ trans('core/setting::setting.media.do_spaces_bucket') }}</label>
+                            <input type="text" class="next-input" name="media_do_spaces_bucket" id="media_do_spaces_bucket"
+                                   value="{{ config('filesystems.disks.do_spaces.bucket') }}" placeholder="Ex: your-key">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label class="text-title-field"
+                                   for="media_do_spaces_endpoint">{{ trans('core/setting::setting.media.do_spaces_endpoint') }}</label>
+                            <input type="text" class="next-input" name="media_do_spaces_endpoint" id="media_do_spaces_endpoint"
+                                   value="{{ config('filesystems.disks.do_spaces.endpoint') }}" placeholder="Ex: https://sfo2.digitaloceanspaces.com">
                         </div>
                     </div>
 
@@ -117,8 +151,13 @@
             $(document).on('change', '#media_driver', function () {
                if ($(this).val() === 's3') {
                    $('.s3-config-wrapper').show();
+                   $('.do-spaces-config-wrapper').hide();
+               } else if ($(this).val() === 'do_spaces') {
+                   $('.s3-config-wrapper').hide();
+                   $('.do-spaces-config-wrapper').show();
                } else {
                    $('.s3-config-wrapper').hide();
+                   $('.do-spaces-config-wrapper').hide();
                }
             });
         });

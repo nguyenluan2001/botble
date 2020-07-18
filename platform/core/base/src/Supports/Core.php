@@ -78,7 +78,7 @@ class Core
      * @param string $license
      * @param string $client
      * @param bool $createLicense
-     * @return mixed
+     * @return array
      */
     public function activateLicense($license, $client, $createLicense = true)
     {
@@ -237,7 +237,7 @@ class Core
                 'client_name'  => null,
             ];
         }
-        $res = ['status' => true, 'message' => 'Verified! Thanks for purchasing.'];
+        $res = ['status' => true, 'message' => 'Verified! Thanks for purchasing our product.'];
         if ($timeBasedCheck && $this->verificationPeriod > 0) {
             $type = (int)$this->verificationPeriod;
             $today = date('d-m-Y');
@@ -262,8 +262,8 @@ class Core
                 );
                 $res = json_decode($getData, true);
                 if ($res['status'] == true) {
-                    $tomo = date('d-m-Y', strtotime($today . ' + ' . $typeText));
-                    session([$this->sessionKey => $tomo]);
+                    $tomorrow = date('d-m-Y', strtotime($today . ' + ' . $typeText));
+                    session([$this->sessionKey => $tomorrow]);
                 }
             }
         } else {

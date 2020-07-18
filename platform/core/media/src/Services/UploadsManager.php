@@ -151,11 +151,11 @@ class UploadsManager
 
         try {
             $stream = $disk->getDriver()->readStream($currentChunksPath);
-            if ($result = Storage::writeStream($path, $stream)) {
+            if ($result = Storage::writeStream($path, $stream, ['visibility' => 'public'])) {
                 $disk->delete($currentChunksPath);
             }
         } catch (Exception $exception) {
-            return Storage::put($this->cleanFolder($path), $content);
+            return Storage::put($this->cleanFolder($path), $content, ['visibility' => 'public']);
         }
 
         return $result;

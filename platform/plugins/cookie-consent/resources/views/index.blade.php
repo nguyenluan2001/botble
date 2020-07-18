@@ -1,6 +1,5 @@
 @if ($cookieConsentConfig['enabled'] && ! $alreadyConsentedWithCookies)
 
-    <link rel="stylesheet" href="{{ asset('vendor/core/plugins/cookie-consent/css/cookie-consent.css') }}">
     <div class="js-cookie-consent cookie-consent">
         <div class="cookie-consent-body">
             <span class="cookie-consent__message">

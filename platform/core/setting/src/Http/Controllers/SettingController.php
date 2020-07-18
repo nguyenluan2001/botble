@@ -140,8 +140,8 @@ class SettingController extends BaseController
         $emailContent = get_setting_email_template_content($type, $module, $template);
         $emailSubject = get_setting_email_subject($type, $module, $template);
         $pluginData = [
-            'type' => $type,
-            'name' => $module,
+            'type'          => $type,
+            'name'          => $module,
             'template_file' => $template,
         ];
 
@@ -249,23 +249,21 @@ class SettingController extends BaseController
      */
     public function getVerifyLicense(Core $coreApi, BaseHttpResponse $response)
     {
-        //        if (!File::exists(storage_path('.license'))) {
-        //            return $response->setError()->setMessage('Your license is invalid, please contact support.');
-        //        }
+        if (!File::exists(storage_path('.license'))) {
+            return $response->setError()->setMessage('Your license is invalid, please contact support.');
+        }
 
-        //        $result = $coreApi->verifyLicense(true);
-        $result = ['status' => true, 'message' => 'Verified! Thanks for purchasing.'];
+        $result = $coreApi->verifyLicense(true);
 
         if (!$result['status']) {
             return $response->setError()->setMessage($result['message']);
         }
 
-        //        $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
-        $activatedAt = Carbon::now('Asia/Ho_Chi_Minh')->addYears(1000);
+        $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
 
         $data = [
             'activated_at' => $activatedAt->format('M d Y'),
-            'licensed_to' => $this->settingStore->get('licensed_to'),
+            'licensed_to'  => $this->settingStore->get('licensed_to'),
         ];
 
         return $response->setMessage($result['message'])->setData($data);
@@ -294,7 +292,7 @@ class SettingController extends BaseController
 
         $data = [
             'activated_at' => $activatedAt->format('M d Y'),
-            'licensed_to' => $request->input('buyer'),
+            'licensed_to'  => $request->input('buyer'),
         ];
 
         return $response->setMessage($result['message'])->setData($data);

@@ -71,6 +71,15 @@ class BaseServiceProvider extends ServiceProvider
                 ->get('media_aws_bucket', $config->get('filesystems.disks.s3.bucket')),
             'filesystems.disks.s3.url'         => $setting
                 ->get('media_aws_url', $config->get('filesystems.disks.s3.url')),
+            'filesystems.disks.do_spaces'      => [
+                'driver'     => 's3',
+                'visibility' => 'public',
+                'key'        => $setting->get('media_do_spaces_access_key_id'),
+                'secret'     => $setting->get('media_do_spaces_secret_key'),
+                'region'     => $setting->get('media_do_spaces_default_region'),
+                'bucket'     => $setting->get('media_do_spaces_bucket'),
+                'endpoint'   => $setting->get('media_do_spaces_endpoint'),
+            ],
             'app.debug_blacklist'              => [
                 '_ENV'    => [
                     'APP_KEY',

@@ -81,6 +81,10 @@ class CaptchaV3
      */
     public function display($attributes = ['action' => 'form'], $options = ['name' => 'g-recaptcha-response'])
     {
+        if (!$this->siteKey) {
+            return null;
+        }
+
         $action = Arr::get($attributes, 'action', 'form');
         $name = Arr::get($options, 'name', 'g-recaptcha-response');
 

@@ -67,7 +67,7 @@ class Handler extends ExceptionHandler
                     return $response;
                 }
             }
-        } elseif (app()->isDownForMaintenance() && view()->exists(Theme::getThemeNamespace() . '::views.503')) {
+        } elseif (class_exists('Theme') && app()->isDownForMaintenance() && view()->exists(Theme::getThemeNamespace() . '::views.503')) {
             return response()->view(Theme::getThemeNamespace() . '::views.503', ['exception' => $exception], 503);
         }
 
@@ -112,7 +112,7 @@ class Handler extends ExceptionHandler
             return response()->view('core/base::errors.' . $code, [], $code);
         }
 
-        if (view()->exists(Theme::getThemeNamespace() . '::views.' . $code)) {
+        if (class_exists('Theme') && view()->exists(Theme::getThemeNamespace() . '::views.' . $code)) {
             return response()->view(Theme::getThemeNamespace() . '::views.' . $code, [], $code);
         }
 

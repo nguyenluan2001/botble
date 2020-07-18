@@ -504,6 +504,10 @@ class MediaController extends Controller
             case 'rename':
                 $error = false;
                 foreach ($request->input('selected') as $item) {
+                    if (!$item['id'] || !$item['name']) {
+                        continue;
+                    }
+
                     $id = $item['id'];
                     if ($item['is_folder'] == 'false') {
                         $file = $this->fileRepository->getFirstBy(['id' => $id]);

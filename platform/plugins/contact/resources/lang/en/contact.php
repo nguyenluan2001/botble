@@ -22,12 +22,22 @@ return [
         'success' => 'Send message successfully!',
         'failed'  => 'Can\'t send message on this time, please try again later!',
     ],
-    'name.required'                 => 'Name is required',
-    'email.required'                => 'Email is required',
-    'email.email'                   => 'The email address is not valid',
-    'content.required'              => 'Content is required',
-    'g-recaptcha-response.required' => 'Please confirm you are not a robot before sending the message.',
-    'g-recaptcha-response.captcha'  => 'You are not confirm robot yet.',
+    'form'                => [
+        'name'                 => [
+            'required' => 'Name is required',
+        ],
+        'email'                => [
+            'required' => 'Email is required',
+            'email'    => 'The email address is not valid',
+        ],
+        'content'              => [
+            'required' => 'Content is required',
+        ],
+        'g-recaptcha-response' => [
+            'required' => 'Please confirm you are not a robot before sending the message.',
+            'captcha'  => 'You are not confirm robot yet.',
+        ],
+    ],
     'contact_sent_from'             => 'This contact information sent from',
     'sender'                        => 'Sender',
     'sender_email'                  => 'Email',
