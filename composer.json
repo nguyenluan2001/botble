@@ -35,10 +35,10 @@
         "nunomaduro/collision": "^4.1",
         "phpunit/phpunit": "^8.5",
         "laravel/tinker": "^2.0",
-        "botble/dev-tool": "*@dev",
-        "botble/plugin-generator": "*@dev",
+        "platform/dev-tool": "*@dev",
+        "platform/plugin-generator": "*@dev",
         "platform/theme-generator": "*@dev",
-        "botble/widget-generator": "*@dev"
+        "platform/widget-generator": "*@dev"
     },
     "autoload": {
         "classmap": [
