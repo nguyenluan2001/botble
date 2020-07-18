@@ -165,6 +165,7 @@ fi
 
 ### settings / options
 PHPCOPTS="-d memory_limit=-1"
+[ ! -d $SCRIPT_PATH/../vendor ] && $ECHO "No vendor directory found" || $RM -rf $SCRIPT_PATH/../vendor/
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/\"botble\/api\"\: \"\*\@dev\"\,/\"botble\/assets\"\: \"\*\@dev\"\,\"botble\/api\"\: \"\*\@dev\"\,/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/\"botble\/assets\"\: \"\^1\.0\"\,//g')
@@ -186,6 +187,33 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/amazonaws.com\/botble/amazonaws.com\/your-key/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/Designed by Nghia Minh/Designed by Developer Team/g')
 
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/\$2y\$10\$A\.uOgqPJthpIKaaUQ3QaueO19\/dtXbntkRuNCRM4DA1D0wN33Jsd6/\$2y\$10\$qwIAmsDCw1ZNY\.Z5uUlDqesIu2rk24RsLQVepxgoMjR8k8cAD7BO2/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe "s/'botble'/'admin@admin.com'/g")
+#($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe "s/'botble-cms'/'laravel-cms'/g")
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe "s/'botble.local'/'laravel-cms.local'/g")
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe "s/'docs.botble.com'/'docs.laravel.com'/g")
+#($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/botble.ticksy.com/laravel.ticksy.com/g')
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/admin@botble.com/admin@admin.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/admin@botble.com/admin@admin.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/admin@botble.com/admin@admin.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/admin@botble.com/admin@admin.com/g')
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/botble\.cms@gmail\.com/developer-team@gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/botble\.cms@gmail\.com/developer-team@gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/botble\.cms@gmail\.com/developer-team@gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/botble\.cms@gmail\.com/developer-team@gistensal\.com/g')
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/nghiadev\.com/gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/nghiadev\.com/gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/nghiadev\.com/gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/nghiadev\.com/gistensal\.com/g')
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/Nghia Minh/Developer Team/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/Nghia Minh/Developer Team/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/Nghia Minh/Developer Team/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/Nghia Minh/Developer Team/g')
+
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/Botble Technologies/Laravel Technologies/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/Botble Technologies/Laravel Technologies/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/Botble Technologies/Laravel Technologies/g')
@@ -196,10 +224,10 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/Sang Nguyen/Developer Team/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/Sang Nguyen/Developer Team/g')
 
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail.com/developer-team@gistensal.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail\.com/developer-team@gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail\.com/developer-team@gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail\.com/developer-team@gistensal\.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 perl -i -pe 's/sangnguyenplus@gmail\.com/developer-team@gistensal\.com/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe 's/Botble\\\\/Platform\\\\/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 perl -i -pe 's/Botble\\\\/Platform\\\\/g')
@@ -217,33 +245,3 @@ PHPCOPTS="-d memory_limit=-1"
 
 ## hack license +1k years
 ## ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 perl -i -pe "s/return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/\/\/ return \$response\-\>setError\(\)\-\>setMessage\(\'Your license is invalid\, please contact support\.\'\)\;/g")
-
-# get last composer
-if [ -f "$SCRIPT_PATH/../composer.phar" ]; then
-  php $PHPCOPTS composer.phar config --global discard-changes true
-  php $PHPCOPTS composer.phar self-update
-else
-  if [ HASCURL == 1 ]; then
-    curl -sS https://getcomposer.org/installer | php
-  else
-    php $PHPCOPTS -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
-  fi
-fi
-
-## install or update with composer
-if [ -f "$SCRIPT_PATH/../composer.lock" ]; then
-  php $PHPCOPTS composer.phar config --global discard-changes true
-  php $PHPCOPTS composer.phar update -o -a
-  ## php $PHPCOPTS composer.phar $DEVMODE update -o -a;
-else
-  php $PHPCOPTS composer.phar config --global discard-changes true
-  php $PHPCOPTS composer.phar install -o -a
-fi
-
-## for laravel
-if [ -f "$SCRIPT_PATH/../artisan" ]; then
-  ## ($CD $SCRIPT_PATH/../ && $PHP artisan vendor:publish --tag=public --force)
-  ($CD $SCRIPT_PATH/../ && $PHP $PHPCOPTS artisan config:clear && $PHP $PHPCOPTS artisan cache:clear && $PHP $PHPCOPTS composer.phar dump-autoload)
-fi
-
-($CD $SCRIPT_PATH/../ && $CHMOD -R 0777 $SCRIPT_PATH/../storage/)
