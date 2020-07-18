@@ -1,5 +1,5 @@
 {
-  "name": "botble/git-commit-checker",
+  "name": "platform/git-commit-checker",
   "description": "Check coding standard & code syntax with Git pre-commit hook.",
   "type": "package",
   "license": "MIT",
@@ -9,21 +9,21 @@
     "Laravel CMS Platform",
     "botble git commit checker"
   ],
-  "homepage": "https://botble.com",
+  "homepage": "https://laravel-cms.gistensal.com",
   "authors": [
     {
-      "name": "Sang Nguyen",
-      "email": "sangnguyenplus@gmail.com"
+      "name": "Developer Team",
+      "email": "developer-team@gistensal.com"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Botble\\GitCommitChecker\\": "src"
+      "Platform\\GitCommitChecker\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Botble\\GitCommitChecker\\Tests\\": "tests"
+      "Platform\\GitCommitChecker\\Tests\\": "tests"
     }
   },
   "require": {
@@ -38,7 +38,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Botble\\GitCommitChecker\\Providers\\GitCommitCheckerServiceProvider"
+        "Platform\\GitCommitChecker\\Providers\\GitCommitCheckerServiceProvider"
       ]
     }
   },

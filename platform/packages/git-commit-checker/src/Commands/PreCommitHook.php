@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\GitCommitChecker\Commands;
+namespace Platform\GitCommitChecker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;

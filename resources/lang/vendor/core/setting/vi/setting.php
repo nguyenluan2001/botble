@@ -33,7 +33,7 @@ return [
             'enable'                         => 'Bật',
             'disable'                        => 'Tắt',
             'enable_cache'                   => 'Bật bộ nhớ đệm?',
-            'cache_time'                     => 'Thời gian lưu bộ nhớ đệm',
+            'cache_time'                     => 'Thời gian lưu bộ nhớ đệm (phút)',
             'cache_time_site_map'            => 'Thời gian lưu sơ đồ trang trong bộ nhớ đệm',
             'admin_logo'                     => 'Logo trang quản trị',
             'admin_title'                    => 'Tiêu đề trang quản trị',
