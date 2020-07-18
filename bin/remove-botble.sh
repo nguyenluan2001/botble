@@ -382,7 +382,11 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/platform/\"platform\/platform/g' $SCRIPT_PATH/../composer.json)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/shortcode/\"platform\/shortcode/g' $SCRIPT_PATH/../composer.json)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/theme/\"platform\/theme/g' $SCRIPT_PATH/../composer.json)
+($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/theme-generator/\"platform\/theme-generator/g' $SCRIPT_PATH/../composer.json)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/plugin-management/\"platform\/plugin-management/g' $SCRIPT_PATH/../composer.json)
+($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/dev-tool/\"platform\/dev-tool/g' $SCRIPT_PATH/../composer.json)
+($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/plugin-generator/\"platform\/plugin-generator/g' $SCRIPT_PATH/../composer.json)
+($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\/widget-generator/\"platform\/widget-generator/g' $SCRIPT_PATH/../composer.json)
 
 ## ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 $PERL -i -pe 's/\"botble\//\"platform\//g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 $PERL -i -pe 's/\"botble\/dev-tool/\"platform\/dev-tool/g')
