@@ -65,7 +65,7 @@ class PackageRemoveCommand extends Command
 
         $this->line('<info>Removed package files successfully!</info>');
 
-        $this->line('<info>Remove</info> <comment>"botble/' . $package . '": "*@dev"</comment> to composer.json then run <comment>composer update</comment> to remove this package!');
+        $this->line('<info>Remove</info> <comment>"platform/' . $package . '": "*@dev"</comment> to composer.json then run <comment>composer update</comment> to remove this package!');
 
         return 0;
     }
