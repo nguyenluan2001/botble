@@ -1,9 +1,9 @@
 <?php
 
-use Botble\Base\Facades\DashboardMenuFacade;
-use Botble\Base\Facades\PageTitleFacade;
-use Botble\Base\Supports\Editor;
-use Botble\Base\Supports\PageTitle;
+use Platform\Base\Facades\DashboardMenuFacade;
+use Platform\Base\Facades\PageTitleFacade;
+use Platform\Base\Supports\Editor;
+use Platform\Base\Supports\PageTitle;
 
 if (!function_exists('anchor_link')) {
     /**
@@ -71,7 +71,7 @@ if (!function_exists('page_title')) {
 
 if (!function_exists('dashboard_menu')) {
     /**
-     * @return \Botble\Base\Supports\DashboardMenu
+     * @return \Platform\Base\Supports\DashboardMenu
      */
     function dashboard_menu()
     {

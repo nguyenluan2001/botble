@@ -1,7 +1,7 @@
 <?php
 
-use Botble\Theme\Facades\AdminBarFacade;
-use Botble\Theme\Facades\ThemeOptionFacade;
+use Platform\Theme\Facades\AdminBarFacade;
+use Platform\Theme\Facades\ThemeOptionFacade;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 if (!function_exists('sanitize_html_class')) {
@@ -112,7 +112,7 @@ if (!function_exists('theme_path')) {
 
 if (!function_exists('admin_bar')) {
     /**
-     * @return Botble\Theme\Supports\AdminBar
+     * @return Platform\Theme\Supports\AdminBar
      */
     function admin_bar()
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Theme\Events;
+namespace Platform\Theme\Events;
 
-use Botble\Base\Events\Event;
+use Platform\Base\Events\Event;
 use Illuminate\Queue\SerializesModels;
 
 class ThemeRemoveEvent extends Event

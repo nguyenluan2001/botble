@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\ACL\Http\Middleware;
+namespace Platform\ACL\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

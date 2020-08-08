@@ -1,7 +1,7 @@
 <?php
 
-use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
-use Botble\Gallery\Repositories\Interfaces\GalleryMetaInterface;
+use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
+use Platform\Gallery\Repositories\Interfaces\GalleryMetaInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 

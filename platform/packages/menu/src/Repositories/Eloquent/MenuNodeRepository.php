@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Menu\Repositories\Eloquent;
+namespace Platform\Menu\Repositories\Eloquent;
 
-use Botble\Menu\Repositories\Interfaces\MenuNodeInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\Menu\Repositories\Interfaces\MenuNodeInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 class MenuNodeRepository extends RepositoriesAbstract implements MenuNodeInterface
 {

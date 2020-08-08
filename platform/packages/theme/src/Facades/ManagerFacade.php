@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Theme\Facades;
+namespace Platform\Theme\Facades;
 
-use Botble\Theme\Manager;
+use Platform\Theme\Manager;
 use Illuminate\Support\Facades\Facade;
 
 class ManagerFacade extends Facade

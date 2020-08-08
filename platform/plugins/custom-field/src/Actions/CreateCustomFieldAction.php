@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\CustomField\Actions;
+namespace Platform\CustomField\Actions;
 
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
 
 class CreateCustomFieldAction extends AbstractAction
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\PluginManagement\Providers;
+namespace Platform\PluginManagement\Providers;
 
-use Botble\PluginManagement\Commands\PluginActivateCommand;
-use Botble\PluginManagement\Commands\PluginAssetsPublishCommand;
-use Botble\PluginManagement\Commands\PluginDeactivateCommand;
-use Botble\PluginManagement\Commands\PluginRemoveCommand;
+use Platform\PluginManagement\Commands\PluginActivateCommand;
+use Platform\PluginManagement\Commands\PluginAssetsPublishCommand;
+use Platform\PluginManagement\Commands\PluginDeactivateCommand;
+use Platform\PluginManagement\Commands\PluginRemoveCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

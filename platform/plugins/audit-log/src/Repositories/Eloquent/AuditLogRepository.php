@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\AuditLog\Repositories\Eloquent;
+namespace Platform\AuditLog\Repositories\Eloquent;
 
-use Botble\AuditLog\Repositories\Interfaces\AuditLogInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\AuditLog\Repositories\Interfaces\AuditLogInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 /**
  * @since 16/09/2016 10:55 AM

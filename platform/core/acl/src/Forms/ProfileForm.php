@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\ACL\Forms;
+namespace Platform\ACL\Forms;
 
-use Botble\ACL\Http\Requests\UpdateProfileRequest;
-use Botble\ACL\Models\User;
-use Botble\Base\Forms\FormAbstract;
+use Platform\ACL\Http\Requests\UpdateProfileRequest;
+use Platform\ACL\Models\User;
+use Platform\Base\Forms\FormAbstract;
 
 class ProfileForm extends FormAbstract
 {

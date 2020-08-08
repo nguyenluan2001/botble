@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Shortcode\Providers;
+namespace Platform\Shortcode\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Shortcode\Compilers\ShortcodeCompiler;
-use Botble\Shortcode\Shortcode;
-use Botble\Shortcode\View\Factory;
+use Platform\Base\Supports\Helper;
+use Platform\Shortcode\Compilers\ShortcodeCompiler;
+use Platform\Shortcode\Shortcode;
+use Platform\Shortcode\View\Factory;
 use Illuminate\Support\ServiceProvider;
 
 class ShortcodeServiceProvider extends ServiceProvider

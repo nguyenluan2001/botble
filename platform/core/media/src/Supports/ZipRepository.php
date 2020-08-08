@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Media\Supports;
+namespace Platform\Media\Supports;
 
 use Exception;
 use ZipArchive;

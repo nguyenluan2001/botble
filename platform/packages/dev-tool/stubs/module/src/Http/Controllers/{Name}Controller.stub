@@ -1,20 +1,20 @@
 <?php
 
-namespace Botble\{Module}\Http\Controllers;
+namespace Platform\{Module}\Http\Controllers;
 
-use Botble\Base\Events\BeforeEditContentEvent;
-use Botble\{Module}\Http\Requests\{Name}Request;
-use Botble\{Module}\Repositories\Interfaces\{Name}Interface;
-use Botble\Base\Http\Controllers\BaseController;
+use Platform\Base\Events\BeforeEditContentEvent;
+use Platform\{Module}\Http\Requests\{Name}Request;
+use Platform\{Module}\Repositories\Interfaces\{Name}Interface;
+use Platform\Base\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 use Exception;
-use Botble\{Module}\Tables\{Name}Table;
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\{Module}\Forms\{Name}Form;
-use Botble\Base\Forms\FormBuilder;
+use Platform\{Module}\Tables\{Name}Table;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\{Module}\Forms\{Name}Form;
+use Platform\Base\Forms\FormBuilder;
 
 class {Name}Controller extends BaseController
 {

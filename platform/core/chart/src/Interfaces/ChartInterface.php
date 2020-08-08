@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Chart\Interfaces;
+namespace Platform\Chart\Interfaces;
 
 interface ChartInterface
 {

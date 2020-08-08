@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\JsValidation\Support;
+namespace Platform\JsValidation\Support;
 
 use Closure;
 use Illuminate\Validation\Validator as BaseValidator;

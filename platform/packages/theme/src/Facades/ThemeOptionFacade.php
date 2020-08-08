@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Theme\Facades;
+namespace Platform\Theme\Facades;
 
-use Botble\Theme\ThemeOption;
+use Platform\Theme\ThemeOption;
 use Illuminate\Support\Facades\Facade;
 
 class ThemeOptionFacade extends Facade

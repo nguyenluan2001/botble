@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\ACL\Http\Requests;
+namespace Platform\ACL\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class UpdatePasswordRequest extends Request
 {

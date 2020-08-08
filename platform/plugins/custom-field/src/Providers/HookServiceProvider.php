@@ -1,16 +1,16 @@
 <?php
 
-namespace Botble\CustomField\Providers;
+namespace Platform\CustomField\Providers;
 
 use Assets;
-use Botble\Blog\Models\Post;
-use Botble\Page\Models\Page;
+use Platform\Blog\Models\Post;
+use Platform\Page\Models\Page;
 use CustomField;
 use Eloquent;
 use Illuminate\Support\Facades\Auth;
-use Botble\ACL\Repositories\Interfaces\RoleInterface;
-use Botble\Blog\Repositories\Interfaces\PostInterface;
-use Botble\CustomField\Facades\CustomFieldSupportFacade;
+use Platform\ACL\Repositories\Interfaces\RoleInterface;
+use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Platform\CustomField\Facades\CustomFieldSupportFacade;
 use Illuminate\Support\ServiceProvider;
 use Throwable;
 

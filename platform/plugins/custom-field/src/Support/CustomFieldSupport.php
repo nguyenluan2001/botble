@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\CustomField\Support;
+namespace Platform\CustomField\Support;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\CustomField\Repositories\Interfaces\CustomFieldInterface;
-use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\CustomField\Repositories\Interfaces\CustomFieldInterface;
+use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
 use Closure;
 use Eloquent;
 use Exception;

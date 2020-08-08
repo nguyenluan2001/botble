@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Shortcode\Compilers;
+namespace Platform\Shortcode\Compilers;
 
 class Shortcode
 {

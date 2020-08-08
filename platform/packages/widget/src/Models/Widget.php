@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Widget\Models;
+namespace Platform\Widget\Models;
 
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 
 class Widget extends BaseModel
 {

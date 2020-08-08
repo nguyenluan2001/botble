@@ -1,8 +1,8 @@
 <?php
 
-use Botble\Blog\Models\Category;
-use Botble\Blog\Models\Post;
-use Botble\Blog\Models\Tag;
+use Platform\Blog\Models\Category;
+use Platform\Blog\Models\Post;
+use Platform\Blog\Models\Tag;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateSlugReferenceForBlog extends Migration

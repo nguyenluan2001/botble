@@ -1,15 +1,15 @@
 <?php
 
-namespace Botble\Gallery\Providers;
+namespace Platform\Gallery\Providers;
 
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Theme\Events\RenderingSiteMapEvent;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\Gallery\Listeners\CreatedContentListener;
-use Botble\Gallery\Listeners\DeletedContentListener;
-use Botble\Gallery\Listeners\RenderingSiteMapListener;
-use Botble\Gallery\Listeners\UpdatedContentListener;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Theme\Events\RenderingSiteMapEvent;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\Gallery\Listeners\CreatedContentListener;
+use Platform\Gallery\Listeners\DeletedContentListener;
+use Platform\Gallery\Listeners\RenderingSiteMapListener;
+use Platform\Gallery\Listeners\UpdatedContentListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider

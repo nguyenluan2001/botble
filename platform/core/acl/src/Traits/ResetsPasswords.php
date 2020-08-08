@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\ACL\Traits;
+namespace Platform\ACL\Traits;
 
-use Botble\ACL\Models\User;
+use Platform\ACL\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Contracts\Auth\PasswordBroker;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Media\Chunks;
+namespace Platform\Media\Chunks;
 
-use Botble\Media\Chunks\Storage\ChunkStorage;
+use Platform\Media\Chunks\Storage\ChunkStorage;
 
 class ChunkFile
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\JsValidation\Support;
+namespace Platform\JsValidation\Support;
 
 trait UseDelegatedValidatorTrait
 {

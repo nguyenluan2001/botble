@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\AuditLog\Facades;
+namespace Platform\AuditLog\Facades;
 
-use Botble\AuditLog\AuditLog;
+use Platform\AuditLog\AuditLog;
 use Illuminate\Support\Facades\Facade;
 
 class AuditLogFacade extends Facade

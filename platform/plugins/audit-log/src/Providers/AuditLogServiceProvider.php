@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\AuditLog\Providers;
+namespace Platform\AuditLog\Providers;
 
-use Botble\AuditLog\Facades\AuditLogFacade;
-use Botble\AuditLog\Models\AuditHistory;
-use Botble\AuditLog\Repositories\Caches\AuditLogCacheDecorator;
-use Botble\AuditLog\Repositories\Eloquent\AuditLogRepository;
-use Botble\AuditLog\Repositories\Interfaces\AuditLogInterface;
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\AuditLog\Facades\AuditLogFacade;
+use Platform\AuditLog\Models\AuditHistory;
+use Platform\AuditLog\Repositories\Caches\AuditLogCacheDecorator;
+use Platform\AuditLog\Repositories\Eloquent\AuditLogRepository;
+use Platform\AuditLog\Repositories\Interfaces\AuditLogInterface;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Event;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Routing\Events\RouteMatched;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\CustomField\Facades;
+namespace Platform\CustomField\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Botble\CustomField\Support\CustomFieldSupport;
+use Platform\CustomField\Support\CustomFieldSupport;
 
 class CustomFieldSupportFacade extends Facade
 {

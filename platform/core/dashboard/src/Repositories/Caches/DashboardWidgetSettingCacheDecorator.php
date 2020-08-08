@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Dashboard\Repositories\Caches;
+namespace Platform\Dashboard\Repositories\Caches;
 
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class DashboardWidgetSettingCacheDecorator extends CacheAbstractDecorator implements DashboardWidgetSettingInterface
 {

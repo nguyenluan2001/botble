@@ -1,23 +1,23 @@
 <?php
 
-namespace Botble\Page\Http\Controllers;
+namespace Platform\Page\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Events\BeforeEditContentEvent;
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Base\Traits\HasDeleteManyItemsTrait;
-use Botble\Page\Forms\PageForm;
-use Botble\Page\Tables\PageTable;
-use Botble\Page\Http\Requests\PageRequest;
-use Botble\Page\Repositories\Interfaces\PageInterface;
+use Platform\Base\Events\BeforeEditContentEvent;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Traits\HasDeleteManyItemsTrait;
+use Platform\Page\Forms\PageForm;
+use Platform\Page\Tables\PageTable;
+use Platform\Page\Http\Requests\PageRequest;
+use Platform\Page\Repositories\Interfaces\PageInterface;
 use Exception;
 use Illuminate\Http\Request;
-use Botble\Base\Forms\FormBuilder;
+use Platform\Base\Forms\FormBuilder;
 use Illuminate\View\View;
 use Throwable;
 

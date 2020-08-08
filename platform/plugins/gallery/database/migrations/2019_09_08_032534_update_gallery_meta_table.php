@@ -1,7 +1,7 @@
 <?php
 
-use Botble\Blog\Models\Post;
-use Botble\Page\Models\Page;
+use Platform\Blog\Models\Post;
+use Platform\Page\Models\Page;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -22,7 +22,7 @@ class UpdateGalleryMetaTable extends Migration
 
         DB::table('gallery_meta')->where('reference_type', 'post')->update(['reference_type' => Post::class]);
         DB::table('gallery_meta')->where('reference_type', 'page')->update(['reference_type' => Page::class]);
-        DB::table('gallery_meta')->where('reference_type', 'gallery')->update(['reference_type' => \Botble\Gallery\Models\Gallery::class]);
+        DB::table('gallery_meta')->where('reference_type', 'gallery')->update(['reference_type' => \Platform\Gallery\Models\Gallery::class]);
     }
 
     /**
@@ -39,6 +39,6 @@ class UpdateGalleryMetaTable extends Migration
 
         DB::table('gallery_meta')->where('reference', Post::class)->update(['reference' => 'post']);
         DB::table('gallery_meta')->where('reference', Page::class)->update(['reference' => 'page']);
-        DB::table('gallery_meta')->where('reference', \Botble\Gallery\Models\Gallery::class)->update(['reference' => 'gallery']);
+        DB::table('gallery_meta')->where('reference', \Platform\Gallery\Models\Gallery::class)->update(['reference' => 'gallery']);
     }
 }

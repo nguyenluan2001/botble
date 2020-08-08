@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Revision;
+namespace Platform\Revision;
 
-use Botble\ACL\Models\User;
+use Platform\ACL\Models\User;
 use Exception;
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Str;
 

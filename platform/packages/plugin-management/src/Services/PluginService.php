@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\PluginManagement\Services;
+namespace Platform\PluginManagement\Services;
 
-use Botble\Base\Supports\Helper;
-use Botble\Setting\Supports\SettingStore;
+use Platform\Base\Supports\Helper;
+use Platform\Setting\Supports\SettingStore;
 use Composer\Autoload\ClassLoader;
 use DB;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

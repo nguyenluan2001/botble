@@ -1,15 +1,15 @@
 <?php
 
-namespace Botble\SocialLogin\Http\Controllers;
+namespace Platform\SocialLogin\Http\Controllers;
 
 use Assets;
-use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Setting\Supports\SettingStore;
-use Botble\SocialLogin\Http\Requests\SocialLoginRequest;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Setting\Supports\SettingStore;
+use Platform\SocialLogin\Http\Requests\SocialLoginRequest;
 use Exception;
 use Illuminate\Support\Str;
 use RvMedia;

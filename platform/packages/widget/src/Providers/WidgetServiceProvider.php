@@ -1,17 +1,17 @@
 <?php
 
-namespace Botble\Widget\Providers;
+namespace Platform\Widget\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Widget\Factories\WidgetFactory;
-use Botble\Widget\Misc\LaravelApplicationWrapper;
-use Botble\Widget\Models\Widget;
-use Botble\Widget\Repositories\Caches\WidgetCacheDecorator;
-use Botble\Widget\Repositories\Eloquent\WidgetRepository;
-use Botble\Widget\Repositories\Interfaces\WidgetInterface;
-use Botble\Widget\WidgetGroupCollection;
-use Botble\Widget\Widgets\Text;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Widget\Factories\WidgetFactory;
+use Platform\Widget\Misc\LaravelApplicationWrapper;
+use Platform\Widget\Models\Widget;
+use Platform\Widget\Repositories\Caches\WidgetCacheDecorator;
+use Platform\Widget\Repositories\Eloquent\WidgetRepository;
+use Platform\Widget\Repositories\Interfaces\WidgetInterface;
+use Platform\Widget\WidgetGroupCollection;
+use Platform\Widget\Widgets\Text;
 use Event;
 use File;
 use Illuminate\Foundation\Application;

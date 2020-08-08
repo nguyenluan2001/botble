@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Blog\Supports;
+namespace Platform\Blog\Supports;
 
-use Botble\Base\Enums\BaseStatusEnum;
+use Platform\Base\Enums\BaseStatusEnum;
 
 class FilterPost
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\SeoHelper\Entities;
+namespace Platform\SeoHelper\Entities;
 
-use Botble\SeoHelper\Contracts\Entities\TitleContract;
-use Botble\SeoHelper\Exceptions\InvalidArgumentException;
+use Platform\SeoHelper\Contracts\Entities\TitleContract;
+use Platform\SeoHelper\Exceptions\InvalidArgumentException;
 use Illuminate\Support\Str;
 
 class Title implements TitleContract

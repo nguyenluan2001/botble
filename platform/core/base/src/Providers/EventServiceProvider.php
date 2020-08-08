@@ -1,17 +1,17 @@
 <?php
 
-namespace Botble\Base\Providers;
+namespace Platform\Base\Providers;
 
-use Botble\Base\Events\BeforeEditContentEvent;
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\SendMailEvent;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\Base\Listeners\BeforeEditContentListener;
-use Botble\Base\Listeners\CreatedContentListener;
-use Botble\Base\Listeners\DeletedContentListener;
-use Botble\Base\Listeners\SendMailListener;
-use Botble\Base\Listeners\UpdatedContentListener;
+use Platform\Base\Events\BeforeEditContentEvent;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\SendMailEvent;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\Base\Listeners\BeforeEditContentListener;
+use Platform\Base\Listeners\CreatedContentListener;
+use Platform\Base\Listeners\DeletedContentListener;
+use Platform\Base\Listeners\SendMailListener;
+use Platform\Base\Listeners\UpdatedContentListener;
 use Event;
 use File;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

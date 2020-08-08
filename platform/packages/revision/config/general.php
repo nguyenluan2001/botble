@@ -3,7 +3,7 @@
 return [
     // List supported modules or plugins
     'supported' => [
-        'Botble\Blog\Models\Post',
-        'Botble\Page\Models\Page',
+        'Platform\Blog\Models\Post',
+        'Platform\Page\Models\Page',
     ],
 ];

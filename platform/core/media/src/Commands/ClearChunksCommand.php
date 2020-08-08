@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Media\Commands;
+namespace Platform\Media\Commands;
 
-use Botble\Media\Chunks\ChunkFile;
-use Botble\Media\Chunks\Storage\ChunkStorage;
+use Platform\Media\Chunks\ChunkFile;
+use Platform\Media\Chunks\Storage\ChunkStorage;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\OutputInterface;

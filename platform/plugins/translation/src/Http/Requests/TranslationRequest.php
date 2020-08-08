@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Translation\Http\Requests;
+namespace Platform\Translation\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class TranslationRequest extends Request
 {

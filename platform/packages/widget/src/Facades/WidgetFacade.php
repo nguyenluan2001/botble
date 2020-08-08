@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Widget\Facades;
+namespace Platform\Widget\Facades;
 
-use Botble\Widget\WidgetGroup;
+use Platform\Widget\WidgetGroup;
 use Illuminate\Support\Facades\Facade;
 
 class WidgetFacade extends Facade

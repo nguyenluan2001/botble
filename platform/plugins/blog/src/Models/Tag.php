@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Blog\Models;
+namespace Platform\Blog\Models;
 
-use Botble\Base\Traits\EnumCastable;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Slug\Traits\SlugTrait;
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Traits\EnumCastable;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Slug\Traits\SlugTrait;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends BaseModel

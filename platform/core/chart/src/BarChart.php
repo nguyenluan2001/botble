@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Chart;
+namespace Platform\Chart;
 
-use Botble\Chart\Supports\Chart;
-use Botble\Chart\Supports\ChartTypes;
+use Platform\Chart\Supports\Chart;
+use Platform\Chart\Supports\ChartTypes;
 
 class BarChart extends Chart
 {

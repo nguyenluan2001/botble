@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\RequestLog\Providers;
+namespace Platform\RequestLog\Providers;
 
-use Botble\RequestLog\Commands\RequestLogClearCommand;
+use Platform\RequestLog\Commands\RequestLogClearCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

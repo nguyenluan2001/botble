@@ -1,7 +1,7 @@
 <?php
 
-use Botble\Page\Repositories\Interfaces\PageInterface;
-use Botble\Page\Supports\Template;
+use Platform\Page\Repositories\Interfaces\PageInterface;
+use Platform\Page\Supports\Template;
 
 if (!function_exists('get_featured_pages')) {
     /**

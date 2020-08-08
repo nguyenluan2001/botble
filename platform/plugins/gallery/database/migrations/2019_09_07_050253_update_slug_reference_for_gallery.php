@@ -11,7 +11,7 @@ class UpdateSlugReferenceForGallery extends Migration
      */
     public function up()
     {
-        DB::table('slugs')->where('reference_type', 'gallery')->update(['reference_type' => \Botble\Gallery\Models\Gallery::class]);
+        DB::table('slugs')->where('reference_type', 'gallery')->update(['reference_type' => \Platform\Gallery\Models\Gallery::class]);
     }
 
     /**
@@ -21,6 +21,6 @@ class UpdateSlugReferenceForGallery extends Migration
      */
     public function down()
     {
-        DB::table('slugs')->where('reference_type', \Botble\Gallery\Models\Gallery::class)->update(['reference_type' => 'gallery']);
+        DB::table('slugs')->where('reference_type', \Platform\Gallery\Models\Gallery::class)->update(['reference_type' => 'gallery']);
     }
 }

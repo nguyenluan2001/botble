@@ -1,16 +1,16 @@
 <?php
 
-namespace Botble\Setting\Providers;
+namespace Platform\Setting\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Setting\Facades\SettingFacade;
-use Botble\Setting\Models\Setting as SettingModel;
-use Botble\Setting\Repositories\Caches\SettingCacheDecorator;
-use Botble\Setting\Repositories\Eloquent\SettingRepository;
-use Botble\Setting\Repositories\Interfaces\SettingInterface;
-use Botble\Setting\Supports\SettingsManager;
-use Botble\Setting\Supports\SettingStore;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Setting\Facades\SettingFacade;
+use Platform\Setting\Models\Setting as SettingModel;
+use Platform\Setting\Repositories\Caches\SettingCacheDecorator;
+use Platform\Setting\Repositories\Eloquent\SettingRepository;
+use Platform\Setting\Repositories\Interfaces\SettingInterface;
+use Platform\Setting\Supports\SettingsManager;
+use Platform\Setting\Supports\SettingStore;
 use EmailHandler;
 use Event;
 use Illuminate\Foundation\AliasLoader;

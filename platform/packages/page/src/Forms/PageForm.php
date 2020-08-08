@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Page\Forms;
+namespace Platform\Page\Forms;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Forms\FormAbstract;
-use Botble\Page\Http\Requests\PageRequest;
-use Botble\Page\Models\Page;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Forms\FormAbstract;
+use Platform\Page\Http\Requests\PageRequest;
+use Platform\Page\Models\Page;
 
 class PageForm extends FormAbstract
 {

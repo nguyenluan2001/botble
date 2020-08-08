@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Contact\Tables;
+namespace Platform\Contact\Tables;
 
-use Botble\Contact\Models\Contact;
+use Platform\Contact\Models\Contact;
 use Html;
 use Illuminate\Support\Facades\Auth;
-use Botble\Contact\Enums\ContactStatusEnum;
-use Botble\Contact\Repositories\Interfaces\ContactInterface;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\Contact\Enums\ContactStatusEnum;
+use Platform\Contact\Repositories\Interfaces\ContactInterface;
+use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTables;

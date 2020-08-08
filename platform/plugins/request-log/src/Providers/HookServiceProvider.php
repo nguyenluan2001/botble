@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\RequestLog\Providers;
+namespace Platform\RequestLog\Providers;
 
 use Assets;
 use Illuminate\Support\Facades\Auth;
-use Botble\Dashboard\Supports\DashboardWidgetInstance;
-use Botble\RequestLog\Events\RequestHandlerEvent;
+use Platform\Dashboard\Supports\DashboardWidgetInstance;
+use Platform\RequestLog\Events\RequestHandlerEvent;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Throwable;

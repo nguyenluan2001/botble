@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Slug;
+namespace Platform\Slug;
 
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 use Illuminate\Support\Arr;
 
 class SlugHelper

@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Widget;
+namespace Platform\Widget;
 
-use Botble\Widget\Contracts\ApplicationWrapperContract;
-use Botble\Widget\Misc\ViewExpressionTrait;
+use Platform\Widget\Contracts\ApplicationWrapperContract;
+use Platform\Widget\Misc\ViewExpressionTrait;
 use Illuminate\Support\Arr;
 use stdClass;
 

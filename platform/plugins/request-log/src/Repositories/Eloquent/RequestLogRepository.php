@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\RequestLog\Repositories\Eloquent;
+namespace Platform\RequestLog\Repositories\Eloquent;
 
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Botble\RequestLog\Repositories\Interfaces\RequestLogInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\RequestLog\Repositories\Interfaces\RequestLogInterface;
 
 class RequestLogRepository extends RepositoriesAbstract implements RequestLogInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Gallery\Providers;
+namespace Platform\Gallery\Providers;
 
 use Assets;
 use Illuminate\Support\ServiceProvider;
