@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\SeoHelper\Entities;
+namespace Botble\SeoHelper\Entities;
 
-use Platform\SeoHelper\Contracts\Entities\MetaCollectionContract;
-use Platform\SeoHelper\Contracts\Entities\MiscTagsContract;
+use Botble\SeoHelper\Contracts\Entities\MetaCollectionContract;
+use Botble\SeoHelper\Contracts\Entities\MiscTagsContract;
 
 class MiscTags implements MiscTagsContract
 {

@@ -1,6 +1,6 @@
 import {Helpers} from './App/Helpers/Helpers';
 import {MediaConfig} from './App/Config/MediaConfig';
-import {ContextMenuService} from "./App/Services/ContextMenuService";
+import {ContextMenuService} from './App/Services/ContextMenuService';
 
 export class EditorService {
     static editorSelectFile(selectedFiles) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Theme\Providers;
+namespace Botble\Theme\Providers;
 
-use Platform\Base\Supports\Helper;
+use Botble\Base\Supports\Helper;
 use Composer\Autoload\ClassLoader;
 use File;
 use Illuminate\Contracts\Container\BindingResolutionException;

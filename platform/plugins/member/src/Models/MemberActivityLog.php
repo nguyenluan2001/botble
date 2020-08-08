@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Member\Models;
+namespace Botble\Member\Models;
 
 use Html;
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 
 class MemberActivityLog extends BaseModel
 {
@@ -32,7 +32,7 @@ class MemberActivityLog extends BaseModel
         self::creating(function ($model) {
             $model->user_agent = $model->user_agent ? $model->user_agent : request()->userAgent();
             $model->ip_address = $model->ip_address ? $model->ip_address : request()->ip();
-            $model->member_id = $model->member_id ? $model->member_id : auth()->guard('member')->user()->getKey();
+            $model->member_id = $model->member_id ? $model->member_id : auth('member')->user()->getAuthIdentifier();
             $model->reference_url = str_replace(url('/'), '', $model->reference_url);
         });
     }

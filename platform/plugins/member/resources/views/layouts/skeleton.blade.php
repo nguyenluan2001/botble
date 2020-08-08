@@ -8,7 +8,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   @if (theme_option('favicon'))
-        <link rel="shortcut icon" href="{{ get_image_url(theme_option('favicon')) }}">
+        <link rel="shortcut icon" href="{{ RvMedia::getImageUrl(theme_option('favicon')) }}">
   @endif
 
   {!! SeoHelper::render() !!}

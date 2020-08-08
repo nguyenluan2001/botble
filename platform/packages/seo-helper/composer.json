@@ -1,23 +1,23 @@
 {
-    "name": "platform/seo-helper",
-    "description": "SEO helper package for Laravel CMS application",
+    "name": "botble/seo-helper",
+    "description": "SEO helper package for Botble CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Platform\\SeoHelper\\": "src"
+            "Botble\\SeoHelper\\": "src"
         }
     },
     "require": {
-        "platform/platform": "*@dev",
-        "platform/theme": "*@dev"
+        "botble/platform": "*@dev",
+        "botble/theme": "*@dev"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\SeoHelper\\Providers\\SeoHelperServiceProvider"
+                "Botble\\SeoHelper\\Providers\\SeoHelperServiceProvider"
             ],
             "aliases": {
-                "SeoHelper": "Platform\\SeoHelper\\Facades\\SeoHelperFacade"
+                "SeoHelper": "Botble\\SeoHelper\\Facades\\SeoHelperFacade"
             }
         }
     }

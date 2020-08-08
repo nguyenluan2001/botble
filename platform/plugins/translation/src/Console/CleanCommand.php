@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Translation\Console;
+namespace Botble\Translation\Console;
 
-use Platform\Translation\Manager;
+use Botble\Translation\Manager;
 use Illuminate\Console\Command;
 
 class CleanCommand extends Command

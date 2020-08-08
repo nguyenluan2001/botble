@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
-use Platform\Assets\Assets as BaseAssets;
-use Platform\Assets\HtmlBuilder;
+use Botble\Assets\Assets as BaseAssets;
+use Botble\Assets\HtmlBuilder;
 use File;
 use Illuminate\Config\Repository;
 use Illuminate\Support\Str;

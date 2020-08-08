@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Support\Repositories\Caches;
+namespace Botble\Support\Repositories\Caches;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
-use Platform\Support\Services\Cache\Cache;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Services\Cache\Cache;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\Model;

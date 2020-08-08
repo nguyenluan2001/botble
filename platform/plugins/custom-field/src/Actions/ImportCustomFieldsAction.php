@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\CustomField\Actions;
+namespace Botble\CustomField\Actions;
 
 use Exception;
 use Illuminate\Support\Facades\Auth;
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
 use DB;
 use Illuminate\Support\Arr;
 

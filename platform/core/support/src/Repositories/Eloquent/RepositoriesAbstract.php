@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Support\Repositories\Eloquent;
+namespace Botble\Support\Repositories\Eloquent;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -197,7 +197,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
                         break;
                 }
             } else {
-                $newModel = $newModel->where($field, '=', $value);
+                $newModel = $newModel->where($field, $value);
             }
         }
         if (!$model) {

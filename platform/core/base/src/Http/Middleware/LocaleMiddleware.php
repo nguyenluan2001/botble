@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Http\Middleware;
+namespace Botble\Base\Http\Middleware;
 
 use Assets;
 use Closure;
@@ -41,7 +41,7 @@ class LocaleMiddleware
 
         $sessionLocale = $request->session()->get('site-locale');
 
-        if (array_key_exists($sessionLocale, Assets::getAdminLocales())) {
+        if (array_key_exists($sessionLocale, Assets::getAdminLocales()) && is_in_admin()) {
             $this->app->setLocale($sessionLocale);
             $request->setLocale($sessionLocale);
         }

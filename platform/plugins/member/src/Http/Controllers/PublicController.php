@@ -1,20 +1,20 @@
 <?php
 
-namespace Platform\Member\Http\Controllers;
+namespace Botble\Member\Http\Controllers;
 
 use Assets;
-use Platform\Media\Services\ThumbnailService;
-use Platform\Member\Http\Resources\ActivityLogResource;
+use Botble\Media\Services\ThumbnailService;
+use Botble\Member\Http\Resources\ActivityLogResource;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
-use Platform\Member\Http\Requests\AvatarRequest;
-use Platform\Member\Http\Requests\SettingRequest;
-use Platform\Member\Http\Requests\UpdatePasswordRequest;
-use Platform\Member\Repositories\Interfaces\MemberActivityLogInterface;
-use Platform\Member\Repositories\Interfaces\MemberInterface;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Member\Http\Requests\AvatarRequest;
+use Botble\Member\Http\Requests\SettingRequest;
+use Botble\Member\Http\Requests\UpdatePasswordRequest;
+use Botble\Member\Repositories\Interfaces\MemberActivityLogInterface;
+use Botble\Member\Repositories\Interfaces\MemberInterface;
 use Exception;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Routing\Controller;
@@ -64,9 +64,9 @@ class PublicController extends Controller
      */
     public function getDashboard()
     {
-        $user = auth()->guard('member')->user();
+        $user = auth('member')->user();
 
-        SeoHelper::setTitle(auth()->guard('member')->user()->getFullName());
+        SeoHelper::setTitle(auth('member')->user()->getFullName());
 
         return view('plugins/member::dashboard.index', compact('user'));
     }
@@ -80,7 +80,7 @@ class PublicController extends Controller
     {
         SeoHelper::setTitle(__('Account settings'));
 
-        $user = auth()->guard('member')->user();
+        $user = auth('member')->user();
 
         return view('plugins/member::settings.index', compact('user'));
     }
@@ -109,7 +109,7 @@ class PublicController extends Controller
         }
 
         $this->memberRepository->createOrUpdate($request->except('email'),
-            ['id' => auth()->guard('member')->user()->getKey()]);
+            ['id' => auth('member')->user()->getAuthIdentifier()]);
 
         $this->activityLogRepository->createOrUpdate(['action' => 'update_setting']);
 
@@ -137,7 +137,7 @@ class PublicController extends Controller
      */
     public function postSecurity(UpdatePasswordRequest $request, BaseHttpResponse $response)
     {
-        $this->memberRepository->update(['id' => auth()->guard('member')->user()->getKey()], [
+        $this->memberRepository->update(['id' => auth('member')->user()->getAuthIdentifier()], [
             'password' => bcrypt($request->input('password')),
         ]);
 
@@ -201,7 +201,7 @@ class PublicController extends Controller
      */
     public function getActivityLogs(BaseHttpResponse $response)
     {
-        $activities = $this->activityLogRepository->getAllLogs(auth()->guard('member')->user()->getKey());
+        $activities = $this->activityLogRepository->getAllLogs(auth('member')->user()->getAuthIdentifier());
 
         return $response->setData(ActivityLogResource::collection($activities))->toApiResponse();
     }

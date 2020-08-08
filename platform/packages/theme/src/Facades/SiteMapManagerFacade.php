@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Theme\Facades;
+namespace Botble\Theme\Facades;
 
-use Platform\Theme\Supports\SiteMapManager;
+use Botble\Theme\Supports\SiteMapManager;
 use Illuminate\Support\Facades\Facade;
 
 class SiteMapManagerFacade extends Facade

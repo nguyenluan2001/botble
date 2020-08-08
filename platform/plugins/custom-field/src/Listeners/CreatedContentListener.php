@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\CustomField\Listeners;
+namespace Botble\CustomField\Listeners;
 
-use Platform\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
 use CustomField;
 use Exception;
 

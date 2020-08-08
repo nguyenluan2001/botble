@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Entities;
+namespace Botble\SeoHelper\Contracts\Entities;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface DescriptionContract extends RenderableContract
 {
@@ -24,8 +24,7 @@ interface DescriptionContract extends RenderableContract
      * Set description content.
      *
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function set($content);
 
@@ -40,8 +39,7 @@ interface DescriptionContract extends RenderableContract
      * Set description max length.
      *
      * @param int $max
-     *
-     * @return self
+     * @return $this
      */
     public function setMax($max);
 
@@ -50,8 +48,7 @@ interface DescriptionContract extends RenderableContract
      *
      * @param string $content
      * @param int $max
-     *
-     * @return self
+     * @return $this
      */
     public static function make($content, $max = 155);
 }

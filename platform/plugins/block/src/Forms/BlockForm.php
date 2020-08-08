@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Block\Forms;
+namespace Botble\Block\Forms;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Forms\FormAbstract;
-use Platform\Block\Http\Requests\BlockRequest;
-use Platform\Block\Models\Block;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Forms\FormAbstract;
+use Botble\Block\Http\Requests\BlockRequest;
+use Botble\Block\Models\Block;
 
 class BlockForm extends FormAbstract
 {

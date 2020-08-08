@@ -1,17 +1,18 @@
 <?php
 
-namespace Platform\Blog\Tables;
+namespace Botble\Blog\Tables;
 
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Blog\Exports\PostExport;
-use Platform\Blog\Models\Post;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Blog\Exports\PostExport;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Table\Abstracts\TableAbstract;
 use Carbon\Carbon;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use RvMedia;
 use Yajra\DataTables\DataTables;
 
 class PostTable extends TableAbstract
@@ -59,7 +60,7 @@ class PostTable extends TableAbstract
         $this->categoryRepository = $categoryRepository;
         parent::__construct($table, $urlGenerator);
 
-        if (Auth::check() && !Auth::user()->hasAnyPermission(['posts.edit', 'posts.destroy'])) {
+        if (!Auth::user()->hasAnyPermission(['posts.edit', 'posts.destroy'])) {
             $this->hasOperations = false;
             $this->hasActions = false;
         }
@@ -73,7 +74,7 @@ class PostTable extends TableAbstract
         $data = $this->table
             ->eloquent($this->query())
             ->editColumn('name', function ($item) {
-                if (Auth::check() && !Auth::user()->hasPermission('posts.edit')) {
+                if (!Auth::user()->hasPermission('posts.edit')) {
                     return $item->name;
                 }
 
@@ -81,9 +82,9 @@ class PostTable extends TableAbstract
             })
             ->editColumn('image', function ($item) {
                 if ($this->request()->input('action') === 'excel') {
-                    return get_object_image($item->image, 'thumb');
+                    return RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage());
                 }
-                return Html::image(get_object_image($item->image, 'thumb'), $item->name, ['width' => 50]);
+                return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()), $item->name, ['width' => 50]);
             })
             ->editColumn('checkbox', function ($item) {
                 return table_checkbox($item->id);
@@ -92,7 +93,11 @@ class PostTable extends TableAbstract
                 return date_from_database($item->created_at, config('core.base.general.date_format.date'));
             })
             ->editColumn('updated_at', function ($item) {
-                return implode(', ', $item->categories->pluck('name')->all());
+                $categories = '';
+                foreach ($item->categories as $category) {
+                    $categories .= Html::link(route('categories.edit', $category->id), $category->name) . ', ';
+                }
+                return rtrim($categories, ', ');
             })
             ->editColumn('author_id', function ($item) {
                 return $item->author ? $item->author->getFullName() : null;
@@ -159,25 +164,27 @@ class PostTable extends TableAbstract
                 'name'      => 'posts.updated_at',
                 'title'     => trans('plugins/blog::posts.categories'),
                 'width'     => '150px',
-                'class'     => 'no-sort',
+                'class'     => 'no-sort text-center',
                 'orderable' => false,
             ],
             'author_id'  => [
                 'name'      => 'posts.author_id',
                 'title'     => trans('plugins/blog::posts.author'),
                 'width'     => '150px',
-                'class'     => 'no-sort',
+                'class'     => 'no-sort text-center',
                 'orderable' => false,
             ],
             'created_at' => [
                 'name'  => 'posts.created_at',
                 'title' => trans('core/base::tables.created_at'),
                 'width' => '100px',
+                'class' => 'text-center',
             ],
             'status'     => [
                 'name'  => 'posts.status',
                 'title' => trans('core/base::tables.status'),
                 'width' => '100px',
+                'class' => 'text-center',
             ],
         ];
     }
@@ -246,12 +253,12 @@ class PostTable extends TableAbstract
     {
         switch ($key) {
             case 'posts.created_at':
-                $value = Carbon::createFromFormat('Y/m/d', $value)->toDateString();
+                $value = Carbon::createFromFormat(config('core.base.general.date_format.date'), $value)->toDateString();
                 return $query->whereDate($key, $operator, $value);
             case 'category':
                 return $query->join('post_categories', 'post_categories.post_id', '=', 'posts.id')
                     ->join('categories', 'post_categories.category_id', '=', 'categories.id')
-                    ->where('post_categories.category_id', '=', $value);
+                    ->where('post_categories.category_id', $value);
         }
 
         return parent::applyFilterCondition($query, $key, $operator, $value);

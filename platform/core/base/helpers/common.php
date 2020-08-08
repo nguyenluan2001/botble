@@ -1,9 +1,9 @@
 <?php
 
-use Platform\Base\Facades\DashboardMenuFacade;
-use Platform\Base\Facades\PageTitleFacade;
-use Platform\Base\Supports\Editor;
-use Platform\Base\Supports\PageTitle;
+use Botble\Base\Facades\DashboardMenuFacade;
+use Botble\Base\Facades\PageTitleFacade;
+use Botble\Base\Supports\Editor;
+use Botble\Base\Supports\PageTitle;
 
 if (!function_exists('anchor_link')) {
     /**
@@ -71,7 +71,7 @@ if (!function_exists('page_title')) {
 
 if (!function_exists('dashboard_menu')) {
     /**
-     * @return \Platform\Base\Supports\DashboardMenu
+     * @return \Botble\Base\Supports\DashboardMenu
      */
     function dashboard_menu()
     {
@@ -88,7 +88,7 @@ if (!function_exists('get_cms_version')) {
         try {
             return trim(get_file_data(core_path('VERSION'), false));
         } catch (Exception $exception) {
-            return '5.6';
+            return '5.7';
         }
     }
 }

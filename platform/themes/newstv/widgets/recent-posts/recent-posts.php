@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Widget\AbstractWidget;
+use Botble\Widget\AbstractWidget;
 
 class RecentPostsWidget extends AbstractWidget
 {

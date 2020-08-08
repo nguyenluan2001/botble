@@ -4,7 +4,7 @@
             @foreach ($posts as $post)
                 <li class="col-md-4 col-sm-6 col-xs-12">
                     <a href="{{ $post->url }}" class="squared has-image">
-                        <span class="img" style="background-image: url({{ get_object_image($post->image, 'thumb') }});"></span>
+                        <span class="img" style="background-image: url({{ RvMedia::getImageUrl($post->image, 'thumb') }});"></span>
                         <span class="spoofer">{{ $post->name }}</span>
                         <span class="visible">{{ $post->name }}</span>
                     </a>

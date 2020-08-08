@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Gallery\Repositories\Eloquent;
+namespace Botble\Gallery\Repositories\Eloquent;
 
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Platform\Gallery\Repositories\Interfaces\GalleryMetaInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Gallery\Repositories\Interfaces\GalleryMetaInterface;
 
 class GalleryMetaRepository extends RepositoriesAbstract implements GalleryMetaInterface
 {

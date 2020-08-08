@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Setting\Supports;
+namespace Botble\Setting\Supports;
 
-use Platform\Base\Supports\Helper;
+use Botble\Base\Supports\Helper;
 use Closure;
 use Exception;
 use File;
@@ -179,7 +179,7 @@ class DatabaseSettingStore extends SettingStore
 
         foreach ($updateData as $key => $value) {
             $this->newQuery()
-                ->where($this->keyColumn, '=', $key)
+                ->where($this->keyColumn, $key)
                 ->update([$this->valueColumn => $value]);
         }
 
@@ -312,7 +312,7 @@ class DatabaseSettingStore extends SettingStore
 
         if (!$insert) {
             foreach ($this->extraColumns as $key => $value) {
-                $query->where($key, '=', $value);
+                $query->where($key, $value);
             }
         }
 

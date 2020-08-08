@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Theme\Facades;
+namespace Botble\Theme\Facades;
 
-use Platform\Theme\Supports\AdminBar;
+use Botble\Theme\Supports\AdminBar;
 use Illuminate\Support\Facades\Facade;
 
 class AdminBarFacade extends Facade

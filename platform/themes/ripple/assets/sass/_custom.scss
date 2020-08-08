@@ -461,11 +461,11 @@
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;
-    color: #ff2b4a;
+    color: $color-1st;
 }
 
 .page-pagination li:hover a, .page-pagination li:hover span, .page-pagination li.active span {
-    background-color: #ff2b4a !important;
+    background-color: $color-1st !important;
     color: #ffffff !important;
 }
 
@@ -653,12 +653,12 @@
 }
 
 .widget__tags .tag-link {
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     color: #ffffff;
 }
 
 .alert.alert-info a {
-    color: #ff2b4a;
+    color: $color-1st;
 }
 
 .alert.alert-info a:hover {
@@ -770,11 +770,11 @@ figure.image {
                 > .menu-item {
                     &.menu-item--active {
                         > a {
-                            color: #ff2b4a !important;
+                            color: $color-1st !important;
                             background: #ffffff;
 
                             .toggle-icon, &:before {
-                                color: #ff2b4a !important;
+                                color: $color-1st !important;
                             }
                         }
                     }

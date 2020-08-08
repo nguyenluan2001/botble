@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\DevTool\Commands;
+namespace Botble\DevTool\Commands;
 
 use EmailHandler;
 use Illuminate\Console\Command;

@@ -39,19 +39,8 @@ class SettingManagement {
         });
 
         $(document).on('change', '#email_driver', event => {
-            if ($(event.currentTarget).val() === 'mailgun') {
-                $('.setting-mail-password').addClass('hidden');
-                $('.setting-mail-mail-gun').removeClass('hidden');
-            } else {
-                $('.setting-mail-password').removeClass('hidden');
-                $('.setting-mail-mail-gun').addClass('hidden');
-
-                if ($(event.currentTarget).val() === 'sendmail') {
-                    $('.setting-mail-sendmail').removeClass('hidden');
-                } else {
-                    $('.setting-mail-sendmail').addClass('hidden');
-                }
-            }
+            $('.setting-wrapper').addClass('hidden');
+            $('.setting-wrapper[data-type=' + $(event.currentTarget).val() + ']').removeClass('hidden');
         });
 
         $('#send-test-email-btn').on('click', event => {

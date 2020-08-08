@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\AuditLog\Listeners;
+namespace Botble\AuditLog\Listeners;
 
-use Platform\AuditLog\Events\AuditHandlerEvent;
-use Platform\Base\Events\DeletedContentEvent;
+use Botble\AuditLog\Events\AuditHandlerEvent;
+use Botble\Base\Events\DeletedContentEvent;
 use Exception;
 use AuditLog;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\Table\Http\Controllers;
+namespace Botble\Table\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Table\Http\Requests\BulkChangeRequest;
-use Platform\Table\Http\Requests\FilterRequest;
-use Platform\Table\TableBuilder;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Table\Http\Requests\BulkChangeRequest;
+use Botble\Table\Http\Requests\FilterRequest;
+use Botble\Table\TableBuilder;
 use Exception;
 use Form;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -139,7 +139,7 @@ class TableController extends Controller
             return $data;
         }
 
-        $column = Arr::get($object->getBulkChanges(), $request->input('key'), null);
+        $column = Arr::get($object->getFilters(), $request->input('key'), null);
         if (empty($column)) {
             return $data;
         }

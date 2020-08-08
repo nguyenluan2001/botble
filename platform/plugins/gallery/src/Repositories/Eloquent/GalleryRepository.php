@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Gallery\Repositories\Eloquent;
+namespace Botble\Gallery\Repositories\Eloquent;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
 
 class GalleryRepository extends RepositoriesAbstract implements GalleryInterface
 {
@@ -16,7 +16,7 @@ class GalleryRepository extends RepositoriesAbstract implements GalleryInterface
     {
         $data = $this->model
             ->with('slugable')
-            ->where('galleries.status', '=', BaseStatusEnum::PUBLISHED)
+            ->where('galleries.status', BaseStatusEnum::PUBLISHED)
             ->orderBy('galleries.order', 'asc')
             ->orderBy('galleries.created_at', 'desc');
 
@@ -30,7 +30,7 @@ class GalleryRepository extends RepositoriesAbstract implements GalleryInterface
     {
         $data = $this->model
             ->with('slugable')
-            ->where('galleries.status', '=', BaseStatusEnum::PUBLISHED)
+            ->where('galleries.status', BaseStatusEnum::PUBLISHED)
             ->select('galleries.*')
             ->orderBy('galleries.created_at', 'desc');
 

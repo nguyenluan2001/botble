@@ -1,15 +1,15 @@
 <?php
 
-namespace Platform\SocialLogin\Providers;
+namespace Botble\SocialLogin\Providers;
 
-use Platform\Setting\Supports\SettingStore;
-use Platform\SocialLogin\Facades\SocialServiceFacade;
+use Botble\Setting\Supports\SettingStore;
+use Botble\SocialLogin\Facades\SocialServiceFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Platform\Base\Supports\Helper;
+use Botble\Base\Supports\Helper;
 use Illuminate\Routing\Events\RouteMatched;
 use Event;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
 
 class SocialLoginServiceProvider extends ServiceProvider
 {

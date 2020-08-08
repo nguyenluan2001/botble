@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Widget\Repositories\Interfaces;
+namespace Botble\Widget\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface WidgetInterface extends RepositoryInterface
 {

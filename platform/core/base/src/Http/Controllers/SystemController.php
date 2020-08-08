@@ -1,17 +1,19 @@
 <?php
 
-namespace Platform\Base\Http\Controllers;
+namespace Botble\Base\Http\Controllers;
 
 use Assets;
-use Platform\ACL\Models\UserMeta;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Supports\Helper;
-use Platform\Base\Supports\MembershipAuthorization;
-use Platform\Base\Supports\SystemManagement;
-use Platform\Base\Tables\InfoTable;
-use Platform\Table\TableBuilder;
+use Botble\ACL\Models\UserMeta;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Supports\MembershipAuthorization;
+use Botble\Base\Supports\SystemManagement;
+use Botble\Base\Tables\InfoTable;
+use Botble\Table\TableBuilder;
 use Exception;
 use File;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
@@ -30,8 +32,8 @@ class SystemController extends Controller
      * @param TableBuilder $tableBuilder
      * @return Factory|View
      * @throws Throwable
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws BindingResolutionException
+     * @throws FileNotFoundException
      */
     public function getInfo(Request $request, TableBuilder $tableBuilder)
     {

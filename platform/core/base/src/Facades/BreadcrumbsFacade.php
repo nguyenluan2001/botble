@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Facades;
+namespace Botble\Base\Facades;
 
-use Platform\Base\Supports\BreadcrumbsManager;
+use Botble\Base\Supports\BreadcrumbsManager;
 use Illuminate\Support\Facades\Facade;
 
 class BreadcrumbsFacade extends Facade

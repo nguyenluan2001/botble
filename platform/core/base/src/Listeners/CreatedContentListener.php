@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Listeners;
+namespace Botble\Base\Listeners;
 
-use Platform\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
 use Exception;
 
 class CreatedContentListener

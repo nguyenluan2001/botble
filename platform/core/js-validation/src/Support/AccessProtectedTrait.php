@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\JsValidation\Support;
+namespace Botble\JsValidation\Support;
 
 use Closure;
 

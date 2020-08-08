@@ -1,31 +1,32 @@
 <?php
 
-namespace Platform\Blog\Providers;
+namespace Botble\Blog\Providers;
 
 use Assets;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Blog\Models\Category;
-use Platform\Blog\Models\Post;
-use Platform\Blog\Models\Tag;
-use Platform\Dashboard\Supports\DashboardWidgetInstance;
-use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Routing\Events\RouteMatched;
-use Platform\Base\Supports\Helper;
-use Platform\Page\Models\Page;
-use Platform\Page\Repositories\Interfaces\PageInterface;
-use Platform\SeoHelper\SeoOpenGraph;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Supports\Helper;
+use Botble\Blog\Models\Category;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Models\Tag;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
+use Botble\Page\Models\Page;
+use Botble\Page\Repositories\Interfaces\PageInterface;
+use Botble\SeoHelper\SeoOpenGraph;
 use Eloquent;
 use Event;
 use Html;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
-use Platform\Blog\Repositories\Interfaces\TagInterface;
 use Illuminate\Support\Str;
 use Menu;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Illuminate\Support\Facades\Auth;
+use RvMedia;
 use SeoHelper;
 use stdClass;
 use Theme;
@@ -61,40 +62,42 @@ class HookServiceProvider extends ServiceProvider
                 view('plugins/blog::partials.posts-short-code-admin-config')->render());
         }
 
-        theme_option()
-            ->setSection([
-                'title'      => 'Blog',
-                'desc'       => 'Theme options for Blog',
-                'id'         => 'opt-text-subsection-blog',
-                'subsection' => true,
-                'icon'       => 'fa fa-edit',
-                'fields'     => [
-                    [
-                        'id'         => 'number_of_posts_in_a_category',
-                        'type'       => 'number',
-                        'label'      => __('Number of posts in a category'),
-                        'attributes' => [
-                            'name'    => 'number_of_posts_in_a_category',
-                            'value'   => 12,
-                            'options' => [
-                                'class' => 'form-control',
+        if (function_exists('add_shortcode')) {
+            theme_option()
+                ->setSection([
+                    'title'      => 'Blog',
+                    'desc'       => 'Theme options for Blog',
+                    'id'         => 'opt-text-subsection-blog',
+                    'subsection' => true,
+                    'icon'       => 'fa fa-edit',
+                    'fields'     => [
+                        [
+                            'id'         => 'number_of_posts_in_a_category',
+                            'type'       => 'number',
+                            'label'      => __('Number of posts in a category'),
+                            'attributes' => [
+                                'name'    => 'number_of_posts_in_a_category',
+                                'value'   => 12,
+                                'options' => [
+                                    'class' => 'form-control',
+                                ],
+                            ],
+                        ],
+                        [
+                            'id'         => 'number_of_posts_in_a_tag',
+                            'type'       => 'number',
+                            'label'      => __('Number of posts in a tag'),
+                            'attributes' => [
+                                'name'    => 'number_of_posts_in_a_tag',
+                                'value'   => 12,
+                                'options' => [
+                                    'class' => 'form-control',
+                                ],
                             ],
                         ],
                     ],
-                    [
-                        'id'         => 'number_of_posts_in_a_tag',
-                        'type'       => 'number',
-                        'label'      => __('Number of posts in a tag'),
-                        'attributes' => [
-                            'name'    => 'number_of_posts_in_a_tag',
-                            'value'   => 12,
-                            'options' => [
-                                'class' => 'form-control',
-                            ],
-                        ],
-                    ],
-                ],
-            ]);
+                ]);
+        }
     }
 
     /**
@@ -185,7 +188,7 @@ class HookServiceProvider extends ServiceProvider
 
                         $meta = new SeoOpenGraph;
                         if ($post->image) {
-                            $meta->setImage(get_image_url($post->image));
+                            $meta->setImage(RvMedia::getImageUrl($post->image));
                         }
                         $meta->setDescription($post->description);
                         $meta->setUrl($post->url);
@@ -219,7 +222,7 @@ class HookServiceProvider extends ServiceProvider
 
                         $meta = new SeoOpenGraph;
                         if ($category->image) {
-                            $meta->setImage(get_image_url($category->image));
+                            $meta->setImage(RvMedia::getImageUrl($category->image));
                         }
                         $meta->setDescription($category->description);
                         $meta->setUrl($category->url);

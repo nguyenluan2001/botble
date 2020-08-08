@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\AuditLog\Tables;
+namespace Botble\AuditLog\Tables;
 
-use Platform\AuditLog\Models\AuditHistory;
+use Botble\AuditLog\Models\AuditHistory;
 use Illuminate\Support\Facades\Auth;
-use Platform\AuditLog\Repositories\Interfaces\AuditLogInterface;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\AuditLog\Repositories\Interfaces\AuditLogInterface;
+use Botble\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Chart;
+namespace Botble\Chart;
 
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
 
 class Plugin extends PluginOperationAbstract
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Entities;
+namespace Botble\SeoHelper\Contracts\Entities;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface OpenGraphContract extends RenderableContract
 {
@@ -10,8 +10,7 @@ interface OpenGraphContract extends RenderableContract
      * Set the open graph prefix.
      *
      * @param string $prefix
-     *
-     * @return self
+     * @return $this
      */
     public function setPrefix($prefix);
 
@@ -19,8 +18,7 @@ interface OpenGraphContract extends RenderableContract
      * Set type property.
      *
      * @param string $type
-     *
-     * @return self
+     * @return $this
      */
     public function setType($type);
 
@@ -28,8 +26,7 @@ interface OpenGraphContract extends RenderableContract
      * Set title property.
      *
      * @param string $title
-     *
-     * @return self
+     * @return $this
      */
     public function setTitle($title);
 
@@ -37,8 +34,7 @@ interface OpenGraphContract extends RenderableContract
      * Set description property.
      *
      * @param string $description
-     *
-     * @return self
+     * @return $this
      */
     public function setDescription($description);
 
@@ -46,8 +42,7 @@ interface OpenGraphContract extends RenderableContract
      * Set url property.
      *
      * @param string $url
-     *
-     * @return self
+     * @return $this
      */
     public function setUrl($url);
 
@@ -55,8 +50,7 @@ interface OpenGraphContract extends RenderableContract
      * Set image property.
      *
      * @param string $image
-     *
-     * @return self
+     * @return $this
      */
     public function setImage($image);
 
@@ -64,8 +58,7 @@ interface OpenGraphContract extends RenderableContract
      * Set site name property.
      *
      * @param string $siteName
-     *
-     * @return self
+     * @return $this
      */
     public function setSiteName($siteName);
 
@@ -73,8 +66,7 @@ interface OpenGraphContract extends RenderableContract
      * Add many open graph properties.
      *
      * @param array $properties
-     *
-     * @return self
+     * @return $this
      */
     public function addProperties(array $properties);
 
@@ -83,8 +75,7 @@ interface OpenGraphContract extends RenderableContract
      *
      * @param string $property
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function addProperty($property, $content);
 

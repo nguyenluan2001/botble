@@ -547,33 +547,36 @@ class Botble {
                 onSelectFiles: (files, $el) => {
                     switch ($el.data('action')) {
                         case 'media-insert-ckeditor':
+                            let content = '';
                             $.each(files, (index, file) => {
                                 let link = file.full_url;
                                 if (file.type === 'youtube') {
                                     link = link.replace('watch?v=', 'embed/');
-                                    CKEDITOR.instances[$el.data('result')].insertHtml('<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>');
+                                    content += '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe><br />';
                                 } else if (file.type === 'image') {
-                                    CKEDITOR.instances[$el.data('result')].insertHtml('<img src="' + link + '" alt="' + file.name + '" />');
+                                    content += '<img src="' + link + '" alt="' + file.name + '" /><br />';
                                 } else {
-                                    CKEDITOR.instances[$el.data('result')].insertHtml('<a href="' + link + '">' + file.name + '</a>');
+                                    content += '<a href="' + link + '">' + file.name + '</a><br />';
                                 }
                             });
 
+                            CKEDITOR.instances[$el.data('result')].insertHtml(content);
+
                             break;
                         case 'media-insert-tinymce':
+                            let html = '';
                             $.each(files, (index, file) => {
                                 let link = file.full_url;
-                                let html = '';
                                 if (file.type === 'youtube') {
                                     link = link.replace('watch?v=', 'embed/');
-                                    html = '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>';
+                                    html += '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe><br />';
                                 } else if (file.type === 'image') {
-                                    html = '<img src="' + link + '" alt="' + file.name + '" />';
+                                    html += '<img src="' + link + '" alt="' + file.name + '" /><br />';
                                 } else {
-                                    html = '<a href="' + link + '">' + file.name + '</a>';
+                                    html += '<a href="' + link + '">' + file.name + '</a><br />';
                                 }
-                                tinymce.activeEditor.execCommand('mceInsertContent', false, html);
                             });
+                            tinymce.activeEditor.execCommand('mceInsertContent', false, html);
                             break;
                         case 'select-image':
                             let firstImage = _.first(files);

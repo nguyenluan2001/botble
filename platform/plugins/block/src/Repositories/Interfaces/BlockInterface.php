@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Block\Repositories\Interfaces;
+namespace Botble\Block\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface BlockInterface extends RepositoryInterface
 {

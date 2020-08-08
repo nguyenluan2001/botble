@@ -3,7 +3,7 @@
 
             <div class="page-logo">
                 <a href="{{ route('dashboard.index') }}">
-                    <img src="{{ setting('admin_logo') ? get_image_url(setting('admin_logo')) : url(config('core.base.general.logo')) }}" alt="logo" class="logo-default" />
+                    <img src="{{ setting('admin_logo') ? RvMedia::getImageUrl(setting('admin_logo')) : url(config('core.base.general.logo')) }}" alt="logo" class="logo-default" />
                 </a>
                 @auth
                     <div class="menu-toggler sidebar-toggler">

@@ -57,9 +57,9 @@
             @if ($row->has_child)
                 {!!
                     Menu::generateMenu([
-                        'slug'      => $menu->slug,
+                        'menu'       => $menu,
+                        'menu_nodes' => $row->child,
                         'view'      => 'packages/menu::partials.menu',
-                        'parent_id' => $row->id,
                         'theme'     => false,
                         'active'    => false
                     ])

@@ -1,14 +1,14 @@
 <?php
 
-namespace Platform\CustomField\Repositories\Eloquent;
+namespace Botble\CustomField\Repositories\Eloquent;
 
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use Platform\CustomField\Repositories\Interfaces\CustomFieldInterface;
-use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Botble\CustomField\Repositories\Interfaces\CustomFieldInterface;
+use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
 use Illuminate\Support\Str;
 use RvMedia;
 
@@ -90,7 +90,7 @@ class FieldGroupRepository extends RepositoriesAbstract implements FieldGroupInt
                 }
 
                 if ($row->type == 'image' && !empty($item['value'])) {
-                    $item['thumb'] = get_image_url($item['value'], 'thumb');
+                    $item['thumb'] = RvMedia::getImageUrl($item['value'], 'thumb');
                 }
 
                 if ($row->type == 'file' && !empty($item['value'])) {
@@ -116,7 +116,7 @@ class FieldGroupRepository extends RepositoriesAbstract implements FieldGroupInt
                 }
 
                 if ($item['type'] == 'image') {
-                    $item['thumb'] = get_image_url($item['value'], 'thumb');
+                    $item['thumb'] = RvMedia::getImageUrl($item['value'], 'thumb');
                 }
 
                 if ($item['type'] == 'file') {

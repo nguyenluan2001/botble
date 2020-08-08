@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Language\Facades;
+namespace Botble\Language\Facades;
 
-use Platform\Language\LanguageManager;
+use Botble\Language\LanguageManager;
 use Illuminate\Support\Facades\Facade;
 
 class LanguageFacade extends Facade

@@ -1,15 +1,16 @@
 <?php
 
-namespace Platform\Media\Http\Resources;
+namespace Botble\Media\Http\Resources;
 
 use File;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use RvMedia;
 
 class FileResource extends JsonResource
 {
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return array
      */
     public function toArray($request)
@@ -22,7 +23,7 @@ class FileResource extends JsonResource
             'full_url'   => RvMedia::url($this->url),
             'type'       => $this->type,
             'icon'       => $this->icon,
-            'thumb'      => $this->canGenerateThumbnails() ? get_image_url($this->url, 'thumb') : null,
+            'thumb'      => $this->canGenerateThumbnails() ? RvMedia::getImageUrl($this->url, 'thumb') : null,
             'size'       => $this->human_size,
             'mime_type'  => $this->mime_type,
             'created_at' => date_from_database($this->created_at, 'Y-m-d H:i:s'),

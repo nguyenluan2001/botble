@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Language;
+namespace Botble\Language;
 
-use Platform\Base\Supports\Helper;
-use Platform\Language\Models\Language;
-use Platform\Language\Repositories\Interfaces\LanguageInterface;
-use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
+use Botble\Base\Supports\Helper;
+use Botble\Language\Models\Language;
+use Botble\Language\Repositories\Interfaces\LanguageInterface;
+use Botble\Language\Repositories\Interfaces\LanguageMetaInterface;
 use Eloquent;
 use Exception;
 use Illuminate\Contracts\Routing\UrlRoutable;
@@ -271,7 +271,7 @@ class LanguageManager
         /**
          * @var Builder $meta
          */
-        $meta = $this->languageMetaRepository->getModel()->where('lang_meta_origin', '=', $uniqueKey);
+        $meta = $this->languageMetaRepository->getModel()->where('lang_meta_origin', $uniqueKey);
         if ($id != Request::input('ref_from')) {
             $meta = $meta->where('reference_id', '!=', $id);
         }

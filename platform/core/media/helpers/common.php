@@ -6,6 +6,7 @@ if (!function_exists('is_image')) {
      *
      * @param string $mimeType
      * @return bool
+     * @deprecated since 5.7
      */
     function is_image($mimeType)
     {
@@ -20,6 +21,7 @@ if (!function_exists('get_image_url')) {
      * @param bool $relativePath
      * @param null $default
      * @return string
+     * @deprecated since 5.7
      */
     function get_image_url($url, $size = null, $relativePath = false, $default = null)
     {
@@ -33,10 +35,11 @@ if (!function_exists('get_object_image')) {
      * @param null $size
      * @param bool $relativePath
      * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     * @deprecated since 5.7
      */
     function get_object_image($image, $size = null, $relativePath = false)
     {
-        return RvMedia::getObjectImage($image, $size, $relativePath);
+        return RvMedia::getImageUrl($image, $size, $relativePath, RvMedia::getDefaultImage());
     }
 }
 
@@ -46,6 +49,7 @@ if (!function_exists('rv_media_handle_upload')) {
      * @param int $folderId
      * @param string $path
      * @return array|\Illuminate\Http\JsonResponse
+     * @deprecated since 5.7
      */
     function rv_media_handle_upload($fileUpload, $folderId = 0, $path = '')
     {

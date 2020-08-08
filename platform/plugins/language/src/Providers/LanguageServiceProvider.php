@@ -1,26 +1,26 @@
 <?php
 
-namespace Platform\Language\Providers;
+namespace Botble\Language\Providers;
 
 use Assets;
-use Platform\Menu\Models\Menu;
+use Botble\Menu\Models\Menu;
 use Eloquent;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Routing\Events\RouteMatched;
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
-use Platform\Language\Facades\LanguageFacade;
-use Platform\Language\Http\Middleware\LocaleSessionRedirect;
-use Platform\Language\Http\Middleware\LocalizationRedirectFilter;
-use Platform\Language\Http\Middleware\LocalizationRoutes;
-use Platform\Language\Models\Language as LanguageModel;
-use Platform\Language\Models\LanguageMeta;
-use Platform\Language\Repositories\Caches\LanguageMetaCacheDecorator;
-use Platform\Language\Repositories\Eloquent\LanguageMetaRepository;
-use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Language\Facades\LanguageFacade;
+use Botble\Language\Http\Middleware\LocaleSessionRedirect;
+use Botble\Language\Http\Middleware\LocalizationRedirectFilter;
+use Botble\Language\Http\Middleware\LocalizationRoutes;
+use Botble\Language\Models\Language as LanguageModel;
+use Botble\Language\Models\LanguageMeta;
+use Botble\Language\Repositories\Caches\LanguageMetaCacheDecorator;
+use Botble\Language\Repositories\Eloquent\LanguageMetaRepository;
+use Botble\Language\Repositories\Interfaces\LanguageMetaInterface;
 use Event;
 use Html;
 use Illuminate\Database\Eloquent\Model;
@@ -28,10 +28,11 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Platform\Language\Repositories\Caches\LanguageCacheDecorator;
-use Platform\Language\Repositories\Eloquent\LanguageRepository;
-use Platform\Language\Repositories\Interfaces\LanguageInterface;
+use Botble\Language\Repositories\Caches\LanguageCacheDecorator;
+use Botble\Language\Repositories\Eloquent\LanguageRepository;
+use Botble\Language\Repositories\Interfaces\LanguageInterface;
 use Language;
+use MetaBox;
 use Route;
 use Theme;
 use Throwable;
@@ -151,7 +152,7 @@ class LanguageServiceProvider extends ServiceProvider
     public function addLanguageBox($priority, $object)
     {
         if (!empty($object) && in_array(get_class($object), Language::supportedModels())) {
-            add_meta_box('language_wrap', trans('plugins/language::language.name'), [$this, 'languageMetaField'],
+            MetaBox::addMetaBox('language_wrap', trans('plugins/language::language.name'), [$this, 'languageMetaField'],
                 get_class($object), 'top', 'default');
         }
     }

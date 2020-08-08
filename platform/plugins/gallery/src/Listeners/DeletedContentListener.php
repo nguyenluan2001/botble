@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Gallery\Listeners;
+namespace Botble\Gallery\Listeners;
 
-use Platform\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
 use Exception;
 use Gallery;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Widget\Misc;
+namespace Botble\Widget\Misc;
 
 use Illuminate\Support\HtmlString;
 

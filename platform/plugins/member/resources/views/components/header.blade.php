@@ -2,7 +2,7 @@
   <div class="container">
 
         @if (theme_option('logo'))
-          <a href="{{ url('/') }}"><img src="{{ get_image_url(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" height="35"></a>
+          <a href="{{ url('/') }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" height="35"></a>
         @else
           <div class="brand-container tc mr2 br2">
             <a class="navbar-brand b white ma0 pa0 dib w-100" href="{{ url('/') }}" title="{{ theme_option('site_title') }}">{{ ucfirst(mb_substr(theme_option('site_title'), 0, 1, 'utf-8')) }}</a>
@@ -18,7 +18,7 @@
     <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ml-auto my-2">
         <!-- Authentication Links -->
-        @if (!auth()->guard('member')->check())
+        @if (!auth('member')->check())
           <li>
             <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.login') }}">
                 <i class="fas fa-sign-in-alt"></i> {{ trans('plugins/member::dashboard.login-cta') }}
@@ -33,8 +33,8 @@
           <li>
             <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.dashboard') }}" title="{{ trans('plugins/member::dashboard.header_profile_link') }}">
               <span>
-                <img src="{{ auth()->guard('member')->user()->avatar_url }}" class="br-100 v-mid mr1" style="width: 30px;">
-                <span>{{ auth()->guard('member')->user()->getFullName() }}</span>
+                <img src="{{ auth('member')->user()->avatar_url }}" class="br-100 v-mid mr1" style="width: 30px;">
+                <span>{{ auth('member')->user()->getFullName() }}</span>
               </span>
             </a>
           </li>

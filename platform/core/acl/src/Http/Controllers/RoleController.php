@@ -1,18 +1,18 @@
 <?php
 
-namespace Platform\ACL\Http\Controllers;
+namespace Botble\ACL\Http\Controllers;
 
-use Platform\ACL\Forms\RoleForm;
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\ACL\Events\RoleAssignmentEvent;
-use Platform\ACL\Events\RoleUpdateEvent;
-use Platform\ACL\Tables\RoleTable;
-use Platform\ACL\Http\Requests\RoleCreateRequest;
-use Platform\ACL\Repositories\Interfaces\RoleInterface;
-use Platform\ACL\Repositories\Interfaces\UserInterface;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Supports\Helper;
+use Botble\ACL\Forms\RoleForm;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\ACL\Events\RoleAssignmentEvent;
+use Botble\ACL\Events\RoleUpdateEvent;
+use Botble\ACL\Tables\RoleTable;
+use Botble\ACL\Http\Requests\RoleCreateRequest;
+use Botble\ACL\Repositories\Interfaces\RoleInterface;
+use Botble\ACL\Repositories\Interfaces\UserInterface;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Supports\Helper;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;

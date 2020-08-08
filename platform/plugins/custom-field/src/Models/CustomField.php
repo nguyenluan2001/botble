@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\CustomField\Models;
+namespace Botble\CustomField\Models;
 
 use Exception;
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class CustomField extends BaseModel

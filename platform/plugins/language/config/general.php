@@ -4,9 +4,9 @@ return [
 
     // List supported modules or plugins
     'supported'               => [
-        'Platform\Page\Models\Page',
-        'Platform\Menu\Models\Menu',
-        'Platform\Menu\Models\MenuLocation',
+        'Botble\Page\Models\Page',
+        'Botble\Menu\Models\Menu',
+        'Botble\Menu\Models\MenuLocation',
     ],
 
     // Negotiate for the user locale using the Accept-Language header if it's not defined in the URL?

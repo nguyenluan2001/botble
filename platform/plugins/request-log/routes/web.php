@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Platform\RequestLog\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Botble\RequestLog\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'request-logs', 'as' => 'request-log.'], function () {

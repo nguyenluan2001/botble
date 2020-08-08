@@ -6,7 +6,7 @@
                 @foreach ($value as $key => $item)
                     <div class="col-md-2 col-sm-3 col-4 photo-gallery-item" data-id="{{ $key }}" data-img="{{ Arr::get($item, 'img') }}" data-description="{{ Arr::get($item, 'description') }}">
                         <div class="gallery_image_wrapper">
-                            <img src="{{ get_image_url(Arr::get($item, 'img'), 'thumb') }}" alt="{{ trans('plugins/gallery::gallery.item') }}">
+                            <img src="{{ RvMedia::getImageUrl(Arr::get($item, 'img'), 'thumb') }}" alt="{{ trans('plugins/gallery::gallery.item') }}">
                         </div>
                     </div>
                 @endforeach

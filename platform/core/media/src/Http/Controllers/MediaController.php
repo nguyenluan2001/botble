@@ -1,23 +1,24 @@
 <?php
 
-namespace Platform\Media\Http\Controllers;
+namespace Botble\Media\Http\Controllers;
 
-use Platform\Media\Http\Resources\FileResource;
-use Platform\Media\Http\Resources\FolderResource;
-use Platform\Media\Supports\Zipper;
+use Botble\Media\Http\Resources\FileResource;
+use Botble\Media\Http\Resources\FolderResource;
+use Botble\Media\Models\MediaFile;
+use Botble\Media\Models\MediaFolder;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
+use Botble\Media\Repositories\Interfaces\MediaSettingInterface;
+use Botble\Media\Services\UploadsManager;
+use Botble\Media\Supports\Zipper;
 use Eloquent;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
-use Platform\Media\Models\MediaFile;
-use Platform\Media\Models\MediaFolder;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
-use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
-use Platform\Media\Repositories\Interfaces\MediaSettingInterface;
-use Platform\Media\Services\UploadsManager;
 use Exception;
 use File;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use RvMedia;
 use Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -591,7 +592,7 @@ class MediaController extends Controller
 
     /**
      * @param Request $request
-     * @return JsonResponse|\Illuminate\Http\Response|BinaryFileResponse
+     * @return JsonResponse|Response|BinaryFileResponse
      * @throws Exception
      */
     public function download(Request $request)
@@ -629,7 +630,8 @@ class MediaController extends Controller
                                 $zip->add($filePath);
                             }
                         } else {
-                            $zip->addString(File::basename($file), file_get_contents(str_replace('https://', 'http://', $filePath)));
+                            $zip->addString(File::basename($file),
+                                file_get_contents(str_replace('https://', 'http://', $filePath)));
                         }
                     }
                 } else {
@@ -640,7 +642,8 @@ class MediaController extends Controller
                         } else {
                             $allFiles = Storage::allFiles($this->folderRepository->getFullPath($folder->id));
                             foreach ($allFiles as $file) {
-                                $zip->addString(File::basename($file), file_get_contents(str_replace('https://', 'http://', RvMedia::getRealPath($file))));
+                                $zip->addString(File::basename($file),
+                                    file_get_contents(str_replace('https://', 'http://', RvMedia::getRealPath($file))));
                             }
                         }
                     }

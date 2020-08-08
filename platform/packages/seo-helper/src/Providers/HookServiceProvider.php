@@ -1,12 +1,13 @@
 <?php
 
-namespace Platform\SeoHelper\Providers;
+namespace Botble\SeoHelper\Providers;
 
 use Assets;
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
+use MetaBox;
 use SeoHelper;
 
 class HookServiceProvider extends ServiceProvider
@@ -26,7 +27,7 @@ class HookServiceProvider extends ServiceProvider
         if (!empty($data) && in_array(get_class($data), config('packages.seo-helper.general.supported', []))) {
             Assets::addScriptsDirectly('vendor/core/packages/seo-helper/js/seo-helper.js')
                 ->addStylesDirectly('vendor/core/packages/seo-helper/css/seo-helper.css');
-            add_meta_box('seo_wrap', trans('packages/seo-helper::seo-helper.meta_box_header'), [$this, 'seoMetaBox'],
+            MetaBox::addMetaBox('seo_wrap', trans('packages/seo-helper::seo-helper.meta_box_header'), [$this, 'seoMetaBox'],
                 get_class($data), 'advanced', 'low');
         }
     }
@@ -43,7 +44,7 @@ class HookServiceProvider extends ServiceProvider
 
         $args = func_get_args();
         if (!empty($args[0]) && $args[0]->id) {
-            $metadata = get_meta_data($args[0], 'seo_meta', true);
+            $metadata = MetaBox::getMetaData($args[0], 'seo_meta', true);
         }
 
         if (!empty($metadata) && is_array($metadata)) {
@@ -56,12 +57,12 @@ class HookServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param string$screen
+     * @param string $screen
      * @param BaseModel $object
      */
     public function setSeoMeta($screen, $object)
     {
-        $meta = get_meta_data($object, 'seo_meta', true);
+        $meta = MetaBox::getMetaData($object, 'seo_meta', true);
         if (!empty($meta)) {
             if (!empty($meta['seo_title'])) {
                 SeoHelper::setTitle($meta['seo_title']);

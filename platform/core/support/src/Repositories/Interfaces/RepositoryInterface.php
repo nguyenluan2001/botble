@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Support\Repositories\Interfaces;
+namespace Botble\Support\Repositories\Interfaces;
 
 use Eloquent;
 use Exception;

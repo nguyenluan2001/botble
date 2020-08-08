@@ -1,16 +1,16 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
 use Artisan;
 use Cache;
-use Event;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 use Eloquent;
+use Event;
 use Exception;
 use File;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Request;
 use Schema;
 

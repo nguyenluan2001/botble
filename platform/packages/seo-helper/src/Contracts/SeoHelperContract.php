@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts;
+namespace Botble\SeoHelper\Contracts;
 
 interface SeoHelperContract extends RenderableContract
 {
@@ -15,8 +15,7 @@ interface SeoHelperContract extends RenderableContract
      * Set SeoMeta instance.
      *
      * @param SeoMetaContract $seoMeta
-     *
-     * @return self
+     * @return $this
      */
     public function setSeoMeta(SeoMetaContract $seoMeta);
 
@@ -31,8 +30,7 @@ interface SeoHelperContract extends RenderableContract
      * Get SeoOpenGraph instance.
      *
      * @param SeoOpenGraphContract $seoOpenGraph
-     *
-     * @return self
+     * @return $this
      */
     public function setSeoOpenGraph(SeoOpenGraphContract $seoOpenGraph);
 
@@ -47,8 +45,7 @@ interface SeoHelperContract extends RenderableContract
      * Set SeoTwitter instance.
      *
      * @param SeoTwitterContract $seoTwitter
-     *
-     * @return self
+     * @return $this
      */
     public function setSeoTwitter(SeoTwitterContract $seoTwitter);
 
@@ -58,8 +55,7 @@ interface SeoHelperContract extends RenderableContract
      * @param string $title
      * @param string|null $siteName
      * @param string|null $separator
-     *
-     * @return self
+     * @return $this
      */
     public function setTitle($title, $siteName = null, $separator = null);
 
@@ -72,8 +68,7 @@ interface SeoHelperContract extends RenderableContract
      * Set description.
      *
      * @param string $description
-     *
-     * @return self
+     * @return $this
      */
     public function setDescription($description);
 }

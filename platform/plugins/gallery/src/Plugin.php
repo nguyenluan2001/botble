@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Gallery;
+namespace Botble\Gallery;
 
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
 use Schema;
 
 class Plugin extends PluginOperationAbstract

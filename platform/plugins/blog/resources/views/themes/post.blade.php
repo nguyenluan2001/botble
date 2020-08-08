@@ -10,7 +10,7 @@
                 <a href="{{ $post->categories->first()->url }}">{{ $post->categories->first()->name }}</a>
             </span>
         @endif
-        <span>{{ date_from_database($post->created_at, 'M d, Y') }}</span>
+        <span>{{ $post->created_at->format('M d, Y') }}</span>
 
         @if (!$post->tags->isEmpty())
             <span>

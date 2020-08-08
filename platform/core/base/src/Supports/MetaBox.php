@@ -1,10 +1,9 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
-use Platform\Base\Repositories\Interfaces\MetaBoxInterface;
+use Botble\Base\Repositories\Interfaces\MetaBoxInterface;
 use Exception;
-use Illuminate\Database\Eloquent\Model;
 use Throwable;
 
 class MetaBox
@@ -172,7 +171,7 @@ class MetaBox
     }
 
     /**
-     * @param Model $object
+     * @param \Illuminate\Database\Eloquent\Model $object
      * @param string $key
      * @param $value
      * @param $options
@@ -207,7 +206,7 @@ class MetaBox
     }
 
     /**
-     * @param Model $object
+     * @param \Illuminate\Database\Eloquent\Model $object
      * @param string $key
      * @param boolean $single
      * @param array $select
@@ -227,7 +226,7 @@ class MetaBox
     }
 
     /**
-     * @param Model $object
+     * @param \Illuminate\Database\Eloquent\Model $object
      * @param string $key
      * @param array $select
      * @return mixed
@@ -242,7 +241,7 @@ class MetaBox
     }
 
     /**
-     * @param Model $object
+     * @param \Illuminate\Database\Eloquent\Model $object
      * @param string $key
      * @return mixed
      * @throws Exception

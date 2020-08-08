@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Menu;
+namespace Botble\Menu;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Menu\Repositories\Eloquent\MenuRepository;
-use Platform\Menu\Repositories\Interfaces\MenuInterface;
-use Platform\Menu\Repositories\Interfaces\MenuLocationInterface;
-use Platform\Menu\Repositories\Interfaces\MenuNodeInterface;
-use Platform\Support\Services\Cache\Cache;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Menu\Repositories\Eloquent\MenuRepository;
+use Botble\Menu\Repositories\Interfaces\MenuInterface;
+use Botble\Menu\Repositories\Interfaces\MenuLocationInterface;
+use Botble\Menu\Repositories\Interfaces\MenuNodeInterface;
+use Botble\Support\Services\Cache\Cache;
 use Collective\Html\HtmlBuilder;
 use Exception;
 use Illuminate\Cache\CacheManager;
@@ -98,15 +98,19 @@ class Menu
             $active = Arr::get($args, 'active', true);
             $options = $this->html->attributes(Arr::get($args, 'options', []));
 
-            if (method_exists($model, 'children')) {
-                $items = $model->whereParentId($parentId)->with('children')->orderBy('name', 'asc');
+            if (!Arr::has($args, 'items')) {
+                if (method_exists($model, 'children')) {
+                    $items = $model->where('parent_id', $parentId)->with('children')->orderBy('name', 'asc');
+                } else {
+                    $items = $model->orderBy('name', 'asc');
+                }
+                if ($active) {
+                    $items = $items->where('status', BaseStatusEnum::PUBLISHED);
+                }
+                $items = apply_filters(BASE_FILTER_BEFORE_GET_ADMIN_LIST_ITEM, $items, $model, $type)->get();
             } else {
-                $items = $model->orderBy('name', 'asc');
+                $items = Arr::get($args, 'items', []);
             }
-            if ($active) {
-                $items = $items->where('status', BaseStatusEnum::PUBLISHED);
-            }
-            $items = apply_filters(BASE_FILTER_BEFORE_GET_ADMIN_LIST_ITEM, $items, $model, $type)->get();
 
             if (empty($items)) {
                 return null;

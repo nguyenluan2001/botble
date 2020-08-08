@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\SeoHelper;
+namespace Botble\SeoHelper;
 
-use Platform\SeoHelper\Contracts\Entities\AnalyticsContract;
-use Platform\SeoHelper\Contracts\Entities\DescriptionContract;
-use Platform\SeoHelper\Contracts\Entities\MiscTagsContract;
-use Platform\SeoHelper\Contracts\Entities\TitleContract;
-use Platform\SeoHelper\Contracts\Entities\WebmastersContract;
-use Platform\SeoHelper\Contracts\SeoMetaContract;
+use Botble\SeoHelper\Contracts\Entities\AnalyticsContract;
+use Botble\SeoHelper\Contracts\Entities\DescriptionContract;
+use Botble\SeoHelper\Contracts\Entities\MiscTagsContract;
+use Botble\SeoHelper\Contracts\Entities\TitleContract;
+use Botble\SeoHelper\Contracts\Entities\WebmastersContract;
+use Botble\SeoHelper\Contracts\SeoMetaContract;
 
 class SeoMeta implements SeoMetaContract
 {
@@ -146,6 +146,22 @@ class SeoMeta implements SeoMetaContract
     }
 
     /**
+     * Get the title.
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        $title = $this->title->getTitleOnly();
+
+        if (!theme_option('show_site_name') && $title) {
+            return $title;
+        }
+
+        return $this->title->getTitle();
+    }
+
+    /**
      * Set the title.
      *
      * @param string $title
@@ -169,22 +185,6 @@ class SeoMeta implements SeoMetaContract
         }
 
         return $this;
-    }
-
-    /**
-     * Get the title.
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        $title = $this->title->getTitleOnly();
-
-        if (!theme_option('show_site_name') && $title) {
-            return $title;
-        }
-
-        return $this->title->getTitle();
     }
 
     /**
@@ -279,6 +279,16 @@ class SeoMeta implements SeoMetaContract
      *
      * @return string
      */
+    public function __toString()
+    {
+        return $this->render();
+    }
+
+    /**
+     * Render all seo tags.
+     *
+     * @return string
+     */
     public function render()
     {
         return implode(PHP_EOL, array_filter([
@@ -288,15 +298,5 @@ class SeoMeta implements SeoMetaContract
             $this->webmasters->render(),
             $this->analytics->render(),
         ]));
-    }
-
-    /**
-     * Render all seo tags.
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->render();
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\CustomField\Actions;
+namespace Botble\CustomField\Actions;
 
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
 use Exception;
 
 class DeleteCustomFieldAction extends AbstractAction

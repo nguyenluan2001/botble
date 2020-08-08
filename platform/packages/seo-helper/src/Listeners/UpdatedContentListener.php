@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Listeners;
+namespace Botble\SeoHelper\Listeners;
 
-use Platform\Base\Events\UpdatedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
 use Exception;
 use SeoHelper;
 

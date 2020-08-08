@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Entities\OpenGraph;
+namespace Botble\SeoHelper\Entities\OpenGraph;
 
-use Platform\SeoHelper\Bases\MetaCollection as BaseMetaCollection;
+use Botble\SeoHelper\Bases\MetaCollection as BaseMetaCollection;
 
 class MetaCollection extends BaseMetaCollection
 {

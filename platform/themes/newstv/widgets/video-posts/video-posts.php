@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Widget\AbstractWidget;
+use Botble\Widget\AbstractWidget;
 
 class VideoPostsWidget extends AbstractWidget
 {

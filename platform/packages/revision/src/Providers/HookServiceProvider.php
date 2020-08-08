@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Revision\Providers;
+namespace Botble\Revision\Providers;
 
 use Assets;
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Support\ServiceProvider;
 use Throwable;
 

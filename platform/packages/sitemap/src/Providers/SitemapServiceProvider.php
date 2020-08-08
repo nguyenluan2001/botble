@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\Sitemap\Providers;
+namespace Botble\Sitemap\Providers;
 
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
-use Platform\Sitemap\Sitemap;
+use Botble\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Sitemap\Sitemap;
 use Event;
 use Illuminate\Support\ServiceProvider;
 

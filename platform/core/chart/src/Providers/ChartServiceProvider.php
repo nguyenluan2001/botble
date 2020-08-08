@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Chart\Providers;
+namespace Botble\Chart\Providers;
 
-use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Illuminate\Support\ServiceProvider;
 
 class ChartServiceProvider extends ServiceProvider

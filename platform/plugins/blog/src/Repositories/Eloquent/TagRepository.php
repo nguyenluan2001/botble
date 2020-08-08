@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Blog\Repositories\Eloquent;
+namespace Botble\Blog\Repositories\Eloquent;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Platform\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Blog\Repositories\Interfaces\TagInterface;
 
 class TagRepository extends RepositoriesAbstract implements TagInterface
 {
@@ -16,7 +16,7 @@ class TagRepository extends RepositoriesAbstract implements TagInterface
     {
         $data = $this->model
             ->with('slugable')
-            ->where('tags.status', '=', BaseStatusEnum::PUBLISHED)
+            ->where('tags.status', BaseStatusEnum::PUBLISHED)
             ->select('tags.*')
             ->orderBy('tags.created_at', 'desc');
 
@@ -44,7 +44,7 @@ class TagRepository extends RepositoriesAbstract implements TagInterface
     {
         $data = $this->model->select('tags.*');
         if ($active) {
-            $data = $data->where(['tags.status' => BaseStatusEnum::PUBLISHED]);
+            $data = $data->where('tags.status', BaseStatusEnum::PUBLISHED);
         }
 
         return $this->applyBeforeExecuteQuery($data)->get();

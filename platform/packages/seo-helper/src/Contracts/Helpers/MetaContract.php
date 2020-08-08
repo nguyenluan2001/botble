@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Helpers;
+namespace Botble\SeoHelper\Contracts\Helpers;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface MetaContract extends RenderableContract
 {
@@ -18,8 +18,7 @@ interface MetaContract extends RenderableContract
      * Set the meta prefix name.
      *
      * @param string $prefix
-     *
-     * @return self
+     * @return $this
      */
     public function setPrefix($prefix);
 
@@ -27,8 +26,7 @@ interface MetaContract extends RenderableContract
      * Set the meta property name.
      *
      * @param string $nameProperty
-     *
-     * @return self
+     * @return $this
      */
     public function setNameProperty($nameProperty);
 
@@ -39,8 +37,7 @@ interface MetaContract extends RenderableContract
      * @param string $content
      * @param string $propertyName
      * @param string $prefix
-     *
-     * @return self
+     * @return $this
      */
     public static function make($name, $content, $propertyName = 'name', $prefix = '');
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\CustomField\Repositories\Caches;
+namespace Botble\CustomField\Repositories\Caches;
 
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class FieldGroupCacheDecorator extends CacheAbstractDecorator implements FieldGroupInterface
 {

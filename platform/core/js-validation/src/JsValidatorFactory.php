@@ -1,16 +1,16 @@
 <?php
 
-namespace Platform\JsValidation;
+namespace Botble\JsValidation;
 
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Validator;
-use Platform\JsValidation\Javascript\JavascriptValidator;
-use Platform\JsValidation\Javascript\MessageParser;
-use Platform\JsValidation\Javascript\RuleParser;
-use Platform\JsValidation\Javascript\ValidatorHandler;
-use Platform\JsValidation\Support\DelegatedValidator;
-use Platform\JsValidation\Support\ValidationRuleParserProxy;
+use Botble\JsValidation\Javascript\JavascriptValidator;
+use Botble\JsValidation\Javascript\MessageParser;
+use Botble\JsValidation\Javascript\RuleParser;
+use Botble\JsValidation\Javascript\ValidatorHandler;
+use Botble\JsValidation\Support\DelegatedValidator;
+use Botble\JsValidation\Support\ValidationRuleParserProxy;
 
 class JsValidatorFactory
 {
@@ -60,7 +60,7 @@ class JsValidatorFactory
      * @param array $messages
      * @param array $customAttributes
      * @param null|string $selector
-     * @return \Platform\JsValidation\Javascript\JavascriptValidator
+     * @return \Botble\JsValidation\Javascript\JavascriptValidator
      */
     public function make(array $rules, array $messages = [], array $customAttributes = [], $selector = null)
     {
@@ -115,7 +115,7 @@ class JsValidatorFactory
      *
      * @param $formRequest
      * @param null $selector
-     * @return \Platform\JsValidation\Javascript\JavascriptValidator
+     * @return \Botble\JsValidation\Javascript\JavascriptValidator
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
@@ -182,7 +182,7 @@ class JsValidatorFactory
      *
      * @param \Illuminate\Validation\Validator $validator
      * @param null|string $selector
-     * @return \Platform\JsValidation\Javascript\JavascriptValidator
+     * @return \Botble\JsValidation\Javascript\JavascriptValidator
      */
     public function validator(Validator $validator, $selector = null)
     {
@@ -194,7 +194,7 @@ class JsValidatorFactory
      *
      * @param \Illuminate\Validation\Validator $validator
      * @param null|string $selector
-     * @return \Platform\JsValidation\Javascript\JavascriptValidator
+     * @return \Botble\JsValidation\Javascript\JavascriptValidator
      */
     protected function jsValidator(Validator $validator, $selector = null)
     {

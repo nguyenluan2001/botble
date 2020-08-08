@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Blog\Forms;
+namespace Botble\Blog\Forms;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Forms\FormAbstract;
-use Platform\Blog\Http\Requests\CategoryRequest;
-use Platform\Blog\Models\Category;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Forms\FormAbstract;
+use Botble\Blog\Http\Requests\CategoryRequest;
+use Botble\Blog\Models\Category;
 
 class CategoryForm extends FormAbstract
 {

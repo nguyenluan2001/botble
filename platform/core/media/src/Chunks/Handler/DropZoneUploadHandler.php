@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Media\Chunks\Handler;
+namespace Botble\Media\Chunks\Handler;
 
-use Platform\Media\Chunks\Save\ParallelSave;
+use Botble\Media\Chunks\Save\ParallelSave;
 use Illuminate\Http\Request;
 
 class DropZoneUploadHandler extends AbstractHandler

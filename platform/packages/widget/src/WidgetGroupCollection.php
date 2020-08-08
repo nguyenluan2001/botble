@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Widget;
+namespace Botble\Widget;
 
-use Platform\Widget\Contracts\ApplicationWrapperContract;
+use Botble\Widget\Contracts\ApplicationWrapperContract;
 use Illuminate\Support\Arr;
 
 class WidgetGroupCollection

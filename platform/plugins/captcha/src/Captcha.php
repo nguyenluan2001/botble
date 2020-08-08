@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Captcha;
+namespace Botble\Captcha;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;

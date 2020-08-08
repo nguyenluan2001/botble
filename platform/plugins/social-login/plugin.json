@@ -1,9 +1,9 @@
 {
     "name": "Social Login",
-    "namespace": "Platform\\SocialLogin\\",
-    "provider": "Platform\\SocialLogin\\Providers\\SocialLoginServiceProvider",
-    "author": "Laravel Technologies",
-    "url": "https://laravel-cms.gistensal.com",
-    "version": "5.4",
-    "description": "Social login for Laravel CMS"
+    "namespace": "Botble\\SocialLogin\\",
+    "provider": "Botble\\SocialLogin\\Providers\\SocialLoginServiceProvider",
+    "author": "Botble Technologies",
+    "url": "https://botble.com",
+    "version": "5.7",
+    "description": "Easier and faster login with Facebook, LinkedIn, Github or Google."
 }

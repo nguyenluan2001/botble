@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Entities;
+namespace Botble\SeoHelper\Contracts\Entities;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface WebmastersContract extends RenderableContract
 {
@@ -10,8 +10,7 @@ interface WebmastersContract extends RenderableContract
      * Make Webmaster instance.
      *
      * @param array $webmasters
-     *
-     * @return self
+     * @return $this
      */
     public static function make(array $webmasters = []);
 
@@ -20,15 +19,14 @@ interface WebmastersContract extends RenderableContract
      *
      * @param string $webmaster
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function add($webmaster, $content);
 
     /**
      * Reset the webmaster collection.
      *
-     * @return self
+     * @return $this
      */
     public function reset();
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Entities;
+namespace Botble\SeoHelper\Contracts\Entities;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface TitleContract extends RenderableContract
 {
@@ -17,8 +17,7 @@ interface TitleContract extends RenderableContract
      * Set title.
      *
      * @param string $title
-     *
-     * @return self
+     * @return $this
      */
     public function set($title);
 
@@ -33,8 +32,7 @@ interface TitleContract extends RenderableContract
      * Set site name.
      *
      * @param string $siteName
-     *
-     * @return self
+     * @return $this
      */
     public function setSiteName($siteName);
 
@@ -49,22 +47,21 @@ interface TitleContract extends RenderableContract
      * Set title separator.
      *
      * @param string $separator
-     *
-     * @return self
+     * @return $this
      */
     public function setSeparator($separator);
 
     /**
      * Set title first.
      *
-     * @return self
+     * @return $this
      */
     public function setFirst();
 
     /**
      * Set title last.
      *
-     * @return self
+     * @return $this
      */
     public function setLast();
 
@@ -76,18 +73,17 @@ interface TitleContract extends RenderableContract
     public function isTitleFirst();
 
     /**
-     * Get title max lenght.
+     * Get title max length.
      *
      * @return int
      */
     public function getMax();
 
     /**
-     * Set title max lenght.
+     * Set title max length.
      *
      * @param int $max
-     *
-     * @return self
+     * @return $this
      */
     public function setMax($max);
 
@@ -97,8 +93,7 @@ interface TitleContract extends RenderableContract
      * @param string $title
      * @param string $siteName
      * @param string $separator
-     *
-     * @return self
+     * @return $this
      */
     public static function make($title, $siteName = '', $separator = '-');
 }

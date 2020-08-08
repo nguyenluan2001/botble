@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\CustomField\Tables;
+namespace Botble\CustomField\Tables;
 
-use Platform\CustomField\Models\FieldGroup;
+use Botble\CustomField\Models\FieldGroup;
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Validation\Rule;

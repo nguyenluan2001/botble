@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\RequestLog\Listeners;
+namespace Botble\RequestLog\Listeners;
 
-use Platform\RequestLog\Events\RequestHandlerEvent;
-use Platform\RequestLog\Models\RequestLog;
+use Botble\RequestLog\Events\RequestHandlerEvent;
+use Botble\RequestLog\Models\RequestLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

@@ -8,8 +8,8 @@
             <div class="ui-select-wrapper">
                 <select name="filter_columns[]" class="ui-select filter-column-key">
                     <option value="">{{ trans('core/table::general.select_field') }}</option>
-                    @foreach($columns as $column_key => $column)
-                        <option value="{{ $column_key }}">{{ $column['title'] }}</option>
+                    @foreach($columns as $columnKey => $column)
+                        <option value="{{ $columnKey }}">{{ $column['title'] }}</option>
                     @endforeach
                 </select>
                 <svg class="svg-next-icon svg-next-icon-size-16">
@@ -41,13 +41,13 @@
         <input type="hidden" name="filter_table_id" class="filter-data-table-id" value="{{ $tableId }}">
         <input type="hidden" name="class" class="filter-data-class" value="{{ $class }}">
         <div class="filter_list inline-block filter-items-wrap">
-            @foreach($requestFilters as $filter_key => $filter_item)
+            @foreach($requestFilters as $filterItem)
                 <div class="filter-item form-filter @if ($loop->first) filter-item-default @endif">
                     <div class="ui-select-wrapper">
                         <select name="filter_columns[]" class="ui-select filter-column-key">
                             <option value="">{{ trans('core/table::general.select_field') }}</option>
-                            @foreach($columns as $column_key => $column)
-                                <option value="{{ $column_key }}" @if ($filter_item['column'] == $column_key) selected @endif>{{ $column['title'] }}</option>
+                            @foreach($columns as $columnKey => $column)
+                                <option value="{{ $columnKey }}" @if ($filterItem['column'] == $columnKey) selected @endif>{{ $column['title'] }}</option>
                             @endforeach
                         </select>
                         <svg class="svg-next-icon svg-next-icon-size-16">
@@ -57,13 +57,13 @@
                     <div class="ui-select-wrapper">
                         <select name="filter_operators[]" class="ui-select filter-column-operator">
                             <option value="like"
-                                    @if ($filter_item['operator'] == 'like') selected @endif>{{ trans('core/table::general.contains') }}</option>
+                                    @if ($filterItem['operator'] == 'like') selected @endif>{{ trans('core/table::general.contains') }}</option>
                             <option value="="
-                                    @if ($filter_item['operator'] == '=') selected @endif>{{ trans('core/table::general.is_equal_to') }}</option>
+                                    @if ($filterItem['operator'] == '=') selected @endif>{{ trans('core/table::general.is_equal_to') }}</option>
                             <option value=">"
-                                    @if ($filter_item['operator'] == '>') selected @endif>{{ trans('core/table::general.greater_than') }}</option>
+                                    @if ($filterItem['operator'] == '>') selected @endif>{{ trans('core/table::general.greater_than') }}</option>
                             <option value="<"
-                                    @if ($filter_item['operator'] == '<') selected @endif>{{ trans('core/table::general.less_than') }}</option>
+                                    @if ($filterItem['operator'] == '<') selected @endif>{{ trans('core/table::general.less_than') }}</option>
                         </select>
                         <svg class="svg-next-icon svg-next-icon-size-16">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
@@ -71,7 +71,7 @@
                     </div>
                     <span class="filter-column-value-wrap">
                         <input class="form-control filter-column-value" type="text" placeholder="{{ trans('core/table::general.value') }}"
-                               name="filter_values[]" value="{{ $filter_item['value'] }}">
+                               name="filter_values[]" value="{{ $filterItem['value'] }}">
                     </span>
                     @if ($loop->first)
                         <span class="btn-reset-filter-item" title="{{ trans('core/table::general.reset') }}">

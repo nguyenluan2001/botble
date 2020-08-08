@@ -69,6 +69,16 @@ theme_option()
         ],
     ])
     ->setField([
+        'id'         => 'primary_color',
+        'section_id' => 'opt-text-subsection-general',
+        'type'       => 'customColor',
+        'label'      => __('Primary color'),
+        'attributes' => [
+            'name'  => 'primary_color',
+            'value' => '#ff2b4a',
+        ],
+    ])
+    ->setField([
         'id'         => 'address',
         'section_id' => 'opt-text-subsection-general',
         'type'       => 'text',
@@ -166,7 +176,7 @@ theme_option()
         'label'      => __('Copyright'),
         'attributes' => [
             'name'    => 'copyright',
-            'value'   => __('© 2020 Laravel Technologies. All right reserved. Designed by Developer Team'),
+            'value'   => __('© 2020 Botble Technologies. All right reserved. Designed by Nghia Minh'),
             'options' => [
                 'class'        => 'form-control',
                 'placeholder'  => __('Change copyright'),

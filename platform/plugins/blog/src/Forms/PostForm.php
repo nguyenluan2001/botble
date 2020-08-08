@@ -1,14 +1,14 @@
 <?php
 
-namespace Platform\Blog\Forms;
+namespace Botble\Blog\Forms;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Forms\Fields\TagField;
-use Platform\Base\Forms\FormAbstract;
-use Platform\Blog\Forms\Fields\CategoryMultiField;
-use Platform\Blog\Http\Requests\PostRequest;
-use Platform\Blog\Models\Post;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Forms\Fields\TagField;
+use Botble\Base\Forms\FormAbstract;
+use Botble\Blog\Forms\Fields\CategoryMultiField;
+use Botble\Blog\Http\Requests\PostRequest;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
 
 class PostForm extends FormAbstract
 {

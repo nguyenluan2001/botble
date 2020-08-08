@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Base\Enums\BaseStatusEnum;
+use Botble\Base\Enums\BaseStatusEnum;
 
 return [
     'statuses' => [

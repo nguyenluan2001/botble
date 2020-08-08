@@ -3,7 +3,7 @@
 return [
     'admin_dir'                 => env('ADMIN_DIR', 'admin'),
     'default-theme'             => env('DEFAULT_THEME', 'default'),
-    'base_name'                 => env('APP_NAME', 'Laravel Technologies'),
+    'base_name'                 => env('APP_NAME', 'Botble Technologies'),
     'logo'                      => '/vendor/core/images/logo_white.png',
     'favicon'                   => '/vendor/core/images/favicon.png',
     'editor'                    => [

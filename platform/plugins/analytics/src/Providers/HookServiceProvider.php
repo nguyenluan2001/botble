@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Analytics\Providers;
+namespace Botble\Analytics\Providers;
 
 use Assets;
 use Illuminate\Support\Facades\Auth;
-use Platform\Dashboard\Supports\DashboardWidgetInstance;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Throwable;

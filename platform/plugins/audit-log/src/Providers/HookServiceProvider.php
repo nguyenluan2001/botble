@@ -1,15 +1,15 @@
 <?php
 
-namespace Platform\AuditLog\Providers;
+namespace Botble\AuditLog\Providers;
 
 use Assets;
 use AuditLog;
-use Platform\ACL\Models\User;
+use Botble\ACL\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Platform\Dashboard\Supports\DashboardWidgetInstance;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
-use Platform\AuditLog\Events\AuditHandlerEvent;
+use Botble\AuditLog\Events\AuditHandlerEvent;
 use Illuminate\Http\Request;
 use stdClass;
 use Throwable;

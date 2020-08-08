@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Dashboard\Http\Controllers;
+namespace Botble\Dashboard\Http\Controllers;
 
 use Assets;
-use Platform\ACL\Repositories\Interfaces\UserInterface;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
-use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
+use Botble\ACL\Repositories\Interfaces\UserInterface;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetSettingInterface;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -69,7 +69,7 @@ class DashboardController extends BaseController
         $widgets = $this->widgetRepository->getModel()
             ->with([
                 'settings' => function (HasMany $query) use ($request) {
-                    $query->where('user_id', '=', $request->user()->getKey())
+                    $query->where('user_id', $request->user()->getKey())
                         ->select(['status', 'order', 'settings', 'widget_id'])
                         ->orderBy('order', 'asc');
                 },

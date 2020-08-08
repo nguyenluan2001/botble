@@ -1,11 +1,11 @@
 @if (is_plugin_active('blog'))
     <div class="main-content">
     <div class="main-left">
-        @foreach (get_all_categories(['categories.status' => \Platform\Base\Enums\BaseStatusEnum::PUBLISHED, 'categories.parent_id' => 0, 'is_featured' => 1]) as $category)
+        @foreach (get_all_categories(['categories.status' => \Botble\Base\Enums\BaseStatusEnum::PUBLISHED, 'categories.parent_id' => 0, 'is_featured' => 1]) as $category)
             @php
-                $allRelatedCategoryIds = array_unique(array_merge(app(\Platform\Blog\Repositories\Interfaces\CategoryInterface::class)->getAllRelatedChildrenIds($category), [$category->id]));
+                $allRelatedCategoryIds = array_unique(array_merge(app(\Botble\Blog\Repositories\Interfaces\CategoryInterface::class)->getAllRelatedChildrenIds($category), [$category->id]));
 
-                $posts = app(\Platform\Blog\Repositories\Interfaces\PostInterface::class)->getByCategory($allRelatedCategoryIds, 0, $loop->index % 2 == 0 ? 6 : 5);
+                $posts = app(\Botble\Blog\Repositories\Interfaces\PostInterface::class)->getByCategory($allRelatedCategoryIds, 0, $loop->index % 2 == 0 ? 6 : 5);
             @endphp
             <section class="main-box">
                 <div class="main-box-header">
@@ -40,8 +40,8 @@
                                    title="{{ $post->name }}"
                                    class="media-news-img">
                                     <img class="img-full img-bg"
-                                         src="{{ get_object_image($post->image, 'medium') }}"
-                                         style="background-image: url('{{ get_object_image($post->image) }}');"
+                                         src="{{ RvMedia::getImageUrl($post->image, 'medium') }}"
+                                         style="background-image: url('{{ RvMedia::getImageUrl($post->image) }}');"
                                          alt="{{ $post->name }}">
                                 </a>
                                 <div class="media-news-body">
@@ -52,7 +52,7 @@
                                         </a>
                                     </p>
                                     <p class="common-date">
-                                        <time>{{ date_from_database($post->created_at, 'M d, Y') }}</time>
+                                        <time>{{ $post->created_at->format('M d, Y') }}</time>
                                     </p>
                                     <div class="common-summary">
                                         <p>{{ $post->description }}</p>

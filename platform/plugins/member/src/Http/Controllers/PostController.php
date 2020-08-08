@@ -1,25 +1,26 @@
 <?php
 
-namespace Platform\Member\Http\Controllers;
+namespace Botble\Member\Http\Controllers;
 
 use Assets;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Events\BeforeEditContentEvent;
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Blog\Models\Post;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Platform\Blog\Repositories\Interfaces\TagInterface;
-use Platform\Blog\Services\StoreCategoryService;
-use Platform\Blog\Services\StoreTagService;
-use Platform\Member\Forms\PostForm;
-use Platform\Member\Http\Requests\PostRequest;
-use Platform\Member\Models\Member;
-use Platform\Member\Repositories\Interfaces\MemberActivityLogInterface;
-use Platform\Member\Repositories\Interfaces\MemberInterface;
-use Platform\Member\Tables\PostTable;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Events\BeforeEditContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Blog\Services\StoreCategoryService;
+use Botble\Blog\Services\StoreTagService;
+use Botble\Member\Forms\PostForm;
+use Botble\Member\Http\Requests\PostRequest;
+use Botble\Member\Models\Member;
+use Botble\Member\Repositories\Interfaces\MemberActivityLogInterface;
+use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Botble\Member\Tables\PostTable;
+use EmailHandler;
 use Exception;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Http\Request;
@@ -117,7 +118,7 @@ class PostController extends Controller
          * @var Post $post
          */
         $post = $this->postRepository->createOrUpdate(array_merge($request->except('status'), [
-            'author_id'   => auth()->guard('member')->user()->getKey(),
+            'author_id'   => auth('member')->user()->getAuthIdentifier(),
             'author_type' => Member::class,
             'status'      => BaseStatusEnum::PENDING,
         ]));
@@ -133,6 +134,14 @@ class PostController extends Controller
         $tagService->execute($request, $post);
 
         $categoryService->execute($request, $post);
+
+        EmailHandler::setModule(MEMBER_MODULE_SCREEN_NAME)
+            ->setVariableValues([
+                'post_name'   => $post->name,
+                'post_url'    => route('posts.edit', $post->id),
+                'post_author' => $post->author->getFullName(),
+            ])
+            ->sendUsingTemplate('new-pending-post');
 
         return $response
             ->setPreviousUrl(route('public.member.posts.index'))
@@ -152,7 +161,7 @@ class PostController extends Controller
     {
         $post = $this->postRepository->getFirstBy([
             'id'          => $id,
-            'author_id'   => auth()->guard('member')->user()->getKey(),
+            'author_id'   => auth('member')->user()->getAuthIdentifier(),
             'author_type' => Member::class,
         ]);
 
@@ -188,7 +197,7 @@ class PostController extends Controller
     ) {
         $post = $this->postRepository->getFirstBy([
             'id'          => $id,
-            'author_id'   => auth()->guard('member')->user()->getKey(),
+            'author_id'   => auth('member')->user()->getAuthIdentifier(),
             'author_type' => Member::class,
         ]);
 
@@ -235,7 +244,7 @@ class PostController extends Controller
     {
         $post = $this->postRepository->getFirstBy([
             'id'          => $id,
-            'author_id'   => auth()->guard('member')->user()->getKey(),
+            'author_id'   => auth('member')->user()->getAuthIdentifier(),
             'author_type' => Member::class,
         ]);
 

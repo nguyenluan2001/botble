@@ -17,7 +17,7 @@ p:empty {
         transition: all 0.4s ease;
 
         &:hover a {
-            color: #ff2b4a
+            color: $color-1st
         }
     }
 }
@@ -55,14 +55,14 @@ p:empty {
 
         &:hover {
             a {
-                color: #ff2b4a
+                color: $color-1st
             }
 
             &:before {
-                -webkit-box-shadow: inset 0 0 0 10px #ff2b4a;
-                -moz-box-shadow: inset 0 0 0 10px #ff2b4a;
-                -ms-box-shadow: inset 0 0 0 10px #ff2b4a;
-                box-shadow: inset 0 0 0 10px #ff2b4a
+                -webkit-box-shadow: inset 0 0 0 10px $color-1st;
+                -moz-box-shadow: inset 0 0 0 10px $color-1st;
+                -ms-box-shadow: inset 0 0 0 10px $color-1st;
+                box-shadow: inset 0 0 0 10px $color-1st
             }
         }
     }
@@ -77,7 +77,7 @@ p:empty {
             top: 50%;
             left: 0;
             font-family: FontAwesome;
-            color: #ff2b4a;
+            color: $color-1st;
             visibility: hidden;
             opacity: 0;
             -webkit-transform: translateY(-50%);
@@ -117,7 +117,7 @@ p:empty {
             -o-transform: translateY(-50%);
             transform: translateY(-50%);
             font-family: "Ionicons";
-            color: #ff2b4a;
+            color: $color-1st;
             -webkit-transition: all 0.4s ease;
             -moz-transition: all 0.4s ease;
             transition: all 0.4s ease;
@@ -144,7 +144,7 @@ p:empty {
     width: 15px;
     height: 15px;
     z-index: 20;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -177,7 +177,7 @@ p:empty {
     width: 1px;
     height: 100%;
     z-index: 10;
-    background-color: #ff2b4a
+    background-color: $color-1st
 }
 
 .list--timeline li:last-child:after {
@@ -185,14 +185,14 @@ p:empty {
 }
 
 .list--timeline li:hover a {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .list--timeline li:hover:before {
-    -webkit-box-shadow: inset 0 0 0 10px #ff2b4a;
-    -moz-box-shadow: inset 0 0 0 10px #ff2b4a;
-    -ms-box-shadow: inset 0 0 0 10px #ff2b4a;
-    box-shadow: inset 0 0 0 10px #ff2b4a
+    -webkit-box-shadow: inset 0 0 0 10px $color-1st;
+    -moz-box-shadow: inset 0 0 0 10px $color-1st;
+    -ms-box-shadow: inset 0 0 0 10px $color-1st;
+    box-shadow: inset 0 0 0 10px $color-1st
 }
 
 #back2top {
@@ -207,7 +207,7 @@ p:empty {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
-    border: 2px solid #ff2b4a;
+    border: 2px solid $color-1st;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
@@ -224,14 +224,14 @@ p:empty {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    color: #ff2b4a;
+    color: $color-1st;
     z-index: 10001;
     font-size: 20px
 }
 
 #back2top:hover {
     cursor: pointer;
-    background-color: #ff2b4a
+    background-color: $color-1st
 }
 
 #back2top:hover i {
@@ -395,7 +395,7 @@ p:empty {
 }
 
 .btn--red {
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     color: #ffffff
 }
 
@@ -407,7 +407,7 @@ p:empty {
 .btn--red.btn-inserve {
     background-color: transparent;
     color: #666666;
-    border: 2px solid #ff2b4a
+    border: 2px solid $color-1st
 }
 
 .btn--red.btn-inserve:hover {
@@ -469,7 +469,7 @@ p:empty {
 
 .social--white li:hover a {
     color: #ffffff;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -498,7 +498,7 @@ p:empty {
 
 .social--simple li:hover a {
     color: #ffffff;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -525,12 +525,12 @@ p:empty {
 }
 
 .page-pagination li.active a {
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     color: #ffffff
 }
 
 .page-pagination li:hover a {
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     color: #ffffff
 }
 
@@ -650,7 +650,7 @@ p:empty {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     z-index: 10000;
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
@@ -763,12 +763,12 @@ p:empty {
 }
 
 .post__inside--feature .post__title:hover a {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__inside--feature .post__meta span {
     margin-right: 15px;
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__inside--feature .post__meta span i {
@@ -784,14 +784,14 @@ p:empty {
 }
 
 .post__inside--feature .post__meta span a:hover {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__inside--feature .post__meta .post-category {
     display: inline-block;
     padding: 3px 10px;
     line-height: 15px;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
@@ -809,12 +809,12 @@ p:empty {
 }
 
 .post__inside--feature .post__meta .post-category:hover {
-    color: #ff2b4a;
+    color: $color-1st;
     background-color: #ffffff
 }
 
 .post__inside--feature .post__meta .post-category:hover a {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__inside--feature:hover .post__overlay {
@@ -891,7 +891,7 @@ p:empty {
 }
 
 .post__horizontal .post__title:hover a {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__horizontal .post__meta {
@@ -900,7 +900,7 @@ p:empty {
 
 .post__horizontal .post__meta span {
     margin-right: 15px;
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__horizontal .post__meta span i {
@@ -917,7 +917,7 @@ p:empty {
 }
 
 .post__horizontal .post__meta span a:hover {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__horizontal .post__content {
@@ -1012,11 +1012,11 @@ p:empty {
 }
 
 .post__widget .post__title:hover a {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__widget .created_at {
-    color: #ff2b4a;
+    color: $color-1st;
     font-size: 11px
 }
 
@@ -1075,7 +1075,7 @@ p:empty {
 }
 
 .post__vertical .post__title:hover a {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post__vertical--single {
@@ -1099,7 +1099,7 @@ p:empty {
     width: 70px;
     height: 70px;
     z-index: 30;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     text-align: center;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -1150,7 +1150,7 @@ p:empty {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 600;
-    color: #ff2b4a;
+    color: $color-1st;
     padding-bottom: 3px
 }
 
@@ -1163,7 +1163,7 @@ p:empty {
     margin: 0 auto;
     width: 50%;
     height: 1px;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     z-index: 20;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -1261,7 +1261,7 @@ p:empty {
 
 .post--single .post__meta span {
     margin-right: 15px;
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post--single .post__meta span i {
@@ -1276,7 +1276,7 @@ p:empty {
 }
 
 .post--single .post__meta span a:hover {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post--single .post__meta .post__tags a {
@@ -1326,7 +1326,7 @@ p:empty {
     left: 0;
     width: 25px;
     height: 2px;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     z-index: 10
 }
 
@@ -1370,7 +1370,7 @@ p:empty {
 }
 
 .post--related .post__title:hover {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .post--related.post--inserve .post__thumbnail, .post--related.post--inserve .post__header {
@@ -1493,7 +1493,7 @@ p:empty {
     margin-right: 10px;
     font-size: 20px;
     vertical-align: middle;
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .widget__about .person-detail a {
@@ -1501,7 +1501,7 @@ p:empty {
 }
 
 .widget__about .person-detail a:hover {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .widget_about--dark .person-info__title {
@@ -1543,7 +1543,7 @@ p:empty {
     left: 0;
     width: 25px;
     height: 2px;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     z-index: 10
 }
 
@@ -1579,7 +1579,7 @@ p:empty {
 }
 
 .widget__search .input__search:focus {
-    border-color: #ff2b4a
+    border-color: $color-1st
 }
 
 .widget__search--transparent .input__search {
@@ -1603,7 +1603,7 @@ p:empty {
 }
 
 .widget__tags .tag-link:hover {
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     color: #ffffff
 }
 
@@ -1661,11 +1661,11 @@ p:empty {
 }
 
 .page-intro .breadcrumb li:active {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .page-intro .breadcrumb a:hover {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .navigation .menu::after {
@@ -1726,7 +1726,7 @@ p:empty {
     z-index: 100;
     min-width: 240px;
     background-color: #ffffff;
-    border-top: 2px solid #ff2b4a;
+    border-top: 2px solid $color-1st;
     -webkit-box-shadow: 0 0 1px rgba(34, 25, 25, 0.4);
     -moz-box-shadow: 0 0 1px rgba(34, 25, 25, 0.4);
     -ms-box-shadow: 0 0 1px rgba(34, 25, 25, 0.4);
@@ -1758,7 +1758,7 @@ p:empty {
     margin: 0;
     z-index: 100;
     background-color: #ffffff;
-    border-top: 2px solid #ff2b4a;
+    border-top: 2px solid $color-1st;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
     visibility: hidden;
     opacity: 0;
@@ -1793,7 +1793,7 @@ p:empty {
 }
 
 .navigation--mobile > .menu > .menu-item.menu-item--active {
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     border-bottom: none
 }
 
@@ -1834,11 +1834,11 @@ p:empty {
 }
 
 .navigation--light .menu-item:hover > a {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .navigation--light .menu-item:hover > a .toggle-icon {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .page-header {
@@ -1896,7 +1896,7 @@ p:empty {
 
 .page-logo span {
     font-weight: 700;
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .page-logo:hover {
@@ -1908,7 +1908,7 @@ p:empty {
 }
 
 .page-logo--white span {
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .page-logo--white:hover {
@@ -2017,7 +2017,7 @@ p:empty {
 .page-copyright p a {
     display: inline-block;
     padding-left: 5px;
-    color: #ff2b4a
+    color: $color-1st
 }
 
 .page-copyright p a:hover {
@@ -2046,7 +2046,7 @@ p:empty {
     margin: 0;
     width: 50px;
     height: 2px;
-    background-color: #ff2b4a
+    background-color: $color-1st
 }
 
 .post-group--hero::after {
@@ -2221,7 +2221,7 @@ p:empty {
     left: 0;
     height: 100%;
     width: 0;
-    background-color: #ff2b4a;
+    background-color: $color-1st;
     z-index: 0;
     -webkit-transition: all 0.25s ease-out;
     -moz-transition: all 0.25s ease-out;

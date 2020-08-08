@@ -1,15 +1,16 @@
 <?php
 
-namespace Platform\Gallery\Tables;
+namespace Botble\Gallery\Tables;
 
-use Platform\Gallery\Models\Gallery;
+use Botble\Gallery\Models\Gallery;
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
+use Botble\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Validation\Rule;
+use RvMedia;
 use Yajra\DataTables\DataTables;
 
 class GalleryTable extends TableAbstract
@@ -58,7 +59,7 @@ class GalleryTable extends TableAbstract
                 return Html::link(route('galleries.edit', $item->id), $item->name);
             })
             ->editColumn('image', function ($item) {
-                return Html::image(get_object_image($item->image, 'thumb'), $item->name, ['width' => 70]);
+                return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()), $item->name, ['width' => 70]);
             })
             ->editColumn('checkbox', function ($item) {
                 return table_checkbox($item->id);

@@ -1,5 +1,5 @@
 {
-    "name": "platform/translation",
+    "name": "botble/translation",
     "description": "Translation plugin",
     "type": "package",
     "require": {

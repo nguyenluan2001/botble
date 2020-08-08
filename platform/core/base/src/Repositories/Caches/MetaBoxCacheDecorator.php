@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Base\Repositories\Caches;
+namespace Botble\Base\Repositories\Caches;
 
-use Platform\Base\Repositories\Interfaces\MetaBoxInterface;
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\Base\Repositories\Interfaces\MetaBoxInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class MetaBoxCacheDecorator extends CacheAbstractDecorator implements MetaBoxInterface
 {

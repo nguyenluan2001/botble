@@ -1,9 +1,10 @@
 <?php
 
-namespace Platform\Gallery\Providers;
+namespace Botble\Gallery\Providers;
 
 use Assets;
 use Illuminate\Support\ServiceProvider;
+use MetaBox;
 
 class HookServiceProvider extends ServiceProvider
 {
@@ -33,7 +34,7 @@ class HookServiceProvider extends ServiceProvider
                 ->addScriptsDirectly(['vendor/core/plugins/gallery/js/gallery-admin.js'])
                 ->addScripts(['sortable']);
 
-            add_meta_box('gallery_wrap', trans('plugins/gallery::gallery.gallery_box'), [$this, 'galleryMetaField'],
+            MetaBox::addMetaBox('gallery_wrap', trans('plugins/gallery::gallery.gallery_box'), [$this, 'galleryMetaField'],
                 get_class($object), $context, 'default');
         }
     }

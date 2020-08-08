@@ -2,7 +2,7 @@
     <div class="admin-bar-container">
         <div class="admin-bar-logo">
             <a href="{{ route('dashboard.index') }}" title="Go to dashboard">
-                <img src="{{ setting('admin_logo') ? get_image_url(setting('admin_logo')) : url(config('core.base.general.logo')) }}" alt="logo"/>
+                <img src="{{ setting('admin_logo') ? RvMedia::getImageUrl(setting('admin_logo')) : url(config('core.base.general.logo')) }}" alt="logo"/>
             </a>
         </div>
         <ul class="admin-navbar-nav">

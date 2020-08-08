@@ -8,8 +8,8 @@
                 <div class="media-news">
                     <a href="{{ $post->url }}"
                        title="{{ $post->name }}" class="media-news-img">
-                        <img class="img-full img-bg" src="{{ get_object_image($post->image, 'thumb') }}"
-                             style="background-image: url('{{ get_object_image($post->image) }}');"
+                        <img class="img-full img-bg" src="{{ RvMedia::getImageUrl($post->image, 'thumb') }}"
+                             style="background-image: url('{{ RvMedia::getImageUrl($post->image) }}');"
                              alt="{{ $post->name }}">
                     </a>
                     <div class="media-news-body">

@@ -18,4 +18,10 @@ return [
     ],
     'forgot_password'            => 'Forgot password',
     'login'                      => 'Login',
+    'settings'                      => [
+        'email' => [
+            'title'       => 'Member',
+            'description' => 'Member email configuration',
+        ],
+    ],
 ];

@@ -11,11 +11,14 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
 
         <!-- Fonts-->
-        <link href="https://fonts.googleapis.com/css?family={{ urlencode(theme_option('primary_font', 'Nunito Sans')) }}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family={{ urlencode(theme_option('primary_font', 'Roboto')) }}" rel="stylesheet" type="text/css">
         <!-- CSS Library-->
 
         <style>
-            body {font-family: '{{ theme_option('primary_font', 'Roboto') }}', sans-serif !important;}
+            :root {
+                --color-1st: {{ theme_option('primary_color', '#ff2b4a') }};
+                --primary-font: '{{ theme_option('primary_font', 'Roboto') }}', sans-serif;
+            }
         </style>
 
         {!! Theme::header() !!}
@@ -35,9 +38,15 @@
                 <div class="container">
                     <div class="pull-left">
                         <div class="hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3a">
-                            <a href="{{ theme_option('facebook') }}" title="Facebook" class="hi-icon fa fa-facebook"></a>
-                            <a href="{{ theme_option('twitter') }}" title="Twitter" class="hi-icon fa fa-twitter"></a>
-                            <a href="{{ theme_option('youtube') }}" title="Youtube" class="hi-icon fa fa-youtube"></a>
+                            @if (theme_option('facebook'))
+                                <a href="{{ theme_option('facebook') }}" title="Facebook" class="hi-icon fa fa-facebook" target="_blank"></a>
+                            @endif
+                            @if (theme_option('twitter'))
+                                <a href="{{ theme_option('twitter') }}" title="Twitter" class="hi-icon fa fa-twitter" target="_blank"></a>
+                            @endif
+                            @if (theme_option('youtube'))
+                                <a href="{{ theme_option('youtube') }}" title="Youtube" class="hi-icon fa fa-youtube" target="_blank"></a>
+                            @endif
                         </div>
                     </div>
                     <div class="pull-right">
@@ -75,7 +84,7 @@
                     @if (!theme_option('logo'))
                         <span>Bot</span>ble
                     @else
-                        <img src="{{ get_image_url(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" height="50">
+                        <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" height="50">
                     @endif
                 </a></div>
             <div class="page-header__right">
@@ -108,4 +117,3 @@
         @endif
     </header>
     <div id="page-wrap">
-

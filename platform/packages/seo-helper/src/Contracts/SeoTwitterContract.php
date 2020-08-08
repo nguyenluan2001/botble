@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts;
+namespace Botble\SeoHelper\Contracts;
 
-use Platform\SeoHelper\Contracts\Entities\TwitterCardContract;
+use Botble\SeoHelper\Contracts\Entities\TwitterCardContract;
 
 interface SeoTwitterContract extends RenderableContract
 {
@@ -10,8 +10,7 @@ interface SeoTwitterContract extends RenderableContract
      * Set the twitter card instance.
      *
      * @param TwitterCardContract $card
-     *
-     * @return self
+     * @return $this
      */
     public function setCard(TwitterCardContract $card);
 
@@ -19,8 +18,7 @@ interface SeoTwitterContract extends RenderableContract
      * Set the card type.
      *
      * @param string $type
-     *
-     * @return self
+     * @return $this
      */
     public function setType($type);
 
@@ -28,8 +26,7 @@ interface SeoTwitterContract extends RenderableContract
      * Set the card site.
      *
      * @param string $site
-     *
-     * @return self
+     * @return $this
      */
     public function setSite($site);
 
@@ -37,8 +34,7 @@ interface SeoTwitterContract extends RenderableContract
      * Set the card title.
      *
      * @param string $title
-     *
-     * @return self
+     * @return $this
      */
     public function setTitle($title);
 
@@ -46,8 +42,7 @@ interface SeoTwitterContract extends RenderableContract
      * Set the card description.
      *
      * @param string $description
-     *
-     * @return self
+     * @return $this
      */
     public function setDescription($description);
 
@@ -55,8 +50,7 @@ interface SeoTwitterContract extends RenderableContract
      * Add image to the card.
      *
      * @param string $url
-     *
-     * @return self
+     * @return $this
      */
     public function addImage($url);
 
@@ -64,8 +58,7 @@ interface SeoTwitterContract extends RenderableContract
      * Add many meta to the card.
      *
      * @param array $meta
-     *
-     * @return self
+     * @return $this
      */
     public function addMetas(array $meta);
 
@@ -74,8 +67,7 @@ interface SeoTwitterContract extends RenderableContract
      *
      * @param string $name
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function addMeta($name, $content);
 }

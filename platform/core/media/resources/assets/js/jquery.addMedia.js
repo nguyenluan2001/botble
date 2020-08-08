@@ -11,7 +11,7 @@
      * @param options
      * @constructor
      */
-    var AddMedia = function (element, options) {
+    let AddMedia = function (element, options) {
         this.options = options;
         $(element).rvMedia({
             multiple: true,
@@ -22,7 +22,7 @@
                             handleInsertImagesForSummerNote($el, files);
                             break;
                         case 'wysihtml5':
-                            var editor = $(options.target).data('wysihtml5').editor;
+                            let editor = $(options.target).data('wysihtml5').editor;
                             handleInsertImagesForWysihtml5Editor(editor, files);
                             break;
                         case 'ckeditor':
@@ -49,10 +49,10 @@
             return;
         }
 
-        var instance = $el.data('target');
-        for (var i = 0; i < files.length; i++) {
+        let instance = $el.data('target');
+        for (let i = 0; i < files.length; i++) {
             if (files[i].type === 'video') {
-                var link = files[i].full_url;
+                let link = files[i].full_url;
                 link = link.replace('watch?v=', 'embed/');
                 $(instance).summernote('pasteHTML', '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>');
             } else if (files[i].type === 'image') {
@@ -75,9 +75,9 @@
 
         // insert images for the wysihtml5 editor
         let s = '';
-        for (var i = 0; i < files.length; i++) {
+        for (let i = 0; i < files.length; i++) {
             if (files[i].type === 'video') {
-                var link = files[i].full_url;
+                let link = files[i].full_url;
                 link = link.replace('watch?v=', 'embed/');
                 s += '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>';
             } else if (files[i].type === 'image') {
@@ -103,37 +103,40 @@
      * @param files
      */
     function handleForCkeditor($el, files) {
-        $.each(files, function (index, file) {
-            var link = file.full_url;
-            var instance = $el.data('target').replace('#', '');
-            if (file.type === 'video') {
+        let instance = $el.data('target').replace('#', '');
+        let content = '';
+        $.each(files, (index, file) => {
+            let link = file.full_url;
+            if (file.type === 'youtube') {
                 link = link.replace('watch?v=', 'embed/');
-                CKEDITOR.instances[instance].insertHtml('<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>');
+                content += '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe><br />';
             } else if (file.type === 'image') {
-                CKEDITOR.instances[instance].insertHtml('<img src="' + link + '" alt="' + file.name + '" />');
+                content += '<img src="' + link + '" alt="' + file.name + '" /><br />';
             } else {
-                CKEDITOR.instances[instance].insertHtml('<a href="' + link + '">' + file.name + '</a>');
+                content += '<a href="' + link + '">' + file.name + '</a><br />';
             }
         });
+
+        CKEDITOR.instances[instance].insertHtml(content);
     }
 
     /**
      * @param files
      */
     function handleForTinyMce(files) {
-        $.each(files, function (index, file) {
-            var link = file.full_url;
-            var html = '';
-            if (file.type === 'video') {
+        let html = '';
+        $.each(files, (index, file) => {
+            let link = file.full_url;
+            if (file.type === 'youtube') {
                 link = link.replace('watch?v=', 'embed/');
-                html = '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>';
+                html += '<iframe width="420" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe><br />';
             } else if (file.type === 'image') {
-                html = '<img src="' + link + '" alt="' + file.name + '" />';
+                html += '<img src="' + link + '" alt="' + file.name + '" /><br />';
             } else {
-                html = '<a href="' + link + '">' + file.name + '</a>';
+                html += '<a href="' + link + '">' + file.name + '</a><br />';
             }
-            tinymce.activeEditor.execCommand('mceInsertContent', false, html);
         });
+        tinymce.activeEditor.execCommand('mceInsertContent', false, html);
     }
 
     /**
@@ -141,10 +144,12 @@
      */
     function callAction(option) {
         return this.each(function () {
-            var $this = $(this);
-            var data = $this.data('bs.media');
-            var options = $.extend({}, $this.data(), typeof option === 'object' && option);
-            if (!data) $this.data('bs.media', (data = new AddMedia(this, options)))
+            let $this = $(this);
+            let data = $this.data('bs.media');
+            let options = $.extend({}, $this.data(), typeof option === 'object' && option);
+            if (!data) {
+                $this.data('bs.media', (new AddMedia(this, options)));
+            }
         })
     }
 
@@ -153,7 +158,7 @@
 
     $(window).on('load', function () {
         $('[data-type="rv-media"]').each(function () {
-            var $addMedia = $(this);
+            let $addMedia = $(this);
             callAction.call($addMedia, $addMedia.data());
         });
     });

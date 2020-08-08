@@ -9,7 +9,7 @@
                     <a href="{{ $post->categories->first()->url }}">{{ $post->categories->first()->name }}</a>
                 </span>
             @endif
-            <span class="post__created-at"><i class="ion-clock"></i><a href="#">{{ date_from_database($post->created_at, 'M d, Y') }}</a></span>
+            <span class="post__created-at"><i class="ion-clock"></i>{{ $post->created_at->format('M d, Y') }}</span>
             @if ($post->user->username)
                 <span class="post__author"><i class="ion-android-person"></i><span>{{ $post->user->getFullName() }}</span></span>
             @endif
@@ -22,7 +22,6 @@
                 </span>
             @endif
         </div>
-        <div class="post__social"></div>
     </header>
     <div class="post__content">
         @if (defined('GALLERY_MODULE_SCREEN_NAME') && !empty($galleries = gallery_meta_data($post)))
@@ -39,7 +38,7 @@
                         <h4 class="relate__title">@if ($loop->first) {{ __('Previous Post') }} @else {{ __('Next Post') }} @endif</h4>
                         <article class="post post--related">
                             <div class="post__thumbnail"><a href="{{ $relatedItem->url }}" class="post__overlay"></a>
-                                <img src="{{ get_object_image($relatedItem->image, 'thumb') }}" alt="{{ $relatedItem->name }}">
+                                <img src="{{ RvMedia::getImageUrl($relatedItem->image, 'thumb', false, RvMedia::getDefaultImage()) }}" alt="{{ $relatedItem->name }}">
                             </div>
                             <header class="post__header"><a href="{{ $relatedItem->url }}" class="post__title"> {{ $relatedItem->name }}</a></header>
                         </article>

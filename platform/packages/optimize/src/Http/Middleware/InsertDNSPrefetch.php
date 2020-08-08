@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Optimize\Http\Middleware;
+namespace Botble\Optimize\Http\Middleware;
 
 class InsertDNSPrefetch extends PageSpeed
 {

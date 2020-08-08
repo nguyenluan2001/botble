@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Entities;
+namespace Botble\SeoHelper\Contracts\Entities;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface MiscTagsContract extends RenderableContract
 {
@@ -17,8 +17,7 @@ interface MiscTagsContract extends RenderableContract
      * Set the current URL.
      *
      * @param string $url
-     *
-     * @return self
+     * @return $this
      */
     public function setUrl($url);
 
@@ -26,8 +25,7 @@ interface MiscTagsContract extends RenderableContract
      * Make MiscTags instance.
      *
      * @param array $defaults
-     *
-     * @return self
+     * @return $this
      */
     public static function make(array $defaults = []);
 
@@ -36,8 +34,7 @@ interface MiscTagsContract extends RenderableContract
      *
      * @param string $name
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function add($name, $content);
 
@@ -45,8 +42,7 @@ interface MiscTagsContract extends RenderableContract
      * Add many meta tags.
      *
      * @param array $meta
-     *
-     * @return self
+     * @return $this
      */
     public function addMany(array $meta);
 
@@ -54,15 +50,14 @@ interface MiscTagsContract extends RenderableContract
      * Remove a meta from the meta collection by key.
      *
      * @param array|string $names
-     *
-     * @return self
+     * @return $this
      */
     public function remove($names);
 
     /**
      * Reset the meta collection.
      *
-     * @return self
+     * @return $this
      */
     public function reset();
 }

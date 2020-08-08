@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Language\Repositories\Interfaces;
+namespace Botble\Language\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface LanguageMetaInterface extends RepositoryInterface
 {

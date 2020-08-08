@@ -1,13 +1,17 @@
 <?php
 
-namespace Platform\Member\Tables;
+namespace Botble\Member\Tables;
 
-use Platform\Blog\Models\Post;
-use Platform\Member\Models\Member;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Member\Models\Member;
+use Botble\Table\Abstracts\TableAbstract;
 use Html;
-use Illuminate\Support\Arr;
+use Illuminate\Contracts\Routing\UrlGenerator;
+use RvMedia;
+use Yajra\DataTables\DataTables;
 
-class PostTable extends \Platform\Blog\Tables\PostTable
+class PostTable extends TableAbstract
 {
     /**
      * @var bool
@@ -20,6 +24,22 @@ class PostTable extends \Platform\Blog\Tables\PostTable
     public $hasCheckbox = false;
 
     /**
+     * PostTable constructor.
+     * @param DataTables $table
+     * @param UrlGenerator $urlGenerator
+     * @param PostInterface $postRepository
+     */
+    public function __construct(
+        DataTables $table,
+        UrlGenerator $urlGenerator,
+        PostInterface $postRepository
+    ) {
+        $this->repository = $postRepository;
+        $this->setOption('id', 'table-member-posts');
+        parent::__construct($table, $urlGenerator);
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function ajax()
@@ -30,7 +50,8 @@ class PostTable extends \Platform\Blog\Tables\PostTable
                 return Html::link(route('public.member.posts.edit', $item->id), $item->name);
             })
             ->editColumn('image', function ($item) {
-                return Html::image(get_object_image($item->image, 'thumb'), $item->name, ['width' => 50]);
+                return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()),
+                    $item->name, ['width' => 50]);
             })
             ->editColumn('checkbox', function ($item) {
                 return table_checkbox($item->id);
@@ -47,10 +68,11 @@ class PostTable extends \Platform\Blog\Tables\PostTable
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                $edit = 'public.member.posts.edit';
-                $delete = 'public.member.posts.destroy';
-
-                return view('plugins/member::table.actions', compact('edit', 'delete', 'item'))->render();
+                return view('plugins/member::table.actions', [
+                    'edit'   => 'public.member.posts.edit',
+                    'delete' => 'public.member.posts.destroy',
+                    'item'   => $item,
+                ])->render();
             })
             ->escapeColumns([])
             ->make(true);
@@ -73,7 +95,7 @@ class PostTable extends \Platform\Blog\Tables\PostTable
                 'posts.updated_at',
             ])
             ->where([
-                'posts.author_id'   => auth()->guard('member')->user()->getKey(),
+                'posts.author_id'   => auth('member')->user()->getAuthIdentifier(),
                 'posts.author_type' => Member::class,
             ]);
 
@@ -95,17 +117,41 @@ class PostTable extends \Platform\Blog\Tables\PostTable
      */
     public function columns()
     {
-        $columns = parent::columns();
-        Arr::forget($columns, 'author_id');
-
-        return $columns;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getDefaultButtons(): array
-    {
-        return ['reload'];
+        return [
+            'id'         => [
+                'name'  => 'posts.id',
+                'title' => trans('core/base::tables.id'),
+                'width' => '20px',
+            ],
+            'image'      => [
+                'name'  => 'posts.image',
+                'title' => trans('core/base::tables.image'),
+                'width' => '70px',
+            ],
+            'name'       => [
+                'name'  => 'posts.name',
+                'title' => trans('core/base::tables.name'),
+                'class' => 'text-left',
+            ],
+            'updated_at' => [
+                'name'      => 'posts.updated_at',
+                'title'     => trans('plugins/blog::posts.categories'),
+                'width'     => '150px',
+                'class'     => 'no-sort text-center',
+                'orderable' => false,
+            ],
+            'created_at' => [
+                'name'  => 'posts.created_at',
+                'title' => trans('core/base::tables.created_at'),
+                'width' => '100px',
+                'class' => 'text-center',
+            ],
+            'status'     => [
+                'name'  => 'posts.status',
+                'title' => trans('core/base::tables.status'),
+                'width' => '100px',
+                'class' => 'text-center',
+            ],
+        ];
     }
 }

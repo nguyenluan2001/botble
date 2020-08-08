@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts;
+namespace Botble\SeoHelper\Contracts;
 
-use Platform\SeoHelper\Contracts\Entities\DescriptionContract;
-use Platform\SeoHelper\Contracts\Entities\MiscTagsContract;
-use Platform\SeoHelper\Contracts\Entities\TitleContract;
-use Platform\SeoHelper\Contracts\Entities\WebmastersContract;
+use Botble\SeoHelper\Contracts\Entities\DescriptionContract;
+use Botble\SeoHelper\Contracts\Entities\MiscTagsContract;
+use Botble\SeoHelper\Contracts\Entities\TitleContract;
+use Botble\SeoHelper\Contracts\Entities\WebmastersContract;
 
 interface SeoMetaContract extends RenderableContract
 {
@@ -14,8 +14,7 @@ interface SeoMetaContract extends RenderableContract
      * Set the Title instance.
      *
      * @param TitleContract $title
-     *
-     * @return self
+     * @return $this
      */
     public function title(TitleContract $title);
 
@@ -23,8 +22,7 @@ interface SeoMetaContract extends RenderableContract
      * Set the Description instance.
      *
      * @param DescriptionContract $description
-     *
-     * @return self
+     * @return $this
      */
     public function description(DescriptionContract $description);
 
@@ -32,8 +30,7 @@ interface SeoMetaContract extends RenderableContract
      * Set the MiscTags instance.
      *
      * @param MiscTagsContract $misc
-     *
-     * @return self
+     * @return $this
      */
     public function misc(MiscTagsContract $misc);
 
@@ -41,8 +38,7 @@ interface SeoMetaContract extends RenderableContract
      * Set the Webmasters instance.
      *
      * @param WebmastersContract $webmasters
-     *
-     * @return self
+     * @return $this
      */
     public function webmasters(WebmastersContract $webmasters);
 
@@ -52,8 +48,7 @@ interface SeoMetaContract extends RenderableContract
      * @param string $title
      * @param string $siteName
      * @param string $separator
-     *
-     * @return self
+     * @return $this
      */
     public function setTitle($title, $siteName = null, $separator = null);
 
@@ -61,8 +56,7 @@ interface SeoMetaContract extends RenderableContract
      * Set the description content.
      *
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function setDescription($content);
 
@@ -71,8 +65,7 @@ interface SeoMetaContract extends RenderableContract
      *
      * @param string $webmaster
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function addWebmaster($webmaster, $content);
 
@@ -80,8 +73,7 @@ interface SeoMetaContract extends RenderableContract
      * Set the current URL.
      *
      * @param string $url
-     *
-     * @return self
+     * @return $this
      */
     public function setUrl($url);
 
@@ -89,8 +81,7 @@ interface SeoMetaContract extends RenderableContract
      * Set the Google Analytics code.
      *
      * @param string $code
-     *
-     * @return self
+     * @return $this
      */
     public function setGoogleAnalytics($code);
 
@@ -99,8 +90,7 @@ interface SeoMetaContract extends RenderableContract
      *
      * @param string $name
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function addMeta($name, $content);
 
@@ -108,8 +98,7 @@ interface SeoMetaContract extends RenderableContract
      * Add many meta tags.
      *
      * @param array $meta
-     *
-     * @return self
+     * @return $this
      */
     public function addMetas(array $meta);
 }

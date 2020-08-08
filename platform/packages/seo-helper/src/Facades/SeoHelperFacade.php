@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Facades;
+namespace Botble\SeoHelper\Facades;
 
-use Platform\SeoHelper\SeoHelper;
+use Botble\SeoHelper\SeoHelper;
 use Illuminate\Support\Facades\Facade;
 
 /**

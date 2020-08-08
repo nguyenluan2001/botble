@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Media\Http\Requests;
+namespace Botble\Media\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class MediaFolderRequest extends Request
 {

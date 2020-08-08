@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Entities;
+namespace Botble\SeoHelper\Contracts\Entities;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface AnalyticsContract extends RenderableContract
 {
@@ -10,8 +10,7 @@ interface AnalyticsContract extends RenderableContract
      * Set Google Analytics code.
      *
      * @param string $code
-     *
-     * @return self
+     * @return $this
      */
     public function setGoogle($code);
 }

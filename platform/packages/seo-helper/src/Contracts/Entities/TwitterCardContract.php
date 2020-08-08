@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SeoHelper\Contracts\Entities;
+namespace Botble\SeoHelper\Contracts\Entities;
 
-use Platform\SeoHelper\Contracts\RenderableContract;
+use Botble\SeoHelper\Contracts\RenderableContract;
 
 interface TwitterCardContract extends RenderableContract
 {
@@ -18,8 +18,7 @@ interface TwitterCardContract extends RenderableContract
      * Set the card type.
      *
      * @param string $type
-     *
-     * @return self
+     * @return $this
      */
     public function setType($type);
 
@@ -27,8 +26,7 @@ interface TwitterCardContract extends RenderableContract
      * Set card site.
      *
      * @param string $site
-     *
-     * @return self
+     * @return $this
      */
     public function setSite($site);
 
@@ -36,8 +34,7 @@ interface TwitterCardContract extends RenderableContract
      * Set card title.
      *
      * @param string $title
-     *
-     * @return self
+     * @return $this
      */
     public function setTitle($title);
 
@@ -45,8 +42,7 @@ interface TwitterCardContract extends RenderableContract
      * Set card description.
      *
      * @param string $description
-     *
-     * @return self
+     * @return $this
      */
     public function setDescription($description);
 
@@ -54,8 +50,7 @@ interface TwitterCardContract extends RenderableContract
      * Add image to the card.
      *
      * @param string $url
-     *
-     * @return self
+     * @return $this
      */
     public function addImage($url);
 
@@ -63,8 +58,7 @@ interface TwitterCardContract extends RenderableContract
      * Add many meta to the card.
      *
      * @param array $meta
-     *
-     * @return self
+     * @return $this
      */
     public function addMetas(array $meta);
 
@@ -73,8 +67,7 @@ interface TwitterCardContract extends RenderableContract
      *
      * @param string $name
      * @param string $content
-     *
-     * @return self
+     * @return $this
      */
     public function addMeta($name, $content);
 
@@ -88,7 +81,7 @@ interface TwitterCardContract extends RenderableContract
     /**
      * Reset the card.
      *
-     * @return self
+     * @return $this
      */
     public function reset();
 }

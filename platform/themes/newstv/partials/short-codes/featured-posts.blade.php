@@ -10,8 +10,8 @@
                         <a href="{{ $feature_item->url }}"
                            title="{{ $feature_item->name }}"
                            style="display: block">
-                            <img class="img-full img-bg" src="{{ get_object_image($feature_item->image, $loop->first ? 'featured' : 'medium') }}" alt="{{ $feature_item->name }}"
-                                 style="background-image: url('{{ get_object_image($feature_item->image) }}');">
+                            <img class="img-full img-bg" src="{{ RvMedia::getImageUrl($feature_item->image, $loop->first ? 'featured' : 'medium') }}" alt="{{ $feature_item->name }}"
+                                 style="background-image: url('{{ RvMedia::getImageUrl($feature_item->image) }}');">
                             <span class="feature-item-link"
                                   title="{{ $feature_item->name }}">
                                         <span>{{ $feature_item->name }}</span>

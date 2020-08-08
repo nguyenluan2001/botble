@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Jobs;
+namespace Botble\Base\Jobs;
 
-use Platform\Base\Supports\EmailAbstract;
+use Botble\Base\Supports\EmailAbstract;
 use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

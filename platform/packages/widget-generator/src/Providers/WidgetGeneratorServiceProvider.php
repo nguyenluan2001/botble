@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\WidgetGenerator\Providers;
+namespace Botble\WidgetGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

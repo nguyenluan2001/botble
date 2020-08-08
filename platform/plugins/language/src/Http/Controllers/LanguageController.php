@@ -1,23 +1,23 @@
 <?php
 
-namespace Platform\Language\Http\Controllers;
+namespace Botble\Language\Http\Controllers;
 
 use Assets;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Supports\Language;
-use Platform\Language\LanguageManager;
-use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
-use Platform\Language\Http\Requests\LanguageRequest;
-use Platform\Language\Repositories\Interfaces\LanguageInterface;
-use Platform\Setting\Supports\SettingStore;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Supports\Language;
+use Botble\Language\LanguageManager;
+use Botble\Language\Repositories\Interfaces\LanguageMetaInterface;
+use Botble\Language\Http\Requests\LanguageRequest;
+use Botble\Language\Repositories\Interfaces\LanguageInterface;
+use Botble\Setting\Supports\SettingStore;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
 use Illuminate\View\View;
 use Throwable;
 

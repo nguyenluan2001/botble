@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Platform\Backup\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Botble\Backup\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'system/backups'], function () {
             Route::get('', [

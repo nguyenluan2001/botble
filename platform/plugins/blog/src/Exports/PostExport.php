@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Blog\Exports;
+namespace Botble\Blog\Exports;
 
-use Platform\Table\Supports\TableExportHandler;
+use Botble\Table\Supports\TableExportHandler;
 use Exception;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;

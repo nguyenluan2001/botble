@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Slug\Models;
+namespace Botble\Slug\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Slug extends BaseModel

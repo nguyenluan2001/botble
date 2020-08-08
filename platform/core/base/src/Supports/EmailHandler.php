@@ -1,12 +1,14 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
-use Platform\Base\Events\SendMailEvent;
-use Platform\Base\Jobs\SendMailJob;
+use Botble\Base\Events\SendMailEvent;
+use Botble\Base\Jobs\SendMailJob;
+use Botble\Setting\Supports\SettingStore;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Arr;
+use RvMedia;
 use Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Throwable;
@@ -218,11 +220,13 @@ class EmailHandler
     public function initVariableValues()
     {
         $this->variableValues['core'] = [
-            'header'           => apply_filters(BASE_FILTER_EMAIL_TEMPLATE_HEADER, get_setting_email_template_content('core', 'base', 'header')),
-            'footer'           => apply_filters(BASE_FILTER_EMAIL_TEMPLATE_FOOTER, get_setting_email_template_content('core', 'base', 'footer')),
+            'header'           => apply_filters(BASE_FILTER_EMAIL_TEMPLATE_HEADER,
+                get_setting_email_template_content('core', 'base', 'header')),
+            'footer'           => apply_filters(BASE_FILTER_EMAIL_TEMPLATE_FOOTER,
+                get_setting_email_template_content('core', 'base', 'footer')),
             'site_title'       => setting('admin_title'),
             'site_url'         => url(''),
-            'site_logo'        => setting('admin_logo') ? get_image_url(setting('admin_logo')) : url(config('core.base.general.logo')),
+            'site_logo'        => setting('admin_logo') ? RvMedia::getImageUrl(setting('admin_logo')) : url(config('core.base.general.logo')),
             'date_time'        => now(config('app.timezone'))->toDateTimeString(),
             'date_year'        => now(config('app.timezone'))->format('Y'),
             'site_admin_email' => setting('admin_email'),
@@ -268,7 +272,7 @@ class EmailHandler
     /**
      * Sends an email to the developer about the exception.
      *
-     * @param Exception|\Throwable $exception
+     * @param Exception|Throwable $exception
      * @return void
      *
      * @throws Throwable
@@ -349,7 +353,7 @@ class EmailHandler
     /**
      * @param string $template
      * @param string $type
-     * @return array|\Platform\Setting\Supports\SettingStore|string|null
+     * @return array|SettingStore|string|null
      */
     public function getTemplateSubject(string $template, string $type = 'plugins')
     {
@@ -359,7 +363,7 @@ class EmailHandler
     /**
      * @param string $template
      * @param string $type
-     * @return array|\Platform\Setting\Supports\SettingStore|string|null
+     * @return array|SettingStore|string|null
      */
     public function templateEnabled(string $template, string $type = 'plugins')
     {

@@ -1,9 +1,9 @@
 {
     "name": "Request Log",
-    "namespace": "Platform\\RequestLog\\",
-    "provider": "Platform\\RequestLog\\Providers\\RequestLogServiceProvider",
-    "author": "Laravel Technologies",
-    "url": "https://laravel-cms.gistensal.com",
-    "version": "5.4",
+    "namespace": "Botble\\RequestLog\\",
+    "provider": "Botble\\RequestLog\\Providers\\RequestLogServiceProvider",
+    "author": "Botble Technologies",
+    "url": "https://botble.com",
+    "version": "5.7",
     "description": "Log error requests"
 }

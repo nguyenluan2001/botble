@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Optimize\Providers;
+namespace Botble\Optimize\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Throwable;

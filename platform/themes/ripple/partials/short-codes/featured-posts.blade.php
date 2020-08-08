@@ -16,14 +16,14 @@
                             <div class="post-group__left">
                                 <article class="post post__inside post__inside--feature">
                                     <div class="post__thumbnail">
-                                        <img src="{{ get_object_image($featureItem->image, 'featured') }}" alt="{{ $featureItem->name }}"><a href="{{ $featureItem->url }}" class="post__overlay"></a>
+                                        <img src="{{ RvMedia::getImageUrl($featureItem->image, 'featured', false, RvMedia::getDefaultImage()) }}" alt="{{ $featureItem->name }}"><a href="{{ $featureItem->url }}" class="post__overlay"></a>
                                     </div>
                                     <header class="post__header">
                                         <h3 class="post__title"><a href="{{ $featureItem->url }}">{{ $featureItem->name }}</a></h3>
                                         <div class="post__meta"><span class="post-category"><i class="ion-cube"></i>
                                                 @if (!$featureItem->categories->isEmpty())<a href="{{ $featureItem->categories->first()->url }}">{{ $featureItem->categories->first()->name }}</a>@endif
                                         </span>
-                                            <span class="created_at"><i class="ion-clock"></i>{{ date_from_database($featureItem->created_at, 'M d Y') }}</span>
+                                            <span class="created_at"><i class="ion-clock"></i>{{ $featureItem->created_at->format('M d Y') }}</span>
                                             @if ($featureItem->user->username)
                                                 <span class="post-author"><i class="ion-android-person"></i><span>{{ $featureItem->user->getFullName() }}</span></span>
                                             @endif
@@ -35,7 +35,7 @@
                                 @else
                                     <div class="post-group__item">
                                         <article class="post post__inside post__inside--feature post__inside--feature-small">
-                                            <div class="post__thumbnail"><img src="{{ get_object_image($featureItem->image, 'medium') }}" alt="{{ $featureItem->name }}"><a href="{{ $featureItem->url }}" class="post__overlay"></a></div>
+                                            <div class="post__thumbnail"><img src="{{ RvMedia::getImageUrl($featureItem->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{ $featureItem->name }}"><a href="{{ $featureItem->url }}" class="post__overlay"></a></div>
                                             <header class="post__header">
                                                 <h3 class="post__title"><a href="{{ $featureItem->url }}">{{ $featureItem->name }}</a></h3>
                                             </header>

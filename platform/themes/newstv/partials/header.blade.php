@@ -57,11 +57,11 @@
                 <div class="container">
                     <h1 class="logo">
                         <a href="{{ route('public.single') }}" title="{{ theme_option('site_title') }}">
-                            <img src="{{ get_image_url(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}" alt="{{ theme_option('site_title') }}">
+                            <img src="{{ RvMedia::getImageUrl(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}" alt="{{ theme_option('site_title') }}">
                         </a>
                     </h1>
                     <div class="header-content-right">
-                        <p><img alt="Banner" src="{{ theme_option('top_banner') ? get_image_url(theme_option('top_banner')) : Theme::asset()->url('images/banner.png') }}" style="width: 728px; height: 90px;"></p>
+                        <p><img alt="Banner" src="{{ theme_option('top_banner') ? RvMedia::getImageUrl(theme_option('top_banner')) : Theme::asset()->url('images/banner.png') }}" style="width: 728px; height: 90px;"></p>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand"  href="{{ route('public.single') }}" title="{{ theme_option('site_title') }}">
-                        <img src="{{ get_image_url(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}" alt="{{ theme_option('site_title') }}">
+                        <img src="{{ RvMedia::getImageUrl(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}" alt="{{ theme_option('site_title') }}">
                     </a>
                 </div>
 

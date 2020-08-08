@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\AuditLog\Listeners;
+namespace Botble\AuditLog\Listeners;
 
-use Platform\AuditLog\Events\AuditHandlerEvent;
-use Platform\AuditLog\Repositories\Interfaces\AuditLogInterface;
+use Botble\AuditLog\Events\AuditHandlerEvent;
+use Botble\AuditLog\Repositories\Interfaces\AuditLogInterface;
 use Illuminate\Http\Request;
 
 class AuditHandlerListener

@@ -1,32 +1,32 @@
 <?php
 
-namespace Platform\Media\Providers;
+namespace Botble\Media\Providers;
 
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
-use Platform\Media\Commands\ClearChunksCommand;
-use Platform\Media\Commands\DeleteThumbnailCommand;
-use Platform\Media\Commands\GenerateThumbnailCommand;
-use Platform\Media\Facades\RvMediaFacade;
-use Platform\Media\Models\MediaFile;
-use Platform\Media\Models\MediaFolder;
-use Platform\Media\Models\MediaSetting;
-use Platform\Media\Repositories\Caches\MediaFileCacheDecorator;
-use Platform\Media\Repositories\Caches\MediaFolderCacheDecorator;
-use Platform\Media\Repositories\Caches\MediaSettingCacheDecorator;
-use Platform\Media\Repositories\Eloquent\MediaFileRepository;
-use Platform\Media\Repositories\Eloquent\MediaFolderRepository;
-use Platform\Media\Repositories\Eloquent\MediaSettingRepository;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
-use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
-use Platform\Media\Repositories\Interfaces\MediaSettingInterface;
-use Platform\Setting\Supports\SettingStore;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Media\Chunks\Storage\ChunkStorage;
+use Botble\Media\Commands\ClearChunksCommand;
+use Botble\Media\Commands\DeleteThumbnailCommand;
+use Botble\Media\Commands\GenerateThumbnailCommand;
+use Botble\Media\Facades\RvMediaFacade;
+use Botble\Media\Models\MediaFile;
+use Botble\Media\Models\MediaFolder;
+use Botble\Media\Models\MediaSetting;
+use Botble\Media\Repositories\Caches\MediaFileCacheDecorator;
+use Botble\Media\Repositories\Caches\MediaFolderCacheDecorator;
+use Botble\Media\Repositories\Caches\MediaSettingCacheDecorator;
+use Botble\Media\Repositories\Eloquent\MediaFileRepository;
+use Botble\Media\Repositories\Eloquent\MediaFolderRepository;
+use Botble\Media\Repositories\Eloquent\MediaSettingRepository;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
+use Botble\Media\Repositories\Interfaces\MediaSettingInterface;
+use Botble\Setting\Supports\SettingStore;
 use Event;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\ServiceProvider;
-use Platform\Media\Chunks\Storage\ChunkStorage;
 
 /**
  * @since 02/07/2016 09:50 AM
@@ -76,9 +76,9 @@ class MediaServiceProvider extends ServiceProvider
         $setting = $this->app->make(SettingStore::class);
 
         $config->set([
-            'core.media.media.chunk.enabled'    => (bool)$setting->get('media_chunk_enabled',
+            'core.media.media.chunk.enabled'       => (bool)$setting->get('media_chunk_enabled',
                 $config->get('core.media.media.chunk.enabled')),
-            'core.media.media.chunk.chunk_size' => (int)$setting->get('media_chunk_size',
+            'core.media.media.chunk.chunk_size'    => (int)$setting->get('media_chunk_size',
                 $config->get('core.media.media.chunk.chunk_size')),
             'core.media.media.chunk.max_file_size' => (int)$setting->get('media_max_file_size',
                 $config->get('core.media.media.chunk.max_file_size')),

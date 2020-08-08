@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Analytics\Exceptions;
+namespace Botble\Analytics\Exceptions;
 
 use DateTime;
 use Exception;

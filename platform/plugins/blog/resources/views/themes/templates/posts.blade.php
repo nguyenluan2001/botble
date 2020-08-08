@@ -7,7 +7,7 @@
             <div>
                 <header>
                     <h3><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
-                    <div><span><a href="#">{{ date_from_database($post->created_at, 'M d, Y') }}</a></span><span>{{ $post->user->getFullName() }}</span> -
+                    <div><span>{{ $post->created_at->format('M d, Y') }}</span><span>{{ $post->user->getFullName() }}</span> -
                         {{ __('Categories') }}:
                         @foreach($post->categories as $category)
                             <a href="{{ $category->url }}">{{ $category->name }}</a>
@@ -24,6 +24,6 @@
         </article>
     @endforeach
     <div>
-        {!! $posts->links() !!}
+        {!! $posts->appends(request()->query())->links() !!}
     </div>
 @endif

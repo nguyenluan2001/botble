@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Media\Repositories\Eloquent;
+namespace Botble\Media\Repositories\Eloquent;
 
-use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Eloquent;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Str;

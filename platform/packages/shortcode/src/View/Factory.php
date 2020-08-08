@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Shortcode\View;
+namespace Botble\Shortcode\View;
 
-use Platform\Shortcode\Compilers\ShortcodeCompiler;
+use Botble\Shortcode\Compilers\ShortcodeCompiler;
 use Illuminate\Events\Dispatcher;
 use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Factory as IlluminateViewFactory;

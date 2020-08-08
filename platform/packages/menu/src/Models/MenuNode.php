@@ -1,11 +1,10 @@
 <?php
 
-namespace Platform\Menu\Models;
+namespace Botble\Menu\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Str;
 
 class MenuNode extends BaseModel
 {
@@ -64,11 +63,11 @@ class MenuNode extends BaseModel
     public function getUrlAttribute($value)
     {
         if (!$this->reference_type) {
-            return $value ? (string)$value : '';
+            return $value ? (string)$value : '/';
         }
 
         if (!$this->reference) {
-            return '';
+            return '/';
         }
 
         return $this->reference->url;
@@ -97,5 +96,32 @@ class MenuNode extends BaseModel
         }
 
         return $this->reference->name;
+    }
+
+    /**
+     * @deprecated
+     * @return mixed
+     */
+    public function hasChild()
+    {
+        return $this->has_child;
+    }
+
+    /**
+     * @deprecated
+     * @return $this
+     */
+    public function getRelated()
+    {
+        return $this;
+    }
+
+    /**
+     * @deprecated
+     * @return mixed
+     */
+    public function getNameAttribute()
+    {
+        return $this->title;
     }
 }

@@ -2,12 +2,12 @@
     @foreach ($posts as $post)
         <article class="post post__horizontal mb-40 clearfix">
             <div class="post__thumbnail">
-                <img src="{{ get_object_image($post->image, 'medium') }}" alt="{{ $post->name }}"><a href="{{ $post->url }}" class="post__overlay"></a>
+                <img src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{ $post->name }}"><a href="{{ $post->url }}" class="post__overlay"></a>
             </div>
             <div class="post__content-wrap">
                 <header class="post__header">
                     <h3 class="post__title"><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
-                    <div class="post__meta"><span class="post__created-at"><i class="ion-clock"></i><a href="#">{{ date_from_database($post->created_at, 'M d, Y') }}</a></span>
+                    <div class="post__meta"><span class="post__created-at"><i class="ion-clock"></i>{{ $post->created_at->format('M d, Y') }}</span>
                         @if ($post->user->username)
                             <span class="post__author"><i class="ion-android-person"></i><span>{{ $post->user->getFullName() }}</span></span>
                         @endif
@@ -27,7 +27,7 @@
         </article>
     @endforeach
     <div class="page-pagination text-right">
-        {!! $posts->links() !!}
+        {!! $posts->appends(request()->query())->links() !!}
     </div>
 @endif
 

@@ -1,11 +1,14 @@
 <?php
 
-namespace Platform\Media\Services;
+namespace Botble\Media\Services;
 
 use Carbon\Carbon;
 use Exception;
 use File;
+use Illuminate\Contracts\Filesystem\FileExistsException;
+use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Http\UploadedFile;
+use League\Flysystem\FileNotFoundException;
 use Mimey\MimeTypes;
 use RvMedia;
 use Storage;
@@ -78,7 +81,7 @@ class UploadsManager
 
     /**
      * @param string $folder
-     * @return array|bool|\Illuminate\Contracts\Translation\Translator|string|null
+     * @return array|bool|Translator|string|null
      */
     public function createDirectory($folder)
     {
@@ -104,7 +107,7 @@ class UploadsManager
 
     /**
      * @param string $folder
-     * @return array|bool|\Illuminate\Contracts\Translation\Translator|string|null
+     * @return array|bool|Translator|string|null
      */
     public function deleteDirectory($folder)
     {
@@ -137,8 +140,8 @@ class UploadsManager
      * @param string $content
      * @param UploadedFile|null $file
      * @return bool
-     * @throws \Illuminate\Contracts\Filesystem\FileExistsException
-     * @throws \League\Flysystem\FileNotFoundException
+     * @throws FileExistsException
+     * @throws FileNotFoundException
      */
     public function saveFile($path, $content, UploadedFile $file = null)
     {

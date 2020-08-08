@@ -1,10 +1,11 @@
 <?php
 
-namespace Platform\Contact\Http\Controllers;
+namespace Botble\Contact\Http\Controllers;
 
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Contact\Http\Requests\ContactRequest;
-use Platform\Contact\Repositories\Interfaces\ContactInterface;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Contact\Events\SentContactEvent;
+use Botble\Contact\Http\Requests\ContactRequest;
+use Botble\Contact\Repositories\Interfaces\ContactInterface;
 use EmailHandler;
 use Exception;
 use Illuminate\Routing\Controller;
@@ -36,6 +37,8 @@ class PublicController extends Controller
             $contact = $this->contactRepository->getModel();
             $contact->fill($request->input());
             $this->contactRepository->createOrUpdate($contact);
+
+            event(new SentContactEvent($contact));
 
             EmailHandler::setModule(CONTACT_MODULE_SCREEN_NAME)
                 ->setVariableValues([

@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Theme\Commands;
+namespace Botble\Theme\Commands;
 
-use Platform\Theme\Commands\Traits\ThemeTrait;
-use Platform\Theme\Services\ThemeService;
+use Botble\Theme\Commands\Traits\ThemeTrait;
+use Botble\Theme\Services\ThemeService;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem as File;
 

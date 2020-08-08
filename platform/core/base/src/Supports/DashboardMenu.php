@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
 use Exception;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Psr\SimpleCache\InvalidArgumentException;
 use RuntimeException;
@@ -147,7 +147,8 @@ class DashboardMenu
                 continue;
             }
 
-            $link['active'] = $currentUrl == $link['url'] || (Str::contains($link['url'], $routePrefix) && $routePrefix != '//');
+            $link['active'] = $currentUrl == $link['url'] || (Str::contains($link['url'],
+                        $routePrefix) && $routePrefix != '//');
             if (!count($link['children'])) {
                 continue;
             }

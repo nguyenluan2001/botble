@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Slug\Providers;
+namespace Botble\Slug\Providers;
 
 use Form;
 use Illuminate\Support\ServiceProvider;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Widget\Facades;
+namespace Botble\Widget\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

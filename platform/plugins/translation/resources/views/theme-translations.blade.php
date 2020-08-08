@@ -5,12 +5,12 @@
             <h4>&nbsp; {{ trans('plugins/translation::translation.theme-translations') }}</h4>
         </div>
         <div class="widget-body box-translation">
-            @if (count(\Platform\Base\Supports\Language::getAvailableLocales()) > 0)
+            @if (count(\Botble\Base\Supports\Language::getAvailableLocales()) > 0)
                 {!! Form::open(['role' => 'form', 'route' => 'translations.theme-translations', 'method' => 'POST']) !!}
                     <input type="hidden" name="locale" value="{{ $group['locale'] }}">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>{{ trans('plugins/translation::translation.translate_from') }} <strong class="text-info">{{ $defaultLanguage ? $defaultLanguage['name'] : App::getLocale() }}</strong> {{ trans('plugins/translation::translation.to') }} <strong class="text-info">{{ $group['name'] }}</strong></p>
+                            <p>{{ trans('plugins/translation::translation.translate_from') }} <strong class="text-info">{{ $defaultLanguage ? $defaultLanguage['name'] : 'en' }}</strong> {{ trans('plugins/translation::translation.to') }} <strong class="text-info">{{ $group['name'] }}</strong></p>
                         </div>
                         <div class="col-md-6">
                             <div class="text-right">
@@ -22,7 +22,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>{{ $defaultLanguage ? $defaultLanguage['name'] : App::getLocale() }}</th>
+                                <th>{{ $defaultLanguage ? $defaultLanguage['name'] : 'en' }}</th>
                                 <th>{{ $group['name'] }}</th>
                             </tr>
                             </thead>

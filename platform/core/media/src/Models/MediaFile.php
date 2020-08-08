@@ -1,11 +1,10 @@
 <?php
 
-namespace Platform\Media\Models;
+namespace Botble\Media\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
 use RvMedia;
 
 class MediaFile extends BaseModel
@@ -130,7 +129,7 @@ class MediaFile extends BaseModel
      */
     public function canGenerateThumbnails(): bool
     {
-        return is_image($this->mime_type) &&
+        return RvMedia::isImage($this->mime_type) &&
             !in_array($this->mime_type, ['image/svg+xml', 'image/x-icon']);
     }
 }

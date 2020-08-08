@@ -1,7 +1,8 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
+use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
 
 class Core
@@ -21,11 +22,6 @@ class Core
      * @var string
      */
     protected $apiKey;
-
-    /**
-     * @var string
-     */
-    protected $apiLanguage;
 
     /**
      * @var string
@@ -52,9 +48,8 @@ class Core
      */
     public function __construct()
     {
-        $this->apiUrl = 'https://license.laravel-cms.gistensal.com/';
+        $this->apiUrl = 'https://license.botble.com/';
         $this->apiKey = 'CAF4B17F6D3F656125F9';
-        $this->apiLanguage = 'english';
         $this->verificationPeriod = 1;
         $this->licenseFile = storage_path('.license');
 
@@ -82,20 +77,14 @@ class Core
      */
     public function activateLicense($license, $client, $createLicense = true)
     {
-        $dataArray = [
+        $data = [
             'product_id'   => $this->productId,
             'license_code' => $license,
             'client_name'  => $client,
             'verify_type'  => $this->verifyType,
         ];
 
-        $getData = $this->callApi(
-            'POST',
-            $this->apiUrl . 'api/activate_license',
-            json_encode($dataArray)
-        );
-
-        $response = json_decode($getData, true);
+        $response = $this->callApi($this->apiUrl . 'api/activate_license', $data);
 
         if (!empty($createLicense)) {
             if ($response['status']) {
@@ -113,169 +102,113 @@ class Core
     }
 
     /**
-     * @param string $method
      * @param string $url
      * @param string $data
-     * @return bool|false|string
+     * @return array
      */
-    protected function callApi(string $method, string $url, ?string $data)
+    protected function callApi(string $url, array $data = [])
     {
-        $curl = curl_init();
-        switch ($method) {
-            case 'POST':
-                curl_setopt($curl, CURLOPT_POST, 1);
-                if ($data) {
-                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-                }
-                break;
-            case 'PUT':
-                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
-                if ($data) {
-                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-                }
-                break;
-            default:
-                if ($data) {
-                    $url = sprintf('%s?%s', $url, http_build_query($data));
-                }
-        }
+        $client = new Client;
 
-        $thisServerSame = request()->server('SERVER_NAME') ?: request()->server('HTTP_HOST');
+        $result = $client->post($url, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Accept'       => 'application/json',
+                'LB-API-KEY'   => $this->apiKey,
+                'LB-URL'       => rtrim(url('/'), '/'),
+                'LB-IP'        => request()->ip(),
+                'LB-LANG'      => 'english',
+            ],
+            'json'    => $data,
+        ]);
 
-        $thisHttpOrHttps = request()->server('HTTPS') == 'on' || request()->server('HTTP_X_FORWARDED_PROTO') == 'https'
-            ? 'https://' : 'http://';
-
-        $thisUrl = $thisHttpOrHttps . $thisServerSame . request()->server('REQUEST_URI');
-        $thisIp = request()->server('SERVER_ADDR') ?: $this->getIpFromThirdParty() ?: gethostbyname(gethostname());
-
-        curl_setopt($curl, CURLOPT_HTTPHEADER,
-            [
-                'Content-Type: application/json',
-                'LB-API-KEY: ' . $this->apiKey,
-                'LB-URL: ' . $thisUrl,
-                'LB-IP: ' . $thisIp,
-                'LB-LANG: ' . $this->apiLanguage,
-            ]
-        );
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-        $result = curl_exec($curl);
         if (!$result && config('app.debug')) {
-            $rs = [
+            return [
                 'status'  => false,
                 'message' => 'Server is unavailable at the moment, please try again.',
             ];
-            return json_encode($rs);
         }
-        $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        if ($httpStatus != 200) {
+
+        $result = json_decode($result->getBody(), true);
+
+        if (!$result['status']) {
             if (config('app.debug')) {
-                $tempDecode = json_decode($result, true);
-                $rs = [
-                    'status'  => false,
-                    'message' => !empty($tempDecode['error']) ? $tempDecode['error'] : $tempDecode['message'],
-                ];
-                return json_encode($rs);
+                return $result;
             }
-            $rs = [
+
+            return [
                 'status'  => false,
                 'message' => 'Server returned an invalid response, please contact support.',
             ];
-            return json_encode($rs);
         }
-        curl_close($curl);
 
         return $result;
-    }
-
-    /**
-     * @return bool|string
-     */
-    protected function getIpFromThirdParty()
-    {
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'http://ipecho.net/plain');
-        curl_setopt($curl, CURLOPT_HEADER, 0);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 10);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-        $response = curl_exec($curl);
-        curl_close($curl);
-
-        return $response;
     }
 
     /**
      * @param bool $timeBasedCheck
      * @param bool $license
      * @param bool $client
-     * @return array|mixed
+     * @return array
      */
     public function verifyLicense($timeBasedCheck = false, $license = false, $client = false)
     {
+        $data = [
+            'product_id'   => $this->productId,
+            'license_file' => null,
+            'license_code' => null,
+            'client_name'  => null,
+        ];
+
         if (!empty($license) && !empty($client)) {
-            $dataArray = [
+            $data = [
                 'product_id'   => $this->productId,
                 'license_file' => null,
                 'license_code' => $license,
                 'client_name'  => $client,
             ];
         } elseif ($this->checkLocalLicenseExist()) {
-            $dataArray = [
+            $data = [
                 'product_id'   => $this->productId,
                 'license_file' => file_get_contents($this->licenseFile),
                 'license_code' => null,
                 'client_name'  => null,
             ];
-        } else {
-            $dataArray = [
-                'product_id'   => $this->productId,
-                'license_file' => null,
-                'license_code' => null,
-                'client_name'  => null,
-            ];
         }
-        $res = ['status' => true, 'message' => 'Verified! Thanks for purchasing our product.'];
+
+        $response = [
+            'status'  => true,
+            'message' => 'Verified! Thanks for purchasing our product.',
+        ];
+
         if ($timeBasedCheck && $this->verificationPeriod > 0) {
             $type = (int)$this->verificationPeriod;
             $today = date('d-m-Y');
             if (!session($this->sessionKey)) {
                 session([$this->sessionKey => '00-00-0000']);
             }
+            $typeText = $type . ' days';
+
             if ($type == 1) {
                 $typeText = '1 day';
             } elseif ($type == 3) {
                 $typeText = '3 days';
             } elseif ($type == 7) {
                 $typeText = '1 week';
-            } else {
-                $typeText = $type . ' days';
             }
 
             if (strtotime($today) >= strtotime(session($this->sessionKey))) {
-                $getData = $this->callApi(
-                    'POST',
-                    $this->apiUrl . 'api/verify_license',
-                    json_encode($dataArray)
-                );
-                $res = json_decode($getData, true);
-                if ($res['status'] == true) {
+                $response = $this->callApi($this->apiUrl . 'api/verify_license', $data);
+                if ($response['status'] == true) {
                     $tomorrow = date('d-m-Y', strtotime($today . ' + ' . $typeText));
                     session([$this->sessionKey => $tomorrow]);
                 }
             }
-        } else {
-            $getData = $this->callApi(
-                'POST',
-                $this->apiUrl . 'api/verify_license',
-                json_encode($dataArray)
-            );
-            $res = json_decode($getData, true);
+
+            return $response;
         }
 
-        return $res;
+        return $this->callApi($this->apiUrl . 'api/verify_license', $data);
     }
 
     /**
@@ -289,35 +222,30 @@ class Core
     /**
      * @param bool $license
      * @param bool $client
-     * @return mixed
+     * @return array
      */
     public function deactivateLicense($license = false, $client = false)
     {
+        $data = [];
+
         if (!empty($license) && !empty($client)) {
-            $dataArray = [
+            $data = [
                 'product_id'   => $this->productId,
                 'license_file' => null,
                 'license_code' => $license,
                 'client_name'  => $client,
             ];
         } elseif (is_file($this->licenseFile)) {
-            $dataArray = [
+            $data = [
                 'product_id'   => $this->productId,
                 'license_file' => file_get_contents($this->licenseFile),
                 'license_code' => null,
                 'client_name'  => null,
             ];
-        } else {
-            $dataArray = [];
         }
 
-        $getData = $this->callApi(
-            'POST',
-            $this->apiUrl . 'api/deactivate_license',
-            json_encode($dataArray)
-        );
+        $response = $this->callApi($this->apiUrl . 'api/deactivate_license', $data);
 
-        $response = json_decode($getData, true);
         if ($response['status']) {
             session()->forget($this->sessionKey);
             @chmod($this->licenseFile, 0777);

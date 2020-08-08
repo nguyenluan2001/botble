@@ -1,19 +1,25 @@
 <?php
 
-namespace Platform\Media;
+namespace Botble\Media;
 
-use Platform\Media\Http\Resources\FileResource;
-use Platform\Media\Models\MediaFile;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
-use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
-use Platform\Media\Services\UploadsManager;
-use Platform\Media\Services\ThumbnailService;
+use Botble\Media\Http\Resources\FileResource;
+use Botble\Media\Models\MediaFile;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
+use Botble\Media\Services\ThumbnailService;
+use Botble\Media\Services\UploadsManager;
 use Exception;
 use File;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Contracts\Routing\UrlGenerator;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Image;
 use Storage;
@@ -120,7 +126,7 @@ class RvMedia
     /**
      * @param string|array $data
      * @param null $message
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function responseSuccess($data, $message = null): JsonResponse
     {
@@ -136,7 +142,7 @@ class RvMedia
      * @param array $data
      * @param null $code
      * @param int $status
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function responseError($message, $data = [], $code = null, $status = 200): JsonResponse
     {
@@ -157,7 +163,7 @@ class RvMedia
         $images = [];
         foreach ($this->getSizes() as $size) {
             $readableSize = explode('x', $size);
-            $images = get_image_url($url, $readableSize);
+            $images = $this->getImageUrl($url, $readableSize);
         }
 
         return $images;
@@ -172,7 +178,7 @@ class RvMedia
     }
 
     /**
-     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @param MediaFile|Model $file
      * @return bool
      */
     public function deleteFile(MediaFile $file): bool
@@ -183,7 +189,7 @@ class RvMedia
     }
 
     /**
-     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @param MediaFile|Model $file
      * @return bool
      */
     public function deleteThumbnails(MediaFile $file): bool
@@ -287,8 +293,8 @@ class RvMedia
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|JsonResponse|\Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|ResponseFactory|JsonResponse|Response
      */
     public function uploadFromEditor(Request $request)
     {
@@ -327,11 +333,11 @@ class RvMedia
     }
 
     /**
-     * @param \Illuminate\Http\UploadedFile $fileUpload
+     * @param UploadedFile $fileUpload
      * @param int $folderId
      * @param string $folderSlug
      * @param bool $skipValidation
-     * @return \Illuminate\Http\JsonResponse|array
+     * @return JsonResponse|array
      */
     public function handleUpload($fileUpload, $folderId = 0, $folderSlug = null, $skipValidation = false): array
     {
@@ -501,7 +507,7 @@ class RvMedia
     }
 
     /**
-     * @param \Platform\Media\Models\MediaFile|\Illuminate\Database\Eloquent\Model $file
+     * @param MediaFile|Model $file
      * @return bool
      */
     public function generateThumbnails(MediaFile $file): bool
@@ -548,38 +554,23 @@ class RvMedia
     }
 
     /**
-     * @param string $image
-     * @param null $size
-     * @param bool $relativePath
-     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
-     */
-    public function getObjectImage($image, $size = null, $relativePath = false)
-    {
-        if (!empty($image)) {
-            if (empty($size) || $image == '__value__') {
-                if ($relativePath) {
-                    return $image;
-                }
-
-                return $this->url($image);
-            }
-            return $this->getImageUrl($image, $size, $relativePath);
-        }
-
-        return $this->getImageUrl($this->getDefaultImage(), null, $relativePath);
-    }
-
-    /**
      * @param string|null $url
      * @param null $size
      * @param bool $relativePath
      * @param null $default
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\UrlGenerator|string|string[]|null
+     * @return Application|UrlGenerator|string|string[]|null
      */
     public function getImageUrl($url, $size = null, $relativePath = false, $default = null)
     {
         if (empty($url)) {
             return $default;
+        }
+
+        if (empty($size) || $url == '__value__') {
+            if ($relativePath) {
+                return $url;
+            }
+            return $this->url($url);
         }
 
         if ($url == $this->getDefaultImage()) {

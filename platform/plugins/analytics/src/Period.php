@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Analytics;
+namespace Botble\Analytics;
 
 use DateTime;
 use Carbon\Carbon;
-use Platform\Analytics\Exceptions\InvalidPeriod;
+use Botble\Analytics\Exceptions\InvalidPeriod;
 
 class Period
 {

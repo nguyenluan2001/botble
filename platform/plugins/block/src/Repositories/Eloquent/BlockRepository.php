@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Block\Repositories\Eloquent;
+namespace Botble\Block\Repositories\Eloquent;
 
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Platform\Block\Repositories\Interfaces\BlockInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Block\Repositories\Interfaces\BlockInterface;
 use Illuminate\Support\Str;
 
 class BlockRepository extends RepositoriesAbstract implements BlockInterface

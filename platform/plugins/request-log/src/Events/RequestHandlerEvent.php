@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\RequestLog\Events;
+namespace Botble\RequestLog\Events;
 
 use Event;
 use Illuminate\Queue\SerializesModels;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Media\Chunks\Handler;
+namespace Botble\Media\Chunks\Handler;
 
+use Botble\Media\Chunks\Save\AbstractSave;
+use Botble\Media\Chunks\Storage\ChunkStorage;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Platform\Media\Chunks\Save\AbstractSave;
-use Platform\Media\Chunks\Storage\ChunkStorage;
 use Session;
 
 abstract class AbstractHandler

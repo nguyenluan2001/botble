@@ -1,9 +1,9 @@
 {
     "name": "Gallery",
-    "namespace": "Platform\\Gallery\\",
-    "provider": "Platform\\Gallery\\Providers\\GalleryServiceProvider",
-    "author": "Laravel Technologies",
-    "url": "https://laravel-cms.gistensal.com",
-    "version": "5.4",
+    "namespace": "Botble\\Gallery\\",
+    "provider": "Botble\\Gallery\\Providers\\GalleryServiceProvider",
+    "author": "Botble Technologies",
+    "url": "https://botble.com",
+    "version": "5.7",
     "description": "Create or easy to add gallery images to posts, pages..."
 }

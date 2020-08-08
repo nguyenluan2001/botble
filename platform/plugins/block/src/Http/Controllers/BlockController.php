@@ -1,22 +1,22 @@
 <?php
 
-namespace Platform\Block\Http\Controllers;
+namespace Botble\Block\Http\Controllers;
 
-use Platform\Base\Events\BeforeEditContentEvent;
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Traits\HasDeleteManyItemsTrait;
-use Platform\Block\Forms\BlockForm;
-use Platform\Block\Http\Requests\BlockRequest;
-use Platform\Block\Repositories\Interfaces\BlockInterface;
+use Botble\Base\Events\BeforeEditContentEvent;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Traits\HasDeleteManyItemsTrait;
+use Botble\Block\Forms\BlockForm;
+use Botble\Block\Http\Requests\BlockRequest;
+use Botble\Block\Repositories\Interfaces\BlockInterface;
 use Illuminate\Http\Request;
 use Exception;
-use Platform\Block\Tables\BlockTable;
+use Botble\Block\Tables\BlockTable;
 use Illuminate\Support\Facades\Auth;
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
 
 class BlockController extends BaseController
 {
