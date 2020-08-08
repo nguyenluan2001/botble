@@ -11,7 +11,7 @@ before_script:
   # ssh config!
   #- mkdir -p ~/.ssh
   #- '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-  - whoami
+  - whoami 
   - pwd
 after_script:
   - whoami
