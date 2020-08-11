@@ -1,7 +1,7 @@
 <?php
 
-use Botble\CustomField\Facades\CustomFieldSupportFacade;
-use Botble\CustomField\Support\CustomFieldSupport;
+use Platform\CustomField\Facades\CustomFieldSupportFacade;
+use Platform\CustomField\Support\CustomFieldSupport;
 
 if (!function_exists('parse_custom_fields_raw_data')) {
     /**

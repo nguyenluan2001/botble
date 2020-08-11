@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Media;
+namespace Platform\Media;
 
-use Botble\Media\Http\Resources\FileResource;
-use Botble\Media\Models\MediaFile;
-use Botble\Media\Repositories\Interfaces\MediaFileInterface;
-use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
-use Botble\Media\Services\ThumbnailService;
-use Botble\Media\Services\UploadsManager;
+use Platform\Media\Http\Resources\FileResource;
+use Platform\Media\Models\MediaFile;
+use Platform\Media\Repositories\Interfaces\MediaFileInterface;
+use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
+use Platform\Media\Services\ThumbnailService;
+use Platform\Media\Services\UploadsManager;
 use Exception;
 use File;
 use Illuminate\Contracts\Foundation\Application;

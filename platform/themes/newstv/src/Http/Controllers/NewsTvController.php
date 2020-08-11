@@ -2,8 +2,8 @@
 
 namespace Theme\NewsTv\Http\Controllers;
 
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Theme\Http\Controllers\PublicController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Theme\Http\Controllers\PublicController;
 
 class NewsTvController extends PublicController
 {

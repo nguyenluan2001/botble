@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Theme\Http\Middleware;
+namespace Platform\Theme\Http\Middleware;
 
-use Botble\Setting\Supports\SettingStore;
+use Platform\Setting\Supports\SettingStore;
 use Closure;
 use Html;
 use Illuminate\Contracts\Container\BindingResolutionException;

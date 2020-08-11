@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Backup\Commands;
+namespace Platform\Backup\Commands;
 
-use Botble\Backup\Supports\Backup;
+use Platform\Backup\Supports\Backup;
 use Exception;
 use File;
 use Illuminate\Console\Command;

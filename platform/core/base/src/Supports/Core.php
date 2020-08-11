@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Base\Supports;
+namespace Platform\Base\Supports;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
@@ -48,7 +48,7 @@ class Core
      */
     public function __construct()
     {
-        $this->apiUrl = 'https://license.botble.com/';
+        $this->apiUrl = 'https://license.laravel-cms.gistensal.com/';
         $this->apiKey = 'CAF4B17F6D3F656125F9';
         $this->verificationPeriod = 1;
         $this->licenseFile = storage_path('.license');

@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\PluginManagement\Http\Controllers;
+namespace Platform\PluginManagement\Http\Controllers;
 
 use Assets;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\PluginManagement\Services\PluginService;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\PluginManagement\Services\PluginService;
 use Exception;
 use File;
 use Illuminate\Http\Request;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Gallery\Listeners;
+namespace Platform\Gallery\Listeners;
 
-use Botble\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\CreatedContentEvent;
 use Exception;
 use Gallery;
 

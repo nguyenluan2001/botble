@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\Theme\Http\Controllers;
+namespace Platform\Theme\Http\Controllers;
 
-use Botble\Theme\Events\RenderingSingleEvent;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Page\Repositories\Interfaces\PageInterface;
-use Botble\Setting\Supports\SettingStore;
-use Botble\Slug\Repositories\Interfaces\SlugInterface;
-use Botble\Theme\Events\RenderingHomePageEvent;
-use Botble\Theme\Events\RenderingSiteMapEvent;
+use Platform\Theme\Events\RenderingSingleEvent;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Page\Repositories\Interfaces\PageInterface;
+use Platform\Setting\Supports\SettingStore;
+use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use Platform\Theme\Events\RenderingHomePageEvent;
+use Platform\Theme\Events\RenderingSiteMapEvent;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Arr;

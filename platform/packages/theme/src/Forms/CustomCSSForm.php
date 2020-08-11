@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Theme\Forms;
+namespace Platform\Theme\Forms;
 
-use Botble\Base\Forms\FormAbstract;
-use Botble\Base\Models\BaseModel;
-use Botble\Theme\Http\Requests\CustomCssRequest;
+use Platform\Base\Forms\FormAbstract;
+use Platform\Base\Models\BaseModel;
+use Platform\Theme\Http\Requests\CustomCssRequest;
 use File;
 use Theme;
 

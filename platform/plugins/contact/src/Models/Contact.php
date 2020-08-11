@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Contact\Models;
+namespace Platform\Contact\Models;
 
-use Botble\Base\Traits\EnumCastable;
-use Botble\Contact\Enums\ContactStatusEnum;
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Traits\EnumCastable;
+use Platform\Contact\Enums\ContactStatusEnum;
+use Platform\Base\Models\BaseModel;
 
 class Contact extends BaseModel
 {

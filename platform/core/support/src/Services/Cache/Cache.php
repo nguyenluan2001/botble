@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Support\Services\Cache;
+namespace Platform\Support\Services\Cache;
 
 use File;
 use Illuminate\Cache\CacheManager;

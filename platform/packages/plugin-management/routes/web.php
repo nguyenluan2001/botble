@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Botble\PluginManagement\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Platform\PluginManagement\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'plugins'], function () {
             Route::get('', [

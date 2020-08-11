@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Menu\Http\Requests;
+namespace Platform\Menu\Http\Requests;
 
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Support\Http\Requests\Request;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Support\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
 class MenuRequest extends Request

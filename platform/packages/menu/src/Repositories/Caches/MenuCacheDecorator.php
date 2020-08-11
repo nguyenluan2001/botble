@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Menu\Repositories\Caches;
+namespace Platform\Menu\Repositories\Caches;
 
-use Botble\Menu\Repositories\Interfaces\MenuInterface;
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Menu\Repositories\Interfaces\MenuInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class MenuCacheDecorator extends CacheAbstractDecorator implements MenuInterface
 {

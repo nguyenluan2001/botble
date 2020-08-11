@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\ACL\Repositories\Eloquent;
+namespace Platform\ACL\Repositories\Eloquent;
 
-use Botble\ACL\Models\Activation;
-use Botble\ACL\Models\User;
-use Botble\ACL\Repositories\Interfaces\ActivationInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\ACL\Models\Activation;
+use Platform\ACL\Models\User;
+use Platform\ACL\Repositories\Interfaces\ActivationInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Query\Builder;

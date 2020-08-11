@@ -1,6 +1,6 @@
 <?php
 
-use Botble\CustomField\Repositories\Interfaces\CustomFieldInterface;
+use Platform\CustomField\Repositories\Interfaces\CustomFieldInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 

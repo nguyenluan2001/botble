@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\ACL\Models;
+namespace Platform\ACL\Models;
 
-use Botble\ACL\Notifications\ResetPasswordNotification;
-use Botble\ACL\Traits\PermissionTrait;
-use Botble\Base\Supports\Avatar;
-use Botble\Media\Models\MediaFile;
+use Platform\ACL\Notifications\ResetPasswordNotification;
+use Platform\ACL\Traits\PermissionTrait;
+use Platform\Base\Supports\Avatar;
+use Platform\Media\Models\MediaFile;
 use Exception;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

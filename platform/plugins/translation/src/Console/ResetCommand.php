@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Translation\Console;
+namespace Platform\Translation\Console;
 
 use Illuminate\Console\Command;
-use Botble\Translation\Manager;
+use Platform\Translation\Manager;
 
 class ResetCommand extends Command
 {

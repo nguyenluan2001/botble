@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Menu\Repositories\Interfaces;
+namespace Platform\Menu\Repositories\Interfaces;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface MenuLocationInterface extends RepositoryInterface
 {

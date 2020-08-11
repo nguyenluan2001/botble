@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\PluginGenerator\Providers;
+namespace Platform\PluginGenerator\Providers;
 
-use Botble\PluginGenerator\Commands\PluginCreateCommand;
-use Botble\PluginGenerator\Commands\PluginListCommand;
-use Botble\PluginGenerator\Commands\PluginMakeCrudCommand;
+use Platform\PluginGenerator\Commands\PluginCreateCommand;
+use Platform\PluginGenerator\Commands\PluginListCommand;
+use Platform\PluginGenerator\Commands\PluginMakeCrudCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

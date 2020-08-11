@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Table\Providers;
+namespace Platform\Table\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Illuminate\Support\ServiceProvider;
 
 class TableServiceProvider extends ServiceProvider

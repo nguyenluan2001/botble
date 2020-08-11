@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\ACL\Providers;
+namespace Platform\ACL\Providers;
 
-use Botble\ACL\Repositories\Interfaces\UserInterface;
-use Botble\Dashboard\Supports\DashboardWidgetInstance;
+use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Platform\Dashboard\Supports\DashboardWidgetInstance;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Throwable;

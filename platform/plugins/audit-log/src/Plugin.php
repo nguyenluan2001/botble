@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\AuditLog;
+namespace Platform\AuditLog;
 
-use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
-use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
 use Schema;
 
 class Plugin extends PluginOperationAbstract

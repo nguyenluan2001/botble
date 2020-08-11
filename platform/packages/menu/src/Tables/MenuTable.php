@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Menu\Tables;
+namespace Platform\Menu\Tables;
 
-use Botble\Menu\Models\Menu;
+use Platform\Menu\Models\Menu;
 use Html;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Menu\Repositories\Interfaces\MenuInterface;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Menu\Repositories\Interfaces\MenuInterface;
+use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTables;

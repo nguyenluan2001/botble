@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\Menu\Forms;
+namespace Platform\Menu\Forms;
 
 use Assets;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Base\Forms\FormAbstract;
-use Botble\Menu\Http\Requests\MenuRequest;
-use Botble\Menu\Models\Menu;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Forms\FormAbstract;
+use Platform\Menu\Http\Requests\MenuRequest;
+use Platform\Menu\Models\Menu;
 
 class MenuForm extends FormAbstract
 {

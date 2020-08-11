@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Member\Forms\Fields;
+namespace Platform\Member\Forms\Fields;
 
 use Illuminate\Support\Arr;
 use Kris\LaravelFormBuilder\Fields\FormField;

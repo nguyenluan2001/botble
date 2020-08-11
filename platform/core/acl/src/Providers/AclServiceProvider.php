@@ -1,21 +1,21 @@
 <?php
 
-namespace Botble\ACL\Providers;
+namespace Platform\ACL\Providers;
 
-use Botble\ACL\Http\Middleware\Authenticate;
-use Botble\ACL\Http\Middleware\RedirectIfAuthenticated;
-use Botble\ACL\Models\Activation;
-use Botble\ACL\Models\Role;
-use Botble\ACL\Models\User;
-use Botble\ACL\Repositories\Caches\RoleCacheDecorator;
-use Botble\ACL\Repositories\Eloquent\ActivationRepository;
-use Botble\ACL\Repositories\Eloquent\RoleRepository;
-use Botble\ACL\Repositories\Eloquent\UserRepository;
-use Botble\ACL\Repositories\Interfaces\ActivationInterface;
-use Botble\ACL\Repositories\Interfaces\RoleInterface;
-use Botble\ACL\Repositories\Interfaces\UserInterface;
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\ACL\Http\Middleware\Authenticate;
+use Platform\ACL\Http\Middleware\RedirectIfAuthenticated;
+use Platform\ACL\Models\Activation;
+use Platform\ACL\Models\Role;
+use Platform\ACL\Models\User;
+use Platform\ACL\Repositories\Caches\RoleCacheDecorator;
+use Platform\ACL\Repositories\Eloquent\ActivationRepository;
+use Platform\ACL\Repositories\Eloquent\RoleRepository;
+use Platform\ACL\Repositories\Eloquent\UserRepository;
+use Platform\ACL\Repositories\Interfaces\ActivationInterface;
+use Platform\ACL\Repositories\Interfaces\RoleInterface;
+use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Event;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;

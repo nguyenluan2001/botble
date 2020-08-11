@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Backup\Http\Requests;
+namespace Platform\Backup\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use Platform\Support\Http\Requests\Request;
 
 class BackupRequest extends Request
 {

@@ -1,31 +1,31 @@
 {
-    "name": "botble/theme",
-    "description": "Theme package for Botble CMS application",
+    "name": "platform/theme",
+    "description": "Theme package for Laravel CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Botble\\Theme\\": "src"
+            "Platform\\Theme\\": "src"
         }
     },
     "require": {
-        "botble/platform": "*@dev",
-        "botble/sitemap": "*@dev",
-        "botble/widget": "*@dev",
-        "botble/slug": "*@dev",
-        "botble/seo-helper": "*@dev"
+        "platform/platform": "*@dev",
+        "platform/sitemap": "*@dev",
+        "platform/widget": "*@dev",
+        "platform/slug": "*@dev",
+        "platform/seo-helper": "*@dev"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Botble\\Theme\\Providers\\ThemeServiceProvider",
-                "Botble\\Theme\\Providers\\RouteServiceProvider"
+                "Platform\\Theme\\Providers\\ThemeServiceProvider",
+                "Platform\\Theme\\Providers\\RouteServiceProvider"
             ],
             "aliases": {
-                "Theme": "Botble\\Theme\\Facades\\ThemeFacade",
-                "ThemeOption": "Botble\\Theme\\Facades\\ThemeOptionFacade",
-                "ThemeManager": "Botble\\Theme\\Facades\\ManagerFacade",
-                "AdminBar": "Botble\\Theme\\Facades\\AdminBarFacade",
-                "SiteMapManager": "Botble\\Theme\\Facades\\SiteMapManagerFacade"
+                "Theme": "Platform\\Theme\\Facades\\ThemeFacade",
+                "ThemeOption": "Platform\\Theme\\Facades\\ThemeOptionFacade",
+                "ThemeManager": "Platform\\Theme\\Facades\\ManagerFacade",
+                "AdminBar": "Platform\\Theme\\Facades\\AdminBarFacade",
+                "SiteMapManager": "Platform\\Theme\\Facades\\SiteMapManagerFacade"
             }
         }
     }

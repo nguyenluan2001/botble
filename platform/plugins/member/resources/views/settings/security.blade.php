@@ -50,5 +50,5 @@
 @push('scripts')
   <!-- Laravel Javascript Validation -->
   <script type="text/javascript" src="{{ asset('vendor/core/js/js-validation.js')}}"></script>
-  {!! JsValidator::formRequest(\Botble\Member\Http\Requests\UpdatePasswordRequest::class); !!}
+  {!! JsValidator::formRequest(\Platform\Member\Http\Requests\UpdatePasswordRequest::class); !!}
 @endpush

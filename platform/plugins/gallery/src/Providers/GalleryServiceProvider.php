@@ -1,22 +1,22 @@
 <?php
 
-namespace Botble\Gallery\Providers;
+namespace Platform\Gallery\Providers;
 
 use Illuminate\Routing\Events\RouteMatched;
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Gallery\Facades\GalleryFacade;
-use Botble\Gallery\Models\Gallery;
-use Botble\Gallery\Models\GalleryMeta;
-use Botble\Gallery\Repositories\Caches\GalleryMetaCacheDecorator;
-use Botble\Gallery\Repositories\Eloquent\GalleryMetaRepository;
-use Botble\Gallery\Repositories\Interfaces\GalleryMetaInterface;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Gallery\Facades\GalleryFacade;
+use Platform\Gallery\Models\Gallery;
+use Platform\Gallery\Models\GalleryMeta;
+use Platform\Gallery\Repositories\Caches\GalleryMetaCacheDecorator;
+use Platform\Gallery\Repositories\Eloquent\GalleryMetaRepository;
+use Platform\Gallery\Repositories\Interfaces\GalleryMetaInterface;
 use Event;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Botble\Gallery\Repositories\Caches\GalleryCacheDecorator;
-use Botble\Gallery\Repositories\Eloquent\GalleryRepository;
-use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
+use Platform\Gallery\Repositories\Caches\GalleryCacheDecorator;
+use Platform\Gallery\Repositories\Eloquent\GalleryRepository;
+use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
 use Language;
 use SeoHelper;
 use SlugHelper;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\ACL\Forms;
+namespace Platform\ACL\Forms;
 
 use Assets;
-use Botble\ACL\Http\Requests\RoleCreateRequest;
-use Botble\ACL\Models\Role;
-use Botble\Base\Forms\FormAbstract;
+use Platform\ACL\Http\Requests\RoleCreateRequest;
+use Platform\ACL\Models\Role;
+use Platform\Base\Forms\FormAbstract;
 use Illuminate\Support\Arr;
 
 class RoleForm extends FormAbstract

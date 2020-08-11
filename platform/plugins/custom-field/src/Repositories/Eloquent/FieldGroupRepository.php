@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\CustomField\Repositories\Eloquent;
+namespace Platform\CustomField\Repositories\Eloquent;
 
-use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-use Botble\CustomField\Repositories\Interfaces\CustomFieldInterface;
-use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Platform\CustomField\Repositories\Interfaces\CustomFieldInterface;
+use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
 use Illuminate\Support\Str;
 use RvMedia;
 

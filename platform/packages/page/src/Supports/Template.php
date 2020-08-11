@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Page\Supports;
+namespace Platform\Page\Supports;
 
 use Theme;
 

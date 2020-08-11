@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\ACL\Events;
+namespace Platform\ACL\Events;
 
-use Botble\ACL\Models\Role;
-use Botble\ACL\Models\User;
+use Platform\ACL\Models\Role;
+use Platform\ACL\Models\User;
 use Event;
 use Illuminate\Queue\SerializesModels;
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace Botble\RequestLog\Providers;
+namespace Platform\RequestLog\Providers;
 
 use Illuminate\Routing\Events\RouteMatched;
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\RequestLog\Repositories\Caches\RequestLogCacheDecorator;
-use Botble\RequestLog\Repositories\Eloquent\RequestLogRepository;
-use Botble\RequestLog\Repositories\Interfaces\RequestLogInterface;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\RequestLog\Repositories\Caches\RequestLogCacheDecorator;
+use Platform\RequestLog\Repositories\Eloquent\RequestLogRepository;
+use Platform\RequestLog\Repositories\Interfaces\RequestLogInterface;
 use Event;
 use Illuminate\Support\ServiceProvider;
-use Botble\RequestLog\Models\RequestLog as RequestLogModel;
+use Platform\RequestLog\Models\RequestLog as RequestLogModel;
 
 /**
  * @since 02/07/2016 09:50 AM

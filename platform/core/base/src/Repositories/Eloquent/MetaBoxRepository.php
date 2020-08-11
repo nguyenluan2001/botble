@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Base\Repositories\Eloquent;
+namespace Platform\Base\Repositories\Eloquent;
 
-use Botble\Base\Repositories\Interfaces\MetaBoxInterface;
-use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Platform\Base\Repositories\Interfaces\MetaBoxInterface;
+use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 class MetaBoxRepository extends RepositoriesAbstract implements MetaBoxInterface
 {

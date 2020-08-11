@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Base\Facades;
+namespace Platform\Base\Facades;
 
-use Botble\Base\Supports\EmailHandler;
+use Platform\Base\Supports\EmailHandler;
 use Illuminate\Support\Facades\Facade;
 
 /**

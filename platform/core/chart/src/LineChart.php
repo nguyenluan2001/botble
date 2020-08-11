@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Chart;
+namespace Platform\Chart;
 
-use Botble\Chart\Supports\Chart;
+use Platform\Chart\Supports\Chart;
 
 class LineChart extends Chart
 {

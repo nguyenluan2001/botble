@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Analytics;
+namespace Platform\Analytics;
 
 use DateTime;
 use Google_Service_Analytics;

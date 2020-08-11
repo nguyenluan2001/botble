@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Block\Tables;
+namespace Platform\Block\Tables;
 
-use Botble\Block\Models\Block;
+use Platform\Block\Models\Block;
 use Html;
 use Illuminate\Support\Facades\Auth;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Block\Repositories\Interfaces\BlockInterface;
-use Botble\Table\Abstracts\TableAbstract;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Block\Repositories\Interfaces\BlockInterface;
+use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTables;

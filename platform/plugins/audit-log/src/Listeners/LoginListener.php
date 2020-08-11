@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\AuditLog\Listeners;
+namespace Platform\AuditLog\Listeners;
 
-use Botble\ACL\Models\User;
-use Botble\AuditLog\Models\AuditHistory;
+use Platform\ACL\Models\User;
+use Platform\AuditLog\Models\AuditHistory;
 use Illuminate\Auth\Events\Login;
 
 class LoginListener

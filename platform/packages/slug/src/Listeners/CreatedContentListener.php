@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Slug\Listeners;
+namespace Platform\Slug\Listeners;
 
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Slug\Repositories\Interfaces\SlugInterface;
-use Botble\Slug\Services\SlugService;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Slug\Repositories\Interfaces\SlugInterface;
+use Platform\Slug\Services\SlugService;
 use Exception;
 use Illuminate\Support\Str;
 use SlugHelper;

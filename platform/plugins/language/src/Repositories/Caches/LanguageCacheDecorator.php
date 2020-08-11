@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Language\Repositories\Caches;
+namespace Platform\Language\Repositories\Caches;
 
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
-use Botble\Language\Repositories\Interfaces\LanguageInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Language\Repositories\Interfaces\LanguageInterface;
 
 class LanguageCacheDecorator extends CacheAbstractDecorator implements LanguageInterface
 {

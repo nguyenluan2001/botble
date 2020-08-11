@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Gallery\Listeners;
+namespace Platform\Gallery\Listeners;
 
 use SiteMapManager;
-use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
+use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
 
 class RenderingSiteMapListener
 {

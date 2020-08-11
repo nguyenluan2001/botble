@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Base\Supports;
+namespace Platform\Base\Supports;
 
 // --------------------------------------------------------------------------------
 // PhpConcept Library - Zip Module 2.8.2

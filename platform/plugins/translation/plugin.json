@@ -1,9 +1,9 @@
 {
     "name": "Translation",
-    "namespace": "Botble\\Translation\\",
-    "provider": "Botble\\Translation\\Providers\\TranslationServiceProvider",
-    "author": "Botble Technologies",
-    "url": "https://botble.com",
+    "namespace": "Platform\\Translation\\",
+    "provider": "Platform\\Translation\\Providers\\TranslationServiceProvider",
+    "author": "Laravel Technologies",
+    "url": "https://laravel-cms.gistensal.com",
     "version": "5.7",
     "description": "Manage translation text"
 }

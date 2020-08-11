@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\CustomField\Providers;
+namespace Platform\CustomField\Providers;
 
-use Botble\Base\Events\CreatedContentEvent;
-use Botble\Base\Events\DeletedContentEvent;
-use Botble\Base\Events\UpdatedContentEvent;
-use Botble\CustomField\Listeners\CreatedContentListener;
-use Botble\CustomField\Listeners\DeletedContentListener;
-use Botble\CustomField\Listeners\UpdatedContentListener;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
+use Platform\CustomField\Listeners\CreatedContentListener;
+use Platform\CustomField\Listeners\DeletedContentListener;
+use Platform\CustomField\Listeners\UpdatedContentListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider

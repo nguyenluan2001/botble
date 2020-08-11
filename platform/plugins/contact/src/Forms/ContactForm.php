@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\Contact\Forms;
+namespace Platform\Contact\Forms;
 
 use Assets;
-use Botble\Base\Forms\FormAbstract;
-use Botble\Contact\Enums\ContactStatusEnum;
-use Botble\Contact\Http\Requests\EditContactRequest;
-use Botble\Contact\Models\Contact;
+use Platform\Base\Forms\FormAbstract;
+use Platform\Contact\Enums\ContactStatusEnum;
+use Platform\Contact\Http\Requests\EditContactRequest;
+use Platform\Contact\Models\Contact;
 
 class ContactForm extends FormAbstract
 {

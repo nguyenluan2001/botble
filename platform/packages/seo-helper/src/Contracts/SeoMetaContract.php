@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\SeoHelper\Contracts;
+namespace Platform\SeoHelper\Contracts;
 
-use Botble\SeoHelper\Contracts\Entities\DescriptionContract;
-use Botble\SeoHelper\Contracts\Entities\MiscTagsContract;
-use Botble\SeoHelper\Contracts\Entities\TitleContract;
-use Botble\SeoHelper\Contracts\Entities\WebmastersContract;
+use Platform\SeoHelper\Contracts\Entities\DescriptionContract;
+use Platform\SeoHelper\Contracts\Entities\MiscTagsContract;
+use Platform\SeoHelper\Contracts\Entities\TitleContract;
+use Platform\SeoHelper\Contracts\Entities\WebmastersContract;
 
 interface SeoMetaContract extends RenderableContract
 {

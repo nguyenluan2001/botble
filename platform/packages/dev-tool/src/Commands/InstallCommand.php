@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\DevTool\Commands;
+namespace Platform\DevTool\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;

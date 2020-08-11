@@ -1,23 +1,23 @@
 <?php
 
-namespace Botble\Setting\Http\Controllers;
+namespace Platform\Setting\Http\Controllers;
 
 use Assets;
-use Botble\Base\Supports\Core;
-use Botble\Setting\Http\Requests\EmailTemplateRequest;
-use Botble\Setting\Http\Requests\LicenseSettingRequest;
-use Botble\Setting\Http\Requests\MediaSettingRequest;
-use Botble\Setting\Http\Requests\SendTestEmailRequest;
-use Botble\Setting\Repositories\Interfaces\SettingInterface;
-use Botble\Setting\Supports\SettingStore;
+use Platform\Base\Supports\Core;
+use Platform\Setting\Http\Requests\EmailTemplateRequest;
+use Platform\Setting\Http\Requests\LicenseSettingRequest;
+use Platform\Setting\Http\Requests\MediaSettingRequest;
+use Platform\Setting\Http\Requests\SendTestEmailRequest;
+use Platform\Setting\Repositories\Interfaces\SettingInterface;
+use Platform\Setting\Supports\SettingStore;
 use Carbon\Carbon;
 use EmailHandler;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Facades\File;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Throwable;

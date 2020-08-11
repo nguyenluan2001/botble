@@ -2,10 +2,10 @@
 
 namespace Theme\Ripple\Http\Controllers;
 
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Blog\Repositories\Interfaces\PostInterface;
-use Botble\Page\Repositories\Interfaces\PageInterface;
-use Botble\Theme\Http\Controllers\PublicController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Platform\Page\Repositories\Interfaces\PageInterface;
+use Platform\Theme\Http\Controllers\PublicController;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Theme;

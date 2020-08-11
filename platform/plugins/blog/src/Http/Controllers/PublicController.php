@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\Blog\Http\Controllers;
+namespace Platform\Blog\Http\Controllers;
 
 use Auth;
-use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Blog\Models\Tag;
-use Botble\Blog\Repositories\Interfaces\PostInterface;
-use Botble\Blog\Repositories\Interfaces\TagInterface;
-use Botble\SeoHelper\SeoOpenGraph;
-use Botble\Slug\Repositories\Interfaces\SlugInterface;
+use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Blog\Models\Tag;
+use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Platform\Blog\Repositories\Interfaces\TagInterface;
+use Platform\SeoHelper\SeoOpenGraph;
+use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Arr;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Base\Facades;
+namespace Platform\Base\Facades;
 
-use Botble\Base\Supports\PageTitle;
+use Platform\Base\Supports\PageTitle;
 use Illuminate\Support\Facades\Facade;
 
 class PageTitleFacade extends Facade

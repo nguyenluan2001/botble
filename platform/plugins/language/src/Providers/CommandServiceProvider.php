@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Language\Providers;
+namespace Platform\Language\Providers;
 
-use Botble\Language\Commands\SyncOldDataCommand;
+use Platform\Language\Commands\SyncOldDataCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

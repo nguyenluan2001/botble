@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\ACL\Models;
+namespace Platform\ACL\Models;
 
-use Botble\Base\Models\BaseModel;
+use Platform\Base\Models\BaseModel;
 
 class Activation extends BaseModel
 {

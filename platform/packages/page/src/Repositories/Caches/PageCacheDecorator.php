@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Page\Repositories\Caches;
+namespace Platform\Page\Repositories\Caches;
 
-use Botble\Page\Repositories\Interfaces\PageInterface;
-use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Platform\Page\Repositories\Interfaces\PageInterface;
+use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
 
 class PageCacheDecorator extends CacheAbstractDecorator implements PageInterface
 {

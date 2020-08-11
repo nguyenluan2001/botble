@@ -1,16 +1,16 @@
 <?php
 
-namespace Botble\Block\Providers;
+namespace Platform\Block\Providers;
 
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Block\Models\Block;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Block\Models\Block;
 use Event;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\ServiceProvider;
-use Botble\Block\Repositories\Caches\BlockCacheDecorator;
-use Botble\Block\Repositories\Eloquent\BlockRepository;
-use Botble\Block\Repositories\Interfaces\BlockInterface;
-use Botble\Base\Supports\Helper;
+use Platform\Block\Repositories\Caches\BlockCacheDecorator;
+use Platform\Block\Repositories\Eloquent\BlockRepository;
+use Platform\Block\Repositories\Interfaces\BlockInterface;
+use Platform\Base\Supports\Helper;
 use Language;
 
 class BlockServiceProvider extends ServiceProvider

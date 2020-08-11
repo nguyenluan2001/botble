@@ -1,6 +1,6 @@
 <?php
 
-use Botble\Member\Notifications\ConfirmEmailNotification;
+use Platform\Member\Notifications\ConfirmEmailNotification;
 
 return [
 

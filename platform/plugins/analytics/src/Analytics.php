@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Analytics;
+namespace Platform\Analytics;
 
 use Carbon\Carbon;
 use Google_Service_Analytics;

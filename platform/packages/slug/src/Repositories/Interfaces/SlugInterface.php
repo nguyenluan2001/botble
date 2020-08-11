@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Slug\Repositories\Interfaces;
+namespace Platform\Slug\Repositories\Interfaces;
 
-use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface SlugInterface extends RepositoryInterface
 {

@@ -1,7 +1,7 @@
 {
     "name": "{Module}",
-    "namespace": "Botble\\{Module}\\",
-    "provider": "Botble\\{Module}\\Providers\\{Module}ServiceProvider",
+    "namespace": "Platform\\{Module}\\",
+    "provider": "Platform\\{Module}\\Providers\\{Module}ServiceProvider",
     "author": "N/A",
     "url": "N/A",
     "version": "1.0",

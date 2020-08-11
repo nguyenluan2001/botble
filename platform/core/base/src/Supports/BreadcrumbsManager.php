@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Base\Supports;
+namespace Platform\Base\Supports;
 
 use Exception;
 use Illuminate\Contracts\View\Factory as ViewFactory;

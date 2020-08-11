@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Member\Http\Middleware;
+namespace Platform\Member\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

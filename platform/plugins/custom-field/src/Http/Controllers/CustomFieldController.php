@@ -1,22 +1,22 @@
 <?php
 
-namespace Botble\CustomField\Http\Controllers;
+namespace Platform\CustomField\Http\Controllers;
 
 use Assets;
-use Botble\Base\Forms\FormBuilder;
-use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\CustomField\Actions\CreateCustomFieldAction;
-use Botble\CustomField\Actions\DeleteCustomFieldAction;
-use Botble\CustomField\Actions\ExportCustomFieldsAction;
-use Botble\CustomField\Actions\ImportCustomFieldsAction;
-use Botble\CustomField\Actions\UpdateCustomFieldAction;
-use Botble\CustomField\Forms\CustomFieldForm;
-use Botble\CustomField\Http\Requests\CreateFieldGroupRequest;
-use Botble\CustomField\Http\Requests\UpdateFieldGroupRequest;
-use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
-use Botble\CustomField\Tables\CustomFieldTable;
+use Platform\Base\Forms\FormBuilder;
+use Platform\Base\Http\Controllers\BaseController;
+use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\CustomField\Actions\CreateCustomFieldAction;
+use Platform\CustomField\Actions\DeleteCustomFieldAction;
+use Platform\CustomField\Actions\ExportCustomFieldsAction;
+use Platform\CustomField\Actions\ImportCustomFieldsAction;
+use Platform\CustomField\Actions\UpdateCustomFieldAction;
+use Platform\CustomField\Forms\CustomFieldForm;
+use Platform\CustomField\Http\Requests\CreateFieldGroupRequest;
+use Platform\CustomField\Http\Requests\UpdateFieldGroupRequest;
+use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Platform\CustomField\Tables\CustomFieldTable;
 use CustomField;
 use Exception;
 use Illuminate\Contracts\View\Factory;

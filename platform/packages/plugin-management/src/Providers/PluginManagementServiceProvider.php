@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\PluginManagement\Providers;
+namespace Platform\PluginManagement\Providers;
 
-use Botble\Base\Supports\Helper;
-use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Base\Supports\Helper;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Composer\Autoload\ClassLoader;
 use Event;
 use Exception;

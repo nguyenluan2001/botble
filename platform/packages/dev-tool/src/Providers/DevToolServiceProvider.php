@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\DevTool\Providers;
+namespace Platform\DevTool\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

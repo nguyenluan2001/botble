@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Member\Providers;
+namespace Platform\Member\Providers;
 
-use Botble\Member\Listeners\UpdatedContentListener;
-use Botble\Base\Events\UpdatedContentEvent;
+use Platform\Member\Listeners\UpdatedContentListener;
+use Platform\Base\Events\UpdatedContentEvent;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider

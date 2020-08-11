@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\RequestLog\Commands;
+namespace Platform\RequestLog\Commands;
 
-use Botble\RequestLog\Repositories\Interfaces\RequestLogInterface;
+use Platform\RequestLog\Repositories\Interfaces\RequestLogInterface;
 use Illuminate\Console\Command;
 use Throwable;
 

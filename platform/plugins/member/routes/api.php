@@ -2,7 +2,7 @@
 
 Route::group([
     'prefix'     => 'api/v1',
-    'namespace'  => 'Botble\Member\Http\Controllers\API',
+    'namespace'  => 'Platform\Member\Http\Controllers\API',
     'middleware' => ['api'],
 ], function () {
 

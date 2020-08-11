@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Widget\Contracts;
+namespace Platform\Widget\Contracts;
 
 interface ApplicationWrapperContract
 {

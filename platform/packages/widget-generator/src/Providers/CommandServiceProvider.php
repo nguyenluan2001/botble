@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\WidgetGenerator\Providers;
+namespace Platform\WidgetGenerator\Providers;
 
-use Botble\WidgetGenerator\Commands\WidgetCreateCommand;
-use Botble\WidgetGenerator\Commands\WidgetRemoveCommand;
+use Platform\WidgetGenerator\Commands\WidgetCreateCommand;
+use Platform\WidgetGenerator\Commands\WidgetRemoveCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

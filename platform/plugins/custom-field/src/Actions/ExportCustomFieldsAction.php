@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\CustomField\Actions;
+namespace Platform\CustomField\Actions;
 
-use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
 
 class ExportCustomFieldsAction extends AbstractAction
 {

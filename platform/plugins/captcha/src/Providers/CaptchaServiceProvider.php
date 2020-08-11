@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Captcha\Providers;
+namespace Platform\Captcha\Providers;
 
-use Botble\Base\Traits\LoadAndPublishDataTrait;
-use Botble\Captcha\CaptchaV3;
-use Botble\Captcha\Facades\CaptchaFacade;
-use Botble\Captcha\Captcha;
+use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Captcha\CaptchaV3;
+use Platform\Captcha\Facades\CaptchaFacade;
+use Platform\Captcha\Captcha;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;

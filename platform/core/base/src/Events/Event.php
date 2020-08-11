@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Base\Events;
+namespace Platform\Base\Events;
 
 abstract class Event
 {

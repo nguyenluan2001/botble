@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Base\Enums;
+namespace Platform\Base\Enums;
 
-use Botble\Base\Supports\Enum;
+use Platform\Base\Supports\Enum;
 use Html;
 
 /**
