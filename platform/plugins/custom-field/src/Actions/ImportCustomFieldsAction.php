@@ -1,13 +1,16 @@
 <?php
 
-namespace Platform\CustomField\Actions;
+namespace Botble\CustomField\Actions;
 
-use Exception;
-use Illuminate\Support\Facades\Auth;
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
-use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
 use DB;
+use Exception;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use Validator;
 
 class ImportCustomFieldsAction extends AbstractAction
 {
@@ -26,10 +29,8 @@ class ImportCustomFieldsAction extends AbstractAction
      * @param FieldGroupInterface $fieldGroupRepository
      * @param FieldItemInterface $fieldItemRepository
      */
-    public function __construct(
-        FieldGroupInterface $fieldGroupRepository,
-        FieldItemInterface $fieldItemRepository
-    ) {
+    public function __construct(FieldGroupInterface $fieldGroupRepository, FieldItemInterface $fieldItemRepository)
+    {
         $this->fieldGroupRepository = $fieldGroupRepository;
         $this->fieldItemRepository = $fieldItemRepository;
     }
@@ -46,6 +47,19 @@ class ImportCustomFieldsAction extends AbstractAction
             if (!is_array($fieldGroup)) {
                 continue;
             }
+
+            $validator = Validator::make($fieldGroup, [
+                'order'  => 'integer|min:0|required',
+                'rules'  => 'json|required',
+                'title'  => 'required|max:255',
+                'status' => ['required', Rule::in(BaseStatusEnum::values())],
+            ]);
+
+            if ($validator->fails()) {
+                DB::rollBack();
+                return $this->error($validator->messages()->first());
+            }
+
             $fieldGroup['created_by'] = Auth::user()->id;
             $item = $this->fieldGroupRepository->create($fieldGroup);
             if (!$item) {
@@ -53,9 +67,9 @@ class ImportCustomFieldsAction extends AbstractAction
                 return $this->error();
             }
             $createItems = $this->createFieldItem(Arr::get($fieldGroup, 'items', []), $item->id);
-            if (!$createItems) {
+            if ($createItems['error']) {
                 DB::rollBack();
-                return $this->error();
+                return $this->error($createItems['message']);
             }
         }
         DB::commit();
@@ -66,26 +80,50 @@ class ImportCustomFieldsAction extends AbstractAction
      * @param array $items
      * @param int $fieldGroupId
      * @param null|int $parentId
-     * @return bool
+     * @return bool[]
      */
-    protected function createFieldItem(array $items, $fieldGroupId, $parentId = null): bool
+    protected function createFieldItem(array $items, $fieldGroupId, $parentId = null): array
     {
         foreach ($items as $item) {
+
+            $validator = Validator::make($item, [
+                'order' => 'integer|min:0|required',
+                'title' => 'required|max:255',
+                'slug'  => 'required|max:255',
+                'type'  => 'required|max:100',
+            ]);
+
+            if ($validator->fails()) {
+                return [
+                    'error'   => true,
+                    'message' => $validator->messages()->first(),
+
+                ];
+            }
+
             $item['field_group_id'] = $fieldGroupId;
             $item['parent_id'] = $parentId;
             $item['created_by'] = Auth::user()->id;
             $field = $this->fieldItemRepository->create($item);
 
             if (!$field) {
-                return false;
+                return [
+                    'error'   => true,
+                    'message' => null,
+                ];
             }
 
             $createChildren = $this->createFieldItem(Arr::get($item, 'children', []), $fieldGroupId, $field->id);
 
             if (!$createChildren) {
-                return false;
+                return [
+                    'error'   => true,
+                    'message' => null,
+                ];
             }
         }
-        return true;
+        return [
+            'error' => false,
+        ];
     }
 }

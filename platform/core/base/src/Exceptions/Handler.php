@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Base\Exceptions;
+namespace Botble\Base\Exceptions;
 
 use App\Exceptions\Handler as ExceptionHandler;
-use Platform\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use EmailHandler;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -136,7 +136,7 @@ class Handler extends ExceptionHandler
                 if (config('core.base.general.error_reporting.via_slack',
                         false) == true && !$exception instanceof OAuthServerException) {
                     config()->set([
-                        'logging.channels.slack.username' => 'Anonymous BOT',
+                        'logging.channels.slack.username' => 'Botble BOT',
                         'logging.channels.slack.emoji'    => ':helmet_with_white_cross:',
                     ]);
 

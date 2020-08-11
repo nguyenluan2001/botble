@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\CustomField\Repositories\Interfaces;
+namespace Botble\CustomField\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 use Eloquent;
 use Exception;
 use Illuminate\Support\Collection;

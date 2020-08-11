@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Media\Chunks\Storage;
+namespace Botble\Media\Chunks\Storage;
 
-use Platform\Media\Chunks\ChunkFile;
+use Botble\Media\Chunks\ChunkFile;
 use Closure;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Collection;

@@ -6,7 +6,7 @@
                 <div class="app-item app-{{ $plugin->path }}">
                     <div class="app-icon">
                         @if ($plugin->image)
-                            <img src="data:image/png;base64,{{ $plugin->image }}">
+                            <img src="data:image/png;base64,{{ $plugin->image }}" alt="{{ $plugin->name }}">
                         @endif
                     </div>
                     <div class="app-details">
@@ -22,7 +22,7 @@
                             @endif
 
                             @if (Auth::user()->hasPermission('plugins.remove'))
-                            <button class="btn btn-danger btn-trigger-remove-plugin" data-plugin="{{ $plugin->path }}">{{ trans('packages/plugin-management::plugin.remove') }}</button>
+                                <button class="btn btn-danger btn-trigger-remove-plugin" data-plugin="{{ $plugin->path }}">{{ trans('packages/plugin-management::plugin.remove') }}</button>
                             @endif
                         </div>
                     </div>

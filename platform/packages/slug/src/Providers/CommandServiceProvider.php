@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Slug\Providers;
+namespace Botble\Slug\Providers;
 
-use Platform\Slug\Commands\ChangeSlugPrefixCommand;
+use Botble\Slug\Commands\ChangeSlugPrefixCommand;
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider

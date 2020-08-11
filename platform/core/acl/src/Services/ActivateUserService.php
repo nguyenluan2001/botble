@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\ACL\Services;
+namespace Botble\ACL\Services;
 
-use Platform\ACL\Models\User;
-use Platform\ACL\Repositories\Interfaces\ActivationInterface;
-use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Botble\ACL\Models\User;
+use Botble\ACL\Repositories\Interfaces\ActivationInterface;
+use Botble\ACL\Repositories\Interfaces\UserInterface;
 use InvalidArgumentException;
 
 class ActivateUserService

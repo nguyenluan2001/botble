@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Member\Http\Controllers;
+namespace Botble\Member\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Platform\ACL\Traits\LogoutGuardTrait;
-use Platform\ACL\Traits\AuthenticatesUsers;
+use Botble\ACL\Traits\LogoutGuardTrait;
+use Botble\ACL\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;

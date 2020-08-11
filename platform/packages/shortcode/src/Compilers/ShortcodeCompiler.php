@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Shortcode\Compilers;
+namespace Botble\Shortcode\Compilers;
 
 use Illuminate\Support\Str;
 

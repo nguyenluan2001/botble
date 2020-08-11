@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Facades;
+namespace Botble\Base\Facades;
 
-use Platform\Base\Supports\Action;
+use Botble\Base\Supports\Action;
 use Illuminate\Support\Facades\Facade;
 
 class ActionFacade extends Facade

@@ -1,24 +1,24 @@
 {
-    "name": "platform/widget",
-    "description": "Widget package for Laravel CMS application",
+    "name": "botble/widget",
+    "description": "Widget package for Botble CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Platform\\Widget\\": "src"
+            "Botble\\Widget\\": "src"
         }
     },
     "require": {
-        "platform/platform": "*@dev",
-        "platform/theme": "*@dev"
+        "botble/platform": "*@dev",
+        "botble/theme": "*@dev"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\Widget\\Providers\\WidgetServiceProvider"
+                "Botble\\Widget\\Providers\\WidgetServiceProvider"
             ],
             "aliases": {
-                "Widget": "Platform\\Widget\\Facades\\WidgetFacade",
-                "WidgetGroup": "Platform\\Widget\\Facades\\WidgetGroupFacade"
+                "Widget": "Botble\\Widget\\Facades\\WidgetFacade",
+                "WidgetGroup": "Botble\\Widget\\Facades\\WidgetGroupFacade"
             }
         }
     }

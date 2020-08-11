@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Slug\Traits;
+namespace Botble\Slug\Traits;
 
-use Platform\Slug\Models\Slug;
+use Botble\Slug\Models\Slug;
 use Eloquent;
 use Illuminate\Contracts\Routing\UrlGenerator;
 

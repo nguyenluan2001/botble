@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Media\Http\Controllers;
+namespace Botble\Media\Http\Controllers;
 
-use Platform\Media\Http\Requests\MediaFolderRequest;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
-use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
+use Botble\Media\Http\Requests\MediaFolderRequest;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;

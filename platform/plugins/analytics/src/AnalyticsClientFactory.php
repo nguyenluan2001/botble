@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\Analytics;
+namespace Botble\Analytics;
 
 use Cache;
 use Google_Exception;
 use Google_Service_Analytics;
 use Illuminate\Contracts\Cache\Repository;
-use Platform\Analytics\Cache\CacheItemPool;
+use Botble\Analytics\Cache\CacheItemPool;
 
 class AnalyticsClientFactory
 {

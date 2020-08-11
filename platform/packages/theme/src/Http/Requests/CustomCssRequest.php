@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Theme\Http\Requests;
+namespace Botble\Theme\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class CustomCssRequest extends Request
 {

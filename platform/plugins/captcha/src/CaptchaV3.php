@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Captcha;
+namespace Botble\Captcha;
 
 use GuzzleHttp\Client;
 use Illuminate\Contracts\Foundation\Application;

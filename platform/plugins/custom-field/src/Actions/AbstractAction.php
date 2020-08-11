@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\CustomField\Actions;
+namespace Botble\CustomField\Actions;
 
 abstract class AbstractAction
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\AuditLog\Repositories\Interfaces;
+namespace Botble\AuditLog\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface AuditLogInterface extends RepositoryInterface
 {

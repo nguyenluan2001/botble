@@ -1,7 +1,9 @@
 let mix = require('laravel-mix');
 
-const dist = 'public/vendor/core/plugins/gallery';
-const source = './platform/plugins/gallery';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/plugins/' + directory;
+const dist = 'public/vendor/core/plugins/' + directory;
 
 mix
     .sass(source + '/resources/assets/sass/gallery.scss', dist + '/css')

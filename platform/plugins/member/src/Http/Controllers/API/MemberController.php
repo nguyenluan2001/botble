@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Member\Http\Controllers\API;
+namespace Botble\Member\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Member\Http\Resources\MemberResource;
-use Platform\Member\Repositories\Interfaces\MemberInterface;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Member\Http\Resources\MemberResource;
+use Botble\Member\Repositories\Interfaces\MemberInterface;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;

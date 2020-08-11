@@ -1,9 +1,9 @@
 {
     "name": "Language",
-    "namespace": "Platform\\Language\\",
-    "provider": "Platform\\Language\\Providers\\LanguageServiceProvider",
-    "author": "Laravel Technologies",
-    "url": "https://laravel-cms.gistensal.com",
+    "namespace": "Botble\\Language\\",
+    "provider": "Botble\\Language\\Providers\\LanguageServiceProvider",
+    "author": "Botble Technologies",
+    "url": "https://botble.com",
     "version": "5.7",
-    "description": "Multilingual for Laravel CMS"
+    "description": "Multilingual for Botble CMS"
 }

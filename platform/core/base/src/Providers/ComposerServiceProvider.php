@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Base\Providers;
+namespace Botble\Base\Providers;
 
 use Assets;
-use Platform\ACL\Models\UserMeta;
+use Botble\ACL\Models\UserMeta;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;

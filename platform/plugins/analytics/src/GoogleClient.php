@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Analytics;
+namespace Botble\Analytics;
 
 use Google_Client;
 use Google_Exception;

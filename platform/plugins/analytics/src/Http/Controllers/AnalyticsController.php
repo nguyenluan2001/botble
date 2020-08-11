@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Analytics\Http\Controllers;
+namespace Botble\Analytics\Http\Controllers;
 
-use Platform\Analytics\Exceptions\InvalidConfiguration;
-use Platform\Analytics\Period;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
+use Botble\Analytics\Exceptions\InvalidConfiguration;
+use Botble\Analytics\Period;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Analytics;
 use Carbon\Carbon;
 use Exception;

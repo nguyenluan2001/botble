@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\WidgetGenerator\Commands;
+namespace Botble\WidgetGenerator\Commands;
 
-use Platform\DevTool\Commands\Abstracts\BaseMakeCommand;
+use Botble\DevTool\Commands\Abstracts\BaseMakeCommand;
 use Illuminate\Filesystem\Filesystem as File;
 use Illuminate\Support\Str;
 use League\Flysystem\FileNotFoundException;

@@ -1,26 +1,26 @@
 {
-    "name": "platform/platform",
-    "description": "The Laravel Platform based on Laravel Framework.",
+    "name": "botble/platform",
+    "description": "The Botble Platform based on Laravel Framework.",
     "keywords": [
-        "Laravel Framework",
-        "Laravel CMS",
-        "Laravel CMS Platform"
+        "botble",
+        "botble cms",
+        "botble platform"
     ],
-    "homepage": "https://laravel-cms.gistensal.com",
+    "homepage": "https://botble.com",
     "support": {
-        "issues": "https://laravel-cms.gistensal.com",
-        "document": "https://docs.laravel-cms.gistensal.com"
+        "issues": "https://botble.ticksy.com",
+        "document": "https://docs.botble.com"
     },
     "authors": [
         {
-            "name": "Laravel Technologies",
-            "email": "contact@laravel-cms.gistensal.com"
+            "name": "Botble Technologies",
+            "email": "contact@botble.com"
         }
     ],
     "type": "project",
     "require": {
         "barryvdh/laravel-dompdf": "^0.8.6",
-        "platform/assets": "*@dev",
+        "botble/assets": "^1.0",
         "intervention/image": "^2.4",
         "kris/laravel-form-builder": "^1.30",
         "laravelcollective/html": "^6.1",
@@ -33,45 +33,45 @@
     },
     "autoload": {
         "psr-4": {
-            "Platform\\Support\\": "support/src",
-            "Platform\\ACL\\": "acl/src",
-            "Platform\\Base\\": "base/src",
-            "Platform\\Dashboard\\": "dashboard/src",
-            "Platform\\Media\\": "media/src",
-            "Platform\\Setting\\": "setting/src",
-            "Platform\\Table\\": "table/src",
-            "Platform\\JsValidation\\": "js-validation/src",
-            "Platform\\Chart\\": "chart/src"
+            "Botble\\Support\\": "support/src",
+            "Botble\\ACL\\": "acl/src",
+            "Botble\\Base\\": "base/src",
+            "Botble\\Dashboard\\": "dashboard/src",
+            "Botble\\Media\\": "media/src",
+            "Botble\\Setting\\": "setting/src",
+            "Botble\\Table\\": "table/src",
+            "Botble\\JsValidation\\": "js-validation/src",
+            "Botble\\Chart\\": "chart/src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\Base\\Providers\\BaseServiceProvider",
-                "Platform\\Base\\Providers\\CommandServiceProvider",
-                "Platform\\Base\\Providers\\EventServiceProvider",
-                "Platform\\Base\\Providers\\BreadcrumbsServiceProvider",
-                "Platform\\Base\\Providers\\ComposerServiceProvider",
-                "Platform\\Base\\Providers\\MailConfigServiceProvider",
-                "Platform\\Base\\Providers\\FormServiceProvider",
-                "Platform\\Support\\Providers\\SupportServiceProvider",
-                "Platform\\Table\\Providers\\TableServiceProvider",
-                "Platform\\ACL\\Providers\\AclServiceProvider",
-                "Platform\\Dashboard\\Providers\\DashboardServiceProvider",
-                "Platform\\Media\\Providers\\MediaServiceProvider",
-                "Platform\\JsValidation\\Providers\\JsValidationServiceProvider",
-                "Platform\\Chart\\Providers\\ChartServiceProvider"
+                "Botble\\Base\\Providers\\BaseServiceProvider",
+                "Botble\\Base\\Providers\\CommandServiceProvider",
+                "Botble\\Base\\Providers\\EventServiceProvider",
+                "Botble\\Base\\Providers\\BreadcrumbsServiceProvider",
+                "Botble\\Base\\Providers\\ComposerServiceProvider",
+                "Botble\\Base\\Providers\\MailConfigServiceProvider",
+                "Botble\\Base\\Providers\\FormServiceProvider",
+                "Botble\\Support\\Providers\\SupportServiceProvider",
+                "Botble\\Table\\Providers\\TableServiceProvider",
+                "Botble\\ACL\\Providers\\AclServiceProvider",
+                "Botble\\Dashboard\\Providers\\DashboardServiceProvider",
+                "Botble\\Media\\Providers\\MediaServiceProvider",
+                "Botble\\JsValidation\\Providers\\JsValidationServiceProvider",
+                "Botble\\Chart\\Providers\\ChartServiceProvider"
             ],
             "aliases": {
-                "Assets": "Platform\\Base\\Facades\\AssetsFacade",
-                "MetaBox": "Platform\\Base\\Facades\\MetaBoxFacade",
-                "Action": "Platform\\Base\\Facades\\ActionFacade",
-                "Filter": "Platform\\Base\\Facades\\FilterFacade",
-                "EmailHandler": "Platform\\Base\\Facades\\EmailHandlerFacade",
-                "DashboardMenu": "Platform\\Base\\Facades\\DashboardMenuFacade",
-                "MailVariable": "Platform\\Base\\Facades\\MailVariableFacade",
-                "Breadcrumbs": "Platform\\Base\\Facades\\BreadcrumbsFacade",
-                "JsValidator": "Platform\\JsValidation\\Facades\\JsValidatorFacade"
+                "Assets": "Botble\\Base\\Facades\\AssetsFacade",
+                "MetaBox": "Botble\\Base\\Facades\\MetaBoxFacade",
+                "Action": "Botble\\Base\\Facades\\ActionFacade",
+                "Filter": "Botble\\Base\\Facades\\FilterFacade",
+                "EmailHandler": "Botble\\Base\\Facades\\EmailHandlerFacade",
+                "DashboardMenu": "Botble\\Base\\Facades\\DashboardMenuFacade",
+                "MailVariable": "Botble\\Base\\Facades\\MailVariableFacade",
+                "Breadcrumbs": "Botble\\Base\\Facades\\BreadcrumbsFacade",
+                "JsValidator": "Botble\\JsValidation\\Facades\\JsValidatorFacade"
             }
         }
     },

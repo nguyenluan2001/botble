@@ -1,16 +1,12 @@
 <?php
 
-namespace Platform\PluginManagement\Commands;
+namespace Botble\PluginManagement\Commands;
 
-use Platform\PluginManagement\Services\PluginService;
+use Botble\PluginManagement\Services\PluginService;
 use Illuminate\Console\Command;
 
 class PluginAssetsPublishCommand extends Command
 {
-    /**
-     * @var PluginService
-     */
-    public $pluginService;
 
     /**
      * The console command name.
@@ -25,6 +21,11 @@ class PluginAssetsPublishCommand extends Command
      * @var string
      */
     protected $description = 'Publish assets for a plugin';
+
+    /**
+     * @var PluginService
+     */
+    protected $pluginService;
 
     /**
      * PluginAssetsPublishCommand constructor.

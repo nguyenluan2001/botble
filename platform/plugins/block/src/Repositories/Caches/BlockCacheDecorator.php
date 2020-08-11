@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Block\Repositories\Caches;
+namespace Botble\Block\Repositories\Caches;
 
-use Platform\Support\Repositories\Caches\CacheAbstractDecorator;
-use Platform\Block\Repositories\Interfaces\BlockInterface;
+use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
+use Botble\Block\Repositories\Interfaces\BlockInterface;
 
 class BlockCacheDecorator extends CacheAbstractDecorator implements BlockInterface
 {

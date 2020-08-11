@@ -11,8 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/packages/revision';
-const dist = 'public/vendor/core/packages/revision';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/packages/' + directory;
+const dist = 'public/vendor/core/packages/' + directory;
 
 mix
     .sass(source + '/resources/assets/sass/revision.scss', dist + '/css')

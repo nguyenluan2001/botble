@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Chart\Supports;
+namespace Botble\Chart\Supports;
 
 class Chart extends Base
 {

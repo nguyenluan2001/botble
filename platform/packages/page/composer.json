@@ -1,20 +1,20 @@
 {
-    "name": "platform/page",
-    "description": "Page package for Laravel CMS application",
+    "name": "botble/page",
+    "description": "Page package for Botble CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Platform\\Page\\": "src"
+            "Botble\\Page\\": "src"
         }
     },
     "require": {
-        "platform/platform": "*@dev",
-        "platform/revision": "*@dev"
+        "botble/platform": "*@dev",
+        "botble/revision": "*@dev"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\Page\\Providers\\PageServiceProvider"
+                "Botble\\Page\\Providers\\PageServiceProvider"
             ]
         }
     }

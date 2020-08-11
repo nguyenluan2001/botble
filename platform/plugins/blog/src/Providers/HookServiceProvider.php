@@ -1,20 +1,20 @@
 <?php
 
-namespace Platform\Blog\Providers;
+namespace Botble\Blog\Providers;
 
 use Assets;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Supports\Helper;
-use Platform\Blog\Models\Category;
-use Platform\Blog\Models\Post;
-use Platform\Blog\Models\Tag;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Platform\Blog\Repositories\Interfaces\TagInterface;
-use Platform\Dashboard\Supports\DashboardWidgetInstance;
-use Platform\Page\Models\Page;
-use Platform\Page\Repositories\Interfaces\PageInterface;
-use Platform\SeoHelper\SeoOpenGraph;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Supports\Helper;
+use Botble\Blog\Models\Category;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Models\Tag;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
+use Botble\Page\Models\Page;
+use Botble\Page\Repositories\Interfaces\PageInterface;
+use Botble\SeoHelper\SeoOpenGraph;
 use Eloquent;
 use Event;
 use Html;

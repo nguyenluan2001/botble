@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\AuditLog\Models;
+namespace Botble\AuditLog\Models;
 
-use Platform\ACL\Models\User;
-use Platform\Base\Models\BaseModel;
+use Botble\ACL\Models\User;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AuditHistory extends BaseModel

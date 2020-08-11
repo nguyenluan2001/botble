@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Media\Commands;
+namespace Botble\Media\Commands;
 
-use Platform\Media\Repositories\Eloquent\MediaFileRepository;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Media\Repositories\Eloquent\MediaFileRepository;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;

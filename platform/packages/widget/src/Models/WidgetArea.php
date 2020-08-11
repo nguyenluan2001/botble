@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Widget\Models;
+namespace Botble\Widget\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 
 class WidgetArea extends BaseModel
 {

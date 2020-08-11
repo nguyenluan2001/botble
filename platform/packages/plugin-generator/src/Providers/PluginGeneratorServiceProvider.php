@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\PluginGenerator\Providers;
+namespace Botble\PluginGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

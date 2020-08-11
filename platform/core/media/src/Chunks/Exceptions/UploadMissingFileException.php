@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Media\Chunks\Exceptions;
+namespace Botble\Media\Chunks\Exceptions;
 
 use Exception;
 

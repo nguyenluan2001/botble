@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Theme\Providers;
+namespace Botble\Theme\Providers;
 
-use Platform\Dashboard\Supports\DashboardWidgetInstance;
+use Botble\Dashboard\Supports\DashboardWidgetInstance;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Throwable;

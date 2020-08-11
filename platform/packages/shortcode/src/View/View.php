@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Shortcode\View;
+namespace Botble\Shortcode\View;
 
 use ArrayAccess;
-use Platform\Shortcode\Compilers\ShortcodeCompiler;
+use Botble\Shortcode\Compilers\ShortcodeCompiler;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\View as IlluminateView;
 

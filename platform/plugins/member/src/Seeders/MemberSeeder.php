@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Member\Seeders;
+namespace Botble\Member\Seeders;
 
-use Platform\Member\Models\Member;
+use Botble\Member\Models\Member;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +17,7 @@ class MemberSeeder extends Seeder
         Member::create([
             'first_name'   => $faker->firstName,
             'last_name'    => $faker->lastName,
-            'email'        => 'john.smith@laravel-cms.gistensal.com',
+            'email'        => 'john.smith@botble.com',
             'password'     => bcrypt('12345678'),
             'dob'          => $faker->dateTime,
             'phone'        => $faker->phoneNumber,

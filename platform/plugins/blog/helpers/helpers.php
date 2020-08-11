@@ -1,11 +1,11 @@
 <?php
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Supports\SortItemsWithChildrenHelper;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Platform\Blog\Repositories\Interfaces\TagInterface;
-use Platform\Blog\Supports\PostFormat;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Supports\SortItemsWithChildrenHelper;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Blog\Supports\PostFormat;
 use Illuminate\Support\Arr;
 
 if (!function_exists('get_featured_posts')) {

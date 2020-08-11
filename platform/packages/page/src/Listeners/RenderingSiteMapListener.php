@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Page\Listeners;
+namespace Botble\Page\Listeners;
 
-use Platform\Page\Repositories\Interfaces\PageInterface;
+use Botble\Page\Repositories\Interfaces\PageInterface;
 use SiteMapManager;
 
 class RenderingSiteMapListener

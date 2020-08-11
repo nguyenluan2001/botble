@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Member\Models\Member;
+use Botble\Member\Models\Member;
 
 return [
     'supported' => [

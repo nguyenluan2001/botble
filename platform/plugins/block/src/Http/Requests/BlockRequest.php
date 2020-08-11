@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Block\Http\Requests;
+namespace Botble\Block\Http\Requests;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Support\Http\Requests\Request;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Support\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
 class BlockRequest extends Request

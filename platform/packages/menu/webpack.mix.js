@@ -11,8 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/packages/menu';
-const dist = 'public/vendor/core/packages/menu';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/packages/' + directory;
+const dist = 'public/vendor/core/packages/' + directory;
 
 mix
     .js(source + '/resources/assets/js/menu.js', dist + '/js')

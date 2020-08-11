@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\RequestLog\Repositories\Interfaces;
+namespace Botble\RequestLog\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface RequestLogInterface extends RepositoryInterface
 {

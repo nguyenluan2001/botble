@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\SocialLogin\Http\Requests;
+namespace Botble\SocialLogin\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class SocialLoginRequest extends Request
 {

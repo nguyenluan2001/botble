@@ -4,7 +4,7 @@
             <h4>{{ $config['name'] }}</h4>
         </div>
         <div class="aside-box-content">
-            @foreach(get_popular_posts($config['number_display'], ['where' => ['status' => \Platform\Base\Enums\BaseStatusEnum::PUBLISHED, 'format_type' => 'video']]) as $post)
+            @foreach(get_popular_posts($config['number_display'], ['where' => ['status' => \Botble\Base\Enums\BaseStatusEnum::PUBLISHED, 'format_type' => 'video']]) as $post)
                 <div class="media-news media-video">
                     <a href="{{ $post->url }}"
                        class="media-news-img" title="{{ $post->name }}">

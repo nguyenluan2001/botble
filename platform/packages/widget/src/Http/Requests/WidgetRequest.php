@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Widget\Http\Requests;
+namespace Botble\Widget\Http\Requests;
 
-use Platform\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class WidgetRequest extends Request
 {

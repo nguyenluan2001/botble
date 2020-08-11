@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Gallery\Models\Gallery as GalleryModel;
+use Botble\Gallery\Models\Gallery as GalleryModel;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateLanguageMetaForGallery extends Migration

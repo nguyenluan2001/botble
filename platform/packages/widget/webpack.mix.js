@@ -11,8 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/packages/widget';
-const dist = 'public/vendor/core/packages/widget';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/packages/' + directory;
+const dist = 'public/vendor/core/packages/' + directory;
 
 mix
     .js(source + '/resources/assets/js/widget.js', dist + '/js')

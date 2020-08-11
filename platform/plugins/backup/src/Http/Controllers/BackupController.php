@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Backup\Http\Controllers;
+namespace Botble\Backup\Http\Controllers;
 
 use Assets;
-use Platform\Backup\Http\Requests\BackupRequest;
-use Platform\Backup\Supports\Backup;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Supports\Helper;
+use Botble\Backup\Http\Requests\BackupRequest;
+use Botble\Backup\Supports\Backup;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Supports\Helper;
 use Exception;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Blog\Supports;
+namespace Botble\Blog\Supports;
 
 class PostFormat
 {

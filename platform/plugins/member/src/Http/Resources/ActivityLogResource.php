@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Member\Http\Resources;
+namespace Botble\Member\Http\Resources;
 
-use Platform\Member\Models\MemberActivityLog;
+use Botble\Member\Models\MemberActivityLog;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

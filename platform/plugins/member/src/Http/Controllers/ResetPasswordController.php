@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Member\Http\Controllers;
+namespace Botble\Member\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Platform\ACL\Traits\ResetsPasswords;
+use Botble\ACL\Traits\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;

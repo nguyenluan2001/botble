@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Member\Forms\Fields;
+namespace Botble\Member\Forms\Fields;
 
-use Platform\Base\Supports\Editor;
+use Botble\Base\Supports\Editor;
 use Illuminate\Support\Arr;
 use Kris\LaravelFormBuilder\Fields\FormField;
 

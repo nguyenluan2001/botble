@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Gallery\Repositories\Eloquent;
+namespace Botble\Gallery\Repositories\Eloquent;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Gallery\Repositories\Interfaces\GalleryInterface;
 
 class GalleryRepository extends RepositoriesAbstract implements GalleryInterface
 {

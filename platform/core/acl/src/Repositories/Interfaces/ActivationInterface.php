@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\ACL\Repositories\Interfaces;
+namespace Botble\ACL\Repositories\Interfaces;
 
-use Platform\ACL\Models\Activation;
-use Platform\ACL\Models\User;
+use Botble\ACL\Models\Activation;
+use Botble\ACL\Models\User;
 
 interface ActivationInterface
 {

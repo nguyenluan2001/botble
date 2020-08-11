@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
-use Platform\Base\Repositories\Interfaces\MetaBoxInterface;
+use Botble\Base\Repositories\Interfaces\MetaBoxInterface;
 use Exception;
 use Throwable;
 

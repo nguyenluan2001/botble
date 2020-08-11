@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Revision\Providers;
+namespace Botble\Revision\Providers;
 
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Illuminate\Support\ServiceProvider;
 
 class RevisionServiceProvider extends ServiceProvider

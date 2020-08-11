@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\Member\Tables;
+namespace Botble\Member\Tables;
 
-use Platform\Blog\Models\Post;
-use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Platform\Member\Models\Member;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\Blog\Models\Post;
+use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Member\Models\Member;
+use Botble\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use RvMedia;

@@ -1,23 +1,23 @@
 {
-    "name": "platform/menu",
-    "description": "Menu package for Laravel CMS application",
+    "name": "botble/menu",
+    "description": "Menu package for Botble CMS application",
     "type": "package",
     "autoload": {
         "psr-4": {
-            "Platform\\Menu\\": "src"
+            "Botble\\Menu\\": "src"
         }
     },
     "require": {
-        "platform/platform": "*@dev",
-        "platform/theme": "*@dev"
+        "botble/platform": "*@dev",
+        "botble/theme": "*@dev"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Platform\\Menu\\Providers\\MenuServiceProvider"
+                "Botble\\Menu\\Providers\\MenuServiceProvider"
             ],
             "aliases": {
-                "Menu": "Platform\\Menu\\Facades\\MenuFacade"
+                "Menu": "Botble\\Menu\\Facades\\MenuFacade"
             }
         }
     }

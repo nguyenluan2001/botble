@@ -1,19 +1,14 @@
 <?php
 
-namespace Platform\PluginManagement\Commands;
+namespace Botble\PluginManagement\Commands;
 
-use Platform\PluginManagement\Services\PluginService;
+use Botble\PluginManagement\Services\PluginService;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 
 class PluginRemoveCommand extends Command
 {
     use ConfirmableTrait;
-
-    /**
-     * @var PluginService
-     */
-    public $pluginService;
 
     /**
      * The console command signature.
@@ -28,6 +23,11 @@ class PluginRemoveCommand extends Command
      * @var string
      */
     protected $description = 'Remove a plugin in the /platform/plugins directory.';
+
+    /**
+     * @var PluginService
+     */
+    protected $pluginService;
 
     /**
      * PluginRemoveCommand constructor.

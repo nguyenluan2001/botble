@@ -1,11 +1,11 @@
 <?php
 
-namespace Platform\ACL\Forms;
+namespace Botble\ACL\Forms;
 
-use Platform\ACL\Http\Requests\CreateUserRequest;
-use Platform\ACL\Models\User;
-use Platform\ACL\Repositories\Interfaces\RoleInterface;
-use Platform\Base\Forms\FormAbstract;
+use Botble\ACL\Http\Requests\CreateUserRequest;
+use Botble\ACL\Models\User;
+use Botble\ACL\Repositories\Interfaces\RoleInterface;
+use Botble\Base\Forms\FormAbstract;
 
 class UserForm extends FormAbstract
 {

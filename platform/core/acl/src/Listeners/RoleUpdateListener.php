@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\ACL\Listeners;
+namespace Botble\ACL\Listeners;
 
 use Exception;
 use Illuminate\Support\Facades\Auth;
-use Platform\ACL\Events\RoleUpdateEvent;
+use Botble\ACL\Events\RoleUpdateEvent;
 
 class RoleUpdateListener
 {

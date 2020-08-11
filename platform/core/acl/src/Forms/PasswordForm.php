@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\ACL\Forms;
+namespace Botble\ACL\Forms;
 
-use Platform\ACL\Http\Requests\UpdatePasswordRequest;
-use Platform\ACL\Models\User;
-use Platform\Base\Forms\FormAbstract;
+use Botble\ACL\Http\Requests\UpdatePasswordRequest;
+use Botble\ACL\Models\User;
+use Botble\Base\Forms\FormAbstract;
 use Html;
 
 class PasswordForm extends FormAbstract

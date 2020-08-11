@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Analytics;
+namespace Botble\Analytics;
 
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
-use Platform\Dashboard\Models\DashboardWidget;
-use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\Dashboard\Models\DashboardWidget;
+use Botble\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;
 use Exception;
 
 class Plugin extends PluginOperationAbstract

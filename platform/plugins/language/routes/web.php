@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Platform\Language\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Botble\Language\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'settings/languages'], function () {
             Route::get('', [

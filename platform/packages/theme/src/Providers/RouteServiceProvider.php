@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Theme\Providers;
+namespace Botble\Theme\Providers;
 
 use File;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;

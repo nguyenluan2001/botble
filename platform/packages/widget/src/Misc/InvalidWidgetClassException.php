@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Widget\Misc;
+namespace Botble\Widget\Misc;
 
-use Platform\Widget\AbstractWidget;
+use Botble\Widget\AbstractWidget;
 use Exception;
 
 class InvalidWidgetClassException extends Exception

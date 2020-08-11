@@ -1,7 +1,9 @@
 let mix = require('laravel-mix');
 
-const dist = 'public/vendor/core/plugins/member';
-const source = './platform/plugins/member';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/plugins/' + directory;
+const dist = 'public/vendor/core/plugins/' + directory;
 
 mix
     .js(source + '/resources/assets/js/member-admin.js', dist + '/js')

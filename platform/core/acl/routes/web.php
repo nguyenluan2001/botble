@@ -1,11 +1,11 @@
 <?php
 
-use Platform\ACL\Http\Controllers\Auth\ForgotPasswordController;
-use Platform\ACL\Http\Controllers\Auth\LoginController;
-use Platform\ACL\Http\Controllers\Auth\ResetPasswordController;
-use Platform\ACL\Http\Controllers\UserController;
+use Botble\ACL\Http\Controllers\Auth\ForgotPasswordController;
+use Botble\ACL\Http\Controllers\Auth\LoginController;
+use Botble\ACL\Http\Controllers\Auth\ResetPasswordController;
+use Botble\ACL\Http\Controllers\UserController;
 
-Route::group(['namespace' => 'Platform\ACL\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Botble\ACL\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(['prefix' => config('core.base.general.admin_dir')], function () {
         Route::group(['middleware' => 'guest'], function () {
 

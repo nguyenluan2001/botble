@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Widget\Widgets;
+namespace Botble\Widget\Widgets;
 
-use Platform\Widget\AbstractWidget;
+use Botble\Widget\AbstractWidget;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class Text extends AbstractWidget

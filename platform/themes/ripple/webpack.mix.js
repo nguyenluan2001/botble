@@ -1,7 +1,9 @@
 let mix = require('laravel-mix');
 
-const source = 'platform/themes/ripple';
-const dist = 'public/themes/ripple';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/themes/' + directory;
+const dist = 'public/themes/' + directory;
 
 mix
     .sass(source + '/assets/sass/style.scss', dist + '/css')

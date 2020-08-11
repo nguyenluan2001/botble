@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Theme;
+namespace Botble\Theme;
 
 use Throwable;
 use URL;

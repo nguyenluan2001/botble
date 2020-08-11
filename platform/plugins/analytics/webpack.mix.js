@@ -1,7 +1,9 @@
 let mix = require('laravel-mix');
 
-const dist = 'public/vendor/core/plugins/analytics';
-const source = './platform/plugins/analytics';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/plugins/' + directory;
+const dist = 'public/vendor/core/plugins/' + directory;
 
 mix
     .js(source + '/resources/assets/js/analytics.js', dist + '/js')

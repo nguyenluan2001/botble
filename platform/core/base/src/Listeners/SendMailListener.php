@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Base\Listeners;
+namespace Botble\Base\Listeners;
 
-use Platform\Base\Events\SendMailEvent;
-use Platform\Base\Supports\EmailAbstract;
+use Botble\Base\Events\SendMailEvent;
+use Botble\Base\Supports\EmailAbstract;
 use Exception;
 use Illuminate\Contracts\Mail\Mailer;
 use Log;

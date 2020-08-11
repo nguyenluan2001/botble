@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\SocialLogin\Supports;
+namespace Botble\SocialLogin\Supports;
 
 class SocialService
 {

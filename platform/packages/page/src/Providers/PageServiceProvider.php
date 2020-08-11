@@ -1,14 +1,14 @@
 <?php
 
-namespace Platform\Page\Providers;
+namespace Botble\Page\Providers;
 
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
-use Platform\Page\Models\Page;
-use Platform\Page\Repositories\Caches\PageCacheDecorator;
-use Platform\Page\Repositories\Eloquent\PageRepository;
-use Platform\Page\Repositories\Interfaces\PageInterface;
-use Platform\Shortcode\View\View;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Page\Models\Page;
+use Botble\Page\Repositories\Caches\PageCacheDecorator;
+use Botble\Page\Repositories\Eloquent\PageRepository;
+use Botble\Page\Repositories\Interfaces\PageInterface;
+use Botble\Shortcode\View\View;
 use Event;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\ServiceProvider;

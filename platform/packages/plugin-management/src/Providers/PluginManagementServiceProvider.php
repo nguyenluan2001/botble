@@ -1,13 +1,12 @@
 <?php
 
-namespace Platform\PluginManagement\Providers;
+namespace Botble\PluginManagement\Providers;
 
-use Platform\Base\Supports\Helper;
-use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Base\Supports\Helper;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Composer\Autoload\ClassLoader;
 use Event;
 use Exception;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\Base\Supports;
+namespace Botble\Base\Supports;
 
-use Platform\Base\Events\SendMailEvent;
-use Platform\Base\Jobs\SendMailJob;
-use Platform\Setting\Supports\SettingStore;
+use Botble\Base\Events\SendMailEvent;
+use Botble\Base\Jobs\SendMailJob;
+use Botble\Setting\Supports\SettingStore;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Arr;

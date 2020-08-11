@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Captcha\Providers;
+namespace Botble\Captcha\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

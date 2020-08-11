@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Media\Services;
+namespace Botble\Media\Services;
 
 use Exception;
 use Intervention\Image\ImageManager;

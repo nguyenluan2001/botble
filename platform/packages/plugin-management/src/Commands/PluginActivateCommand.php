@@ -1,17 +1,12 @@
 <?php
 
-namespace Platform\PluginManagement\Commands;
+namespace Botble\PluginManagement\Commands;
 
-use Platform\PluginManagement\Services\PluginService;
+use Botble\PluginManagement\Services\PluginService;
 use Illuminate\Console\Command;
 
 class PluginActivateCommand extends Command
 {
-    /**
-     * @var PluginService
-     */
-    public $pluginService;
-
     /**
      * The console command signature.
      *
@@ -24,6 +19,11 @@ class PluginActivateCommand extends Command
      * @var string
      */
     protected $description = 'Activate a plugin in /plugins directory';
+
+    /**
+     * @var PluginService
+     */
+    protected $pluginService;
 
     /**
      * PluginActivateCommand constructor.

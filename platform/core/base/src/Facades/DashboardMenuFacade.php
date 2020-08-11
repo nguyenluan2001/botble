@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Facades;
+namespace Botble\Base\Facades;
 
-use Platform\Base\Supports\DashboardMenu;
+use Botble\Base\Supports\DashboardMenu;
 use Illuminate\Support\Facades\Facade;
 
 class DashboardMenuFacade extends Facade

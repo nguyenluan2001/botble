@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\ACL\Http\Middleware;
+namespace Botble\ACL\Http\Middleware;
 
 use Closure;
 use Illuminate\Auth\AuthenticationException;

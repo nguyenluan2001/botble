@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Base\Commands;
+namespace Botble\Base\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

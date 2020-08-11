@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\ACL\Traits;
+namespace Botble\ACL\Traits;
 
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Contracts\View\Factory;

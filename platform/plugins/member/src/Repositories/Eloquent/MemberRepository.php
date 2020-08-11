@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Member\Repositories\Eloquent;
+namespace Botble\Member\Repositories\Eloquent;
 
-use Platform\Member\Repositories\Interfaces\MemberInterface;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 class MemberRepository extends RepositoriesAbstract implements MemberInterface
 {

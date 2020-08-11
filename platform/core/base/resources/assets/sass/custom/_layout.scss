@@ -23,6 +23,14 @@
                 }
             }
         }
+
+        &.action-horizontal {
+            .widget-body {
+                .btn {
+                    margin: 5px 0;
+                }
+            }
+        }
     }
 
     &.form-actions-fixed-top {

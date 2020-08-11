@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Language;
+namespace Botble\Language;
 
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
 use Schema;
 use Setting;
 

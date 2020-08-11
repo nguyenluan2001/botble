@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Facades;
+namespace Botble\Base\Facades;
 
-use Platform\Base\Supports\MetaBox;
+use Botble\Base\Supports\MetaBox;
 use Illuminate\Support\Facades\Facade;
 
 class MetaBoxFacade extends Facade

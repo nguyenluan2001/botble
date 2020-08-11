@@ -1,19 +1,19 @@
 <?php
 
-namespace Platform\Translation\Http\Controllers;
+namespace Botble\Translation\Http\Controllers;
 
 use App;
 use Assets;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Supports\Language;
-use Platform\Translation\Http\Requests\LocaleRequest;
-use Platform\Translation\Http\Requests\TranslationRequest;
-use Platform\Translation\Manager;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Supports\Language;
+use Botble\Translation\Http\Requests\LocaleRequest;
+use Botble\Translation\Http\Requests\TranslationRequest;
+use Botble\Translation\Manager;
 use DB;
 use File;
 use Illuminate\Http\Request;
-use Platform\Translation\Models\Translation;
+use Botble\Translation\Models\Translation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Schema;

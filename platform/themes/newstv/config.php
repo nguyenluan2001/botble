@@ -1,6 +1,6 @@
 <?php
 
-use Platform\Theme\Theme;
+use Botble\Theme\Theme;
 
 return [
 
@@ -63,7 +63,7 @@ return [
             }
 
             if (function_exists('shortcode')) {
-                $theme->composer(['page', 'post', 'index'], function (\Platform\Shortcode\View\View $view) {
+                $theme->composer(['page', 'post', 'index'], function (\Botble\Shortcode\View\View $view) {
                     $view->withShortcodes();
                 });
             }

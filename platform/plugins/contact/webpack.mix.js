@@ -1,7 +1,9 @@
 let mix = require('laravel-mix');
 
-const dist = 'public/vendor/core/plugins/contact';
-const source = './platform/plugins/contact';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/plugins/' + directory;
+const dist = 'public/vendor/core/plugins/' + directory;
 
 mix
     .sass(source + '/resources/assets/sass/contact.scss', dist + '/css')

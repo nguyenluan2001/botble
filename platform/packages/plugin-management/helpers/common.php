@@ -3,7 +3,6 @@
 if (!function_exists('plugin_path')) {
     /**
      * @return string
-     *
      */
     function plugin_path($path = null)
     {
@@ -13,7 +12,7 @@ if (!function_exists('plugin_path')) {
 
 if (!function_exists('is_plugin_active')) {
     /**
-     * @param $alias
+     * @param string $alias
      * @return bool
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */

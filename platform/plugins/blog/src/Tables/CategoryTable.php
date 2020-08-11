@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Blog\Tables;
+namespace Botble\Blog\Tables;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Blog\Models\Category;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Blog\Models\Category;
 use Html;
 use Illuminate\Support\Facades\Auth;
-use Platform\Blog\Repositories\Interfaces\CategoryInterface;
-use Platform\Table\Abstracts\TableAbstract;
+use Botble\Blog\Repositories\Interfaces\CategoryInterface;
+use Botble\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;
 

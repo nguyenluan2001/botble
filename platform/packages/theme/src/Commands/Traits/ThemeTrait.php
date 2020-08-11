@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Theme\Commands\Traits;
+namespace Botble\Theme\Commands\Traits;
 
 trait ThemeTrait
 {

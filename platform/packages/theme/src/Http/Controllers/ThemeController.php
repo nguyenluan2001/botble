@@ -1,15 +1,15 @@
 <?php
 
-namespace Platform\Theme\Http\Controllers;
+namespace Botble\Theme\Http\Controllers;
 
 use Assets;
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Setting\Supports\SettingStore;
-use Platform\Theme\Forms\CustomCSSForm;
-use Platform\Theme\Http\Requests\CustomCssRequest;
-use Platform\Theme\Services\ThemeService;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Setting\Supports\SettingStore;
+use Botble\Theme\Forms\CustomCSSForm;
+use Botble\Theme\Http\Requests\CustomCssRequest;
+use Botble\Theme\Services\ThemeService;
 use Exception;
 use File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

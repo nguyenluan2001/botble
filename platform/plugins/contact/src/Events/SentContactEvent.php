@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Contact\Events;
+namespace Botble\Contact\Events;
 
-use Platform\Base\Events\Event;
+use Botble\Base\Events\Event;
 use Eloquent;
 use Illuminate\Queue\SerializesModels;
 use stdClass;

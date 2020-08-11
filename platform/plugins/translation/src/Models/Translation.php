@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Translation\Models;
+namespace Botble\Translation\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 

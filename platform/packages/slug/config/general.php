@@ -3,7 +3,7 @@
 return [
     'pattern'   => '--slug--',
     'supported' => [
-        'Platform\Page\Models\Page',
+        'Botble\Page\Models\Page',
     ],
     'prefixes'  => [
 

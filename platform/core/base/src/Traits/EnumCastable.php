@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Traits;
+namespace Botble\Base\Traits;
 
-use Platform\Base\Supports\Enum;
+use Botble\Base\Supports\Enum;
 
 trait EnumCastable
 {

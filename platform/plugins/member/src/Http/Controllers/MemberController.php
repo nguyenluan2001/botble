@@ -1,21 +1,21 @@
 <?php
 
-namespace Platform\Member\Http\Controllers;
+namespace Botble\Member\Http\Controllers;
 
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Traits\HasDeleteManyItemsTrait;
-use Platform\Member\Forms\MemberForm;
-use Platform\Member\Tables\MemberTable;
-use Platform\Member\Http\Requests\MemberCreateRequest;
-use Platform\Member\Http\Requests\MemberEditRequest;
-use Platform\Member\Repositories\Interfaces\MemberInterface;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Traits\HasDeleteManyItemsTrait;
+use Botble\Member\Forms\MemberForm;
+use Botble\Member\Tables\MemberTable;
+use Botble\Member\Http\Requests\MemberCreateRequest;
+use Botble\Member\Http\Requests\MemberEditRequest;
+use Botble\Member\Repositories\Interfaces\MemberInterface;
 use Exception;
 use Illuminate\Http\Request;
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
+use Botble\Base\Events\CreatedContentEvent;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Base\Events\UpdatedContentEvent;
 
 class MemberController extends BaseController
 {

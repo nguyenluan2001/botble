@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Member\Http\Resources;
+namespace Botble\Member\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

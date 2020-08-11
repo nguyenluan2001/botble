@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Page\Repositories\Interfaces;
+namespace Botble\Page\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface PageInterface extends RepositoryInterface
 {

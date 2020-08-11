@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Menu;
+namespace Botble\Menu;
 
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Menu\Repositories\Eloquent\MenuRepository;
-use Platform\Menu\Repositories\Interfaces\MenuInterface;
-use Platform\Menu\Repositories\Interfaces\MenuLocationInterface;
-use Platform\Menu\Repositories\Interfaces\MenuNodeInterface;
-use Platform\Support\Services\Cache\Cache;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Menu\Repositories\Eloquent\MenuRepository;
+use Botble\Menu\Repositories\Interfaces\MenuInterface;
+use Botble\Menu\Repositories\Interfaces\MenuLocationInterface;
+use Botble\Menu\Repositories\Interfaces\MenuNodeInterface;
+use Botble\Support\Services\Cache\Cache;
 use Collective\Html\HtmlBuilder;
 use Exception;
 use Illuminate\Cache\CacheManager;

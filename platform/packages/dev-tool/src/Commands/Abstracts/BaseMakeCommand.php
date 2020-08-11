@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\DevTool\Commands\Abstracts;
+namespace Botble\DevTool\Commands\Abstracts;
 
 use File;
 use Illuminate\Console\Command;

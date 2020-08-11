@@ -1,12 +1,12 @@
 <?php
 
-namespace Platform\Gallery\Models;
+namespace Botble\Gallery\Models;
 
-use Platform\ACL\Models\User;
-use Platform\Base\Enums\BaseStatusEnum;
-use Platform\Base\Traits\EnumCastable;
-use Platform\Slug\Traits\SlugTrait;
-use Platform\Base\Models\BaseModel;
+use Botble\ACL\Models\User;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Traits\EnumCastable;
+use Botble\Slug\Traits\SlugTrait;
+use Botble\Base\Models\BaseModel;
 
 class Gallery extends BaseModel
 {

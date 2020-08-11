@@ -1,18 +1,13 @@
 <?php
 
-namespace Platform\PluginManagement\Commands;
+namespace Botble\PluginManagement\Commands;
 
-use Platform\PluginManagement\Services\PluginService;
+use Botble\PluginManagement\Services\PluginService;
 use Exception;
 use Illuminate\Console\Command;
 
 class PluginDeactivateCommand extends Command
 {
-    /**
-     * @var PluginService
-     */
-    public $pluginService;
-
     /**
      * The console command signature.
      *
@@ -26,6 +21,11 @@ class PluginDeactivateCommand extends Command
      * @var string
      */
     protected $description = 'Deactivate a plugin in /plugins directory';
+
+    /**
+     * @var PluginService
+     */
+    protected $pluginService;
 
     /**
      * PluginDeactivateCommand constructor.

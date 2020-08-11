@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Base\Facades;
+namespace Botble\Base\Facades;
 
-use Platform\Base\Supports\Assets;
+use Botble\Base\Supports\Assets;
 use Illuminate\Support\Facades\Facade;
 
 class AssetsFacade extends Facade

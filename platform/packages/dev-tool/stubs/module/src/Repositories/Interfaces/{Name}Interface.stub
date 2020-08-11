@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\{Module}\Repositories\Interfaces;
+namespace Botble\{Module}\Repositories\Interfaces;
 
-use Platform\Support\Repositories\Interfaces\RepositoryInterface;
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
 interface {Name}Interface extends RepositoryInterface
 {

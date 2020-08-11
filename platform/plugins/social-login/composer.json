@@ -1,5 +1,5 @@
 {
-  "name": "platform/social-login",
+  "name": "botble/social-login",
   "description": "Social login plugin",
   "type": "package",
   "require": {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Platform\Media\Http\Controllers;
+namespace Botble\Media\Http\Controllers;
 
-use Platform\Media\Http\Resources\FileResource;
-use Platform\Media\Http\Resources\FolderResource;
-use Platform\Media\Models\MediaFile;
-use Platform\Media\Models\MediaFolder;
-use Platform\Media\Repositories\Interfaces\MediaFileInterface;
-use Platform\Media\Repositories\Interfaces\MediaFolderInterface;
-use Platform\Media\Repositories\Interfaces\MediaSettingInterface;
-use Platform\Media\Services\UploadsManager;
-use Platform\Media\Supports\Zipper;
+use Botble\Media\Http\Resources\FileResource;
+use Botble\Media\Http\Resources\FolderResource;
+use Botble\Media\Models\MediaFile;
+use Botble\Media\Models\MediaFolder;
+use Botble\Media\Repositories\Interfaces\MediaFileInterface;
+use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
+use Botble\Media\Repositories\Interfaces\MediaSettingInterface;
+use Botble\Media\Services\UploadsManager;
+use Botble\Media\Supports\Zipper;
 use Eloquent;
 use Exception;
 use File;

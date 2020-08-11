@@ -1,10 +1,10 @@
 <?php
 
-namespace Platform\ACL\Services;
+namespace Botble\ACL\Services;
 
 use Auth;
-use Platform\ACL\Repositories\Interfaces\UserInterface;
-use Platform\Support\Services\ProduceServiceInterface;
+use Botble\ACL\Repositories\Interfaces\UserInterface;
+use Botble\Support\Services\ProduceServiceInterface;
 use Exception;
 use Hash;
 use Illuminate\Http\Request;

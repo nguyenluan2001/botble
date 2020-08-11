@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Sitemap;
+namespace Botble\Sitemap;
 
 use Carbon\Carbon;
 use DateTime;

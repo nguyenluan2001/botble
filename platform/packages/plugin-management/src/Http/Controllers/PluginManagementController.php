@@ -1,13 +1,12 @@
 <?php
 
-namespace Platform\PluginManagement\Http\Controllers;
+namespace Botble\PluginManagement\Http\Controllers;
 
 use Assets;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\PluginManagement\Services\PluginService;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\PluginManagement\Services\PluginService;
 use Exception;
 use File;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Arr;

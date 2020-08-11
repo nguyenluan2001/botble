@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\Theme\Services;
+namespace Botble\Theme\Services;
 
-use Platform\Base\Supports\Helper;
-use Platform\PluginManagement\Services\PluginService;
-use Platform\Setting\Repositories\Interfaces\SettingInterface;
-use Platform\Setting\Supports\SettingStore;
-use Platform\Theme\Events\ThemeRemoveEvent;
-use Platform\Widget\Repositories\Interfaces\WidgetInterface;
+use Botble\Base\Supports\Helper;
+use Botble\PluginManagement\Services\PluginService;
+use Botble\Setting\Repositories\Interfaces\SettingInterface;
+use Botble\Setting\Supports\SettingStore;
+use Botble\Theme\Events\ThemeRemoveEvent;
+use Botble\Widget\Repositories\Interfaces\WidgetInterface;
 use Exception;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;

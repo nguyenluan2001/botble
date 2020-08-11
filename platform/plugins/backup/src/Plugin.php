@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Backup;
+namespace Botble\Backup;
 
-use Platform\PluginManagement\Abstracts\PluginOperationAbstract;
+use Botble\PluginManagement\Abstracts\PluginOperationAbstract;
 use File;
 
 class Plugin extends PluginOperationAbstract

@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\Api\Http\Middleware;
+namespace Botble\Api\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

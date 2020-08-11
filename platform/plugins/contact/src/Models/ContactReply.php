@@ -1,8 +1,8 @@
 <?php
 
-namespace Platform\Contact\Models;
+namespace Botble\Contact\Models;
 
-use Platform\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 
 class ContactReply extends BaseModel
 {

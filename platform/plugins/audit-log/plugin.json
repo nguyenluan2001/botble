@@ -1,9 +1,9 @@
 {
     "name": "Audit Log",
-    "namespace": "Platform\\AuditLog\\",
-    "provider": "Platform\\AuditLog\\Providers\\AuditLogServiceProvider",
-    "author": "Laravel Technologies",
-    "url": "https://laravel-cms.gistensal.com",
+    "namespace": "Botble\\AuditLog\\",
+    "provider": "Botble\\AuditLog\\Providers\\AuditLogServiceProvider",
+    "author": "Botble Technologies",
+    "url": "https://botble.com",
     "version": "5.7",
     "description": "Record activities logs"
 }

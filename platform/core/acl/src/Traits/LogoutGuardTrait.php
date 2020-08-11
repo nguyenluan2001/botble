@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\ACL\Traits;
+namespace Botble\ACL\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

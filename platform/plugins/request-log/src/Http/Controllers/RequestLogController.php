@@ -1,13 +1,13 @@
 <?php
 
-namespace Platform\RequestLog\Http\Controllers;
+namespace Botble\RequestLog\Http\Controllers;
 
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Base\Traits\HasDeleteManyItemsTrait;
-use Platform\RequestLog\Repositories\Interfaces\RequestLogInterface;
-use Platform\RequestLog\Tables\RequestLogTable;
+use Botble\Base\Events\DeletedContentEvent;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Traits\HasDeleteManyItemsTrait;
+use Botble\RequestLog\Repositories\Interfaces\RequestLogInterface;
+use Botble\RequestLog\Tables\RequestLogTable;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;

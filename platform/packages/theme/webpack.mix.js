@@ -11,8 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/packages/theme';
-const dist = 'public/vendor/core/packages/theme';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/packages/' + directory;
+const dist = 'public/vendor/core/packages/' + directory;
 
 mix
     .js(source + '/resources/assets/js/custom-css.js', dist + '/js')

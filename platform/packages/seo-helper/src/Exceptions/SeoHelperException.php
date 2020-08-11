@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\SeoHelper\Exceptions;
+namespace Botble\SeoHelper\Exceptions;
 
 use Exception;
 

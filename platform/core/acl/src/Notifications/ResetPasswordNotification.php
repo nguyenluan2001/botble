@@ -1,6 +1,6 @@
 <?php
 
-namespace Platform\ACL\Notifications;
+namespace Botble\ACL\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;

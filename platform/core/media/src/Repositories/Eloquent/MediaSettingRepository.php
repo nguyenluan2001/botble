@@ -1,9 +1,9 @@
 <?php
 
-namespace Platform\Media\Repositories\Eloquent;
+namespace Botble\Media\Repositories\Eloquent;
 
-use Platform\Media\Repositories\Interfaces\MediaSettingInterface;
-use Platform\Support\Repositories\Eloquent\RepositoriesAbstract;
+use Botble\Media\Repositories\Interfaces\MediaSettingInterface;
+use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 
 class MediaSettingRepository extends RepositoriesAbstract implements MediaSettingInterface
 {

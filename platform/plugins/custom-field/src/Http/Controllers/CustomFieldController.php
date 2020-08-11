@@ -1,22 +1,22 @@
 <?php
 
-namespace Platform\CustomField\Http\Controllers;
+namespace Botble\CustomField\Http\Controllers;
 
 use Assets;
-use Platform\Base\Forms\FormBuilder;
-use Platform\Base\Http\Controllers\BaseController;
-use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\CustomField\Actions\CreateCustomFieldAction;
-use Platform\CustomField\Actions\DeleteCustomFieldAction;
-use Platform\CustomField\Actions\ExportCustomFieldsAction;
-use Platform\CustomField\Actions\ImportCustomFieldsAction;
-use Platform\CustomField\Actions\UpdateCustomFieldAction;
-use Platform\CustomField\Forms\CustomFieldForm;
-use Platform\CustomField\Tables\CustomFieldTable;
-use Platform\CustomField\Http\Requests\CreateFieldGroupRequest;
-use Platform\CustomField\Http\Requests\UpdateFieldGroupRequest;
-use Platform\CustomField\Repositories\Interfaces\FieldItemInterface;
-use Platform\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\Base\Forms\FormBuilder;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\CustomField\Actions\CreateCustomFieldAction;
+use Botble\CustomField\Actions\DeleteCustomFieldAction;
+use Botble\CustomField\Actions\ExportCustomFieldsAction;
+use Botble\CustomField\Actions\ImportCustomFieldsAction;
+use Botble\CustomField\Actions\UpdateCustomFieldAction;
+use Botble\CustomField\Forms\CustomFieldForm;
+use Botble\CustomField\Http\Requests\CreateFieldGroupRequest;
+use Botble\CustomField\Http\Requests\UpdateFieldGroupRequest;
+use Botble\CustomField\Repositories\Interfaces\FieldGroupInterface;
+use Botble\CustomField\Repositories\Interfaces\FieldItemInterface;
+use Botble\CustomField\Tables\CustomFieldTable;
 use CustomField;
 use Exception;
 use Illuminate\Contracts\View\Factory;
@@ -92,15 +92,15 @@ class CustomFieldController extends BaseController
     {
         $result = $action->run($request->input());
 
-        $is_error = false;
+        $hasError = false;
         $message = trans('core/base::notices.create_success_message');
         if ($result['error']) {
-            $is_error = true;
+            $hasError = true;
             $message = $result['message'];
         }
 
         return $response
-            ->setError($is_error)
+            ->setError($hasError)
             ->setPreviousUrl(route('custom-fields.index'))
             ->setNextUrl(route('custom-fields.edit', $result['data']['id']))
             ->setMessage($message);
@@ -168,11 +168,11 @@ class CustomFieldController extends BaseController
     {
         try {
             $action->run($id);
-            return $response->setMessage(trans('plugins/custom-field::field-groups.deleted'));
-        } catch (Exception $ex) {
+            return $response->setMessage(trans('core/base::notices.delete_success_message'));
+        } catch (Exception $exception) {
             return $response
                 ->setError()
-                ->setMessage(trans('plugins/custom-field::field-groups.cannot_delete'));
+                ->setMessage($exception->getMessage());
         }
     }
 
@@ -189,14 +189,14 @@ class CustomFieldController extends BaseController
         if (empty($ids)) {
             return $response
                 ->setError()
-                ->setMessage(trans('plugins/custom-field::field-groups.notices.no_select'));
+                ->setMessage(trans('core/base::notices.no_select'));
         }
 
         foreach ($ids as $id) {
             $action->run($id);
         }
 
-        return $response->setMessage(trans('plugins/custom-field::field-groups.field_group_deleted'));
+        return $response->setMessage(trans('core/base::notices.delete_success_message'));
     }
 
     /**
@@ -228,7 +228,6 @@ class CustomFieldController extends BaseController
      * @param ImportCustomFieldsAction $action
      * @param Request $request
      * @return array
-     * @throws Exception
      * @throws Exception
      */
     public function postImport(ImportCustomFieldsAction $action, Request $request)

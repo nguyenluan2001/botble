@@ -11,11 +11,13 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/packages/plugin-management';
-const dist = 'public/vendor/core/packages/plugin-management';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/packages/' + directory;
+const dist = 'public/vendor/core/packages/' + directory;
 
 mix
     .js(source + '/resources/assets/js/plugin.js', dist + '/js')
-    .copy(dist + '/js/plugin.js', source + '/public/js')
     .sass(source + '/resources/assets/sass/plugin.scss', dist + '/css')
+    .copy(dist + '/js/plugin.js', source + '/public/js')
     .copy(dist + '/css/plugin.css', source + '/public/css');

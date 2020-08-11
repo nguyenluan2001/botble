@@ -1,7 +1,9 @@
 let mix = require('laravel-mix');
 
-const source = 'platform/plugins/cookie-consent';
-const dist = 'public/vendor/core/plugins/cookie-consent';
+let directory = __dirname.substring(__dirname.lastIndexOf('/') + 1, __dirname.length);
+
+const source = 'platform/plugins/' + directory;
+const dist = 'public/vendor/core/plugins/' + directory;
 
 mix
     .sass(source + '/resources/assets/sass/cookie-consent.scss', dist + '/css')
