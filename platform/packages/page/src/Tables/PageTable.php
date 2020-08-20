@@ -2,6 +2,7 @@
 
 namespace Platform\Page\Tables;
 
+use BaseHelper;
 use Platform\Page\Models\Page;
 use Illuminate\Support\Facades\Auth;
 use Platform\Base\Enums\BaseStatusEnum;
@@ -68,13 +69,13 @@ class PageTable extends TableAbstract
                 return apply_filters(PAGE_FILTER_PAGE_NAME_IN_ADMIN_LIST, $name, $item);
             })
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('template', function ($item) use ($pageTemplates) {
                 return Arr::get($pageTemplates, $item->template);
             })
             ->editColumn('created_at', function ($item) {
-                return date_from_database($item->created_at, config('core.base.general.date_format.date'));
+                return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('status', function ($item) {
                 return $item->status->toHtml();
@@ -82,7 +83,7 @@ class PageTable extends TableAbstract
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                return table_actions('pages.edit', 'pages.destroy', $item);
+                return $this->getOperations('pages.edit', 'pages.destroy', $item);
             })
             ->escapeColumns([])
             ->make(true);

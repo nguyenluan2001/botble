@@ -3,8 +3,6 @@
 namespace Platform\Table\Abstracts;
 
 use Assets;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
 use Platform\Base\Events\UpdatedContentEvent;
 use Platform\Support\Repositories\Interfaces\RepositoryInterface;
 use Platform\Table\Supports\TableExportHandler;
@@ -14,12 +12,14 @@ use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Request;
 use Throwable;
-use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Services\DataTable;
 
 abstract class TableAbstract extends DataTable
 {
@@ -367,6 +367,19 @@ abstract class TableAbstract extends DataTable
     }
 
     /**
+     * @param string|null $edit
+     * @param string|null $delete
+     * @param mixed $item
+     * @param string|null $extra
+     * @return string
+     * @throws Throwable
+     */
+    protected function getOperations(?string $edit, ?string $delete, $item, ?string $extra = null): string
+    {
+        return table_actions($edit, $delete, $item, $extra);
+    }
+
+    /**
      * @return array
      */
     public function getCheckboxColumnHeading()
@@ -385,6 +398,16 @@ abstract class TableAbstract extends DataTable
                 'printable'  => false,
             ],
         ];
+    }
+
+    /**
+     * @param int $id
+     * @return string
+     * @throws Throwable
+     */
+    protected function getCheckbox($id): string
+    {
+        return table_checkbox($id);
     }
 
     /**
@@ -477,8 +500,8 @@ abstract class TableAbstract extends DataTable
 
     /**
      * @return array
-     * @since 2.1
      * @throws \Throwable
+     * @since 2.1
      */
     public function buttons()
     {
@@ -922,8 +945,8 @@ abstract class TableAbstract extends DataTable
      * @param array $buttons
      * @param string $url
      * @param null|string $permission
-     * @throws Throwable
      * @return array
+     * @throws Throwable
      */
     protected function addCreateButton(string $url, $permission = null, array $buttons = []): array
     {

@@ -18,7 +18,7 @@
                             <td style="min-width: 145px;">{{ $history->fieldName() }}</td>
                             <td>{{ $history->oldValue() }}</td>
                             <td><span class="html-diff-content" data-original="{{ $history->oldValue() }}">{{ $history->newValue() }}</span></td>
-                            <td style="min-width: 145px;">{{ date_from_database($history->created_at, config('core.base.general.date_format.date_time')) }}</td>
+                            <td style="min-width: 145px;">{{ BaseHelper::formatDate($history->created_at, config('core.base.general.date_format.date_time')) }}</td>
                         </tr>
                     @endforeach
                 @else

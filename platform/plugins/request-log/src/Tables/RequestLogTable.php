@@ -52,7 +52,7 @@ class RequestLogTable extends TableAbstract
         $data = $this->table
             ->eloquent($this->query())
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('url', function ($item) {
                 return Html::link($item->url, $item->url, ['target' => '_blank'])->toHtml();
@@ -60,7 +60,7 @@ class RequestLogTable extends TableAbstract
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                return table_actions(null, 'request-log.destroy', $item);
+                return $this->getOperations(null, 'request-log.destroy', $item);
             })
             ->escapeColumns([])
             ->make(true);

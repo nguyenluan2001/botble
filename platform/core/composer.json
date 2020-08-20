@@ -64,6 +64,7 @@
             ],
             "aliases": {
                 "Assets": "Platform\\Base\\Facades\\AssetsFacade",
+                "BaseHelper": "Platform\\Base\\Facades\\BaseHelperFacade",
                 "MetaBox": "Platform\\Base\\Facades\\MetaBoxFacade",
                 "Action": "Platform\\Base\\Facades\\ActionFacade",
                 "Filter": "Platform\\Base\\Facades\\FilterFacade",

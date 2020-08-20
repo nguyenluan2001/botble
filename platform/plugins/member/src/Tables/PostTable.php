@@ -2,6 +2,7 @@
 
 namespace Platform\Member\Tables;
 
+use BaseHelper;
 use Platform\Blog\Models\Post;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Member\Models\Member;
@@ -54,10 +55,10 @@ class PostTable extends TableAbstract
                     $item->name, ['width' => 50]);
             })
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('created_at', function ($item) {
-                return date_from_database($item->created_at, config('core.base.general.date_format.date'));
+                return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('updated_at', function ($item) {
                 return implode(', ', $item->categories->pluck('name')->all());

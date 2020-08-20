@@ -139,9 +139,19 @@ body {
             border: 2px solid rgba(28, 43, 54, .07);
             border-radius: 3px;
             padding: 7px 12px 4px;
-            overflow: hidden;
             transition: border .3s ease-in;
             font-weight: 400;
+
+            &.has-error {
+                margin-bottom: 30px;
+                border-color: #ed6b75;
+                .help-block {
+                    position: absolute;
+                    top: 45px;
+                    left: -5px;
+                    color: #ed6b75;
+                }
+            }
 
             &.focused {
                 border-color: #02192d;

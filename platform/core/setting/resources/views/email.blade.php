@@ -45,12 +45,12 @@
                         </div>
                         <div class="form-group">
                             <label class="text-title-field" for="email_username">{{ trans('core/setting::setting.email.username') }}</label>
-                            <input data-counter="60" type="text" class="next-input" name="email_username" id="email_username"
+                            <input data-counter="120" type="text" class="next-input" name="email_username" id="email_username"
                                    value="{{ setting('email_username', config('mail.mailers.smtp.username')) }}" placeholder="{{ trans('core/setting::setting.email.username_placeholder') }}">
                         </div>
                         <div class="form-group">
                             <label class="text-title-field" for="email_password">{{ trans('core/setting::setting.email.password')  }}</label>
-                            <input data-counter="60" type="password" class="next-input" name="email_password" id="email_password"
+                            <input data-counter="120" type="password" class="next-input" name="email_password" id="email_password"
                                    value="{{ setting('email_password', config('mail.mailers.smtp.password')) }}" placeholder="{{ trans('core/setting::setting.email.password_placeholder') }}">
                         </div>
                         <div class="form-group" style="margin-bottom: 1em;">
@@ -70,19 +70,19 @@
                     <div data-type="mailgun" class="setting-wrapper @if (setting('email_driver', config('mail.default')) !== 'mailgun') hidden @endif">
                         <div class="form-group">
                             <label class="text-title-field" for="email_mail_gun_domain">{{ trans('core/setting::setting.email.mail_gun_domain') }}</label>
-                            <input data-counter="60" type="text" class="next-input" name="email_mail_gun_domain" id="email_mail_gun_domain"
+                            <input data-counter="120" type="text" class="next-input" name="email_mail_gun_domain" id="email_mail_gun_domain"
                                    value="{{ setting('email_mail_gun_domain', config('services.mailgun.domain')) }}" placeholder="{{ trans('core/setting::setting.email.mail_gun_domain_placeholder') }}">
                         </div>
                         @if (!app()->environment('demo'))
                             <div class="form-group">
                                 <label class="text-title-field" for="email_mail_gun_secret">{{ trans('core/setting::setting.email.mail_gun_secret')  }}</label>
-                                <input data-counter="60" type="text" class="next-input" name="email_mail_gun_secret" id="email_mail_gun_secret"
+                                <input data-counter="120" type="text" class="next-input" name="email_mail_gun_secret" id="email_mail_gun_secret"
                                        value="{{ setting('email_mail_gun_secret', config('services.mailgun.secret')) }}" placeholder="{{ trans('core/setting::setting.email.mail_gun_secret_placeholder') }}">
                             </div>
                         @endif
                         <div class="form-group" style="margin-bottom: 1em;">
                             <label class="text-title-field" for="email_mail_gun_endpoint">{{ trans('core/setting::setting.email.mail_gun_endpoint') }}</label>
-                            <input data-counter="60" type="text" class="next-input" name="email_mail_gun_endpoint" id="email_mail_gun_endpoint"
+                            <input data-counter="120" type="text" class="next-input" name="email_mail_gun_endpoint" id="email_mail_gun_endpoint"
                                    value="{{ setting('email_mail_gun_endpoint', config('services.mailgun.endpoint')) }}" placeholder="{{ trans('core/setting::setting.email.mail_gun_endpoint_placeholder') }}">
                         </div>
                     </div>
@@ -90,19 +90,19 @@
                     <div data-type="ses" class="setting-wrapper @if (setting('email_driver', config('mail.default')) !== 'ses') hidden @endif">
                         <div class="form-group">
                             <label class="text-title-field" for="email_ses_key">{{ trans('core/setting::setting.email.ses_key') }}</label>
-                            <input data-counter="60" type="text" class="next-input" name="email_ses_key" id="email_ses_key"
+                            <input data-counter="120" type="text" class="next-input" name="email_ses_key" id="email_ses_key"
                                    value="{{ setting('email_ses_key', config('services.ses.key')) }}" placeholder="{{ trans('core/setting::setting.email.ses_key_placeholder') }}">
                         </div>
                         @if (!app()->environment('demo'))
                             <div class="form-group">
                                 <label class="text-title-field" for="email_ses_secret">{{ trans('core/setting::setting.email.ses_secret')  }}</label>
-                                <input data-counter="60" type="text" class="next-input" name="email_ses_secret" id="email_ses_secret"
+                                <input data-counter="120" type="text" class="next-input" name="email_ses_secret" id="email_ses_secret"
                                        value="{{ setting('email_ses_secret', config('services.ses.secret')) }}" placeholder="{{ trans('core/setting::setting.email.ses_secret_placeholder') }}">
                             </div>
                         @endif
                         <div class="form-group" style="margin-bottom: 1em;">
                             <label class="text-title-field" for="email_ses_region">{{ trans('core/setting::setting.email.ses_region') }}</label>
-                            <input data-counter="60" type="text" class="next-input" name="email_ses_region" id="email_ses_region"
+                            <input data-counter="120" type="text" class="next-input" name="email_ses_region" id="email_ses_region"
                                    value="{{ setting('email_ses_region', config('services.ses.region')) }}" placeholder="{{ trans('core/setting::setting.email.ses_region_placeholder') }}">
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                         @if (!app()->environment('demo'))
                             <div class="form-group">
                                 <label class="text-title-field" for="email_postmark_token">{{ trans('core/setting::setting.email.postmark_token')  }}</label>
-                                <input data-counter="60" type="text" class="next-input" name="email_postmark_token" id="email_postmark_token"
+                                <input data-counter="120" type="text" class="next-input" name="email_postmark_token" id="email_postmark_token"
                                        value="{{ setting('email_postmark_token', config('services.postmark.token')) }}" placeholder="{{ trans('core/setting::setting.email.postmark_token_placeholder') }}">
                             </div>
                         @endif

@@ -65,13 +65,7 @@ class SocialLoginController extends BaseController
             try {
                 $url = $oAuth->getAvatar();
                 if ($url) {
-                    $info = pathinfo($url);
-                    $contents = file_get_contents($url);
-                    $file = '/tmp/' . $info['basename'];
-                    file_put_contents($file, $contents);
-                    $fileUpload = new UploadedFile($file, Str::slug($oAuth->getName()) . '.png', 'image/png', null,
-                        true);
-                    $result = RvMedia::handleUpload($fileUpload, 0, 'accounts');
+                    $result = RvMedia::uploadFromUrl($url, 0, 'accounts');
                     if (!$result['error']) {
                         $avatarId = $result['data']->id;
                     }

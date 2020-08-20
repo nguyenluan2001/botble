@@ -2,6 +2,7 @@
 
 namespace Platform\Gallery\Tables;
 
+use BaseHelper;
 use Platform\Gallery\Models\Gallery;
 use Illuminate\Support\Facades\Auth;
 use Platform\Base\Enums\BaseStatusEnum;
@@ -62,10 +63,10 @@ class GalleryTable extends TableAbstract
                 return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()), $item->name, ['width' => 70]);
             })
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('created_at', function ($item) {
-                return date_from_database($item->created_at, config('core.base.general.date_format.date'));
+                return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('status', function ($item) {
                 return $item->status->toHtml();
@@ -73,7 +74,7 @@ class GalleryTable extends TableAbstract
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                return table_actions('galleries.edit', 'galleries.destroy', $item);
+                return $this->getOperations('galleries.edit', 'galleries.destroy', $item);
             })
             ->escapeColumns([])
             ->make(true);

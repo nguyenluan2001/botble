@@ -375,17 +375,18 @@ class EmailHandler
      * @param string|array $email
      * @param array $args
      * @param bool $debug
+     * @param string $type
      * @return bool
      * @throws FileNotFoundException
      * @throws Throwable
      */
-    public function sendUsingTemplate(string $template, $email = null, $args = [], $debug = false)
+    public function sendUsingTemplate(string $template, $email = null, $args = [], $debug = false, $type = 'plugins')
     {
         if (!$this->templateEnabled($template)) {
             return false;
         }
 
-        $this->send($this->getTemplateContent($template), $this->getTemplateSubject($template), $email, $args, $debug);
+        $this->send($this->getTemplateContent($template, $type), $this->getTemplateSubject($template, $type), $email, $args, $debug);
 
         return true;
     }

@@ -52,7 +52,7 @@ class TableFilter {
             let $template = $(document).find('.sample-filter-item-wrap');
             let html = $template.html();
 
-            $(document).find('.filter-items-wrap').append(html);
+            $(document).find('.filter-items-wrap').append(html.replace('<script>', '').replace('<\\/script>', ''));
             Botble.initResources();
 
             let element = $(document).find('.filter-items-wrap .filter-item:last-child').find('.filter-column-key');

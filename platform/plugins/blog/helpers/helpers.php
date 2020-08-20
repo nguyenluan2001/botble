@@ -185,6 +185,7 @@ if (!function_exists('get_categories')) {
         $repo = app(CategoryInterface::class);
 
         $categories = $repo->getCategories(Arr::get($args, 'select', ['*']), [
+            'categories.created_at' => 'DESC',
             'categories.is_default' => 'DESC',
             'categories.order'      => 'ASC',
         ]);

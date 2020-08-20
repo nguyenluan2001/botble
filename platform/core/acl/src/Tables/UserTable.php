@@ -2,6 +2,7 @@
 
 namespace Platform\ACL\Tables;
 
+use BaseHelper;
 use Platform\ACL\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Platform\ACL\Enums\UserStatusEnum;
@@ -66,7 +67,7 @@ class UserTable extends TableAbstract
         $data = $this->table
             ->eloquent($this->query())
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('username', function ($item) {
                 if (!Auth::user()->hasPermission('users.edit')) {
@@ -76,7 +77,7 @@ class UserTable extends TableAbstract
                 return Html::link(route('user.profile.view', $item->id), $item->username);
             })
             ->editColumn('created_at', function ($item) {
-                return date_from_database($item->created_at, config('core.base.general.date_format.date'));
+                return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('role_name', function ($item) {
                 if (!Auth::user()->hasPermission('users.edit')) {

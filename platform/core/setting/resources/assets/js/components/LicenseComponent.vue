@@ -24,13 +24,20 @@
                             <p>Your license is invalid. Please activate your license!</p>
                         </div>
                         <div class="form-group">
-                            <label class="text-title-field"
-                                   for="purchase_code">License code</label>
-                            <input type="text" class="next-input" v-model="purchaseCode" id="purchase_code" placeholder="License code is the Purchase code if you've purchased it from Codecanyon.">
+                            <div>
+                                <div class="float-left">
+                                    <label class="text-title-field" for="purchase_code">Purchase code</label>
+                                </div>
+                                <div class="float-right text-right">
+                                    <small><a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code" target="_blank">What's this?</a></small>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <input type="text" class="next-input" v-model="purchaseCode" id="purchase_code" placeholder="Ex: 10101010-10aa-0101-a1b1010a01b10">
                         </div>
                         <div class="form-group">
                             <label class="text-title-field" for="buyer">Buyer</label>
-                            <input type="text" class="next-input" v-model="buyer" id="buyer" placeholder="Buyer is your Envato's username if you've purchased it from Codecanyon.">
+                            <input type="text" class="next-input" v-model="buyer" id="buyer" placeholder="Your username on Envato. Ex: botble">
                         </div>
                         <div class="form-group">
                             <button :class="activating ? 'btn btn-info button-loading' : 'btn btn-info'" type="button" @click="activateLicense()">Activate license</button>

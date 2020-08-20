@@ -2,6 +2,7 @@
 
 namespace Platform\ACL\Tables;
 
+use BaseHelper;
 use Platform\ACL\Models\Role;
 use Html;
 use Illuminate\Support\Facades\Auth;
@@ -69,10 +70,10 @@ class RoleTable extends TableAbstract
                 return Html::link(route('roles.edit', $item->id), $item->name);
             })
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('created_at', function ($item) {
-                return date_from_database($item->created_at, config('core.base.general.date_format.date'));
+                return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('created_by', function ($item) {
                 return $item->author->getFullName();
@@ -80,7 +81,7 @@ class RoleTable extends TableAbstract
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                return table_actions('roles.edit', 'roles.destroy', $item);
+                return $this->getOperations('roles.edit', 'roles.destroy', $item);
             })
             ->escapeColumns([])
             ->make(true);

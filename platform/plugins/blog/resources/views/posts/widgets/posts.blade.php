@@ -13,7 +13,7 @@
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
                     <td>@if ($post->slug) <a href="{{ $post->url }}" target="_blank">{{ Str::limit($post->name, 100) }}</a> @else <strong>{{ Str::limit($post->name, 100) }}</strong> @endif</td>
-                    <td>{{ date_from_database($post->created_at, 'd-m-Y') }}</td>
+                    <td>{{ BaseHelper::formatDate($post->created_at, 'd-m-Y') }}</td>
                 </tr>
             @endforeach
             </tbody>

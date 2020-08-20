@@ -8,7 +8,7 @@
                 {{ $row->name }}
             </label>
 
-            @if ($row->children))
+            @if ($row->children)
                 {!!
                     Menu::generateSelect([
                         'model' => $model,

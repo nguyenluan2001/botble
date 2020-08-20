@@ -2,11 +2,16 @@
 
 namespace Platform\Media\Http\Resources;
 
+use BaseHelper;
+use Platform\Media\Models\MediaFile;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use RvMedia;
 
+/**
+ * @mixin MediaFile
+ */
 class FileResource extends JsonResource
 {
     /**
@@ -26,8 +31,8 @@ class FileResource extends JsonResource
             'thumb'      => $this->canGenerateThumbnails() ? RvMedia::getImageUrl($this->url, 'thumb') : null,
             'size'       => $this->human_size,
             'mime_type'  => $this->mime_type,
-            'created_at' => date_from_database($this->created_at, 'Y-m-d H:i:s'),
-            'updated_at' => date_from_database($this->updated_at, 'Y-m-d H:i:s'),
+            'created_at' => BaseHelper::formatDate($this->created_at, 'Y-m-d H:i:s'),
+            'updated_at' => BaseHelper::formatDate($this->updated_at, 'Y-m-d H:i:s'),
             'options'    => $this->options,
             'folder_id'  => $this->folder_id,
         ];

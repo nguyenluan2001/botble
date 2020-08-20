@@ -22,6 +22,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Image;
+use Mimey\MimeTypes;
 use Storage;
 use Throwable;
 use Validator;
@@ -175,6 +176,86 @@ class RvMedia
     public function getSizes(): array
     {
         return config('core.media.media.sizes', []);
+    }
+
+    /**
+     * @param string|null $url
+     * @param null $size
+     * @param bool $relativePath
+     * @param null $default
+     * @return Application|UrlGenerator|string|string[]|null
+     */
+    public function getImageUrl($url, $size = null, $relativePath = false, $default = null)
+    {
+        if (empty($url)) {
+            return $default;
+        }
+
+        if (empty($size) || $url == '__value__') {
+            if ($relativePath) {
+                return $url;
+            }
+            return $this->url($url);
+        }
+
+        if ($url == $this->getDefaultImage()) {
+            return url($url);
+        }
+
+        if ($size && array_key_exists($size, $this->getSizes())) {
+            $url = str_replace(
+                File::name($url) . '.' . File::extension($url),
+                File::name($url) . '-' . $this->getSize($size) . '.' . File::extension($url),
+                $url
+            );
+        }
+
+        if ($relativePath) {
+            return $url;
+        }
+
+        if ($url == '__image__') {
+            return $this->url($default);
+        }
+
+        return $this->url($url);
+    }
+
+    /**
+     * @param string $path
+     * @return string
+     */
+    public function url($path): string
+    {
+        if (Str::contains($path, 'https://')) {
+            return $path;
+        }
+
+        return Storage::url($path);
+    }
+
+    /**
+     * @param bool $relative
+     * @return string
+     */
+    public function getDefaultImage(bool $relative = true): string
+    {
+        $default = config('core.media.media.default_image');
+
+        if ($default && !$relative) {
+            return url($default);
+        }
+
+        return $default;
+    }
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    public function getSize(string $name): ?string
+    {
+        return config('core.media.media.sizes.' . $name);
     }
 
     /**
@@ -489,24 +570,6 @@ class RvMedia
     }
 
     /**
-     * @param string $url
-     * @return string
-     */
-    public function getRealPath($url)
-    {
-        switch (config('filesystems.default')) {
-            case 'local':
-            case 'public':
-                return Storage::path($url);
-            case 's3':
-            case 'do_spaces':
-                return Storage::url($url);
-        }
-
-        return Storage::path($url);
-    }
-
-    /**
      * @param MediaFile|Model $file
      * @return bool
      */
@@ -541,83 +604,21 @@ class RvMedia
     }
 
     /**
-     * @param string $path
+     * @param string $url
      * @return string
      */
-    public function url($path): string
+    public function getRealPath($url)
     {
-        if (Str::contains($path, 'https://')) {
-            return $path;
+        switch (config('filesystems.default')) {
+            case 'local':
+            case 'public':
+                return Storage::path($url);
+            case 's3':
+            case 'do_spaces':
+                return Storage::url($url);
         }
 
-        return Storage::url($path);
-    }
-
-    /**
-     * @param string|null $url
-     * @param null $size
-     * @param bool $relativePath
-     * @param null $default
-     * @return Application|UrlGenerator|string|string[]|null
-     */
-    public function getImageUrl($url, $size = null, $relativePath = false, $default = null)
-    {
-        if (empty($url)) {
-            return $default;
-        }
-
-        if (empty($size) || $url == '__value__') {
-            if ($relativePath) {
-                return $url;
-            }
-            return $this->url($url);
-        }
-
-        if ($url == $this->getDefaultImage()) {
-            return url($url);
-        }
-
-        if ($size && array_key_exists($size, $this->getSizes())) {
-            $url = str_replace(
-                File::name($url) . '.' . File::extension($url),
-                File::name($url) . '-' . $this->getSize($size) . '.' . File::extension($url),
-                $url
-            );
-        }
-
-        if ($relativePath) {
-            return $url;
-        }
-
-        if ($url == '__image__') {
-            return $this->url($default);
-        }
-
-        return $this->url($url);
-    }
-
-    /**
-     * @param bool $relative
-     * @return string
-     */
-    public function getDefaultImage(bool $relative = true): string
-    {
-        $default = config('core.media.media.default_image');
-
-        if ($default && !$relative) {
-            return url($default);
-        }
-
-        return $default;
-    }
-
-    /**
-     * @param string $name
-     * @return string
-     */
-    public function getSize(string $name): ?string
-    {
-        return config('core.media.media.sizes.' . $name);
+        return Storage::path($url);
     }
 
     /**
@@ -635,5 +636,52 @@ class RvMedia
     public function isUsingCloud(): bool
     {
         return !in_array(config('filesystems.default'), ['local', 'public']);
+    }
+
+    /**
+     * @param string $url
+     * @return array
+     */
+    public function uploadFromUrl(string $url, int $folderId = 0, ?string $folderSlug = null)
+    {
+        if (empty($url)) {
+            return [
+                'error'   => true,
+                'message' => __('Please provide a valid URL'),
+            ];
+        }
+
+        $info = pathinfo($url);
+
+        try {
+            $contents = file_get_contents($url);
+        } catch (Exception $exception) {
+            return [
+                'error'   => true,
+                'message' => $exception->getMessage(),
+            ];
+        }
+
+        if (empty($contents)) {
+            return null;
+        }
+
+        $path = '/tmp';
+        if (!File::isDirectory($path)) {
+            File::makeDirectory($path, 0755);
+        }
+
+        $path = $path . '/' . $info['basename'];
+        file_put_contents($path, $contents);
+
+        $mimeType = (new MimeTypes)->getMimeType(File::extension($url));
+
+        $fileUpload = new UploadedFile($path, $info['basename'], $mimeType, null, true);
+
+        $result = $this->handleUpload($fileUpload, $folderId, $folderSlug);
+
+        File::delete($path);
+
+        return $result;
     }
 }

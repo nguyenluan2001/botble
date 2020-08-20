@@ -30,12 +30,12 @@ class Login {
                 $('.alert-danger', $('.login-form')).show();
             },
 
-            highlight: (element) => { // highlight error inputs
+            highlight: element => { // highlight error inputs
                 $(element)
                     .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
 
-            success: (label) => {
+            success: label => {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
@@ -44,12 +44,12 @@ class Login {
                 error.insertAfter(element.closest('.form-control'));
             },
 
-            submitHandler: (form) => {
+            submitHandler: form => {
                 form.submit(); // form validation success, call ajax form submit
             }
         });
 
-        $('.login-form input').keypress((e) => {
+        $('.login-form input').keypress(e => {
             if (e.which === 13) {
                 if ($('.login-form').validate().form()) {
                     $('.login-form').submit(); //form validation success, call ajax form submit
@@ -87,7 +87,7 @@ class Login {
                     .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
 
-            success: (label) => {
+            success: label => {
                 label.closest('.form-group').removeClass('has-error');
                 label.remove();
             },
@@ -96,12 +96,12 @@ class Login {
                 error.insertAfter(element.closest('.form-control'));
             },
 
-            submitHandler: (form) => {
+            submitHandler: form => {
                 form.submit();
             }
         });
 
-        $('.forget-form input').keypress((e) => {
+        $('.forget-form input').keypress(e => {
             if (e.which === 13) {
                 if ($('.forget-form').validate().form()) {
                     $('.forget-form').submit();

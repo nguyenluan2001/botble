@@ -2,6 +2,7 @@
 
 namespace Platform\Contact\Tables;
 
+use BaseHelper;
 use Platform\Contact\Models\Contact;
 use Html;
 use Illuminate\Support\Facades\Auth;
@@ -58,10 +59,10 @@ class ContactTable extends TableAbstract
                 return Html::link(route('contacts.edit', $item->id), $item->name);
             })
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('created_at', function ($item) {
-                return date_from_database($item->created_at, config('core.base.general.date_format.date'));
+                return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('status', function ($item) {
                 return $item->status->toHtml();
@@ -69,7 +70,7 @@ class ContactTable extends TableAbstract
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                return table_actions('contacts.edit', 'contacts.destroy', $item);
+                return $this->getOperations('contacts.edit', 'contacts.destroy', $item);
             })
             ->escapeColumns([])
             ->make(true);

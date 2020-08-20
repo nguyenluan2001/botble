@@ -14,7 +14,7 @@ class Cache implements CacheInterface
     /**
      * @var string
      */
-    public $cacheGroup;
+    protected $cacheGroup;
 
     /**
      * @var CacheManager

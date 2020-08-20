@@ -2,7 +2,7 @@
 
 @section('content')
     <p>{{ trans('core/acl::auth.forgot_password.title') }}:</p>
-    {!! Form::open(['route' => 'access.password.email', 'class' => 'login-form']) !!}
+    {!! Form::open(['route' => 'access.password.email', 'class' => 'forget-form']) !!}
         <p>{!! clean(trans('core/acl::auth.forgot_password.message')) !!}</p>
     <br>
         <div class="form-group" id="emailGroup">

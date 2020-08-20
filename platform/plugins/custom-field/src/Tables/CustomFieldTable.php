@@ -2,6 +2,7 @@
 
 namespace Platform\CustomField\Tables;
 
+use BaseHelper;
 use Platform\CustomField\Models\FieldGroup;
 use Illuminate\Support\Facades\Auth;
 use Platform\Base\Enums\BaseStatusEnum;
@@ -66,10 +67,10 @@ class CustomFieldTable extends TableAbstract
                 return Html::link(route('custom-fields.edit', $item->id), $item->title);
             })
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('created_at', function ($item) {
-                return date_from_database($item->created_at, config('core.base.general.date_format.date'));
+                return BaseHelper::formatDate($item->created_at);
             })
             ->editColumn('status', function ($item) {
                 return $item->status->toHtml();
@@ -77,7 +78,7 @@ class CustomFieldTable extends TableAbstract
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                return table_actions('custom-fields.edit', 'custom-fields.destroy', $item,
+                return $this->getOperations('custom-fields.edit', 'custom-fields.destroy', $item,
                     Html::link(
                         route('custom-fields.export', ['id' => $item->id]),
                         Html::tag('i', '', ['class' => 'fa fa-download'])->toHtml(),

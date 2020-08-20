@@ -48,7 +48,7 @@ class AuditLogTable extends TableAbstract
         $data = $this->table
             ->eloquent($this->query())
             ->editColumn('checkbox', function ($item) {
-                return table_checkbox($item->id);
+                return $this->getCheckbox($item->id);
             })
             ->editColumn('action', function ($history) {
                 return view('plugins/audit-log::activity-line', compact('history'))->render();
@@ -56,7 +56,7 @@ class AuditLogTable extends TableAbstract
 
         return apply_filters(BASE_FILTER_GET_LIST_DATA, $data, $this->repository->getModel())
             ->addColumn('operations', function ($item) {
-                return table_actions(null, 'audit-log.destroy', $item);
+                return $this->getOperations(null, 'audit-log.destroy', $item);
             })
             ->escapeColumns([])
             ->make(true);

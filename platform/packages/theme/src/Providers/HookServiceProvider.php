@@ -11,7 +11,7 @@ class HookServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        add_filter(DASHBOARD_FILTER_ADMIN_LIST, [$this, 'addStatsWidgets'], 29, 2);
+        add_filter(DASHBOARD_FILTER_ADMIN_LIST, [$this, 'addStatsWidgets'], 4, 2);
 
         add_filter(BASE_FILTER_AFTER_SETTING_CONTENT, [$this, 'addSetting'], 39, 1);
 
