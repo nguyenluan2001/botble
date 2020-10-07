@@ -1,25 +1,5 @@
 <?php
 
-// Use to change table heading of each module
-if (!defined('BASE_FILTER_TABLE_HEADINGS')) {
-    define('BASE_FILTER_TABLE_HEADINGS', 'table_headings');
-}
-
-// Use to change admin menu
-if (!defined('BASE_FILTER_ADMIN_MENU')) {
-    define('BASE_FILTER_ADMIN_MENU', 'admin_menu');
-}
-
-// Change data search result
-if (!defined('BASE_FILTER_SET_DATA_SEARCH')) {
-    define('BASE_FILTER_SET_DATA_SEARCH', 'set_data_search');
-}
-
-// Use in get list data function in each repository
-if (!defined('BASE_FILTER_GET_LIST_DATA')) {
-    define('BASE_FILTER_GET_LIST_DATA', 'get_list_data');
-}
-
 // Change data show in front page
 if (!defined('BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM')) {
     define('BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM', 'before_get_front_page_item');
@@ -68,14 +48,6 @@ if (!defined('BASE_ACTION_TOP_FORM_CONTENT_NOTIFICATION')) {
 
 if (!defined('BASE_FILTER_TOP_HEADER_LAYOUT')) {
     define('BASE_FILTER_TOP_HEADER_LAYOUT', 'base_filter_top_header_layout');
-}
-
-if (!defined('BASE_FILTER_TABLE_BUTTONS')) {
-    define('BASE_FILTER_TABLE_BUTTONS', 'base_filter_table_buttons');
-}
-
-if (!defined('BASE_FILTER_TABLE_QUERY')) {
-    define('BASE_FILTER_TABLE_QUERY', 'base_filter_table_query');
 }
 
 if (!defined('BASE_ACTION_ENQUEUE_SCRIPTS')) {

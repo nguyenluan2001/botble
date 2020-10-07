@@ -19,3 +19,7 @@ if (!defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
 if (!defined('THEME_OPTIONS_ACTION_META_BOXES')) {
     define('THEME_OPTIONS_ACTION_META_BOXES', 'theme-options-action-meta-boxes');
 }
+
+if (!defined('RENDERING_THEME_OPTIONS_PAGE')) {
+    define('RENDERING_THEME_OPTIONS_PAGE', 'rendering-theme-options-page');
+}

@@ -88,16 +88,17 @@ class BlockTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model
-            ->select([
-                'blocks.id',
-                'blocks.alias',
-                'blocks.name',
-                'blocks.created_at',
-                'blocks.status',
-            ]);
+        $select = [
+            'blocks.id',
+            'blocks.alias',
+            'blocks.name',
+            'blocks.created_at',
+            'blocks.status',
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

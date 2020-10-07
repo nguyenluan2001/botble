@@ -3,6 +3,10 @@
 namespace Platform\Gallery\Providers;
 
 use Assets;
+use Platform\Gallery\Services\GalleryService;
+use Platform\Shortcode\Compilers\Shortcode;
+use Eloquent;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\ServiceProvider;
 use MetaBox;
 
@@ -20,6 +24,8 @@ class HookServiceProvider extends ServiceProvider
                 trans('plugins/gallery::gallery.add_gallery_short_code'), [$this, 'render']);
             shortcode()->setAdminConfig('gallery', view('plugins/gallery::partials.short-code-admin-config')->render());
         }
+
+        add_filter(BASE_FILTER_PUBLIC_SINGLE_DATA, [$this, 'handleSingleView'], 11, 1);
     }
 
     /**
@@ -55,11 +61,22 @@ class HookServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param $shortcode
+     * @param Shortcode $shortcode
      * @return string
      */
     public function render($shortcode)
     {
         return render_galleries($shortcode->limit ? $shortcode->limit : 6);
+    }
+
+    /**
+     * @param Eloquent $slug
+     * @return array|Eloquent
+     *
+     * @throws BindingResolutionException
+     */
+    public function handleSingleView($slug)
+    {
+        return (new GalleryService)->handleFrontRoutes($slug);
     }
 }

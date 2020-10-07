@@ -3,7 +3,6 @@
 namespace Platform\Blog\Tables;
 
 use BaseHelper;
-use Illuminate\Support\Facades\Auth;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Blog\Exports\PostExport;
 use Platform\Blog\Models\Post;
@@ -13,6 +12,7 @@ use Platform\Table\Abstracts\TableAbstract;
 use Carbon\Carbon;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Illuminate\Support\Facades\Auth;
 use RvMedia;
 use Yajra\DataTables\DataTables;
 
@@ -85,7 +85,8 @@ class PostTable extends TableAbstract
                 if ($this->request()->input('action') === 'excel') {
                     return RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage());
                 }
-                return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()), $item->name, ['width' => 50]);
+                return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()),
+                    $item->name, ['width' => 50]);
             })
             ->editColumn('checkbox', function ($item) {
                 return $this->getCheckbox($item->id);
@@ -124,20 +125,30 @@ class PostTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model
-            ->with(['categories'])
-            ->select([
-                'posts.id',
-                'posts.name',
-                'posts.image',
-                'posts.created_at',
-                'posts.status',
-                'posts.updated_at',
-                'posts.author_id',
-                'posts.author_type',
-            ]);
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $select = [
+            'posts.id',
+            'posts.name',
+            'posts.image',
+            'posts.created_at',
+            'posts.status',
+            'posts.updated_at',
+            'posts.author_id',
+            'posts.author_type',
+        ];
+
+        $query = $model
+            ->with([
+                'categories' => function ($query) {
+                    $query->select(['categories.id', 'categories.name']);
+                },
+                'author'     => function ($query) {
+                    $query->select(['id', 'first_name', 'last_name']);
+                },
+            ])
+            ->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**
@@ -254,9 +265,18 @@ class PostTable extends TableAbstract
     {
         switch ($key) {
             case 'posts.created_at':
+                if (!$value) {
+                    break;
+                }
+
                 $value = Carbon::createFromFormat(config('core.base.general.date_format.date'), $value)->toDateString();
+
                 return $query->whereDate($key, $operator, $value);
             case 'category':
+                if (!$value) {
+                    break;
+                }
+
                 return $query->join('post_categories', 'post_categories.post_id', '=', 'posts.id')
                     ->join('categories', 'post_categories.category_id', '=', 'categories.id')
                     ->where('post_categories.category_id', $value);

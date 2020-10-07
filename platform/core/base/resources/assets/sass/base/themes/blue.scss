@@ -103,4 +103,4 @@ $footer-default-go-top-bg-color: lighten($bg-color, 7%) !default;
 $footer-default-go-top-icon-font-color: lighten($bg-color, 30%) !default;
 $footer-fixed-bg-color: darken($bg-color, 7%) !default;
 
-@import 'base';
+@import '../base';

@@ -429,12 +429,14 @@ class RvMedia
             ];
         }
 
+        $allowedMimeTypes = config('core.media.media.allowed_mime_types');
+
         if (!config('core.media.media.chunk.enabled')) {
             request()->merge(['uploaded_file' => $fileUpload]);
 
             if (!$skipValidation) {
                 $validator = Validator::make(request()->all(), [
-                    'uploaded_file' => 'required|mimes:' . config('core.media.media.allowed_mime_types'),
+                    'uploaded_file' => 'required|mimes:' . $allowedMimeTypes,
                 ]);
 
                 if ($validator->fails()) {
@@ -460,7 +462,7 @@ class RvMedia
 
             $fileExtension = $fileUpload->getClientOriginalExtension();
 
-            if (!in_array(strtolower($fileExtension), explode(',', config('core.media.media.allowed_mime_types')))) {
+            if (!$skipValidation && !in_array(strtolower($fileExtension), explode(',', $allowedMimeTypes))) {
                 return [
                     'error'   => true,
                     'message' => trans('core/media::media.can_not_detect_file_type'),
@@ -505,7 +507,7 @@ class RvMedia
 
             $data = $this->uploadManager->fileDetails($filePath);
 
-            if (empty($data['mime_type'])) {
+            if (!$skipValidation && empty($data['mime_type'])) {
                 return [
                     'error'   => true,
                     'message' => trans('core/media::media.can_not_detect_file_type'),
@@ -589,13 +591,27 @@ class RvMedia
                 ->save();
         }
 
-        if (config('core.media.media.watermark.source')) {
+        if (setting('media_watermark_enabled', config('core.media.media.watermark.enabled'))) {
             $image = Image::make($this->getRealPath($file->url));
-            $image->insert(
-                config('core.media.media.watermark.source'),
-                config('core.media.media.watermark.position', 'bottom-right'),
-                config('core.media.media.watermark.x', 10),
-                config('core.media.media.watermark.y', 10)
+            $watermark = Image::make($this->getRealPath(setting('media_watermark_source',
+                config('core.media.media.watermark.source'))));
+
+            // 10% less then an actual image (play with this value)
+            // Watermark will be 10 less then the actual width of the image
+            $watermarkSize = round($image->width() * (setting('media_watermark_size',
+                        config('core.media.media.watermark.size')) / 100), 2);
+
+            // Resize watermark width keep height auto
+            $watermark
+                ->resize($watermarkSize, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                ->opacity(setting('media_watermark_opacity', config('core.media.media.watermark.opacity')));
+
+            $image->insert($watermark,
+                setting('media_watermark_position', config('core.media.media.watermark.position')),
+                setting('watermark_position_x', config('core.media.media.watermark.x')),
+                setting('watermark_position_y', config('core.media.media.watermark.y'))
             );
             $image->save($this->getRealPath($file->url));
         }
@@ -640,9 +656,12 @@ class RvMedia
 
     /**
      * @param string $url
+     * @param int $folderId
+     * @param string|null $folderSlug
+     * @param string|null $defaultMimetype
      * @return array
      */
-    public function uploadFromUrl(string $url, int $folderId = 0, ?string $folderSlug = null)
+    public function uploadFromUrl(string $url, int $folderId = 0, ?string $folderSlug = null, $defaultMimetype = null)
     {
         if (empty($url)) {
             return [
@@ -674,9 +693,20 @@ class RvMedia
         $path = $path . '/' . $info['basename'];
         file_put_contents($path, $contents);
 
-        $mimeType = (new MimeTypes)->getMimeType(File::extension($url));
+        $mimeTypeDetection = new MimeTypes;
+        $mimeType = $mimeTypeDetection->getMimeType(File::extension($url));
 
-        $fileUpload = new UploadedFile($path, $info['basename'], $mimeType, null, true);
+        if (empty($mimeType)) {
+            $mimeType = $defaultMimetype;
+        }
+
+        $fileName = File::name($info['basename']);
+        $fileExtension = File::extension($info['basename']);
+        if (empty($fileExtension)) {
+            $fileExtension = $mimeTypeDetection->getExtension($mimeType);
+        }
+
+        $fileUpload = new UploadedFile($path, $fileName . '.' . $fileExtension, $mimeType, null, true);
 
         $result = $this->handleUpload($fileUpload, $folderId, $folderSlug);
 

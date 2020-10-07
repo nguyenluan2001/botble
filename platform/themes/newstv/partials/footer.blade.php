@@ -76,13 +76,30 @@
     });
 </script>
 
+    @if (theme_option('facebook_comment_enabled_in_post', 'yes') == 'yes' || (theme_option('facebook_chat_enabled', 'yes') == 'yes' && theme_option('facebook_page_id')))
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId={{ setting('facebook_app_id', config('plugins.facebook.general.app_id')) }}&autoLogAppEvents=1"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml            : true,
+                version          : 'v7.0'
+            });
+        };
 
-    <div class="fb-customerchat"
-         attribution=setup_tool
-         page_id="157007981299897"
-         theme_color="#0084ff">
-    </div>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        @if (theme_option('facebook_chat_enabled', 'yes') == 'yes' && theme_option('facebook_page_id'))
+        <div class="fb-customerchat"
+             attribution="install_email"
+             page_id="{{ theme_option('facebook_page_id') }}">
+        </div>
+        @endif
+    @endif
 </body>
 </html>

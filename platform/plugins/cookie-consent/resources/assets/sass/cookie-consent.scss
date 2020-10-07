@@ -1,7 +1,7 @@
 .cookie-consent {
     background-color: #000 !important;
     padding: 10px 40px !important;
-    color: #FFFFFF !important;
+    color: #fff !important;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -36,6 +36,23 @@
         &:hover {
             background: #fff !important;
             color: #000 !important;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cookie-consent {
+        .cookie-consent-body {
+            text-align: center;
+
+            .cookie-consent__message {
+                line-height: 25px !important;
+            }
+
+            .cookie-consent__agree {
+                float: none;
+                margin-top: 5px;
+            }
         }
     }
 }

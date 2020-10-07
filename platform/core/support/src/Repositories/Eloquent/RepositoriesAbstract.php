@@ -145,8 +145,10 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function pluck($column, $key = null)
+    public function pluck($column, $key = null, array $condition = [])
     {
+        $this->applyConditions($condition);
+
         $select = [$column];
         if (!empty($key)) {
             $select = [$column, $key];
@@ -162,9 +164,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function allBy(array $condition, array $with = [], array $select = ['*'])
     {
-        if (!empty($condition)) {
-            $this->applyConditions($condition);
-        }
+        $this->applyConditions($condition);
 
         $data = $this->make($with)->select($select);
 
@@ -222,7 +222,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function createOrUpdate($data, $condition = [])
+    public function createOrUpdate($data, array $condition = [])
     {
         /**
          * @var Model $item
@@ -261,10 +261,12 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     {
         $this->make($with);
 
+        $this->applyConditions($condition);
+
         if (!empty($select)) {
-            $data = $this->model->where($condition)->select($select);
+            $data = $this->model->select($select);
         } else {
-            $data = $this->model->where($condition);
+            $data = $this->model->select('*');
         }
 
         return $this->applyBeforeExecuteQuery($data, true)->first();
@@ -295,7 +297,9 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function update(array $condition, array $data)
     {
-        $data = $this->model->where($condition)->update($data);
+        $this->applyConditions($condition);
+
+        $data = $this->model->update($data);
 
         $this->resetModel();
 
@@ -307,7 +311,9 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function select(array $select = ['*'], array $condition = [])
     {
-        $data = $this->model->where($condition)->select($select);
+        $this->applyConditions($condition);
+
+        $data = $this->model->select($select);
 
         return $this->applyBeforeExecuteQuery($data);
     }
@@ -339,6 +345,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     public function count(array $condition = [])
     {
         $this->applyConditions($condition);
+
         $data = $this->model->count();
 
         $this->resetModel();
@@ -403,8 +410,8 @@ abstract class RepositoriesAbstract implements RepositoryInterface
             }
         }
 
-        foreach ($params['with'] as $with) {
-            $data = $data->with($with);
+        if (!empty($params['with'])) {
+            $data = $data->with($params['with']);
         }
 
         if (!empty($params['withCount'])) {
@@ -439,7 +446,9 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function forceDelete(array $condition = [])
     {
-        $item = $this->model->where($condition)->withTrashed()->first();
+        $this->applyConditions($condition);
+
+        $item = $this->model->withTrashed()->first();
         if (!empty($item)) {
             $item->forceDelete();
         }
@@ -450,7 +459,9 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function restoreBy(array $condition = [])
     {
-        $item = $this->model->where($condition)->withTrashed()->first();
+        $this->applyConditions($condition);
+
+        $item = $this->model->withTrashed()->first();
         if (!empty($item)) {
             $item->restore();
         }
@@ -461,7 +472,9 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function getFirstByWithTrash(array $condition = [], array $select = [])
     {
-        $query = $this->model->where($condition)->withTrashed();
+        $this->applyConditions($condition);
+
+        $query = $this->model->withTrashed();
 
         if (!empty($select)) {
             return $query->select($select)->first();

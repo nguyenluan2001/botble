@@ -35,8 +35,6 @@ class ChartBuilder
             );
         }
 
-        $table = $this->container->make($chartClass);
-
-        return $table;
+        return $this->container->make($chartClass);
     }
 }

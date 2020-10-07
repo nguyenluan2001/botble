@@ -2,8 +2,8 @@
 
 namespace Platform\Blog\Exports;
 
+use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Table\Supports\TableExportHandler;
-use Exception;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing;
@@ -19,12 +19,15 @@ class PostExport extends TableExportHandler
 
         $totalRows = $this->collection->count() + 1;
 
-        $event->sheet->getDelegate()->getStyle('F1:F' . $totalRows)
+        $event->sheet->getDelegate()
+            ->getStyle('F1:F' . $totalRows)
             ->getAlignment()
             ->setHorizontal(Alignment::HORIZONTAL_CENTER);
 
         for ($index = 2; $index <= $totalRows; $index++) {
-            $image = $event->sheet->getDelegate()->getCell('B' . $index)->getValue();
+            $image = $event->sheet->getDelegate()
+                ->getCell('B' . $index)
+                ->getValue();
 
             $drawing = new MemoryDrawing;
             $drawing->setName('Image')
@@ -40,45 +43,43 @@ class PostExport extends TableExportHandler
                 ->setOffsetX(10)
                 ->setOffsetY(10);
 
-            $event->sheet->getDelegate()->getCell('B' . $index)->setValue(null);
-            $event->sheet->getDelegate()->getColumnDimension('B')->setWidth(11);
-            $event->sheet->getDelegate()->getColumnDimension('C')->setWidth(40);
+            $event->sheet->getDelegate()
+                ->getCell('B' . $index)
+                ->setValue(null);
+            $event->sheet->getDelegate()
+                ->getColumnDimension('B')
+                ->setWidth(11);
+            $event->sheet->getDelegate()
+                ->getColumnDimension('C')
+                ->setWidth(40);
             $event->sheet
                 ->getDelegate()
                 ->getStyle('C1:C' . $totalRows)
                 ->getAlignment()
                 ->setHorizontal(Alignment::HORIZONTAL_LEFT);
-            $event->sheet->getDelegate()->getRowDimension($index)->setRowHeight(65);
+            $event->sheet->getDelegate()
+                ->getRowDimension($index)
+                ->setRowHeight(65);
 
-            $status = $event->sheet->getDelegate()->getStyle('F' . $index)->getFont()->getColor();
+            $status = $event->sheet->getDelegate()
+                ->getStyle('G' . $index)
+                ->getFont()
+                ->getColor();
 
-            if ($event->sheet->getDelegate()->getCell('F' . $index)->getValue()) {
+            $value = $event->sheet->getDelegate()
+                ->getCell('G' . $index)
+                ->getValue();
+
+            if ($value == BaseStatusEnum::PUBLISHED) {
                 $status->setARGB('1d9977');
-                $event->sheet
-                    ->getDelegate()
-                    ->getCell('F' . $index)
-                    ->setValue(ucfirst(trans('core/base::tables.activated')));
             } else {
                 $status->setARGB('dc3545');
-                $event->sheet
-                    ->getDelegate()
-                    ->getCell('F' . $index)
-                    ->setValue(ucfirst(trans('core/base::tables.deactivated')));
             }
-        }
 
-    }
-
-    /**
-     * @param string $imageUrl
-     * @return null|resource
-     */
-    protected function getImageResourceFromURL($imageUrl)
-    {
-        try {
-            return imagecreatefromstring(file_get_contents($imageUrl));
-        } catch (Exception $exception) {
-            return null;
+            $event->sheet
+                ->getDelegate()
+                ->getCell('G' . $index)
+                ->setValue(BaseStatusEnum::getLabel($value));
         }
     }
 }

@@ -174,7 +174,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function pluck($column, $key = null)
+    public function pluck($column, $key = null, array $condition = [])
     {
         return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
     }
@@ -206,7 +206,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function createOrUpdate($data, $condition = [])
+    public function createOrUpdate($data, array $condition = [])
     {
         return $this->flushCacheAndUpdateData(__FUNCTION__, func_get_args());
     }

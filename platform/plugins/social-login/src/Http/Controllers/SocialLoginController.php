@@ -4,7 +4,6 @@ namespace Platform\SocialLogin\Http\Controllers;
 
 use Assets;
 use Platform\Member\Repositories\Interfaces\MemberInterface;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
@@ -65,7 +64,7 @@ class SocialLoginController extends BaseController
             try {
                 $url = $oAuth->getAvatar();
                 if ($url) {
-                    $result = RvMedia::uploadFromUrl($url, 0, 'accounts');
+                    $result = RvMedia::uploadFromUrl($url, 0, 'accounts', 'image/png');
                     if (!$result['error']) {
                         $avatarId = $result['data']->id;
                     }

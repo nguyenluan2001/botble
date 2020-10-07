@@ -82,15 +82,16 @@ class MenuTable extends TableAbstract
     {
         $model = $this->repository->getModel();
 
-        $query = $model
-            ->select([
-                'menus.id',
-                'menus.name',
-                'menus.created_at',
-                'menus.status',
-            ]);
+        $select = [
+            'menus.id',
+            'menus.name',
+            'menus.created_at',
+            'menus.status',
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

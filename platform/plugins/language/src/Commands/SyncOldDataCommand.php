@@ -2,6 +2,7 @@
 
 namespace Platform\Language\Commands;
 
+use Platform\Language\Models\LanguageMeta;
 use DB;
 use Illuminate\Console\Command;
 use Language;
@@ -46,8 +47,7 @@ class SyncOldDataCommand extends Command
             return 1;
         }
 
-        $ids = DB::table('language_meta')
-            ->where('reference_type', $this->argument('class'))
+        $ids = LanguageMeta::where('reference_type', $this->argument('class'))
             ->pluck('reference_id')
             ->all();
 
@@ -66,7 +66,7 @@ class SyncOldDataCommand extends Command
             ];
         }
 
-        DB::table('language_meta')->insert($data);
+        LanguageMeta::insert($data);
 
         $this->info('Processed ' . count($data) . ' item(s)!');
 

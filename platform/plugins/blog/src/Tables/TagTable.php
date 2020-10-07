@@ -84,15 +84,16 @@ class TagTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model
-            ->select([
-                'tags.id',
-                'tags.name',
-                'tags.created_at',
-                'tags.status',
-            ]);
+        $select = [
+            'tags.id',
+            'tags.name',
+            'tags.created_at',
+            'tags.status',
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

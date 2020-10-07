@@ -1,11 +1,16 @@
 <?php
 
+use Platform\Blog\Models\Category;
+use Platform\Blog\Models\Post;
+use Platform\Blog\Models\Tag;
+
 Route::group(['namespace' => 'Platform\Blog\Http\Controllers', 'middleware' => 'web'], function () {
 
-    Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
-            Route::resource('', 'PostController')->parameters(['' => 'post']);
+            Route::resource('', 'PostController')
+                ->parameters(['' => 'post']);
 
             Route::delete('items/destroy', [
                 'as'         => 'deletes',
@@ -21,7 +26,8 @@ Route::group(['namespace' => 'Platform\Blog\Http\Controllers', 'middleware' => '
         });
 
         Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
-            Route::resource('', 'CategoryController')->parameters(['' => 'category']);
+            Route::resource('', 'CategoryController')
+                ->parameters(['' => 'category']);
 
             Route::delete('items/destroy', [
                 'as'         => 'deletes',
@@ -31,7 +37,8 @@ Route::group(['namespace' => 'Platform\Blog\Http\Controllers', 'middleware' => '
         });
 
         Route::group(['prefix' => 'tags', 'as' => 'tags.'], function () {
-            Route::resource('', 'TagController')->parameters(['' => 'tag']);
+            Route::resource('', 'TagController')
+                ->parameters(['' => 'tag']);
 
             Route::delete('items/destroy', [
                 'as'         => 'deletes',
@@ -54,10 +61,22 @@ Route::group(['namespace' => 'Platform\Blog\Http\Controllers', 'middleware' => '
                 'uses' => 'PublicController@getSearch',
             ]);
 
-            Route::get('tag/{slug}', [
+            Route::get(SlugHelper::getPrefix(Tag::class, 'tag') . '/{slug}', [
                 'as'   => 'public.tag',
                 'uses' => 'PublicController@getTag',
             ]);
+
+            if (SlugHelper::getPrefix(Post::class)) {
+                Route::get(SlugHelper::getPrefix(Post::class) . '/{slug}', [
+                    'uses' => 'PublicController@getPost',
+                ]);
+            }
+
+            if (SlugHelper::getPrefix(Category::class)) {
+                Route::get(SlugHelper::getPrefix(Category::class) . '/{slug}', [
+                    'uses' => 'PublicController@getCategory',
+                ]);
+            }
         });
     }
 });

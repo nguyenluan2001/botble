@@ -2,35 +2,23 @@
 
 return [
     'menu'                => 'Liên hệ',
-    'model'               => 'Liên hệ',
-    'models'              => 'Liên hệ',
-    'list'                => 'Danh sách liên hệ',
     'edit'                => 'Xem liên hệ',
-    'tables'              =>
-        [
-            'phone'     => 'Điện thoại',
-            'email'     => 'Email',
-            'full_name' => 'Họ tên',
-            'time'      => 'Thời gian',
-            'address'   => 'Địa địa chỉ',
-            'subject'   => 'Tiêu đề',
-            'content'   => 'Nội dung',
-        ],
-    'notices'             =>
-        [
-            'no_select'              => 'Chọn ít nhất 1 liên hệ để thực hiện hành động này!',
-            'update_success_message' => 'Cập nhật thành công',
-        ],
-    'cannot_delete'       => 'Không thể xóa liên hệ này',
-    'deleted'             => 'Liên hệ đã được xóa',
+    'tables'              => [
+        'phone'     => 'Điện thoại',
+        'email'     => 'Email',
+        'full_name' => 'Họ tên',
+        'time'      => 'Thời gian',
+        'address'   => 'Địa địa chỉ',
+        'subject'   => 'Tiêu đề',
+        'content'   => 'Nội dung',
+    ],
     'contact_information' => 'Thông tin liên hệ',
-    'email'               =>
-        [
-            'title'   => 'Thông tin liên hệ mới',
-            'success' => 'Gửi tin nhắn thành công!',
-            'failed'  => 'Có lỗi trong quá trình gửi tin nhắn!',
-            'header'  => 'Email',
-        ],
+    'email'               => [
+        'title'   => 'Thông tin liên hệ mới',
+        'success' => 'Gửi tin nhắn thành công!',
+        'failed'  => 'Có lỗi trong quá trình gửi tin nhắn!',
+        'header'  => 'Email',
+    ],
     'form'                => [
         'name'                 => [
             'required' => 'Tên là bắt buộc',
@@ -47,7 +35,6 @@ return [
             'captcha'  => 'Bạn chưa xác minh không phải là robot thành công.',
         ],
     ],
-    'confirm_not_robot'   => 'Xác nhận không phải người máy',
     'contact_sent_from'   => 'Liên hệ này được gửi từ',
     'form_address'        => 'Địa chỉ',
     'form_email'          => 'Thư điện tử',
@@ -62,8 +49,6 @@ return [
     'sender_email'        => 'Thư điện tử',
     'sender_phone'        => 'Số điện thoại',
     'sent_from'           => 'Thư được gửi từ',
-    'mark_as_read'        => 'Đánh dấu đã đọc',
-    'mark_as_unread'      => 'Đánh dấu chưa đọc',
     'address'             => 'Địa chỉ',
     'message'             => 'Liên hệ',
     'new_msg_notice'      => 'Bạn có <span class="bold">:count</span> tin nhắn mới',
@@ -83,4 +68,6 @@ return [
             ],
         ],
     ],
+    'replies'             => 'Trả lời',
+    'form_subject'        => 'Tiêu đề',
 ];

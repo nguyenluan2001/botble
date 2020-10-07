@@ -4,21 +4,28 @@ namespace Platform\Slug;
 
 use Platform\Base\Models\BaseModel;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class SlugHelper
 {
     /**
      * @param string|array $model
+     * @param string|null $name
      * @return $this
      */
-    public function registerModule($model): self
+    public function registerModule($model, ?string $name = null): self
     {
+        $supported = $this->supportedModels();
+
         if (!is_array($model)) {
-            $model = [$model];
+            $supported[$model] = $name ? $name : $model;
+        } else {
+            foreach ($model as $item) {
+                $supported[$item] = $name ? $name : $item;
+            }
         }
-        config([
-            'packages.slug.general.supported' => array_merge(config('packages.slug.general.supported', []), $model),
-        ]);
+
+        config(['packages.slug.general.supported' => $supported]);
 
         return $this;
     }
@@ -40,11 +47,24 @@ class SlugHelper
 
     /**
      * @param string $model
+     * @param string $default
      * @return string|null
      */
-    public function getPrefix(string $model): ?string
+    public function getPrefix(string $model, string $default = ''): ?string
     {
-        return Arr::get(config('packages.slug.general.prefixes', []), $model, '');
+        $permalink = setting($this->getPermalinkSettingKey($model));
+
+        if ($permalink !== null) {
+            return $permalink;
+        }
+
+        $config = Arr::get(config('packages.slug.general.prefixes', []), $model);
+
+        if ($config !== null) {
+            return (string) $config;
+        }
+
+        return $default;
     }
 
     /**
@@ -52,7 +72,7 @@ class SlugHelper
      */
     public function isSupportedModel(string $model): bool
     {
-        return in_array($model, $this->supportedModels());
+        return in_array($model, array_keys($this->supportedModels()));
     }
 
     /**
@@ -64,7 +84,7 @@ class SlugHelper
     }
 
     /**
-     * @param BaseModel $model
+     * @param BaseModel|array $model
      * @return $this
      */
     public function disablePreview($model): self
@@ -87,5 +107,14 @@ class SlugHelper
     public function canPreview(string $model): bool
     {
         return !in_array($model, config('packages.slug.general.disable_preview', []));
+    }
+
+    /**
+     * @param string $model
+     * @return string
+     */
+    public function getPermalinkSettingKey(string $model): string
+    {
+        return 'permalink-' . Str::slug(str_replace('\\', '_', $model));
     }
 }

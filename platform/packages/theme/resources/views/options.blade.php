@@ -1,6 +1,6 @@
 @extends('core/base::layouts.master')
 @section('content')
-    @php do_action(BASE_ACTION_TOP_FORM_CONTENT_NOTIFICATION, THEME_OPTIONS_MODULE_SCREEN_NAME, request(), null) @endphp
+    @php do_action(BASE_ACTION_TOP_FORM_CONTENT_NOTIFICATION, request(), THEME_OPTIONS_MODULE_SCREEN_NAME) @endphp
     <div id="theme-option-header">
         <div class="display_header">
             <h2>{{ trans('packages/theme::theme.theme_options') }}</h2>

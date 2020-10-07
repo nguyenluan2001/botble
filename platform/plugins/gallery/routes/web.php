@@ -1,10 +1,13 @@
 <?php
 
+use Platform\Gallery\Models\Gallery as GalleryModel;
+
 Route::group(['namespace' => 'Platform\Gallery\Http\Controllers', 'middleware' => 'web'], function () {
-    Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'galleries', 'as' => 'galleries.'], function () {
-            Route::resource('', 'GalleryController')->parameters(['' => 'gallery']);
+            Route::resource('', 'GalleryController')
+                ->parameters(['' => 'gallery']);
 
             Route::delete('items/destroy', [
                 'as'         => 'deletes',
@@ -15,14 +18,16 @@ Route::group(['namespace' => 'Platform\Gallery\Http\Controllers', 'middleware' =
     });
 
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
-        Route::get('galleries', [
+        Route::get(SlugHelper::getPrefix(GalleryModel::class, 'galleries'), [
             'as'   => 'public.galleries',
             'uses' => 'PublicController@getGalleries',
         ]);
 
-        Route::get('gallery/{slug}', [
-            'as'   => 'public.gallery',
-            'uses' => 'PublicController@getGallery',
-        ]);
+        if (SlugHelper::getPrefix(GalleryModel::class)) {
+            Route::get(SlugHelper::getPrefix(GalleryModel::class, 'galleries') . '/{slug}', [
+                'as'   => 'public.gallery',
+                'uses' => 'PublicController@getGallery',
+            ]);
+        }
     });
 });

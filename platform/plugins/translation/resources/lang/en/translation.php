@@ -13,8 +13,6 @@ return [
     'confirm_publish_group'    => 'Are you sure you want to publish the translations group ":group"? This will overwrite existing language files.',
     'publish_translations'     => 'Publish translations',
     'back'                     => 'Back',
-    'total'                    => 'Total',
-    'changed'                  => 'changed',
     'edit_title'               => 'Enter translation',
     'choose_group_msg'         => 'Choose a group to display the group translations. If no groups are visible, make sure you have imported the translations.',
     'choose_a_group'           => 'Choose a group',

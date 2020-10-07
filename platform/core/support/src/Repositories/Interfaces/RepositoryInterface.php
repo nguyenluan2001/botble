@@ -74,10 +74,11 @@ interface RepositoryInterface
 
     /**
      * @param string $column
-     * @param string $key
+     * @param null $key
+     * @param array $condition
      * @return array
      */
-    public function pluck($column, $key = null);
+    public function pluck($column, $key = null, array $condition = []);
 
     /**
      * Get all models.
@@ -111,7 +112,7 @@ interface RepositoryInterface
      * @param array $condition
      * @return false|Model
      */
-    public function createOrUpdate($data, $condition = []);
+    public function createOrUpdate($data, array $condition = []);
 
     /**
      * Delete model.

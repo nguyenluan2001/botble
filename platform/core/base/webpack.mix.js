@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let glob = require('glob');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,20 +12,10 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.options({
-    processCssUrls: false
-});
-
 const source = 'platform/core/base';
 const dist = 'public/vendor/core';
 
-let glob = require('glob');
-
 glob.sync(source + '/resources/assets/sass/themes/*.scss').forEach(item => {
-    if (item.indexOf('_base.scss') !== -1) {
-        return;
-    }
-
     mix.sass(item, dist + '/css/themes').copy(dist + '/css/themes', source + '/public/css/themes');
 })
 

@@ -3,6 +3,7 @@
 namespace Platform\Blog\Http\Requests;
 
 use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Blog\Supports\PostFormat;
 use Platform\Support\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
@@ -21,6 +22,7 @@ class PostRequest extends Request
             'description' => 'max:400',
             'categories'  => 'required',
             'slug'        => 'required|max:255',
+            'format_type' => Rule::in(array_keys(PostFormat::getPostFormats(true))),
             'status'      => Rule::in(BaseStatusEnum::values()),
         ];
     }

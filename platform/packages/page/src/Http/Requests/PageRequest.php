@@ -3,6 +3,7 @@
 namespace Platform\Page\Http\Requests;
 
 use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Page\Supports\Template;
 use Platform\Support\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
@@ -17,10 +18,11 @@ class PageRequest extends Request
     public function rules()
     {
         return [
-            'name'    => 'required|max:120',
-            'content' => 'required',
-            'slug'    => 'required|max:255',
-            'status'  => Rule::in(BaseStatusEnum::values()),
+            'name'     => 'required|max:120',
+            'content'  => 'required',
+            'slug'     => 'required|max:255',
+            'template' => Rule::in(array_keys(Template::getPageTemplates())),
+            'status'   => Rule::in(BaseStatusEnum::values()),
         ];
     }
 }

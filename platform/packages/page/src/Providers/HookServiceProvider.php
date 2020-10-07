@@ -2,20 +2,16 @@
 
 namespace Platform\Page\Providers;
 
-use Auth;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Dashboard\Supports\DashboardWidgetInstance;
 use Platform\Page\Models\Page;
 use Platform\Page\Repositories\Interfaces\PageInterface;
-use Platform\SeoHelper\SeoOpenGraph;
+use Platform\Page\Services\PageService;
 use Eloquent;
 use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Menu;
-use RvMedia;
-use SeoHelper;
-use Theme;
 use Throwable;
 
 class HookServiceProvider extends ServiceProvider
@@ -27,7 +23,40 @@ class HookServiceProvider extends ServiceProvider
         }
         add_filter(DASHBOARD_FILTER_ADMIN_LIST, [$this, 'addPageStatsWidget'], 15, 2);
         add_filter(BASE_FILTER_PUBLIC_SINGLE_DATA, [$this, 'handleSingleView'], 1, 1);
-        add_filter(BASE_FILTER_AFTER_SETTING_CONTENT, [$this, 'addSetting'], 29, 1);
+
+        if (function_exists('theme_option')) {
+            add_action(RENDERING_THEME_OPTIONS_PAGE, [$this, 'addThemeOptions'], 31);
+        }
+    }
+
+    public function addThemeOptions()
+    {
+        $pages = $this->app->make(PageInterface::class)
+            ->pluck('pages.name', 'pages.id', ['status' => BaseStatusEnum::PUBLISHED]);
+
+        theme_option()
+            ->setSection([
+                'title'      => 'Page',
+                'desc'       => 'Theme options for Page',
+                'id'         => 'opt-text-subsection-page',
+                'subsection' => true,
+                'icon'       => 'fa fa-book',
+                'fields'     => [
+                    [
+                        'id'         => 'homepage_id',
+                        'type'       => 'select',
+                        'label'      => trans('packages/page::pages.settings.show_on_front'),
+                        'attributes' => [
+                            'name'    => 'homepage_id',
+                            'list'    => ['' => trans('packages/page::pages.settings.select')] + $pages,
+                            'value'   => '',
+                            'options' => [
+                                'class' => 'form-control',
+                            ],
+                        ],
+                    ],
+                ],
+            ]);
     }
 
     /**
@@ -49,7 +78,7 @@ class HookServiceProvider extends ServiceProvider
 
     /**
      * @param array $widgets
-     * @param $widgetSettings
+     * @param Collection $widgetSettings
      * @return array
      *
      * @throws BindingResolutionException
@@ -79,73 +108,6 @@ class HookServiceProvider extends ServiceProvider
      */
     public function handleSingleView($slug)
     {
-        if ($slug instanceof Eloquent) {
-            $data = [];
-            $condition = [
-                'id'     => $slug->reference_id,
-                'status' => BaseStatusEnum::PUBLISHED,
-            ];
-
-            if (Auth::check() && request()->input('preview')) {
-                Arr::forget($condition, 'status');
-            }
-
-            if ($slug->reference_type === Page::class) {
-                $page = $this->app->make(PageInterface::class)
-                    ->getFirstBy($condition, ['*'], ['slugable']);
-                if (!empty($page)) {
-                    SeoHelper::setTitle($page->name)->setDescription($page->description);
-
-                    $meta = new SeoOpenGraph;
-                    if ($page->image) {
-                        $meta->setImage(RvMedia::getImageUrl($page->image));
-                    }
-                    $meta->setDescription($page->description);
-                    $meta->setUrl($page->url);
-                    $meta->setTitle($page->name);
-                    $meta->setType('article');
-
-                    SeoHelper::setSeoOpenGraph($meta);
-
-                    if ($page->template) {
-                        Theme::uses(Theme::getThemeName())->layout($page->template);
-                    }
-
-                    admin_bar()
-                        ->registerLink(trans('packages/page::pages.edit_this_page'), route('pages.edit', $page->id));
-
-                    Theme::breadcrumb()
-                        ->add(__('Home'), url('/'))
-                        ->add($page->name, $page->url);
-
-                    do_action(BASE_ACTION_PUBLIC_RENDER_SINGLE, PAGE_MODULE_SCREEN_NAME, $page);
-
-                    $data = [
-                        'view'         => 'page',
-                        'default_view' => 'packages/page::themes.page',
-                        'data'         => compact('page'),
-                        'slug'         => $page->slug,
-                    ];
-                }
-                if (!empty($data)) {
-                    return $data;
-                }
-            }
-        }
-
-        return $slug;
-    }
-
-    /**
-     * @param null $data
-     * @return string
-     * @throws Throwable
-     */
-    public function addSetting($data = null): string
-    {
-        $pages = $this->app->make(PageInterface::class)
-            ->allBy(['pages.status' => BaseStatusEnum::PUBLISHED], [], ['pages.id', 'pages.name']);
-
-        return $data . view('packages/page::setting', compact('pages'))->render();
+        return (new PageService)->handleFrontRoutes($slug);
     }
 }

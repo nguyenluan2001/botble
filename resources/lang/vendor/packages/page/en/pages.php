@@ -1,9 +1,6 @@
 <?php
 
 return [
-    'model'          => 'Page',
-    'models'         => 'Pages',
-    'list'           => 'List Pages',
     'create'         => 'Create new page',
     'edit'           => 'Edit page',
     'form'           => [
@@ -26,8 +23,6 @@ return [
     'settings'       => [
         'show_on_front' => 'Your homepage displays',
         'select'        => '— Select —',
-        'title'         => 'Page',
-        'description'   => 'Setting for page',
     ],
-    'front_page' => 'Front Page',
+    'front_page'     => 'Front Page',
 ];

@@ -47,7 +47,7 @@ class PublicController extends Controller
     public function getIndex(BaseHttpResponse $response)
     {
         if (defined('PAGE_MODULE_SCREEN_NAME')) {
-            $homepage = $this->settingStore->get('show_on_front');
+            $homepage = theme_option('homepage_id', $this->settingStore->get('show_on_front'));
             if ($homepage) {
                 $homepage = app(PageInterface::class)->findById($homepage);
                 if ($homepage) {

@@ -3,13 +3,6 @@
 namespace Platform\Language\Providers;
 
 use Assets;
-use Platform\Menu\Models\Menu;
-use Eloquent;
-use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
-use Illuminate\Routing\Events\RouteMatched;
 use Platform\Base\Supports\Helper;
 use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Platform\Language\Facades\LanguageFacade;
@@ -18,25 +11,32 @@ use Platform\Language\Http\Middleware\LocalizationRedirectFilter;
 use Platform\Language\Http\Middleware\LocalizationRoutes;
 use Platform\Language\Models\Language as LanguageModel;
 use Platform\Language\Models\LanguageMeta;
+use Platform\Language\Repositories\Caches\LanguageCacheDecorator;
 use Platform\Language\Repositories\Caches\LanguageMetaCacheDecorator;
 use Platform\Language\Repositories\Eloquent\LanguageMetaRepository;
+use Platform\Language\Repositories\Eloquent\LanguageRepository;
+use Platform\Language\Repositories\Interfaces\LanguageInterface;
 use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
+use Platform\Menu\Models\Menu;
+use Eloquent;
 use Event;
 use Html;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use Platform\Language\Repositories\Caches\LanguageCacheDecorator;
-use Platform\Language\Repositories\Eloquent\LanguageRepository;
-use Platform\Language\Repositories\Interfaces\LanguageInterface;
 use Language;
 use MetaBox;
 use Route;
 use Theme;
 use Throwable;
-use Yajra\DataTables\DataTableAbstract;
+use Yajra\DataTables\EloquentDataTable;
 
 class LanguageServiceProvider extends ServiceProvider
 {
@@ -86,17 +86,27 @@ class LanguageServiceProvider extends ServiceProvider
             Event::listen(RouteMatched::class, function () {
                 dashboard_menu()
                     ->registerItem([
-                            'id'          => 'cms-plugins-language',
-                            'priority'    => 2,
-                            'parent_id'   => 'cms-core-settings',
-                            'name'        => 'plugins/language::language.name',
-                            'icon'        => null,
-                            'url'         => route('languages.index'),
-                            'permissions' => ['languages.index'],
-                        ]);
+                        'id'          => 'cms-plugins-language',
+                        'priority'    => 2,
+                        'parent_id'   => 'cms-core-settings',
+                        'name'        => 'plugins/language::language.name',
+                        'icon'        => null,
+                        'url'         => route('languages.index'),
+                        'permissions' => ['languages.index'],
+                    ]);
 
                 Assets::addScriptsDirectly('vendor/core/plugins/language/js/language-global.js')
                     ->addStylesDirectly(['vendor/core/plugins/language/css/language.css']);
+            });
+
+            $this->app->booted(function () {
+                if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
+                    Language::registerModule(THEME_OPTIONS_MODULE_SCREEN_NAME);
+                }
+
+                if (defined('WIDGET_MANAGER_MODULE_SCREEN_NAME')) {
+                    Language::registerModule(WIDGET_MANAGER_MODULE_SCREEN_NAME);
+                }
             });
 
             $defaultLanguage = Language::getDefaultLanguage(['lang_id']);
@@ -107,10 +117,15 @@ class LanguageServiceProvider extends ServiceProvider
                 add_action(BASE_ACTION_BEFORE_EDIT_CONTENT, [$this, 'getCurrentAdminLanguage'], 55, 2);
                 if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
                     $this->app->booted(function () {
-                        Theme::asset()->usePath(false)->add('language-css',
-                            asset('vendor/core/plugins/language/css/language-public.css'));
-                        Theme::asset()->container('footer')->usePath(false)->add('language-public-js',
-                            'vendor/core/plugins/language/js/language-public.js', ['jquery']);
+                        Theme::asset()
+                            ->usePath(false)
+                            ->add('language-css', asset('vendor/core/plugins/language/css/language-public.css'), [], [], '1.0.0');
+
+                        Theme::asset()
+                            ->container('footer')
+                            ->usePath(false)
+                            ->add('language-public-js', asset('vendor/core/plugins/language/js/language-public.js'),
+                                ['jquery'], [], '1.0.0');
                     });
                 }
 
@@ -125,7 +140,7 @@ class LanguageServiceProvider extends ServiceProvider
                     add_filter(BASE_FILTER_GROUP_PUBLIC_ROUTE, [$this, 'addLanguageMiddlewareToPublicRoute'], 958, 1);
                 }
                 add_filter(BASE_FILTER_TABLE_BUTTONS, [$this, 'addLanguageSwitcherToTable'], 247, 2);
-                add_filter(BASE_FILTER_TABLE_QUERY, [$this, 'getDataByCurrentLanguage'], 157, 2);
+                add_filter(BASE_FILTER_TABLE_QUERY, [$this, 'getDataByCurrentLanguage'], 157, 3);
                 add_filter(BASE_FILTER_BEFORE_GET_ADMIN_LIST_ITEM, [$this, 'checkItemLanguageBeforeGetAdminListItem'],
                     50, 3);
 
@@ -147,7 +162,7 @@ class LanguageServiceProvider extends ServiceProvider
 
     /**
      * @param string $priority
-     * @param $object
+     * @param string|Model $object
      */
     public function addLanguageBox($priority, $object)
     {
@@ -159,7 +174,7 @@ class LanguageServiceProvider extends ServiceProvider
 
     /**
      * @param string $screen
-     * @param $data
+     * @param string $data
      * @return string
      * @throws Throwable
      */
@@ -278,8 +293,8 @@ class LanguageServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param $value
-     * @param $languages
+     * @param string $value
+     * @param array $languages
      * @return mixed
      * @throws BindingResolutionException
      */
@@ -330,14 +345,19 @@ class LanguageServiceProvider extends ServiceProvider
     /**
      * @param string $screen
      * @param Request $request
-     * @param $data
+     * @param string|Model $data
      * @return void
      * @throws Throwable
      * @since 2.1
      */
     public function addCurrentLanguageEditingAlert($request, $data = null)
     {
-        if ($data && in_array(get_class($data), Language::supportedModels())) {
+        $model = $data;
+        if (is_object($data)) {
+            $model = get_class($data);
+        }
+
+        if ($data && in_array($model, Language::supportedModels())) {
             $code = Language::getCurrentAdminLocaleCode();
             if (empty($code)) {
                 $code = $this->getCurrentAdminLanguage($request, $data);
@@ -358,7 +378,7 @@ class LanguageServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param $screen
+     * @param string $screen
      * @param Request $request
      * @param Eloquent | null $data
      * @return null|string
@@ -390,7 +410,7 @@ class LanguageServiceProvider extends ServiceProvider
 
     /**
      * @param array $headings
-     * @param $model
+     * @param string|Model $model
      * @return array
      */
     public function addLanguageTableHeading($headings, $model)
@@ -420,8 +440,8 @@ class LanguageServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param DataTableAbstract $data
-     * @param $model
+     * @param EloquentDataTable $data
+     * @param string|Model $model
      * @return string
      */
     public function addLanguageColumn($data, $model)
@@ -434,21 +454,15 @@ class LanguageServiceProvider extends ServiceProvider
             }
 
             return $data->addColumn('language', function ($item) use ($model, $route) {
-                $currentLanguage = $this->app->make(LanguageMetaInterface::class)->getFirstBy([
-                    'reference_id'   => $item->id,
-                    'reference_type' => get_class($item),
-                ]);
                 $relatedLanguages = [];
-                if ($currentLanguage) {
-                    $relatedLanguages = Language::getRelatedLanguageItem($currentLanguage->reference_id,
-                        $currentLanguage->lang_meta_origin);
-                    $currentLanguage = $currentLanguage->lang_meta_code;
+                if ($item->lang_meta_origin) {
+                    $relatedLanguages = Language::getRelatedLanguageItem($item->id, $item->lang_meta_origin);
                 }
                 $languages = Language::getActiveLanguage();
                 $data = '';
 
                 foreach ($languages as $language) {
-                    if ($language->lang_code == $currentLanguage) {
+                    if ($language->lang_code == $item->lang_meta_code) {
                         $data .= view('plugins/language::partials.status.active', compact('route', 'item'))->render();
                     } else {
                         $added = false;
@@ -499,7 +513,7 @@ class LanguageServiceProvider extends ServiceProvider
     /**
      * @param Builder $data
      * @param Model $model
-     * @param $language_code
+     * @param string $languageCode
      * @return mixed
      */
     protected function getDataByCurrentLanguageCode($data, $model, $languageCode)
@@ -558,6 +572,7 @@ class LanguageServiceProvider extends ServiceProvider
                     'reference_type' => get_class($model),
                     'reference_id'   => $data->id,
                 ]);
+
                 if ($current) {
                     Language::setCurrentAdminLocale($current->lang_meta_code);
                     if ($current->lang_meta_code != Language::getCurrentLocaleCode()) {
@@ -568,6 +583,7 @@ class LanguageServiceProvider extends ServiceProvider
                         $meta = $this->app->make(LanguageMetaInterface::class)->getModel()
                             ->where('lang_meta_origin', $current->lang_meta_origin)
                             ->where('reference_id', '!=', $data->id)
+                            ->where('reference_type', get_class($model))
                             ->where('lang_meta_code', Language::getCurrentLocaleCode())
                             ->first();
                         if ($meta) {
@@ -584,7 +600,7 @@ class LanguageServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param $data
+     * @param array $data
      * @return array
      */
     public function addLanguageMiddlewareToPublicRoute($data)
@@ -599,8 +615,8 @@ class LanguageServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param $buttons
-     * @param $screen
+     * @param array $buttons
+     * @param string $screen
      * @return array
      * @since 2.2
      */
@@ -649,11 +665,11 @@ class LanguageServiceProvider extends ServiceProvider
     /**
      * @param Builder $query
      * @param Model $model
+     * @param array $selectedColumns
      * @return mixed
-     *
      * @since 2.2
      */
-    public function getDataByCurrentLanguage($query, $model)
+    public function getDataByCurrentLanguage($query, $model, array $selectedColumns = [])
     {
         if ($model && in_array(get_class($model),
                 Language::supportedModels()) && Language::getCurrentAdminLocaleCode()) {
@@ -663,7 +679,18 @@ class LanguageServiceProvider extends ServiceProvider
                  * @var Eloquent $model
                  */
                 $table = $model->getTable();
+
+                if (empty($selectedColumns)) {
+                    $selectedColumns = [$table . '.*'];
+                }
+
+                $selectedColumns = array_merge($selectedColumns, [
+                    'language_meta.lang_meta_code',
+                    'language_meta.lang_meta_origin',
+                ]);
+
                 $query = $query
+                    ->select($selectedColumns)
                     ->join('language_meta', 'language_meta.reference_id', $table . '.id')
                     ->where('language_meta.reference_type', get_class($model))
                     ->where('language_meta.lang_meta_code', Language::getCurrentAdminLocaleCode());

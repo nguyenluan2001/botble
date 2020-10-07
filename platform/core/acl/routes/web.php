@@ -6,7 +6,7 @@ use Platform\ACL\Http\Controllers\Auth\ResetPasswordController;
 use Platform\ACL\Http\Controllers\UserController;
 
 Route::group(['namespace' => 'Platform\ACL\Http\Controllers', 'middleware' => 'web'], function () {
-    Route::group(['prefix' => config('core.base.general.admin_dir')], function () {
+    Route::group(['prefix' => BaseHelper::getAdminPrefix()], function () {
         Route::group(['middleware' => 'guest'], function () {
 
             Route::get('login', [LoginController::class, 'showLoginForm'])
@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Platform\ACL\Http\Controllers', 'middleware' => 'w
         });
     });
 
-    Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'system'], function () {
             Route::resource('users', 'UserController')->except(['edit', 'update']);

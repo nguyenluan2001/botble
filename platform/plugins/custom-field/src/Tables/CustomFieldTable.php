@@ -100,16 +100,17 @@ class CustomFieldTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model
-            ->select([
-                'field_groups.id',
-                'field_groups.title',
-                'field_groups.status',
-                'field_groups.order',
-                'field_groups.created_at',
-            ]);
+        $select = [
+            'field_groups.id',
+            'field_groups.title',
+            'field_groups.status',
+            'field_groups.order',
+            'field_groups.created_at',
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

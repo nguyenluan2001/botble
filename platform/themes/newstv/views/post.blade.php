@@ -16,7 +16,7 @@
         </div>
 
         <div class="article-content">
-            {!! $post->content !!}
+            {!! clean($post->content) !!}
         </div>
         @if (!$post->tags->isEmpty())
             <div class="tags-wrap">
@@ -48,12 +48,14 @@
                 <g:plusone count="true" href="{{ $post->url }}" size="medium"></g:plusone>
             </div>
         </div>
-        <div class="comment-post">
-            <h4 class="article-content-subtitle">
-                {{ __('Comments') }}
-            </h4>
-            {!! apply_filters(BASE_FILTER_PUBLIC_COMMENT_AREA, Theme::partial('comments')) !!}
-        </div>
+        @if (theme_option('facebook_comment_enabled_in_post', 'yes') == 'yes')
+            <div class="comment-post">
+                <h4 class="article-content-subtitle">
+                    {{ __('Comments') }}
+                </h4>
+                {!! apply_filters(BASE_FILTER_PUBLIC_COMMENT_AREA, Theme::partial('comments')) !!}
+            </div>
+        @endif
     </div>
 </section>
 <section class="main-box">

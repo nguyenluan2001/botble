@@ -80,14 +80,16 @@ class {Name}Table extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model->select([
+        $select = [
             '{names}.id',
             '{names}.name',
             '{names}.created_at',
             '{names}.status',
-        ]);
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

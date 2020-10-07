@@ -53,7 +53,7 @@ if (!function_exists('is_in_admin')) {
      */
     function is_in_admin(): bool
     {
-        $isInAdmin = request()->segment(1) === config('core.base.general.admin_dir');
+        $isInAdmin = request()->segment(1) === BaseHelper::getAdminPrefix();
 
         return apply_filters(IS_IN_ADMIN_FILTER, $isInAdmin);
     }

@@ -21,7 +21,7 @@ class BaseHelper
      * @param string $format
      * @return string
      */
-    public function formatDate(string $date, string $format = null)
+    public function formatDate(?string $date, string $format = null)
     {
         if (empty($format)) {
             $format = config('core.base.general.date_format.date');
@@ -78,5 +78,13 @@ class BaseHelper
     public function scanFolder(string $path, array $ignoreFiles = [])
     {
         return scan_folder($path, $ignoreFiles);
+    }
+
+    /**
+     * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
+    public function getAdminPrefix(): string
+    {
+        return config('core.base.general.admin_dir');
     }
 }

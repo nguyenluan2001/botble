@@ -19,8 +19,6 @@ return [
     'sort'                       => 'Sort',
     'file_name_asc'              => 'File name - ASC',
     'file_name_desc'             => 'File name - DESC',
-    'created_date_asc'           => 'Created date - ASC',
-    'created_date_desc'          => 'Created_date - DESC',
     'uploaded_date_asc'          => 'Uploaded date - ASC',
     'uploaded_date_desc'         => 'Uploaded date - DESC',
     'size_asc'                   => 'Size - ASC',

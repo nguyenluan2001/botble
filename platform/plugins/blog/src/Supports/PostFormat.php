@@ -47,7 +47,7 @@ class PostFormat
         if ($isConvertToList) {
             $results = [];
             foreach (self::$formats as $key => $item) {
-                $results[] = [
+                $results[$key] = [
                     $key,
                     $item['name'],
                 ];

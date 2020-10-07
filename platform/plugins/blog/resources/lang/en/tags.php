@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'model'         => 'Tag',
-    'models'        => 'Tags',
     'form'          => [
         'name'                    => 'Name',
         'name_placeholder'        => 'Tag\'s name (Maximum 120 characters)',

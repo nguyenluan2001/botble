@@ -21,17 +21,18 @@ class ComposerServiceProvider extends ServiceProvider
         $view->composer(['core/base::layouts.partials.top-header'], function (View $view) {
             $themes = Assets::getThemes();
             $locales = Assets::getAdminLocales();
+            $defaultTheme = config('core.base.general.default-theme');
 
             if (Auth::check() && !session()->has('admin-theme')) {
-                $activeTheme = UserMeta::getMeta('admin-theme', config('core.base.general.default-theme'));
+                $activeTheme = UserMeta::getMeta('admin-theme', $defaultTheme);
             } elseif (session()->has('admin-theme')) {
                 $activeTheme = session('admin-theme');
             } else {
-                $activeTheme = config('core.base.general.default-theme');
+                $activeTheme = $defaultTheme;
             }
 
             if (!array_key_exists($activeTheme, $themes)) {
-                $activeTheme = config('core.base.general.default-theme');
+                $activeTheme = $defaultTheme;
             }
 
             if (array_key_exists($activeTheme, $themes)) {
@@ -57,9 +58,9 @@ class ComposerServiceProvider extends ServiceProvider
         $view->composer(['core/media::config'], function () {
             $mediaPermissions = config('core.media.media.permissions');
             if (Auth::check() && !Auth::user()->isSuperUser()) {
-                $mediaPermissions = array_intersect(array_keys(Auth::user()->permissions),
-                    config('core.media.media.permissions'));
+                $mediaPermissions = array_intersect(array_keys(Auth::user()->permissions), $mediaPermissions);
             }
+
             RvMedia::setPermissions($mediaPermissions);
         });
     }

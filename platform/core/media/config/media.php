@@ -59,7 +59,10 @@ return [
     'default_image'      => env('RV_MEDIA_DEFAULT_IMAGE', '/vendor/core/images/placeholder.png'),
     'sidebar_display'    => env('RV_MEDIA_SIDEBAR_DISPLAY', 'horizontal'), // Use "vertical" or "horizontal"
     'watermark'          => [
+        'enabled'  => env('RV_MEDIA_WATERMARK_ENABLED', 0),
         'source'   => env('RV_MEDIA_WATERMARK_SOURCE'),
+        'size'     => env('RV_MEDIA_WATERMARK_SIZE', 10),
+        'opacity'  => env('RV_MEDIA_WATERMARK_OPACITY', 70),
         'position' => env('RV_MEDIA_WATERMARK_POSITION', 'bottom-right'),
         'x'        => env('RV_MEDIA_WATERMARK_X', 10),
         'y'        => env('RV_MEDIA_WATERMARK_Y', 10),

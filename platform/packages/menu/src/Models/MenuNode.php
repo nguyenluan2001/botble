@@ -5,6 +5,7 @@ namespace Platform\Menu\Models;
 use Platform\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Request;
 
 class MenuNode extends BaseModel
 {
@@ -70,7 +71,7 @@ class MenuNode extends BaseModel
             return '/';
         }
 
-        return $this->reference->url;
+        return (string)$this->reference->url;
     }
 
     /**
@@ -96,6 +97,14 @@ class MenuNode extends BaseModel
         }
 
         return $this->reference->name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getActiveAttribute()
+    {
+        return rtrim(url($this->url), '/') == rtrim(Request::url(), '/');
     }
 
     /**

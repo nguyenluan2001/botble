@@ -61,6 +61,7 @@
     "/vendor/core/plugins/backup/js/backup.js": "/vendor/core/plugins/backup/js/backup.js",
     "/vendor/core/plugins/blog/js/blog.js": "/vendor/core/plugins/blog/js/blog.js",
     "/vendor/core/plugins/contact/js/contact.js": "/vendor/core/plugins/contact/js/contact.js",
+    "/vendor/core/plugins/cookie-consent/js/cookie-consent.js": "/vendor/core/plugins/cookie-consent/js/cookie-consent.js",
     "/vendor/core/plugins/custom-field/js/edit-field-group.js": "/vendor/core/plugins/custom-field/js/edit-field-group.js",
     "/vendor/core/plugins/custom-field/js/import-field-group.js": "/vendor/core/plugins/custom-field/js/import-field-group.js",
     "/vendor/core/plugins/custom-field/js/use-custom-fields.js": "/vendor/core/plugins/custom-field/js/use-custom-fields.js",

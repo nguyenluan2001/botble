@@ -543,4 +543,9 @@ class ThemeOption
 
         return $value ? $value : $default;
     }
+
+    public function saveOptions()
+    {
+        return setting()->save();
+    }
 }

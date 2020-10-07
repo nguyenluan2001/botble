@@ -85,22 +85,24 @@ class PostTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
+        $select = [
+            'posts.id',
+            'posts.name',
+            'posts.image',
+            'posts.created_at',
+            'posts.status',
+            'posts.updated_at',
+        ];
+
         $query = $model
             ->with(['categories'])
-            ->select([
-                'posts.id',
-                'posts.name',
-                'posts.image',
-                'posts.created_at',
-                'posts.status',
-                'posts.updated_at',
-            ])
+            ->select($select)
             ->where([
                 'posts.author_id'   => auth('member')->user()->getAuthIdentifier(),
                 'posts.author_type' => Member::class,
             ]);
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

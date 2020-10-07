@@ -77,15 +77,17 @@ class MemberTable extends TableAbstract
     public function query()
     {
         $model = app(MemberInterface::class)->getModel();
-        $query = $model
-            ->select([
-                'members.id',
-                'members.first_name',
-                'members.last_name',
-                'members.email',
-                'members.created_at',
-            ]);
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $select = [
+            'members.id',
+            'members.first_name',
+            'members.last_name',
+            'members.email',
+            'members.created_at',
+        ];
+
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

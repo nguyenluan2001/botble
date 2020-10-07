@@ -3,12 +3,13 @@
 namespace Platform\ACL\Http\Controllers\Auth;
 
 use Assets;
+use BaseHelper;
 use Platform\ACL\Repositories\Interfaces\ActivationInterface;
 use Platform\ACL\Repositories\Interfaces\UserInterface;
+use Platform\ACL\Traits\AuthenticatesUsers;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\View\Factory;
-use Platform\ACL\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -50,7 +51,7 @@ class LoginController extends BaseController
     {
         $this->middleware('guest', ['except' => 'logout']);
 
-        $this->redirectTo = config('core.base.general.admin_dir');
+        $this->redirectTo = BaseHelper::getAdminPrefix();
         $this->response = $response;
     }
 
@@ -91,6 +92,8 @@ class LoginController extends BaseController
      */
     public function login(Request $request)
     {
+        $request->merge([$this->username() => $request->input('username')]);
+
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -102,7 +105,7 @@ class LoginController extends BaseController
             $this->sendLockoutResponse($request);
         }
 
-        $user = app(UserInterface::class)->getFirstBy(['username' => $request->input($this->username())]);
+        $user = app(UserInterface::class)->getFirstBy([$this->username() => $request->input($this->username())]);
         if (!empty($user)) {
             if (!app(ActivationInterface::class)->completed($user)) {
                 return $this->response
@@ -129,11 +132,10 @@ class LoginController extends BaseController
 
     /**
      * @return string
-     *
      */
     public function username()
     {
-        return 'username';
+        return filter_var(request()->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
     }
 
     /**

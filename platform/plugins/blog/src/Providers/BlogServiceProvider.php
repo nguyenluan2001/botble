@@ -50,6 +50,12 @@ class BlogServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        SlugHelper::registerModule(Post::class, 'Blog Posts');
+        SlugHelper::registerModule(Category::class, 'Blog Categories');
+        SlugHelper::registerModule(Tag::class, 'Blog Tags');
+
+        SlugHelper::setPrefix(Tag::class, 'tag');
+
         $this->setNamespace('plugins/blog')
             ->loadAndPublishConfigurations(['permissions'])
             ->loadAndPublishViews()
@@ -107,9 +113,6 @@ class BlogServiceProvider extends ServiceProvider
             if (defined('LANGUAGE_MODULE_SCREEN_NAME')) {
                 Language::registerModule($models);
             }
-
-            SlugHelper::registerModule($models);
-            SlugHelper::setPrefix(Tag::class, 'tag');
 
             SeoHelper::registerModule($models);
         });

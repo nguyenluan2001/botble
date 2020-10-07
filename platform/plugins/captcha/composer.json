@@ -1,14 +1,7 @@
 {
   "name": "platform/captcha",
-  "description": "Captcha plugin",
+  "description": "Captcha for higher security",
   "homepage": "https://laravel-cms.gistensal.com",
-  "authors": [
-    {
-      "name": "Laravel Technologies",
-      "email": "developer-team@gistensal.com",
-      "homepage": "https://laravel-cms.gistensal.com"
-    }
-  ],
   "require": {
     "google/recaptcha": "^1.2"
   }

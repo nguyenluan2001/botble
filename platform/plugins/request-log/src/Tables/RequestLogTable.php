@@ -72,15 +72,16 @@ class RequestLogTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model
-            ->select([
-                'request_logs.id',
-                'request_logs.url',
-                'request_logs.status_code',
-                'request_logs.count',
-            ]);
+        $select = [
+            'request_logs.id',
+            'request_logs.url',
+            'request_logs.status_code',
+            'request_logs.count',
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Platform\ACL\Http\Controllers;
 
 use Assets;
+use Platform\Base\Events\UpdatedContentEvent;
 use Platform\Media\Services\ThumbnailService;
 use File;
 use Illuminate\Contracts\View\Factory;
@@ -267,6 +268,8 @@ class UserController extends BaseController
         $user->fill($request->input());
         $this->userRepository->createOrUpdate($user);
         do_action(USER_ACTION_AFTER_UPDATE_PROFILE, USER_MODULE_SCREEN_NAME, $request, $user);
+
+        event(new UpdatedContentEvent(USER_MODULE_SCREEN_NAME, $request, $user));
 
         return $response->setMessage(trans('core/acl::users.update_profile_success'));
     }

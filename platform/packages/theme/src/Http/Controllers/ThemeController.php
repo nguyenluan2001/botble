@@ -53,25 +53,23 @@ class ThemeController extends BaseController
                 'vendor/core/packages/theme/js/theme-options.js',
             ]);
 
+        do_action(RENDERING_THEME_OPTIONS_PAGE);
+
         return view('packages/theme::options');
     }
 
     /**
      * @param Request $request
      * @param BaseHttpResponse $response
-     * @param SettingStore $settingStore
      * @return BaseHttpResponse
      */
-    public function postUpdate(Request $request, BaseHttpResponse $response, SettingStore $settingStore)
+    public function postUpdate(Request $request, BaseHttpResponse $response)
     {
-        $sections = ThemeOption::constructSections();
-        foreach ($sections as $section) {
-            foreach ($section['fields'] as $field) {
-                $key = $field['attributes']['name'];
-                ThemeOption::setOption($key, $request->input($key, 0));
-            }
+        foreach ($request->except(['_token', 'ref_lang']) as $key => $value) {
+            ThemeOption::setOption($key, $value);
         }
-        $settingStore->save();
+
+        ThemeOption::saveOptions();
 
         return $response->setMessage(trans('core/base::notices.update_success_message'));
     }

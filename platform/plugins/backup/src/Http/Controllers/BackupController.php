@@ -110,7 +110,6 @@ class BackupController extends BaseController
             }
 
             Helper::clearCache();
-            $this->generateAppKey();
 
             do_action(BACKUP_ACTION_AFTER_RESTORE, BACKUP_MODULE_SCREEN_NAME, $request);
 
@@ -120,22 +119,6 @@ class BackupController extends BaseController
                 ->setError()
                 ->setMessage($exception->getMessage());
         }
-    }
-
-    /**
-     * @return void
-     */
-    public function generateAppKey(): void
-    {
-        $key = 'base64:' . base64_encode(Encrypter::generateKey(config('app.cipher')));
-
-        file_put_contents(app()->environmentFilePath(), preg_replace(
-            '/^APP_KEY' . preg_quote('=' . config('app.key'), '/') . '/m',
-            'APP_KEY=' . $key,
-            file_get_contents(app()->environmentFilePath())
-        ));
-
-        config(['app.key' => $key]);
     }
 
     /**

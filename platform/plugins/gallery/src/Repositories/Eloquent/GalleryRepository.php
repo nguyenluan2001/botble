@@ -32,6 +32,7 @@ class GalleryRepository extends RepositoriesAbstract implements GalleryInterface
             ->with('slugable')
             ->where('galleries.status', BaseStatusEnum::PUBLISHED)
             ->select('galleries.*')
+            ->orderBy('galleries.order', 'asc')
             ->orderBy('galleries.created_at', 'desc');
 
         return $this->applyBeforeExecuteQuery($data)->get();
@@ -56,6 +57,7 @@ class GalleryRepository extends RepositoriesAbstract implements GalleryInterface
                 'galleries.created_at',
             ])
             ->orderBy('galleries.order', 'asc')
+            ->orderBy('galleries.created_at', 'desc')
             ->limit($limit);
 
         return $this->applyBeforeExecuteQuery($data)->get();

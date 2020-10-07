@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'model'               => 'Post',
-    'models'              => 'Posts',
     'create'              => 'Create new post',
     'edit'                => 'Edit post',
     'form'                => [

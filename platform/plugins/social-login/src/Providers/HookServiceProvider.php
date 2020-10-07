@@ -4,6 +4,7 @@ namespace Platform\SocialLogin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use SocialService;
+use Theme;
 
 class HookServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,12 @@ class HookServiceProvider extends ServiceProvider
     {
         if (!SocialService::isSupportedModule($module)) {
             return $html;
+        }
+
+        if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
+            Theme::asset()
+                ->usePath(false)
+                ->add('social-login-css', asset('vendor/core/plugins/social-login/css/social-login.css'), [], [], '1.0.0');
         }
 
         return $html . view('plugins/social-login::login-options')->render();

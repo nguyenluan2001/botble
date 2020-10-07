@@ -2,7 +2,7 @@
 
 Route::group([
     'namespace'  => 'Platform\Member\Http\Controllers',
-    'prefix'     => config('core.base.general.admin_dir'),
+    'prefix'     => BaseHelper::getAdminPrefix(),
     'middleware' => ['web', 'auth'],
 ], function () {
 

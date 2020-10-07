@@ -9,8 +9,7 @@ Social Icons
     @include clearfix();
 
     li {
-        float: left;
-        display: inline;
+        display: inline-block;
         list-style: none;
         margin-right: 5px;
         margin-bottom: 5px;

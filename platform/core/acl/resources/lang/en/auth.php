@@ -2,7 +2,7 @@
 
 return [
     'login'                 => [
-        'username'          => 'Username',
+        'username'          => 'Email/Username',
         'email'             => 'Email',
         'password'          => 'Password',
         'title'             => 'User Login',

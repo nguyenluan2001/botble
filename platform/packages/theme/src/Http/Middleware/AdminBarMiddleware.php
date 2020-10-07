@@ -2,6 +2,7 @@
 
 namespace Platform\Theme\Http\Middleware;
 
+use BaseHelper;
 use Platform\Setting\Supports\SettingStore;
 use Closure;
 use Html;
@@ -46,7 +47,7 @@ class AdminBarMiddleware
     {
         $response = $next($request);
 
-        if (!config('core.base.general.admin_dir')) {
+        if (!BaseHelper::getAdminPrefix()) {
             return $response;
         }
 

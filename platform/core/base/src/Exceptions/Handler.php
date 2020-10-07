@@ -3,6 +3,7 @@
 namespace Platform\Base\Exceptions;
 
 use App\Exceptions\Handler as ExceptionHandler;
+use BaseHelper;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use EmailHandler;
 use Exception;
@@ -108,7 +109,7 @@ class Handler extends ExceptionHandler
         $code = $code == '403' ? '401' : $code;
         $code = $code == '503' ? '500' : $code;
 
-        if ($request->is(config('core.base.general.admin_dir') . '/*') || $request->is(config('core.base.general.admin_dir'))) {
+        if ($request->is(BaseHelper::getAdminPrefix() . '/*') || $request->is(BaseHelper::getAdminPrefix())) {
             return response()->view('core/base::errors.' . $code, [], $code);
         }
 
@@ -135,11 +136,6 @@ class Handler extends ExceptionHandler
 
                 if (config('core.base.general.error_reporting.via_slack',
                         false) == true && !$exception instanceof OAuthServerException) {
-                    config()->set([
-                        'logging.channels.slack.username' => 'Anonymous BOT',
-                        'logging.channels.slack.emoji'    => ':helmet_with_white_cross:',
-                    ]);
-
                     Log::channel('slack')
                         ->critical(URL::full() . "\n" . $exception->getFile() . ':' . $exception->getLine() . "\n" . $exception->getMessage());
                 }

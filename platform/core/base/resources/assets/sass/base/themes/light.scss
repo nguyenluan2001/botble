@@ -102,7 +102,7 @@ $footer-default-go-top-bg-color: #9ca6ad !default;
 $footer-default-go-top-icon-font-color: #dddddd !default;
 $footer-fixed-bg-color: lighten($header-bg-color, 40%) !default;
 
-@import 'base';
+@import '../base';
 
 /* Page sidebar */
 

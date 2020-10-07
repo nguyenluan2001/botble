@@ -23,11 +23,6 @@ class Category extends BaseModel
     protected $table = 'categories';
 
     /**
-     * @var string
-     */
-    protected $primaryKey = 'id';
-
-    /**
      * The date fields for the model.clear
      *
      * @var array
@@ -90,6 +85,8 @@ class Category extends BaseModel
         parent::boot();
 
         self::deleting(function (Category $category) {
+            Category::where('parent_id', $category->id)->delete();
+
             $category->posts()->detach();
         });
     }

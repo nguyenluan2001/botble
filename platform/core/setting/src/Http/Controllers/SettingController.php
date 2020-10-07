@@ -225,6 +225,8 @@ class SettingController extends BaseController
     {
         page_title()->setTitle(trans('core/setting::setting.media.title'));
 
+        Assets::addScriptsDirectly('vendor/core/js/setting.js');
+
         return view('core/setting::media');
     }
 
@@ -249,19 +251,17 @@ class SettingController extends BaseController
      */
     public function getVerifyLicense(Core $coreApi, BaseHttpResponse $response)
     {
-        // if (!File::exists(storage_path('.license'))) {
-        //     return $response->setError()->setMessage('Your license is invalid, please contact support.');
-        // }
+        if (!File::exists(storage_path('.license'))) {
+            return $response->setError()->setMessage('Your license is invalid, please contact support.');
+        }
 
-        // $result = $coreApi->verifyLicense(true);
-        $result = ['status' => true, 'message' => 'Verified! Thanks for purchasing.'];
+        $result = $coreApi->verifyLicense(true);
 
         if (!$result['status']) {
             return $response->setError()->setMessage($result['message']);
         }
 
-        // $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
-        $activatedAt = Carbon::now('Asia/Ho_Chi_Minh')->addYears(1000);
+        $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
 
         $data = [
             'activated_at' => $activatedAt->format('M d Y'),

@@ -125,20 +125,22 @@ class UserTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
+        $select = [
+            'users.id',
+            'users.username',
+            'users.email',
+            'roles.name as role_name',
+            'roles.id as role_id',
+            'users.updated_at',
+            'users.created_at',
+            'users.super_user',
+        ];
+
         $query = $model->leftJoin('role_users', 'users.id', '=', 'role_users.user_id')
             ->leftJoin('roles', 'roles.id', '=', 'role_users.role_id')
-            ->select([
-                'users.id',
-                'users.username',
-                'users.email',
-                'roles.name as role_name',
-                'roles.id as role_id',
-                'users.updated_at',
-                'users.created_at',
-                'users.super_user',
-            ]);
+            ->select($select);
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

@@ -2,18 +2,18 @@
 
 namespace Platform\Blog\Http\Controllers;
 
-use Auth;
-use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Blog\Models\Category;
+use Platform\Blog\Models\Post;
 use Platform\Blog\Models\Tag;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Blog\Repositories\Interfaces\TagInterface;
-use Platform\SeoHelper\SeoOpenGraph;
+use Platform\Blog\Services\BlogService;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Arr;
 use Response;
 use SeoHelper;
+use SlugHelper;
 use Theme;
 
 class PublicController extends Controller
@@ -57,7 +57,8 @@ class PublicController extends Controller
             ->add(__('Home'), url('/'))
             ->add(__('Search result for: ') . '"' . $query . '"', route('public.search'));
 
-        return Theme::scope('search', compact('posts'))->render();
+        return Theme::scope('search', compact('posts'))
+            ->render();
     }
 
     /**
@@ -65,45 +66,64 @@ class PublicController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function getTag($slug, Request $request)
+    public function getTag($slug, BlogService $blogService)
     {
-        $slug = $this->slugRepository->getFirstBy(['key' => $slug, 'reference_type' => Tag::class]);
+        $slug = $this->slugRepository->getFirstBy([
+            'key'            => $slug,
+            'prefix'         => SlugHelper::getPrefix(Tag::class),
+        ]);
+
         if (!$slug) {
             abort(404);
         }
-        $condition = [
-            'id'     => $slug->reference_id,
-            'status' => BaseStatusEnum::PUBLISHED,
-        ];
 
-        if (Auth::check() && $request->input('preview')) {
-            Arr::forget($condition, 'status');
-        }
+        $data = $blogService->handleFrontRoutes($slug);
 
-        $tag = $this->tagRepository->getFirstBy($condition);
+        return Theme::scope($data['view'], $data['data'], $data['default_view'])
+            ->render();
+    }
 
-        if (!$tag) {
+    /**
+     * @param string $slug
+     * @param BlogService $blogService
+     * @return Response
+     */
+    public function getPost($slug, BlogService $blogService)
+    {
+        $slug = $this->slugRepository->getFirstBy([
+            'key'    => $slug,
+            'prefix' => SlugHelper::getPrefix(Post::class),
+        ]);
+
+        if (!$slug) {
             abort(404);
         }
 
-        SeoHelper::setTitle($tag->name)->setDescription($tag->description);
+        $data = $blogService->handleFrontRoutes($slug);
 
-        $meta = new SeoOpenGraph;
-        $meta->setDescription($tag->description);
-        $meta->setUrl($tag->url);
-        $meta->setTitle($tag->name);
-        $meta->setType('article');
+        return Theme::scope($data['view'], $data['data'], $data['default_view'])
+            ->render();
+    }
 
-        if (function_exists('admin_bar')) {
-            admin_bar()->registerLink(trans('plugins/blog::tags.edit_this_tag'), route('tags.edit', $tag->id));
+    /**
+     * @param string $slug
+     * @param BlogService $blogService
+     * @return Response
+     */
+    public function getCategory($slug, BlogService $blogService)
+    {
+        $slug = $this->slugRepository->getFirstBy([
+            'key'    => $slug,
+            'prefix' => SlugHelper::getPrefix(Category::class),
+        ]);
+
+        if (!$slug) {
+            abort(404);
         }
 
-        $posts = get_posts_by_tag($tag->id, theme_option('number_of_posts_in_a_tag'));
+        $data = $blogService->handleFrontRoutes($slug);
 
-        Theme::breadcrumb()->add(__('Home'), url('/'))->add($tag->name, $tag->url);
-
-        do_action(BASE_ACTION_PUBLIC_RENDER_SINGLE, TAG_MODULE_SCREEN_NAME, $tag);
-
-        return Theme::scope('tag', compact('tag', 'posts'), 'plugins/blog::themes.tag')->render();
+        return Theme::scope($data['view'], $data['data'], $data['default_view'])
+            ->render();
     }
 }

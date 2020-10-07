@@ -14,6 +14,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Translation\Translator;
 use Request;
@@ -192,7 +193,7 @@ class LanguageManager
 
     /**
      * @param array $select
-     * @return array
+     * @return array|Collection
      *
      * @since 2.0
      */
@@ -260,10 +261,9 @@ class LanguageManager
     }
 
     /**
-     * @param $id
-     * @param $unique_key
+     * @param int $id
+     * @param string $uniqueKey
      * @return mixed
-     *
      * @since 2.0
      */
     public function getRelatedLanguageItem($id, $uniqueKey)
@@ -272,9 +272,11 @@ class LanguageManager
          * @var Builder $meta
          */
         $meta = $this->languageMetaRepository->getModel()->where('lang_meta_origin', $uniqueKey);
+
         if ($id != Request::input('ref_from')) {
             $meta = $meta->where('reference_id', '!=', $id);
         }
+
         return $meta->pluck('reference_id', 'lang_meta_code')->all();
     }
 
@@ -399,57 +401,57 @@ class LanguageManager
             return $this->getURLFromRouteNameTranslated($locale, $translatedRoute, $attributes);
         }
 
-        $base_path = request()->getBaseUrl();
-        $parsed_url = parse_url($url);
-        $url_locale = $this->getDefaultLocale();
+        $basePath = request()->getBaseUrl();
+        $parsedUrl = parse_url($url);
+        $urlLocale = $this->getDefaultLocale();
 
-        if (!$parsed_url || empty($parsed_url['path'])) {
-            $path = $parsed_url['path'] = '';
+        if (!$parsedUrl || empty($parsedUrl['path'])) {
+            $path = $parsedUrl['path'] = '';
         } else {
-            $parsed_url['path'] = str_replace($base_path, '', '/' . ltrim($parsed_url['path'], '/'));
-            $path = $parsed_url['path'];
+            $parsedUrl['path'] = str_replace($basePath, '', '/' . ltrim($parsedUrl['path'], '/'));
+            $path = $parsedUrl['path'];
             foreach (array_keys($this->getSupportedLocales()) as $localeCode) {
-                $parsed_url['path'] = preg_replace('%^/?' . $localeCode . '/%', '$1', $parsed_url['path']);
-                if ($parsed_url['path'] !== $path) {
-                    $url_locale = $localeCode;
+                $parsedUrl['path'] = preg_replace('%^/?' . $localeCode . '/%', '$1', $parsedUrl['path']);
+                if ($parsedUrl['path'] !== $path) {
+                    $urlLocale = $localeCode;
                     break;
                 }
 
-                $parsed_url['path'] = preg_replace('%^/?' . $localeCode . '$%', '$1', $parsed_url['path']);
-                if ($parsed_url['path'] !== $path) {
-                    $url_locale = $localeCode;
+                $parsedUrl['path'] = preg_replace('%^/?' . $localeCode . '$%', '$1', $parsedUrl['path']);
+                if ($parsedUrl['path'] !== $path) {
+                    $urlLocale = $localeCode;
                     break;
                 }
             }
         }
 
-        $parsed_url['path'] = ltrim($parsed_url['path'], '/');
+        $parsedUrl['path'] = ltrim($parsedUrl['path'], '/');
 
-        if ($translatedRoute = $this->findTranslatedRouteByPath($parsed_url['path'], $url_locale)) {
+        if ($translatedRoute = $this->findTranslatedRouteByPath($parsedUrl['path'], $urlLocale)) {
             return $this->getURLFromRouteNameTranslated($locale, $translatedRoute, $attributes);
         }
 
         if ($this->hideDefaultLocaleInURL()) {
             if (!empty($locale)) {
-                $parsed_url['path'] = $locale . '/' . ltrim(ltrim($base_path, '/') . '/' . $parsed_url['path'], '/');
+                $parsedUrl['path'] = $locale . '/' . ltrim(ltrim($basePath, '/') . '/' . $parsedUrl['path'], '/');
             }
             if ($this->getCurrentLocale() == $this->getDefaultLocale()) {
-                $parsed_url['path'] = str_replace($this->getCurrentLocale() . '/', '/', $parsed_url['path']);
+                $parsedUrl['path'] = str_replace($this->getCurrentLocale() . '/', '/', $parsedUrl['path']);
             }
         } else {
             if (!empty($locale) && ($locale != $this->defaultLocale || !$this->hideDefaultLocaleInURL())) {
-                $parsed_url['path'] = $locale . '/' . ltrim($parsed_url['path'], '/');
+                $parsedUrl['path'] = $locale . '/' . ltrim($parsedUrl['path'], '/');
             }
-            $parsed_url['path'] = ltrim(ltrim($base_path, '/') . '/' . $parsed_url['path'], '/');
+            $parsedUrl['path'] = ltrim(ltrim($basePath, '/') . '/' . $parsedUrl['path'], '/');
         }
 
-        //Make sure that the pass path is returned with a leading slash only if it come in with one.
+        // Make sure that the pass path is returned with a leading slash only if it come in with one.
         if (Str::startsWith($path, '/') === true) {
-            $parsed_url['path'] = '/' . $parsed_url['path'];
+            $parsedUrl['path'] = '/' . $parsedUrl['path'];
         }
-        $parsed_url['path'] = rtrim($parsed_url['path'], '/');
+        $parsedUrl['path'] = rtrim($parsedUrl['path'], '/');
 
-        $url = $this->unparseUrl($parsed_url);
+        $url = $this->unparseUrl($parsedUrl);
 
         if ($this->checkUrl($url)) {
             return $url;
@@ -609,14 +611,14 @@ class LanguageManager
     protected function substituteAttributesInRoute($attributes, $route)
     {
         foreach ($attributes as $key => $value) {
-            if ($value instanceOf UrlRoutable) {
+            if ($value instanceof UrlRoutable) {
                 $value = $value->getRouteKey();
             }
             $route = str_replace('{' . $key . '}', $value, $route);
             $route = str_replace('{' . $key . '?}', $value, $route);
         }
 
-        // delete empty optional arguments that are not in the $attributes array
+        // Delete empty optional arguments that are not in the $attributes array
         $route = preg_replace('/\/{[^)]+\?}/', '', $route);
 
         return $route;
@@ -654,7 +656,7 @@ class LanguageManager
             return false;
         }
 
-        // check if this url is a translated url
+        // Check if this url is a translated url
         foreach ($this->translatedRoutes as $translatedRoute) {
             $routeName = $this->getURLFromRouteNameTranslated($locale, $translatedRoute, $attributes);
 
@@ -662,6 +664,7 @@ class LanguageManager
                 return $translatedRoute;
             }
         }
+
         return false;
     }
 
@@ -688,44 +691,45 @@ class LanguageManager
      */
     protected function findTranslatedRouteByPath($path, $urlLocale)
     {
-        // check if this url is a translated url
+        // Check if this url is a translated url
         foreach ($this->translatedRoutes as $translatedRoute) {
             if ($this->translator->trans($translatedRoute, [], $urlLocale) == rawurldecode($path)) {
                 return $translatedRoute;
             }
         }
+
         return false;
     }
 
     /**
      * Build URL using array data from parse_url
      *
-     * @param array|false $parsed_url Array of data from parse_url function
+     * @param array|false $parsedUrl Array of data from parse_url function
      *
      * @return string Returns URL as string.
      */
-    protected function unparseUrl($parsed_url)
+    protected function unparseUrl($parsedUrl)
     {
-        if (empty($parsed_url)) {
+        if (empty($parsedUrl)) {
             return '';
         }
 
         $url = '';
-        $url .= isset($parsed_url['scheme']) ? $parsed_url['scheme'] . '://' : '';
-        $url .= isset($parsed_url['host']) ? $parsed_url['host'] : '';
-        $url .= isset($parsed_url['port']) ? ':' . $parsed_url['port'] : '';
-        $user = isset($parsed_url['user']) ? $parsed_url['user'] : '';
-        $pass = isset($parsed_url['pass']) ? ':' . $parsed_url['pass'] : '';
+        $url .= isset($parsedUrl['scheme']) ? $parsedUrl['scheme'] . '://' : '';
+        $url .= isset($parsedUrl['host']) ? $parsedUrl['host'] : '';
+        $url .= isset($parsedUrl['port']) ? ':' . $parsedUrl['port'] : '';
+        $user = isset($parsedUrl['user']) ? $parsedUrl['user'] : '';
+        $pass = isset($parsedUrl['pass']) ? ':' . $parsedUrl['pass'] : '';
         $url .= $user . (($user || $pass) ? $pass . '@' : '');
 
         if (!empty($url)) {
-            $url .= isset($parsed_url['path']) ? '/' . ltrim($parsed_url['path'], '/') : '';
+            $url .= isset($parsedUrl['path']) ? '/' . ltrim($parsedUrl['path'], '/') : '';
         } else {
-            $url .= isset($parsed_url['path']) ? $parsed_url['path'] : '';
+            $url .= isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
         }
 
-        $url .= isset($parsed_url['query']) ? '?' . $parsed_url['query'] : '';
-        $url .= isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
+        $url .= isset($parsedUrl['query']) ? '?' . $parsedUrl['query'] : '';
+        $url .= isset($parsedUrl['fragment']) ? '#' . $parsedUrl['fragment'] : '';
 
         return $url;
     }
@@ -752,6 +756,7 @@ class LanguageManager
         if (empty($this->supportedLocales)) {
             return null;
         }
+
         return Arr::get($this->supportedLocales, $this->getCurrentLocale() . '.lang_name');
     }
 
@@ -780,6 +785,7 @@ class LanguageManager
         if (empty($this->supportedLocales)) {
             return null;
         }
+
         return Arr::get($this->supportedLocales, $this->getCurrentLocale() . '.lang_code');
     }
 
@@ -840,6 +846,7 @@ class LanguageManager
         if (empty($this->supportedLocales)) {
             return null;
         }
+
         return Arr::get($this->supportedLocales, $this->getDefaultLocale() . '.lang_code', config('app.locale'));
     }
 
@@ -853,6 +860,7 @@ class LanguageManager
         if (empty($this->supportedLocales)) {
             return null;
         }
+
         return Arr::get($this->supportedLocales, $this->getCurrentLocale() . '.lang_flag');
     }
 
@@ -878,6 +886,7 @@ class LanguageManager
         if ($locale !== false && empty($locales[$locale])) {
             return false;
         }
+
         return true;
     }
 
@@ -958,7 +967,7 @@ class LanguageManager
         if (!empty($defaultLanguage)) {
             if ($data != false && in_array(get_class($data), $this->supportedModels())) {
                 if ($request->input('language')) {
-                    $unique_key = null;
+                    $uniqueKey = null;
                     $meta = $this->languageMetaRepository->getFirstBy(
                         [
                             'reference_id'   => $data->id,
@@ -966,9 +975,9 @@ class LanguageManager
                         ]
                     );
                     if (!$meta && !$request->input('ref_from')) {
-                        $unique_key = md5($data->id . $screen . time());
+                        $uniqueKey = md5($data->id . $screen . time());
                     } elseif ($request->input('ref_from')) {
-                        $unique_key = $this->languageMetaRepository->getFirstBy(
+                        $uniqueKey = $this->languageMetaRepository->getFirstBy(
                             [
                                 'reference_id'   => $request->input('ref_from'),
                                 'reference_type' => get_class($data),
@@ -980,7 +989,7 @@ class LanguageManager
                         $meta = $this->languageMetaRepository->getModel();
                         $meta->reference_id = $data->id;
                         $meta->reference_type = get_class($data);
-                        $meta->lang_meta_origin = $unique_key;
+                        $meta->lang_meta_origin = $uniqueKey;
                     }
 
                     $meta->lang_meta_code = $request->input('language');
@@ -1011,6 +1020,7 @@ class LanguageManager
     }
 
     /**
+     * @return array
      * @since 2.0
      */
     public function supportedModels()
@@ -1026,14 +1036,12 @@ class LanguageManager
     public function deleteLanguage($screen, $data)
     {
         $defaultLanguage = $this->getDefaultLanguage(['lang_id']);
-        if (!empty($defaultLanguage)) {
-            if (in_array(get_class($data), $this->supportedModels())) {
-                $this->languageMetaRepository->deleteBy([
-                    'reference_id'   => $data->id,
-                    'reference_type' => get_class($data),
-                ]);
-                return true;
-            }
+        if (!empty($defaultLanguage) && in_array(get_class($data), $this->supportedModels())) {
+            $this->languageMetaRepository->deleteBy([
+                'reference_id'   => $data->id,
+                'reference_type' => get_class($data),
+            ]);
+            return true;
         }
 
         return false;

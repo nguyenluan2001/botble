@@ -3,29 +3,6 @@
 use Platform\CustomField\Facades\CustomFieldSupportFacade;
 use Platform\CustomField\Support\CustomFieldSupport;
 
-if (!function_exists('parse_custom_fields_raw_data')) {
-    /**
-     * @param string $jsonString
-     * @return array
-     */
-    function parse_custom_fields_raw_data($jsonString)
-    {
-        try {
-            $fieldGroups = json_decode($jsonString);
-        } catch (Exception $exception) {
-            return [];
-        }
-
-        $result = [];
-        foreach ($fieldGroups as $fieldGroup) {
-            foreach ($fieldGroup->items as $item) {
-                $result[] = $item;
-            }
-        }
-        return $result;
-    }
-}
-
 if (!function_exists('add_custom_fields_rules_to_check')) {
     /**
      * @param string|array $ruleName

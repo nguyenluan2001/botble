@@ -13,7 +13,11 @@ if (!function_exists('gallery_meta_data')) {
      */
     function gallery_meta_data($object, array $select = ['images']): array
     {
-        $meta = app(GalleryMetaInterface::class)->getFirstBy(['reference_id' => $object->id, 'reference_type' => get_class($object)], $select);
+        $meta = app(GalleryMetaInterface::class)->getFirstBy([
+            'reference_id'   => $object->id,
+            'reference_type' => get_class($object),
+        ], $select);
+
         if (!empty($meta)) {
             return $meta->images ?? [];
         }
@@ -51,7 +55,7 @@ if (!function_exists('get_list_galleries')) {
      */
     function get_list_galleries(array $condition): Collection
     {
-        return app(GalleryInterface::class)->allBy($condition);
+        return app(GalleryInterface::class)->allBy($condition, ['slugable']);
     }
 }
 
@@ -60,15 +64,18 @@ if (!function_exists('render_object_gallery')) {
      * @param array $galleries
      * @param string $category
      * @return string
-     *
      * @throws Throwable
      */
     function render_object_gallery(array $galleries, $category = null): string
     {
-        Theme::asset()->container('footer')->add('owl.carousel', 'vendor/core/plugins/gallery/libraries/owl-carousel/owl.carousel.css');
-        Theme::asset()->container('footer')->add('object-gallery-css', 'vendor/core/plugins/gallery/css/object-gallery.css');
-        Theme::asset()->container('footer')->add('carousel', 'vendor/core/plugins/gallery/libraries/owl-carousel/owl.carousel.js', ['jquery']);
-        Theme::asset()->container('footer')->add('object-gallery-js', 'vendor/core/plugins/gallery/js/object-gallery.js', ['jquery']);
+        Theme::asset()
+            ->container('footer')
+            ->usePath(false)
+            ->add('owl.carousel', asset('vendor/core/plugins/gallery/libraries/owl-carousel/owl.carousel.css'), [], [], '1.0.0')
+            ->add('object-gallery-css', asset('vendor/core/plugins/gallery/css/object-gallery.css'), [], [], '1.0.0')
+            ->add('carousel', asset('vendor/core/plugins/gallery/libraries/owl-carousel/owl.carousel.js'), ['jquery'], [], '1.0.0')
+            ->add('object-gallery-js', asset('vendor/core/plugins/gallery/js/object-gallery.js'), ['jquery'], [], '1.0.0');
+
         return view('plugins/gallery::partials.object-gallery', compact('galleries', 'category'))->render();
     }
 }

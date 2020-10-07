@@ -28,7 +28,7 @@
         "tightenco/ziggy": "^0.9",
         "yajra/laravel-datatables-buttons": "^4.9",
         "yajra/laravel-datatables-oracle": "^9.9",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.0|^7.0",
         "mews/purifier": "^3.2"
     },
     "autoload": {

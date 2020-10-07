@@ -768,19 +768,27 @@ abstract class TableAbstract extends DataTable
         switch ($key) {
             case 'created_at':
             case 'updated_at':
+                if (!$value) {
+                    break;
+                }
+
                 $value = Carbon::createFromFormat(config('core.base.general.date_format.date'), $value)->toDateString();
-                $query = $query->whereDate($key, $operator, $value);
+                $query = $query->whereDate($this->repository->getTable() . '.' . $key, $operator, $value);
                 break;
             default:
+                if (!$value) {
+                    break;
+                }
+
                 if ($operator === 'like') {
-                    $query = $query->where($key, $operator, '%' . $value . '%');
+                    $query = $query->where($this->repository->getTable() . '.' . $key, $operator, '%' . $value . '%');
                     break;
                 }
 
                 if ($operator !== '=') {
                     $value = (float)$value;
                 }
-                $query = $query->where($key, $operator, $value);
+                $query = $query->where($this->repository->getTable() . '.' . $key, $operator, $value);
         }
 
         return $query;

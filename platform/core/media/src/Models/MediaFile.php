@@ -44,11 +44,6 @@ class MediaFile extends BaseModel
     ];
 
     /**
-     * @var string[]
-     */
-    protected $guarded = ['is_folder'];
-
-    /**
      * @var array
      */
     protected $casts = [

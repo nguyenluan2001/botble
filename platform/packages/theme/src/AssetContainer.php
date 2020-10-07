@@ -624,6 +624,7 @@ class AssetContainer
         if (!isset($this->assets[$group])) {
             return [];
         }
+
         $assets = [];
         foreach (array_keys($this->arrange($this->assets[$group])) as $name) {
             $assets[] = $this->assetUrl($group, $name);

@@ -209,23 +209,6 @@
                                            class="js-rv-media-change-filter"
                                            data-type="sort_by"
                                            data-value="created_at-asc">
-                                            <i class="fas fa-sort-numeric-up"></i> {{ trans('core/media::media.created_date_asc') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                           class="js-rv-media-change-filter"
-                                           data-type="sort_by"
-                                           data-value="created_at-desc">
-                                            <i class="fas fa-sort-numeric-down"></i> {{ trans('core/media::media.created_date_desc') }}
-                                        </a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a href="#"
-                                           class="js-rv-media-change-filter"
-                                           data-type="sort_by"
-                                           data-value="updated_at-asc">
                                             <i class="fas fa-sort-numeric-up"></i> {{ trans('core/media::media.uploaded_date_asc') }}
                                         </a>
                                     </li>
@@ -233,7 +216,7 @@
                                         <a href="#"
                                            class="js-rv-media-change-filter"
                                            data-type="sort_by"
-                                           data-value="updated_at-desc">
+                                           data-value="created_at-desc">
                                             <i class="fas fa-sort-numeric-down"></i> {{ trans('core/media::media.uploaded_date_desc') }}
                                         </a>
                                     </li>

@@ -33,8 +33,9 @@ class TableExportHandler extends DataTablesExportHandler implements WithEvents
      */
     protected function beforeSheet(BeforeSheet $event)
     {
-        $event->sheet
-            ->getDelegate()
+        $delegate = $event->sheet->getDelegate();
+
+        $delegate
             ->getPageSetup()
             ->setOrientation(PageSetup::ORIENTATION_LANDSCAPE)
             ->setPaperSize(PageSetup::PAPERSIZE_A4)
@@ -43,8 +44,7 @@ class TableExportHandler extends DataTablesExportHandler implements WithEvents
             ->setHorizontalCentered(true)
             ->setVerticalCentered(false);
 
-        $event->sheet
-            ->getDelegate()
+        $delegate
             ->getPageMargins()
             ->setTop(0.4)
             ->setLeft(0.4)
@@ -60,11 +60,12 @@ class TableExportHandler extends DataTablesExportHandler implements WithEvents
      */
     protected function afterSheet(AfterSheet $event)
     {
+        $delegate = $event->sheet->getDelegate();
         $totalColumns = count(array_filter($this->headings()));
         $lastColumnName = $this->getNameFromNumber($totalColumns);
         try {
             $dimensions = 'A1:' . $lastColumnName . '1';
-            $event->sheet->getDelegate()->getStyle($dimensions)->applyFromArray(
+            $delegate->getStyle($dimensions)->applyFromArray(
                 [
                     'font'      => [
                         'bold'  => true,
@@ -87,22 +88,23 @@ class TableExportHandler extends DataTablesExportHandler implements WithEvents
             info($exception->getMessage());
         }
 
-        $event->sheet->getDelegate()->getColumnDimension('A')->setWidth(10);
-        $event->sheet->getDelegate()->getRowDimension(1)->setRowHeight(20);
+        $delegate->getColumnDimension('A')->setWidth(10);
+        $delegate->getRowDimension(1)->setRowHeight(20);
 
         for ($index = 2; $index <= $totalColumns; $index++) {
-            $event->sheet->getDelegate()->getColumnDimension($this->getNameFromNumber($index))->setWidth(25);
+            $delegate->getColumnDimension($this->getNameFromNumber($index))->setWidth(25);
         }
 
-        $event->sheet->getDelegate()
+        $delegate
             ->getStyle('A1:Z' . ($this->collection->count() + 1))
             ->getAlignment()
             ->setWrapText(true)
             ->setHorizontal(Alignment::HORIZONTAL_CENTER)
             ->setVertical(Alignment::VERTICAL_CENTER);
 
-        $event->sheet->getDelegate()->setSelectedCell('A1');
-        $event->sheet->getDelegate()->freezePane('A2');
+        $delegate
+            ->setSelectedCell('A1')
+            ->freezePane('A2');
     }
 
     /**
@@ -119,5 +121,24 @@ class TableExportHandler extends DataTablesExportHandler implements WithEvents
         }
 
         return $letter;
+    }
+
+    /**
+     * @param string $imageUrl
+     * @return null|resource
+     */
+    protected function getImageResourceFromURL($imageUrl)
+    {
+        if (!$imageUrl) {
+            return null;
+        }
+
+        $imageUrl = url($imageUrl);
+
+        try {
+            return imagecreatefromstring(file_get_contents($imageUrl));
+        } catch (Exception $exception) {
+            return null;
+        }
     }
 }

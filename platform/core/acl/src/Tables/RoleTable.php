@@ -93,17 +93,19 @@ class RoleTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
+        $select = [
+            'roles.id',
+            'roles.name',
+            'roles.description',
+            'roles.created_at',
+            'roles.created_by',
+        ];
+
         $query = $model
             ->with('author')
-            ->select([
-                'roles.id',
-                'roles.name',
-                'roles.description',
-                'roles.created_at',
-                'roles.created_by',
-            ]);
+            ->select($select);
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

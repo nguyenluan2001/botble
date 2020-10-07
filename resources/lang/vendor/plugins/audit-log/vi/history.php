@@ -24,4 +24,7 @@ return [
     'user'              => 'thành viên',
     'widget_audit_logs' => 'Lịch sử hoạt động',
     'system'            => 'Hệ thống',
+    'action'            => 'Hành động',
+    'delete_all'        => 'Xóa tất cả bản ghi',
+    'user_agent'        => 'User Agent',
 ];

@@ -68,11 +68,12 @@ class AuditLogTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
+        $select = ['audit_histories.*'];
         $query = $model
             ->with(['user'])
-            ->select('audit_histories.*');
+            ->select($select);
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

@@ -21,7 +21,7 @@
             <div class="top-menu">
                 <ul class="nav navbar-nav float-right">
                     @auth
-                        @if (config('core.base.general.admin_dir') != '')
+                        @if (BaseHelper::getAdminPrefix() != '')
                             <li class="dropdown">
                                 <a class="dropdown-toggle dropdown-header-name" style="padding-right: 10px" href="{{ url('/') }}" target="_blank"><i class="fa fa-globe"></i> <span class="d-none d-sm-inline">{{ trans('core/base::layouts.view_website') }}</span> </a>
                             </li>

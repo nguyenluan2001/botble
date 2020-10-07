@@ -23,9 +23,9 @@ class Filter extends ActionHookEvent
             foreach ($listeners as $arguments) { // loop all hooks
                 if ($hook === $action) { // if the hook responds to the current filter
                     $parameters = [$value];
-                    for ($i = 1; $i < $arguments['arguments']; $i++) {
-                        if (isset($args[$i])) {
-                            $parameters[] = $args[$i]; // add arguments if it is there
+                    for ($index = 1; $index < $arguments['arguments']; $index++) {
+                        if (isset($args[$index])) {
+                            $parameters[] = $args[$index]; // add arguments if it is there
                         }
                     }
                     // filter the value

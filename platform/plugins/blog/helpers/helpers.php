@@ -34,13 +34,13 @@ if (!function_exists('get_latest_posts')) {
 
 if (!function_exists('get_related_posts')) {
     /**
-     * @param string $currentSlug
+     * @param int $id
      * @param int $limit
      * @return array
      */
-    function get_related_posts($currentSlug, $limit)
+    function get_related_posts($id, $limit)
     {
-        return app(PostInterface::class)->getRelated($currentSlug, $limit);
+        return app(PostInterface::class)->getRelated($id, $limit);
     }
 }
 
@@ -195,7 +195,7 @@ if (!function_exists('get_categories')) {
         foreach ($categories as $category) {
             $indentText = '';
             $depth = (int)$category->depth;
-            for ($i = 0; $i < $depth; $i++) {
+            for ($index = 0; $index < $depth; $index++) {
                 $indentText .= $indent;
             }
             $category->indent_text = $indentText;

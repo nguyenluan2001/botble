@@ -1,7 +1,5 @@
 <?php
 
-use Platform\ACL\Enums\UserStatusEnum;
-
 return [
     'delete_user_logged_in'      => 'Can\'t delete this user. This user is logged on!',
     'no_select'                  => 'Please select at least one record to take this action!',
@@ -64,8 +62,8 @@ return [
     ],
     'total_users'                => 'Total users',
     'statuses'                   => [
-        UserStatusEnum::ACTIVATED   => 'Activated',
-        UserStatusEnum::DEACTIVATED => 'Deactivated',
+        'activated'   => 'Activated',
+        'deactivated' => 'Deactivated',
     ],
     'make_super'                 => 'Make super',
     'remove_super'               => 'Remove super',

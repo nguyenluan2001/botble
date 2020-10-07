@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Mimey\MimeTypes;
 use RvMedia;
 use Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -386,7 +387,7 @@ class MediaController extends Controller
                         $folderData['user_id'] = Auth::user()->getKey();
                         $folder = $this->folderRepository->create($folderData);
 
-                        $files = $this->fileRepository->getFilesByFolderId($id);
+                        $files = $this->fileRepository->getFilesByFolderId($id, [], false);
                         foreach ($files as $file) {
                             $this->copyFile($file, $folder->id);
                         }
@@ -408,7 +409,7 @@ class MediaController extends Controller
                                 $folderData['parent_id'] = $folder->id;
                                 $folder = $this->folderRepository->create($folderData);
 
-                                $parentFiles = $this->fileRepository->getFilesByFolderId($parentId);
+                                $parentFiles = $this->fileRepository->getFilesByFolderId($parentId, [], false);
                                 foreach ($parentFiles as $parentFile) {
                                     $this->copyFile($parentFile, $folder->id);
                                 }
@@ -418,7 +419,7 @@ class MediaController extends Controller
                                 /**
                                  * @var Eloquent $sub
                                  */
-                                $subFiles = $this->fileRepository->getFilesByFolderId($sub->id);
+                                $subFiles = $this->fileRepository->getFilesByFolderId($sub->id, [], false);
 
                                 $subFolderData = $sub->replicate()->toArray();
 
@@ -586,6 +587,10 @@ class MediaController extends Controller
             );
             $file->folder_id = $newFolderId;
         }
+
+        unset($file->is_folder);
+        unset($file->slug);
+        unset($file->parent_id);
 
         return $this->fileRepository->createOrUpdate($file);
     }

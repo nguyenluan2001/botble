@@ -20,7 +20,7 @@
                             @endforeach
                         </span></div>
                 </header>
-                <div class="post__content">
+                <div class="post__content" style="padding: 0">
                     <p data-number-line="4">{{ $post->description }}</p>
                 </div>
             </div>

@@ -13,7 +13,6 @@ return [
         'no_select'               => 'Please select at least one record to take this action!',
         'not_found'               => 'Role not found',
     ],
-    'list'                    => 'List Permissions',
     'name'                    => 'Name',
     'current_role'            => 'Current Role',
     'no_role_assigned'        => 'No role assigned',

@@ -48,10 +48,7 @@ if (!function_exists('has_field')) {
      */
     function has_field($data, $key = null)
     {
-        if (!get_field($data, $key)) {
-            return false;
-        }
-        return true;
+        return get_field($data, $key);
     }
 }
 
@@ -69,6 +66,7 @@ if (!function_exists('get_sub_field')) {
                 return Arr::get($field, 'value', $default);
             }
         }
+
         return $default;
     }
 }
@@ -81,9 +79,6 @@ if (!function_exists('has_sub_field')) {
      */
     function has_sub_field(array $parentField, $key)
     {
-        if (!get_sub_field($parentField, $key)) {
-            return false;
-        }
-        return true;
+        return get_sub_field($parentField, $key);
     }
 }

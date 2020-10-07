@@ -1,7 +1,7 @@
 <?php
 
 Route::group(['namespace' => 'Platform\Translation\Http\Controllers', 'middleware' => 'web'], function () {
-    Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'translations'], function () {
 
             Route::group(['prefix' => 'locales'], function () {

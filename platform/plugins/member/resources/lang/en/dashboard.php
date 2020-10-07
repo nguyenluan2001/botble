@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'joined_on'             => 'Joined :date',
-    'dob'                   => 'Born :date',
+    'joined_on' => 'Joined :date',
+    'dob'       => 'Born :date',
 
     'email'                 => 'Email',
     'password'              => 'Password',
@@ -40,9 +40,9 @@ return [
         'success' => 'Success!',
     ],
 
-    'sidebar_title'             => 'Personal settings',
-    'sidebar_information'       => 'Account Information',
-    'sidebar_security'          => 'Security',
+    'sidebar_title'       => 'Personal settings',
+    'sidebar_information' => 'Account Information',
+    'sidebar_security'    => 'Security',
 
     'account_field_title'       => 'Account Information',
     'profile-picture'           => 'Profile picture',

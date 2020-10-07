@@ -38,7 +38,7 @@ class SettingManagement {
             });
         });
 
-        $(document).on('change', '#email_driver', event => {
+        $(document).on('change', '.setting-select-options', event => {
             $('.setting-wrapper').addClass('hidden');
             $('.setting-wrapper[data-type=' + $(event.currentTarget).val() + ']').removeClass('hidden');
         });

@@ -2,6 +2,7 @@
 
 namespace Platform\Base\Supports;
 
+use BaseHelper;
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -94,6 +95,10 @@ class DashboardMenu
      */
     public function removeItem($id, $parentId = null): self
     {
+        if ($parentId && !isset($this->links[$parentId])) {
+            return $this;
+        }
+
         $id = is_array($id) ? $id : func_get_args();
         foreach ($id as $item) {
             if (!$parentId) {
@@ -122,7 +127,7 @@ class DashboardMenu
         $currentUrl = URL::full();
 
         $prefix = request()->route()->getPrefix();
-        if (!$prefix || $prefix === config('core.base.general.admin_dir')) {
+        if (!$prefix || $prefix === BaseHelper::getAdminPrefix()) {
             $uri = explode('/', request()->route()->uri());
             $prefix = end($uri);
         }

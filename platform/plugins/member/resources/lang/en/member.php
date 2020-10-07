@@ -18,7 +18,7 @@ return [
     ],
     'forgot_password'            => 'Forgot password',
     'login'                      => 'Login',
-    'settings'                      => [
+    'settings'                   => [
         'email' => [
             'title'       => 'Member',
             'description' => 'Member email configuration',

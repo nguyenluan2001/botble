@@ -6,7 +6,6 @@ use Illuminate\Routing\Events\RouteMatched;
 use Platform\Base\Traits\LoadAndPublishDataTrait;
 use Platform\Translation\Console\CleanCommand;
 use Platform\Translation\Console\ExportCommand;
-use Platform\Translation\Console\FindCommand;
 use Platform\Translation\Console\ImportCommand;
 use Platform\Translation\Console\ResetCommand;
 use Platform\Translation\Manager;
@@ -23,7 +22,6 @@ class TranslationServiceProvider extends ServiceProvider
 
         $this->commands([
             ImportCommand::class,
-            FindCommand::class,
         ]);
 
         if ($this->app->runningInConsole()) {

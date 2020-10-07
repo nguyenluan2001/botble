@@ -2,6 +2,8 @@
 
 namespace Platform\Member\Providers;
 
+use BaseHelper;
+use Platform\Blog\Models\Post;
 use EmailHandler;
 use Illuminate\Routing\Events\RouteMatched;
 use Platform\Base\Supports\Helper;
@@ -97,7 +99,7 @@ class MemberServiceProvider extends ServiceProvider
 
         add_action(BASE_ACTION_INIT, function () {
             if (defined('GALLERY_MODULE_SCREEN_NAME') && request()->segment(1) == 'account') {
-                \Gallery::removeModule('Platform\Blog\Models\Post');
+                \Gallery::removeModule(Post::class);
             }
         }, 12, 2);
 
@@ -109,7 +111,7 @@ class MemberServiceProvider extends ServiceProvider
      */
     public function setInAdmin(): bool
     {
-        return in_array(request()->segment(1), ['account', config('core.base.general.admin_dir')]);
+        return in_array(request()->segment(1), ['account', BaseHelper::getAdminPrefix()]);
     }
 
     /**

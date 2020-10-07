@@ -523,6 +523,12 @@
 
             a {
                 text-align: left;
+                img {
+                    float: left;
+                    margin-right: 8px;
+                    margin-top: -1px;
+                    width: 20px;
+                }
             }
         }
     }
@@ -789,5 +795,14 @@ figure.image {
                 }
             }
         }
+    }
+}
+
+.header .header-wrap .nav-top ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+        margin-right: 5px;
     }
 }

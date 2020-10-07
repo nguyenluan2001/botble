@@ -15,5 +15,5 @@ return [
     */
     'notification' => ConfirmEmailNotification::class,
 
-    'verify_email' => env('CMS_MEMBER_VERIFY_EMAIL', true),
+    'verify_email' => env('CMS_MEMBER_VERIFY_EMAIL', false),
 ];

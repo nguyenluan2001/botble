@@ -2,7 +2,7 @@
 
 Route::group(['namespace' => 'Platform\SocialLogin\Http\Controllers', 'middleware' => 'web'], function () {
 
-    Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'social-login'], function () {
 
             Route::get('settings', [

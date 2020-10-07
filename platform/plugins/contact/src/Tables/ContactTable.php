@@ -82,17 +82,18 @@ class ContactTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model
-            ->select([
-                'contacts.id',
-                'contacts.name',
-                'contacts.phone',
-                'contacts.email',
-                'contacts.created_at',
-                'contacts.status',
-            ]);
+        $select = [
+            'contacts.id',
+            'contacts.name',
+            'contacts.phone',
+            'contacts.email',
+            'contacts.created_at',
+            'contacts.status',
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

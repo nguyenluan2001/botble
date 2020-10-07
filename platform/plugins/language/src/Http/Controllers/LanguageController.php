@@ -3,21 +3,23 @@
 namespace Platform\Language\Http\Controllers;
 
 use Assets;
+use Platform\Base\Events\CreatedContentEvent;
+use Platform\Base\Events\DeletedContentEvent;
+use Platform\Base\Events\UpdatedContentEvent;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Base\Supports\Language;
-use Platform\Language\LanguageManager;
-use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
 use Platform\Language\Http\Requests\LanguageRequest;
+use Platform\Language\LanguageManager;
+use Platform\Language\Models\LanguageMeta;
 use Platform\Language\Repositories\Interfaces\LanguageInterface;
+use Platform\Language\Repositories\Interfaces\LanguageMetaInterface;
 use Platform\Setting\Supports\SettingStore;
+use DB;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Platform\Base\Events\CreatedContentEvent;
-use Platform\Base\Events\DeletedContentEvent;
-use Platform\Base\Events\UpdatedContentEvent;
 use Illuminate\View\View;
 use Throwable;
 
@@ -63,27 +65,70 @@ class LanguageController extends BaseController
     /**
      * @param LanguageRequest $request
      * @param BaseHttpResponse $response
+     * @param LanguageManager $languageManager
      * @return BaseHttpResponse
      * @throws Throwable
      */
-    public function postStore(LanguageRequest $request, BaseHttpResponse $response)
+    public function postStore(LanguageRequest $request, BaseHttpResponse $response, LanguageManager $languageManager)
     {
         try {
             $language = $this->languageRepository->getFirstBy([
                 'lang_code' => $request->input('lang_code'),
             ]);
+
             if ($language) {
                 return $response
                     ->setError()
-                    ->setMessage(__('This language is added already!'));
+                    ->setMessage(__('This language was added already!'));
             }
 
             if ($this->languageRepository->count() == 0) {
                 $request->merge(['lang_is_default' => 1]);
             }
+
             $language = $this->languageRepository->createOrUpdate($request->except('lang_id'));
 
             event(new CreatedContentEvent(LANGUAGE_MODULE_SCREEN_NAME, $request, $language));
+
+            try {
+                $models = $languageManager->supportedModels();
+
+                if ($this->languageRepository->count() == 1) {
+                    foreach ($models as $model) {
+
+                        if (!class_exists($model)) {
+                            continue;
+                        }
+
+                        $ids = LanguageMeta::where('reference_type', $model)
+                            ->pluck('reference_id')
+                            ->all();
+
+                        $table = (new $model)->getTable();
+
+                        $referenceIds = DB::table($table)
+                            ->whereNotIn('id', $ids)
+                            ->pluck('id')
+                            ->all();
+
+                        $data = [];
+                        foreach ($referenceIds as $referenceId) {
+                            $data[] = [
+                                'reference_id'     => $referenceId,
+                                'reference_type'   => $model,
+                                'lang_meta_code'   => $language->lang_code,
+                                'lang_meta_origin' => md5($referenceId . $model . time()),
+                            ];
+                        }
+
+                        LanguageMeta::insert($data);
+                    }
+                }
+            } catch (Exception $exception) {
+                return $response
+                    ->setData(view('plugins/language::partials.language-item', ['item' => $language])->render())
+                    ->setMessage($exception->getMessage());
+            }
 
             return $response
                 ->setData(view('plugins/language::partials.language-item', ['item' => $language])->render())
@@ -116,10 +161,10 @@ class LanguageController extends BaseController
             return $response
                 ->setData(view('plugins/language::partials.language-item', ['item' => $language])->render())
                 ->setMessage(trans('core/base::notices.update_success_message'));
-        } catch (Exception $ex) {
+        } catch (Exception $exception) {
             return $response
                 ->setError()
-                ->setMessage($ex->getMessage());
+                ->setMessage($exception->getMessage());
         }
     }
 
@@ -140,7 +185,7 @@ class LanguageController extends BaseController
             $others = $others->where('lang_meta_code', '!=', $request->input('lang_meta_current_language'))
                 ->where('lang_meta_origin', $currentLanguage->origin);
         }
-        $others = $others->select('reference_id', 'lang_meta_code')
+        $others = $others->select(['reference_id', 'lang_meta_code'])
             ->get();
         $data = [];
         foreach ($others as $other) {
@@ -171,7 +216,7 @@ class LanguageController extends BaseController
 
     /**
      * @param Request $request
-     * @param $id
+     * @param int $id
      * @param BaseHttpResponse $response
      * @return BaseHttpResponse
      */

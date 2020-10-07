@@ -1,3 +1,8 @@
+let mix = require('laravel-mix');
 let glob = require('glob');
 
-glob.sync('./platform/**/*/webpack.mix.js').forEach(item => require(item));
+mix.options({
+    processCssUrls: false
+});
+
+glob.sync('./platform/**/**/webpack.mix.js').forEach(item => require(item));

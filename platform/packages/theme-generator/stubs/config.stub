@@ -52,7 +52,7 @@ return [
 
             // You may use this event to set up your assets.
             $theme->asset()->usePath()->add('style', 'css/style.css');
-            $theme->asset()->container('footer')->usePath()->add('script', 'script.js');
+            $theme->asset()->container('footer')->usePath()->add('script', 'js/script.js');
 
             if (function_exists('shortcode')) {
                 $theme->composer(['index', 'page', 'post'], function (\Platform\Shortcode\View\View $view) {

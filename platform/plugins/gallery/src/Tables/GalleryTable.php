@@ -86,17 +86,18 @@ class GalleryTable extends TableAbstract
     public function query()
     {
         $model = $this->repository->getModel();
-        $query = $model
-            ->select([
-                'galleries.id',
-                'galleries.name',
-                'galleries.order',
-                'galleries.created_at',
-                'galleries.status',
-                'galleries.image',
-            ]);
+        $select = [
+            'galleries.id',
+            'galleries.name',
+            'galleries.order',
+            'galleries.created_at',
+            'galleries.status',
+            'galleries.image',
+        ];
 
-        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model));
+        $query = $model->select($select);
+
+        return $this->applyScopes(apply_filters(BASE_FILTER_TABLE_QUERY, $query, $model, $select));
     }
 
     /**

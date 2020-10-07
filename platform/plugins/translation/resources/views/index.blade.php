@@ -43,7 +43,6 @@
             {!! Form::close() !!}
             @if (!empty($group))
                 <hr>
-                <h4>{{ trans('plugins/translation::translation.total') }}: {{ $numTranslations }}, {{ trans('plugins/translation::translation.changed') }}: {{ $numChanged }}</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>

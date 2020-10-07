@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label class="text-title-field" for="email_driver">{{ trans('core/setting::setting.email.mailer') }}</label>
                         <div class="ui-select-wrapper">
-                            <select name="email_driver" class="ui-select" id="email_driver">
+                            <select name="email_driver" class="ui-select setting-select-options" id="email_driver">
                                 <option value="smtp" @if (setting('email_driver', config('mail.default')) == 'smtp') selected @endif>SMTP</option>
                                 <option value="sendmail" @if (setting('email_driver', config('mail.default')) == 'sendmail') selected @endif>Sendmail</option>
                                 <option value="mailgun" @if (setting('email_driver', config('mail.default')) == 'mailgun') selected @endif>Mailgun</option>

@@ -3,7 +3,7 @@
 use Platform\Base\Http\Controllers\SystemController;
 
 Route::group(['namespace' => 'Platform\Base\Http\Controllers', 'middleware' => 'web'], function () {
-    Route::group(['prefix' => config('core.base.general.admin_dir'), 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'system/info'], function () {
             Route::get('', [
                 'as'         => 'system.info',

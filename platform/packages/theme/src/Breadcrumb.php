@@ -54,9 +54,7 @@ class Breadcrumb
      */
     public function render(): string
     {
-        $crumbs = $this->getCrumbs();
-
-        return view('packages/theme::partials.breadcrumb', compact('crumbs'))->render();
+        return view('packages/theme::partials.breadcrumb')->render();
     }
 
     /**
