@@ -10,9 +10,6 @@
                     <div class="widget__content">
                         <p>
                             @foreach (get_popular_tags($config['number_display']) as $tag)
-                                @if (!$tag->slug)
-                                    @php info($tag->name); @endphp
-                                @endif
                                 <a href="{{ $tag->url }}" class="tag-link">{{ $tag->name }}</a>
                             @endforeach
                         </p>

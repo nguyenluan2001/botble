@@ -36,8 +36,19 @@ class UpdatedContentListener
     {
         if (SlugHelper::isSupportedModel(get_class($event->data))) {
             try {
-                $slug = $event->request->input('slug',
-                    $event->data->slug ?? Str::slug($event->data->name . '-' . $event->data->id) ?? time());
+                $slug = $event->request->input('slug');
+
+                if (!$slug) {
+                    $slug = $event->request->input('name');
+                }
+
+                if (!$slug && $event->data->name) {
+                    $slug = Str::slug($event->data->name);
+                }
+
+                if (!$slug) {
+                    $slug = time();
+                }
 
                 $item = $this->slugRepository->getFirstBy([
                     'reference_type' => get_class($event->data),

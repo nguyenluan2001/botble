@@ -52,7 +52,7 @@ class PageServiceProvider extends ServiceProvider
             ]);
 
             if (function_exists('admin_bar')) {
-                admin_bar()->registerLink('Page', route('pages.index'), 'add-new');
+                admin_bar()->registerLink(trans('packages/page::pages.menu_name'), route('pages.index'), 'add-new');
             }
         });
 

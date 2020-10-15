@@ -10,6 +10,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1" name="viewport"/>
 
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/css?family={{ urlencode(theme_option('primary_font', 'Roboto Slab')) }}:100,300,400,700" rel="stylesheet" type="text/css">
+    <!-- CSS Library-->
+
+    <style>
+        :root {
+            --color-1st: {{ theme_option('primary_color', '#d8403f') }};
+            --primary-font: '{{ theme_option('primary_font', 'Roboto Slab') }}', sans-serif;
+        }
+    </style>
+
     {!! Theme::header() !!}
 
 </head>
@@ -30,12 +41,12 @@
                     <div class="pull-right">
                         @if (is_plugin_active('member'))
                             <ul class="pull-left">
-                                @if(Auth::guard('member')->check())
-                                    <li><a href="{{ route('public.member.dashboard') }}" rel="nofollow"><i class="fa fa-user"></i> <span>{{ Auth::guard('member')->user()->getFullName() }}</span></a></li>
+                                @auth('member')
+                                    <li><a href="{{ route('public.member.dashboard') }}" rel="nofollow"><i class="fa fa-user"></i> <span>{{ auth('member')->user()->getFullName() }}</span></a></li>
                                     <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fa fa-sign-out"></i> {{ __('Logout') }}</a></li>
-                                @else
+                                @elseauth
                                     <li><a href="{{ route('public.member.login') }}" rel="nofollow"><i class="fa fa-sign-in"></i> {{ __('Login') }}</a></li>
-                                @endif
+                                @endauth
                             </ul>
                             @auth('member')
                                 <form id="logout-form" action="{{ route('public.member.logout') }}" method="POST" style="display: none;">

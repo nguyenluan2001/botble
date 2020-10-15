@@ -18,7 +18,7 @@ class RoleForm extends FormAbstract
     {
         Assets::addStyles(['jquery-ui', 'jqueryTree'])
             ->addScripts(['jquery-ui', 'jqueryTree'])
-            ->addScriptsDirectly('vendor/core/js/role.js');
+            ->addScriptsDirectly('vendor/core/core/acl/js/role.js');
 
         $flags = $this->getAvailablePermissions();
         $children = $this->getPermissionTree($flags);

@@ -13,5 +13,5 @@ mix
     .sass(source + '/resources/assets/sass/member.scss', dist + '/css')
     .sass(source + '/resources/assets/sass/app.scss', dist + '/css')
 
-    .copy(dist + '/js', source + '/public/js')
-    .copy(dist + '/css', source + '/public/css');
+    .copyDirectory(dist + '/js', source + '/public/js')
+    .copyDirectory(dist + '/css', source + '/public/css');

@@ -91,9 +91,9 @@ body.show-admin-bar {
                     border-left: $left-right solid transparent;
                     border-right: $left-right solid transparent;
                     border-top: $top solid #ffffff;
-
                     display: inline-block;
                     margin-left: 5px;
+                    float: none;
                 }
             }
 

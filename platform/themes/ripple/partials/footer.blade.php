@@ -56,18 +56,6 @@
 <!-- JS Library-->
 {!! Theme::footer() !!}
 
-@if (session()->has('success_msg'))
-    <script type="text/javascript">
-        swal('{{ __('Success') }}', "{{ session('success_msg', '') }}", 'success');
-    </script>
-@endif
-
-@if (session()->has('error_msg'))
-    <script type="text/javascript">
-        swal('{{ __('Success') }}', "{{ session('error_msg', '') }}", 'error');
-    </script>
-@endif
-
 @if (theme_option('facebook_comment_enabled_in_post', 'yes') == 'yes' || (theme_option('facebook_chat_enabled', 'yes') == 'yes' && theme_option('facebook_page_id')))
     <div id="fb-root"></div>
     <script>

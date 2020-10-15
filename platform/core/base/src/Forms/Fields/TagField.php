@@ -13,10 +13,10 @@ class TagField extends FormField
      */
     protected function getTemplate()
     {
-        Assets::addStylesDirectly('vendor/core/libraries/tagify/tagify.css')
+        Assets::addStylesDirectly('vendor/core/core/base/libraries/tagify/tagify.css')
             ->addScriptsDirectly([
-                'vendor/core/libraries/tagify/tagify.js',
-                'vendor/core/js/tags.js',
+                'vendor/core/core/base/libraries/tagify/tagify.js',
+                'vendor/core/core/base/js/tags.js',
             ]);
 
         return 'core/base::forms.fields.tags';

@@ -10,6 +10,7 @@ use Platform\Page\Services\PageService;
 use Eloquent;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Menu;
 use Throwable;
@@ -65,15 +66,9 @@ class HookServiceProvider extends ServiceProvider
      */
     public function registerMenuOptions()
     {
-        $pages = Menu::generateSelect([
-            'model'   => $this->app->make(PageInterface::class)->getModel(),
-            'type'    => Page::class,
-            'theme'   => false,
-            'options' => [
-                'class' => 'list-item',
-            ],
-        ]);
-        echo view('packages/page::partials.menu-options', compact('pages'));
+        if (Auth::user()->hasPermission('pages.index')) {
+            Menu::registerMenuOptions(Page::class, trans('packages/page::pages.menu'));
+        }
     }
 
     /**

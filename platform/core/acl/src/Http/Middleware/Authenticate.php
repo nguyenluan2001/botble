@@ -6,7 +6,6 @@ use Closure;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\Middleware\Authenticate as BaseAuthenticate;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 
 class Authenticate extends BaseAuthenticate
 {
@@ -18,7 +17,6 @@ class Authenticate extends BaseAuthenticate
      * @param Closure $next
      * @param array $guards
      * @return mixed
-     *
      * @throws AuthenticationException
      */
     public function handle($request, Closure $next, ...$guards)
@@ -26,8 +24,11 @@ class Authenticate extends BaseAuthenticate
         $this->authenticate($request, $guards);
 
         if (!$guards) {
-            $route = $request->route()->getAction();
-            $flag = Arr::get($route, 'permission', Arr::get($route, 'as'));
+            $route = $request->route();
+            $flag = $route->getAction('permission');
+            if ($flag === null) {
+                $flag = $route->getName();
+            }
 
             if ($flag && !$request->user()->hasAnyPermission((array)$flag)) {
                 if ($request->expectsJson()) {

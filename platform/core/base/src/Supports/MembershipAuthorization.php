@@ -53,10 +53,6 @@ class MembershipAuthorization
     {
         try {
 
-            $this->settingStore
-                ->set('membership_authorization_at', now()->toDateTimeString())
-                ->save();
-
             if (!filter_var($this->url, FILTER_VALIDATE_URL)) {
                 return false;
             }
@@ -119,6 +115,10 @@ class MembershipAuthorization
                 'website' => $this->url,
             ],
         ]);
+
+        $this->settingStore
+            ->set('membership_authorization_at', now()->toDateTimeString())
+            ->save();
 
         return true;
     }

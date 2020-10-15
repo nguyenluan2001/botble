@@ -10,7 +10,6 @@ use Platform\Member\Notifications\API\ConfirmEmailNotification;
 use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Platform\ACL\Traits\RegistersUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -117,11 +116,11 @@ class AuthenticationController extends Controller
      */
     public function login(LoginRequest $request, BaseHttpResponse $response)
     {
-        if (Auth::guard('member')->attempt([
+        if (auth('member')->attempt([
             'email'    => $request->input('email'),
             'password' => $request->input('password'),
         ])) {
-            $token = Auth::guard('member')->user()->createToken('Laravel Password Grant Client')->accessToken;
+            $token = auth('member')->user()->createToken('Laravel Password Grant Client')->accessToken;
 
             return $response
                 ->setData(compact('token'));

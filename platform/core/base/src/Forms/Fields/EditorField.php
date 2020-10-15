@@ -14,7 +14,7 @@ class EditorField extends FormField
      */
     protected function getTemplate()
     {
-        Assets::addScriptsDirectly('vendor/core/js/editor.js');
+        Assets::addScriptsDirectly('vendor/core/core/base/js/editor.js');
 
         return 'core/base::forms.fields.editor';
     }

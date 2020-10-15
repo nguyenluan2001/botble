@@ -19,4 +19,4 @@ const dist = 'public/vendor/core/packages/' + directory;
 
 mix
     .js(source + '/resources/assets/js/widget.js', dist + '/js')
-    .copy(dist + '/js', source + '/public/js');
+    .copyDirectory(dist + '/js', source + '/public/js');

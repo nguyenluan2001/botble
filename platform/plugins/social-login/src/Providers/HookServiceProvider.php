@@ -21,7 +21,7 @@ class HookServiceProvider extends ServiceProvider
      * @return null|string
      * @throws \Throwable
      */
-    public function addLoginOptions($html, $module)
+    public function addLoginOptions($html, string $module)
     {
         if (!SocialService::isSupportedModule($module)) {
             return $html;

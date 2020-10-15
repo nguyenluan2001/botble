@@ -102,16 +102,16 @@ class ThemeController extends BaseController
         page_title()->setTitle(trans('packages/theme::theme.custom_css'));
 
         Assets::addStylesDirectly([
-            'vendor/core/libraries/codemirror/lib/codemirror.css',
-            'vendor/core/libraries/codemirror/addon/hint/show-hint.css',
+            'vendor/core/core/base/libraries/codemirror/lib/codemirror.css',
+            'vendor/core/core/base/libraries/codemirror/addon/hint/show-hint.css',
             'vendor/core/packages/theme/css/custom-css.css',
         ])
             ->addScriptsDirectly([
-                'vendor/core/libraries/codemirror/lib/codemirror.js',
-                'vendor/core/libraries/codemirror/lib/css.js',
-                'vendor/core/libraries/codemirror/addon/hint/show-hint.js',
-                'vendor/core/libraries/codemirror/addon/hint/anyword-hint.js',
-                'vendor/core/libraries/codemirror/addon/hint/css-hint.js',
+                'vendor/core/core/base/libraries/codemirror/lib/codemirror.js',
+                'vendor/core/core/base/libraries/codemirror/lib/css.js',
+                'vendor/core/core/base/libraries/codemirror/addon/hint/show-hint.js',
+                'vendor/core/core/base/libraries/codemirror/addon/hint/anyword-hint.js',
+                'vendor/core/core/base/libraries/codemirror/addon/hint/css-hint.js',
                 'vendor/core/packages/theme/js/custom-css.js',
             ]);
 

@@ -6,7 +6,7 @@
         <h1 class="article-content-title">{{ $post->name }}</h1>
 
         <div class="post-meta">
-            <span><i class="fa fa-user"></i> {{ $post->user->getFullName() }}</span>
+            <span><i class="fa fa-user"></i> {{ $post->author->getFullName() }}</span>
             <span><i class="fa fa-calendar"></i> {{ $post->created_at->format('M d, Y') }}</span>
             @if (!$post->categories->isEmpty())
                 <span>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="article-content">
-            {!! clean($post->content) !!}
+            {!! clean($post->content, 'youtube') !!}
         </div>
         @if (!$post->tags->isEmpty())
             <div class="tags-wrap">

@@ -295,7 +295,7 @@ abstract class TableAbstract extends DataTable
                     'search'            => '',
                     'searchPlaceholder' => trans('core/table::general.search'),
                     'zeroRecords'       => trans('core/base::tables.no_record'),
-                    'processing'        => Html::image(url('vendor/core/images/loading-spinner-blue.gif')),
+                    'processing'        => Html::image(url('vendor/core/core/base/images/loading-spinner-blue.gif')),
                     'paginate'          => [
                         'next'     => trans('pagination.next'),
                         'previous' => trans('pagination.previous'),
@@ -674,11 +674,11 @@ abstract class TableAbstract extends DataTable
     {
         Assets::addScripts(['datatables', 'moment', 'datepicker'])
             ->addStyles(['datatables', 'datepicker'])
-            ->addStylesDirectly('vendor/core/css/table.css')
+            ->addStylesDirectly('vendor/core/core/table/css/table.css')
             ->addScriptsDirectly([
-                'vendor/core/libraries/bootstrap3-typeahead.min.js',
-                'vendor/core/js/table.js',
-                'vendor/core/js/filter.js',
+                'vendor/core/core/base/libraries/bootstrap3-typeahead.min.js',
+                'vendor/core/core/table/js/table.js',
+                'vendor/core/core/table/js/filter.js',
             ]);
 
         $data['id'] = Arr::get($data, 'id', $this->getOption('id'));

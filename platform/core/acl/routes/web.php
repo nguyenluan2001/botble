@@ -9,10 +9,8 @@ Route::group(['namespace' => 'Platform\ACL\Http\Controllers', 'middleware' => 'w
     Route::group(['prefix' => BaseHelper::getAdminPrefix()], function () {
         Route::group(['middleware' => 'guest'], function () {
 
-            Route::get('login', [LoginController::class, 'showLoginForm'])
-                ->name('access.login');
-            Route::post('login', [LoginController::class, 'login'])
-                ->name('access.login');
+            Route::get('login', [LoginController::class, 'showLoginForm'])->name('access.login');
+            Route::post('login', [LoginController::class, 'login'])->name('access.login');
 
             Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])
                 ->name('access.password.request');

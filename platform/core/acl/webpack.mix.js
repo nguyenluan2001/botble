@@ -11,18 +11,18 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/core/acl';
-const dist = 'public/vendor/core';
+const path = require('path');
+let directory = path.basename(path.resolve(__dirname));
+
+const source = 'platform/core/' + directory;
+const dist = 'public/vendor/core/core/' + directory;
 
 mix
     .js(source + '/resources/assets/js/profile.js', dist + '/js')
-    .copy(dist + '/js/profile.js', source + '/public/js')
-
     .js(source + '/resources/assets/js/login.js', dist + '/js')
-    .copy(dist + '/js/login.js', source + '/public/js')
-
     .js(source + '/resources/assets/js/role.js', dist + '/js')
-    .copy(dist + '/js/role.js', source + '/public/js')
 
     .sass(source + '/resources/assets/sass/login.scss', dist + '/css')
-    .copy(dist + '/css/login.css', source + '/public/css');
+
+    .copyDirectory(dist + '/js', source + '/public/js')
+    .copyDirectory(dist + '/css', source + '/public/css');

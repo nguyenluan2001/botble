@@ -7,7 +7,7 @@
             <div>
                 <header>
                     <h3><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
-                    <div><span>{{ $post->created_at->format('M d, Y') }}</span><span>{{ $post->user->getFullName() }}</span> -
+                    <div><span>{{ $post->created_at->format('M d, Y') }}</span><span>{{ $post->author->getFullName() }}</span> -
                         {{ __('Categories') }}:
                         @foreach($post->categories as $category)
                             <a href="{{ $category->url }}">{{ $category->name }}</a>

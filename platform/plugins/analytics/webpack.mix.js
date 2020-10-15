@@ -8,4 +8,4 @@ const dist = 'public/vendor/core/plugins/' + directory;
 
 mix
     .js(source + '/resources/assets/js/analytics.js', dist + '/js')
-    .copy(dist + '/js', source + '/public/js');
+    .copyDirectory(dist + '/js', source + '/public/js');

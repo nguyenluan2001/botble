@@ -186,7 +186,6 @@ class User extends Authenticatable
         return [
             'name'   => $this->getFullName(),
             'email'  => $this->email,
-            'url'    => $this->website,
             'avatar' => $this->avatar_url,
         ];
     }

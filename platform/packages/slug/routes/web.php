@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Platform\Slug\Http\Controllers', 'middleware' => '
                     'as'         => 'slug.settings',
                     'uses'       => 'SlugController@postSettings',
                     'permission' => 'settings.options',
+                    'middleware' => 'preventDemo',
                 ]);
             });
         });

@@ -10,8 +10,8 @@
                 </span>
             @endif
             <span class="post__created-at"><i class="ion-clock"></i>{{ $post->created_at->format('M d, Y') }}</span>
-            @if ($post->user->username)
-                <span class="post__author"><i class="ion-android-person"></i><span>{{ $post->user->getFullName() }}</span></span>
+            @if ($post->author->username)
+                <span class="post__author"><i class="ion-android-person"></i><span>{{ $post->author->getFullName() }}</span></span>
             @endif
 
             @if (!$post->tags->isEmpty())
@@ -27,7 +27,7 @@
         @if (defined('GALLERY_MODULE_SCREEN_NAME') && !empty($galleries = gallery_meta_data($post)))
             {!! render_object_gallery($galleries, ($post->categories()->first() ? $post->categories()->first()->name : __('Uncategorized'))) !!}
         @endif
-        {!! clean($post->content) !!}
+        {!! clean($post->content, 'youtube') !!}
         <div class="fb-like" data-href="{{ Request::url() }}" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
     </div>
     <footer class="post__footer">

@@ -3,14 +3,14 @@
 namespace Platform\Captcha\Providers;
 
 use Platform\Base\Traits\LoadAndPublishDataTrait;
+use Platform\Captcha\Captcha;
 use Platform\Captcha\CaptchaV3;
 use Platform\Captcha\Facades\CaptchaFacade;
-use Platform\Captcha\Captcha;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\ServiceProvider;
 
 class CaptchaServiceProvider extends ServiceProvider
 {
@@ -26,9 +26,9 @@ class CaptchaServiceProvider extends ServiceProvider
     public function register()
     {
         config([
-            'plugins.captcha.general.secret'   => setting('captcha_secret'),
-            'plugins.captcha.general.site_key' => setting('captcha_site_key'),
-            'plugins.captcha.general.type'     => setting('captcha_type'),
+            'plugins.captcha.general.secret'     => setting('captcha_secret'),
+            'plugins.captcha.general.site_key'   => setting('captcha_site_key'),
+            'plugins.captcha.general.type'       => setting('captcha_type'),
         ]);
 
         $this->app->singleton('captcha', function ($app) {
@@ -55,6 +55,10 @@ class CaptchaServiceProvider extends ServiceProvider
         $this->bootValidator();
 
         $this->app->register(HookServiceProvider::class);
+
+        if (defined('THEME_MODULE_SCREEN_NAME') && setting('captcha_hide_badge')) {
+            \Theme::asset()->writeStyle('hide-recaptcha-badge', '.grecaptcha-badge { visibility: hidden; }');
+        }
     }
 
     /**

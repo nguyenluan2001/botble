@@ -48,12 +48,12 @@ class Assets extends BaseAssets
     {
         $themes = [];
 
-        if (!File::isDirectory(public_path('vendor/core/css/themes'))) {
+        if (!File::isDirectory(public_path('vendor/core/core/base/css/themes'))) {
             return $themes;
         }
 
-        foreach (File::files(public_path('vendor/core/css/themes')) as $file) {
-            $name = '/vendor/core/css/themes/' . basename($file);
+        foreach (File::files(public_path('vendor/core/core/base/css/themes')) as $file) {
+            $name = '/vendor/core/core/base/css/themes/' . basename($file);
             if (!Str::contains($file, '.css.map')) {
                 $themes[basename($file, '.css')] = $name;
             }

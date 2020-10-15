@@ -10,7 +10,7 @@
 
             @if ($showField)
                 {!! Form::textarea($name, $options['value'], $options['attr']) !!}
-                @include('core/base::forms.partials.help_block')
+                @include('core/base::forms.partials.help-block')
             @endif
 
             @include('core/base::forms.partials.errors')
@@ -24,6 +24,13 @@
 @push('scripts')
     <script>
         'use strict';
+
+        var RV_MEDIA_URL = {
+            base: '{{ url('') }}',
+            filebrowserImageBrowseUrl: false,
+            media_upload_from_editor: '{{ route('public.member.upload') }}'
+        }
+
         function setImageValue(file) {
             $('.mce-btn.mce-open').parent().find('.mce-textbox').val(file);
         }

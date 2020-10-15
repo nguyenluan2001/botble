@@ -75,7 +75,7 @@
         className: 'buttons-excel',
 
         text: dt => {
-            return '<i class="fas fa-file-excel"></i> ' + dt.i18n('buttons.excel', BotbleVariables.languages.tables.excel);
+            return '<i class="far fa-file-excel"></i> ' + dt.i18n('buttons.excel', BotbleVariables.languages.tables.excel);
         },
 
         action: (e, dt) => {
@@ -87,7 +87,7 @@
         className: 'buttons-excel',
 
         text: dt => {
-            return '<i class="fas fa-file-excel"></i> ' + dt.i18n('buttons.excel', BotbleVariables.languages.tables.excel);
+            return '<i class="far fa-file-excel"></i> ' + dt.i18n('buttons.excel', BotbleVariables.languages.tables.excel);
         },
 
         action: (e, dt) => {
@@ -107,14 +107,14 @@
             return '<i class="fa fa-download"></i> ' + dt.i18n('buttons.export', BotbleVariables.languages.tables.export) + '&nbsp;<span class="caret"/>';
         },
 
-        buttons: ['csv', 'excel', 'pdf']
+        buttons: ['csv', 'excel']
     };
 
     DataTable.ext.buttons.csv = {
         className: 'buttons-csv',
 
         text: dt => {
-            return '<i class="fas fa-file-excel"></i> ' + dt.i18n('buttons.csv', BotbleVariables.languages.tables.csv);
+            return '<i class="fas fa-file-csv"></i> ' + dt.i18n('buttons.csv', BotbleVariables.languages.tables.csv);
         },
 
         action: (e, dt) => {
@@ -126,7 +126,7 @@
         className: 'buttons-csv',
 
         text: dt => {
-            return '<i class="fas fa-file-excel"></i> ' + dt.i18n('buttons.csv', BotbleVariables.languages.tables.csv);
+            return '<i class="fas fa-file-csv"></i> ' + dt.i18n('buttons.csv', BotbleVariables.languages.tables.csv);
         },
 
         action: (e, dt) => {
@@ -141,7 +141,7 @@
         className: 'buttons-pdf',
 
         text: dt => {
-            return '<i class="fa fa-file-pdf-o"></i> ' + dt.i18n('buttons.pdf', 'PDF');
+            return '<i class="far fa-file-pdf"></i> ' + dt.i18n('buttons.pdf', 'PDF');
         },
 
         action: (e, dt) => {
@@ -153,7 +153,7 @@
         className: 'buttons-pdf',
 
         text: dt => {
-            return '<i class="fa fa-file-pdf-o"></i> ' + dt.i18n('buttons.pdf', 'PDF');
+            return '<i class="far fa-file-pdf"></i> ' + dt.i18n('buttons.pdf', 'PDF');
         },
 
         action: (e, dt) => {

@@ -6,6 +6,7 @@ use Html;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Platform\Contact\Repositories\Interfaces\ContactInterface;
+use Theme;
 
 class HookServiceProvider extends ServiceProvider
 {
@@ -71,9 +72,23 @@ class HookServiceProvider extends ServiceProvider
     {
         $view = apply_filters(CONTACT_FORM_TEMPLATE_VIEW, 'plugins/contact::forms.contact');
 
+        if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
+            $this->app->booted(function () {
+                Theme::asset()
+                    ->usePath(false)
+                    ->add('contact-css', asset('vendor/core/plugins/contact/css/contact-public.css'), [], [], '1.0.0');
+
+                Theme::asset()
+                    ->container('footer')
+                    ->usePath(false)
+                    ->add('contact-public-js', asset('vendor/core/plugins/contact/js/contact-public.js'),
+                        ['jquery'], [], '1.0.0');
+            });
+        }
+
         if ($shortcode->view && view()->exists($shortcode->view)) {
             $view = $shortcode->view;
         }
-        return view($view, ['header' => $shortcode->header])->render();
+        return view($view)->render();
     }
 }

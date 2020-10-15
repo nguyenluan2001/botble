@@ -18,7 +18,7 @@
 
   {!! Assets::renderHeader(['core']) !!}
 
-  {!! Html::style('/vendor/core/css/themes/default.css') !!}
+  {!! Html::style('/vendor/core/core/base/css/themes/default.css') !!}
 
   <!-- Styles -->
   <link href="{{ asset('vendor/core/plugins/member/css/app.css') }}" rel="stylesheet">
@@ -89,10 +89,5 @@
   {!! Assets::renderFooter() !!}
   @stack('scripts')
   @stack('footer')
-  @include('core/media::partials.media')
-  <script>
-      RV_MEDIA_URL.filebrowserImageBrowseUrl = false;
-      RV_MEDIA_URL.media_upload_from_editor = '{{ route('public.member.upload') }}'
-  </script>
 </body>
 </html>

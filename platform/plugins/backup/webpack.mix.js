@@ -10,5 +10,5 @@ mix
     .js(source + '/resources/assets/js/backup.js', dist + '/js')
     .sass(source + '/resources/assets/sass/backup.scss', dist + '/css')
 
-    .copy(dist + '/js', source + '/public/js')
-    .copy(dist + '/css', source + '/public/css');
+    .copyDirectory(dist + '/js', source + '/public/js')
+    .copyDirectory(dist + '/css', source + '/public/css');

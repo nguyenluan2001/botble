@@ -1,7 +1,7 @@
 @php
     Assets::addScriptsDirectly([
-        'vendor/core/libraries/tinymce/tinymce.min.js',
-        'vendor/core/js/editor.js',
+        'vendor/core/core/base/libraries/tinymce/tinymce.min.js',
+        'vendor/core/core/base/js/editor.js',
     ]);
 
     $attributes['class'] = Arr::get($attributes, 'class', '') . ' form-control editor-tinymce';

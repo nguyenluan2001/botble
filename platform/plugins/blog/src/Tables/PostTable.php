@@ -82,9 +82,14 @@ class PostTable extends TableAbstract
                 return Html::link(route('posts.edit', $item->id), $item->name);
             })
             ->editColumn('image', function ($item) {
-                if ($this->request()->input('action') === 'excel') {
+                if ($this->request()->input('action') == 'csv') {
+                    return RvMedia::getImageUrl($item->image, null, false, RvMedia::getDefaultImage());
+                }
+
+                if ($this->request()->input('action') == 'excel') {
                     return RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage());
                 }
+
                 return Html::image(RvMedia::getImageUrl($item->image, 'thumb', false, RvMedia::getDefaultImage()),
                     $item->name, ['width' => 50]);
             })
@@ -303,6 +308,9 @@ class PostTable extends TableAbstract
      */
     public function getDefaultButtons(): array
     {
-        return ['excel', 'reload'];
+        return [
+            'export',
+            'reload',
+        ];
     }
 }

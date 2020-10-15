@@ -40,10 +40,13 @@ class AdminBar
      */
     public function __construct()
     {
-        $this->groups['appearance']['items'] = [];
+        $this->groups['appearance']['items'] = [
+            __('Dashboard') => route('dashboard.index'),
+            __('Settings')  => route('settings.options'),
+        ];
+
         $this->groups['add-new']['items'] = [
-            __('User')     => route('users.create'),
-            __('Settings') => route('settings.options'),
+            __('User') => route('users.create'),
         ];
     }
 

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Platform\ACL\Traits\LogoutGuardTrait;
 use Platform\ACL\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use SeoHelper;
 use URL;
@@ -71,7 +70,7 @@ class LoginController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard('member');
+        return auth('member');
     }
 
     /**

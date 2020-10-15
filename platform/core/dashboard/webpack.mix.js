@@ -11,12 +11,16 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/core/dashboard';
-const dist = 'public/vendor/core';
+const path = require('path');
+let directory = path.basename(path.resolve(__dirname));
+
+const source = 'platform/core/' + directory;
+const dist = 'public/vendor/core/core/' + directory;
 
 mix
     .js(source + '/resources/assets/js/dashboard.js', dist + '/js')
-    .copy(dist + '/js/dashboard.js', source + '/public/js')
 
     .sass(source + '/resources/assets/sass/dashboard.scss', dist + '/css')
-    .copy(dist + '/css/dashboard.css', source + '/public/css');
+
+    .copyDirectory(dist + '/js', source + '/public/js')
+    .copyDirectory(dist + '/css', source + '/public/css');

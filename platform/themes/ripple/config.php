@@ -51,8 +51,7 @@ return [
                 ->usePath()->add('overflow-text', 'plugins/overflow-text.js', ['jquery'])
                 ->usePath()->add('jquery.parallax', 'plugins/jquery.parallax-1.1.3.js', ['jquery'])
                 ->usePath()->add('custom', 'js/custom.min.js', ['jquery'])
-                ->usePath()->add('ripple.js', 'js/ripple.js', ['jquery'])
-                ->usePath()->add('sweet-alert-js', 'js/sweetalert.min.js', ['jquery']);
+                ->usePath()->add('ripple.js', 'js/ripple.js', ['jquery']);
 
             $theme
                 ->asset()

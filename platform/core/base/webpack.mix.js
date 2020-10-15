@@ -12,38 +12,28 @@ let glob = require('glob');
  |
  */
 
-const source = 'platform/core/base';
-const dist = 'public/vendor/core';
+const path = require('path');
+let directory = path.basename(path.resolve(__dirname));
 
-glob.sync(source + '/resources/assets/sass/themes/*.scss').forEach(item => {
-    mix.sass(item, dist + '/css/themes').copy(dist + '/css/themes', source + '/public/css/themes');
+const source = 'platform/core/' + directory;
+const dist = 'public/vendor/core/core/' + directory;
+
+glob.sync(source + '/resources/assets/sass/base/themes/*.scss').forEach(item => {
+    mix.sass(item, dist + '/css/themes');
 })
 
 mix
     .sass(source + '/resources/assets/sass/core.scss', dist + '/css')
-    .copy(dist + '/css/core.css', source + '/public/css')
-
     .sass(source + '/resources/assets/sass/custom/system-info.scss', dist + '/css')
-    .copy(dist + '/css/system-info.css', source + '/public/css')
-
     .sass(source + '/resources/assets/sass/custom/email.scss', dist + '/css')
-    .copy(dist + '/css/email.css', source + '/public/css')
 
     .js(source + '/resources/assets/js/app.js', dist + '/js')
-    .copy(dist + '/js/app.js', source + '/public/js')
-
     .js(source + '/resources/assets/js/core.js', dist + '/js')
-    .copy(dist + '/js/core.js', source + '/public/js')
-
     .js(source + '/resources/assets/js/editor.js', dist + '/js')
-    .copy(dist + '/js/editor.js', source + '/public/js')
-
     .js(source + '/resources/assets/js/cache.js', dist + '/js')
-    .copy(dist + '/js/cache.js', source + '/public/js')
-
     .js(source + '/resources/assets/js/tags.js', dist + '/js')
-    .copy(dist + '/js/tags.js', source + '/public/js')
-
     .js(source + '/resources/assets/js/system-info.js', dist + '/js')
-    .copy(dist + '/js/system-info.js', source + '/public/js');
+
+    .copyDirectory(dist + '/css', source + '/public/css')
+    .copyDirectory(dist + '/js', source + '/public/js');
 

@@ -83,6 +83,7 @@ class Post extends BaseModel
     ];
 
     /**
+     * @deprecated
      * @return BelongsTo
      */
     public function user(): BelongsTo

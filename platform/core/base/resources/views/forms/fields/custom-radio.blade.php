@@ -10,7 +10,7 @@
 
 @if ($showField)
     {!! Form::customRadio($name, $options['choices'], $options['value'], $options['attr'], $options['default_value']) !!}
-    @include('core/base::forms.partials.help_block')
+    @include('core/base::forms.partials.help-block')
 @endif
 
 @include('core/base::forms.partials.errors')

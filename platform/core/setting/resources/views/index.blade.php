@@ -62,6 +62,21 @@
                         </div>
 
                         <div class="form-group">
+
+                            <label class="text-title-field"
+                                   for="locale_direction">{{ trans('core/setting::setting.general.locale_direction') }}
+                            </label>
+                            <label class="hrv-label">
+                                <input type="radio" name="locale_direction" class="hrv-radio" value="ltr"
+                                       @if (setting('locale_direction', 'ltr') == 'ltr') checked @endif>{{ __('Left to Right') }}
+                            </label>
+                            <label class="hrv-label">
+                                <input type="radio" name="locale_direction" class="hrv-radio" value="rtl"
+                                       @if (setting('locale_direction', 'ltr') == 'rtl') checked @endif>{{ __('Right to Left') }}
+                            </label>
+                        </div>
+
+                        <div class="form-group">
                             <input type="hidden" name="enable_send_error_reporting_via_email" value="0">
                             <label>
                                 <input type="checkbox" class="hrv-checkbox" value="1" @if (setting('enable_send_error_reporting_via_email')) checked @endif name="enable_send_error_reporting_via_email">

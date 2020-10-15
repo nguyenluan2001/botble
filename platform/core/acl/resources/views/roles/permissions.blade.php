@@ -3,34 +3,34 @@
         <input type="checkbox" class="hrv-checkbox" id="expandCollapseAllTree">&nbsp;&nbsp;
         <label for="expandCollapseAllTree" class="label label-default allTree">{{ trans('core/acl::permissions.all') }}</label>
         <ul>
-            @foreach($children['root'] as $element_key => $element)
-                <li class="collapsed" id="node{{ $element_key }}">
-                    <input type="checkbox" class="hrv-checkbox" id="checkSelect{{ $element_key }}" name="flags[]" value="{{ $flags[$element]['flag'] }}" @if (in_array($flags[$element]['flag'], $active)) checked @endif>
-                    <label for="checkSelect{{ $element_key }}" class="label label-warning" style="margin: 5px;">{{ $flags[$element]['name'] }}</label>
+            @foreach ($children['root'] as $elementKey => $element)
+                <li class="collapsed" id="node{{ $elementKey }}">
+                    <input type="checkbox" class="hrv-checkbox" id="checkSelect{{ $elementKey }}" name="flags[]" value="{{ $flags[$element]['flag'] }}" @if (in_array($flags[$element]['flag'], $active)) checked @endif>
+                    <label for="checkSelect{{ $elementKey }}" class="label label-warning" style="margin: 5px;">{{ $flags[$element]['name'] }}</label>
                     @if (isset($children[$element]))
                         <ul>
-                            @foreach($children[$element] as $sub_key => $subElements)
-                                <li class="collapsed" id="node_sub_{{ $element_key  }}_{{ $sub_key }}">
-                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_sub_{{ $element_key  }}_{{ $sub_key }}" name="flags[]" value="{{ $flags[$subElements]['flag'] }}" @if (in_array($flags[$subElements]['flag'], $active)) checked @endif>
-                                    <label for="checkSelect_sub_{{ $element_key  }}_{{ $sub_key }}" class="label label-primary nameMargin">{{ $flags[$subElements]['name'] }}</label>
+                            @foreach($children[$element] as $subKey => $subElements)
+                                    <li class="collapsed" id="node_sub_{{ $elementKey  }}_{{ $subKey }}">
+                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_sub_{{ $elementKey  }}_{{ $subKey }}" name="flags[]" value="{{ $flags[$subElements]['flag'] }}" @if (in_array($flags[$subElements]['flag'], $active)) checked @endif>
+                                    <label for="checkSelect_sub_{{ $elementKey  }}_{{ $subKey }}" class="label label-primary nameMargin">{{ $flags[$subElements]['name'] }}</label>
                                     @if (isset($children[$subElements]))
                                         <ul>
-                                            @foreach($children[$subElements] as $sub_sub_key => $subSubElements)
-                                                <li class="collapsed" id="node_sub_sub_{{ $sub_sub_key }}">
-                                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_sub_sub{{ $sub_sub_key }}" name="flags[]" value="{{ $flags[$subSubElements]['flag'] }}" @if (in_array($flags[$subSubElements]['flag'], $active)) checked @endif>
-                                                    <label for="checkSelect_sub_sub{{ $sub_sub_key }}" class="label label-success nameMargin">{{ $flags[$subSubElements]['name'] }}</label>
-                                                    @if(isset($children[$subSubElements]))
+                                            @foreach ($children[$subElements] as $subSubKey => $subSubElements)
+                                                <li class="collapsed" id="node_sub_sub_{{ $subSubKey }}">
+                                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_sub_sub{{ $subSubKey }}" name="flags[]" value="{{ $flags[$subSubElements]['flag'] }}" @if (in_array($flags[$subSubElements]['flag'], $active)) checked @endif>
+                                                    <label for="checkSelect_sub_sub{{ $subSubKey }}" class="label label-success nameMargin">{{ $flags[$subSubElements]['name'] }}</label>
+                                                    @if (isset($children[$subSubElements]))
                                                         <ul>
-                                                            @foreach($children[$subSubElements] as $grand_children_key => $grandChildrenElements)
-                                                                <li class="collapsed" id="node_grand_child{{ $grand_children_key }}">
-                                                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_grand_child{{ $grand_children_key }}" name="flags[]" value="{{ $flags[$grandChildrenElements]['flag'] }}" @if (in_array($flags[$grandChildrenElements]['flag'], $active)) checked @endif>
-                                                                    <label for="checkSelect_grand_child{{ $grand_children_key }}" class="label label-danger nameMargin">{{ $flags[$grandChildrenElements]['name'] }}</label>
-                                                                    @if(isset($children[$grandChildrenElements]))
+                                                            @foreach($children[$subSubElements] as $grandChildrenKey => $grandChildrenElements)
+                                                                <li class="collapsed" id="node_grand_child{{ $grandChildrenKey }}">
+                                                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_grand_child{{ $grandChildrenKey }}" name="flags[]" value="{{ $flags[$grandChildrenElements]['flag'] }}" @if (in_array($flags[$grandChildrenElements]['flag'], $active)) checked @endif>
+                                                                    <label for="checkSelect_grand_child{{ $grandChildrenKey }}" class="label label-danger nameMargin">{{ $flags[$grandChildrenElements]['name'] }}</label>
+                                                                    @if (isset($children[$grandChildrenElements]))
                                                                         <ul>
-                                                                            @foreach($children[$grandChildrenElements] as $grand_children_key_sub => $greatGrandChildrenElements)
-                                                                                <li class="collapsed" id="node{{ $grand_children_key }}">
-                                                                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_grand_child{{ $grand_children_key_sub }}" name="flags[]" value="{{ $flags[$grandChildrenElements]['flag'] }}" @if (in_array($flags[$grandChildrenElements]['flag'], $active)) checked @endif>
-                                                                                    <label for="checkSelect_grand_child{{ $grand_children_key_sub }}" class="label label-info nameMargin">{{ $flags[$grandChildrenElements]['name'] }}</label>
+                                                                            @foreach ($children[$grandChildrenElements] as $grandChildrenKeySub => $greatGrandChildrenElements)
+                                                                                <li class="collapsed" id="node{{ $grandChildrenKey }}">
+                                                                                    <input type="checkbox" class="hrv-checkbox" id="checkSelect_grand_child{{ $grandChildrenKeySub }}" name="flags[]" value="{{ $flags[$grandChildrenElements]['flag'] }}" @if (in_array($flags[$grandChildrenElements]['flag'], $active)) checked @endif>
+                                                                                    <label for="checkSelect_grand_child{{ $grandChildrenKeySub }}" class="label label-info nameMargin">{{ $flags[$grandChildrenElements]['name'] }}</label>
                                                                                 </li>
                                                                             @endforeach
                                                                         </ul>

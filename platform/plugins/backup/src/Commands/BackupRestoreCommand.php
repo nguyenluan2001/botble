@@ -83,7 +83,6 @@ class BackupRestoreCommand extends Command
             }
 
             $this->call('cache:clear');
-            $this->call('key:generate');
 
             do_action(BACKUP_ACTION_AFTER_RESTORE, BACKUP_MODULE_SCREEN_NAME, request());
 

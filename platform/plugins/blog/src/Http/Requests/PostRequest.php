@@ -21,7 +21,6 @@ class PostRequest extends Request
             'name'        => 'required|max:255',
             'description' => 'max:400',
             'categories'  => 'required',
-            'slug'        => 'required|max:255',
             'format_type' => Rule::in(array_keys(PostFormat::getPostFormats(true))),
             'status'      => Rule::in(BaseStatusEnum::values()),
         ];

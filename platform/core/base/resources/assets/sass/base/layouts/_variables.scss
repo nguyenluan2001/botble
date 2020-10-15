@@ -9,7 +9,7 @@ $header-menu-toggler-width: $menu-toggler-size;
 $header-menu-toggler-height: $menu-toggler-size;
 $header-sidebar-toggler-margin: ($header-height - $menu-toggler-size) / 2 0 0 0 !default;
 $header-responsive-toggler-margin: ($header-height - $menu-toggler-size) / 2 6px 0 6px !default;
-$header-logo-margin: ($header-height - $header-logo-height) / 2 0 0 0 !default; // adjsut logo's margin top. default: -1px
+$header-logo-margin: ($header-height - $header-logo-height) / 2 0 0 0 !default; // adjust logo's margin top. default: -1px
 
 $header-top-menu-general-item-padding: 19px 10px 10px 10px !default; // adjust top menu general elements padding. default: 15px 10px 7px 10px
 $header-top-menu-general-item-padding-on-mobile: 19px 6px 10px 6px !default; // adjust top menu general elements padding mobile. default: 15px 10px 7px 10px
@@ -31,7 +31,7 @@ $sidebar-collapsed-width: 45px !default; // minimized/collapsed sidebar width. d
 $sidebar-collapsed-submenu-width-on-hover: 210px !default; // sub menu width displayed on hover in collapsed sidebar mode. default:210px
 $sidebar-logo-container-width: $sidebar-width !default; // logo container width. Normally same with sidebar-width.
 $sidebar-logo-container-width-xs: 110px !default; // logo container width in mobile portrait view. default:110px.
-$sidebar-logo-container-width-xxs: 100px !default; // logo container width in mobile landspace view. default:100px.
+$sidebar-logo-container-width-xxs: 100px !default; // logo container width in mobile landscape view. default:100px.
 
 $sidebar-menu-head-font-size: 14px !default;
 $sidebar-menu-link-font-size: 14px !default;
@@ -55,5 +55,5 @@ $zindex-footer-fixed: 10000 !default;
 $zindex-sidebar-submenu: 2000 !default;
 $zindex-go-to-top: 10001 !default;
 
-$general-img-path: '/vendor/core/images/';
-$general-font-path: '/vendor/core/fonts/';
+$general-img-path: '/vendor/core/core/base/images/';
+$general-font-path: '/vendor/core/core/base/fonts/';

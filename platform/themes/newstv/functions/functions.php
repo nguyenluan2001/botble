@@ -42,7 +42,7 @@ theme_option()
         'label'      => __('Copyright'),
         'attributes' => [
             'name'    => 'copyright',
-            'value'   => __('© 2020 Laravel Technologies. All right reserved. Designed by Developer Team'),
+            'value'   => __('© 2020 Laravel Technologies. All right reserved.'),
             'options' => [
                 'class'        => 'form-control',
                 'placeholder'  => __('Change copyright'),
@@ -52,23 +52,24 @@ theme_option()
         'helper'     => __('Copyright on footer of site'),
     ])
     ->setField([
-        'id'         => 'theme-color',
+        'id'         => 'primary_font',
         'section_id' => 'opt-text-subsection-general',
-        'type'       => 'select',
-        'label'      => __('Theme color'),
+        'type'       => 'googleFonts',
+        'label'      => __('Primary font'),
         'attributes' => [
-            'name'    => 'theme_color',
-            'list'    => [
-                'red'   => 'Red',
-                'green' => 'Green',
-                'blue'  => 'Blue',
-            ],
-            'value'   => 'red',
-            'options' => [
-                'class' => 'form-control',
-            ],
+            'name'  => 'primary_font',
+            'value' => 'Roboto Slab',
         ],
-        'helper'     => __('Primary theme color'),
+    ])
+    ->setField([
+        'id'         => 'primary_color',
+        'section_id' => 'opt-text-subsection-general',
+        'type'       => 'customColor',
+        'label'      => __('Primary color'),
+        'attributes' => [
+            'name'  => 'primary_color',
+            'value' => '#d8403f',
+        ],
     ])
     ->setField([
         'id'         => 'top-banner',

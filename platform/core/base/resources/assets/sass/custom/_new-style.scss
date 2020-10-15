@@ -232,6 +232,7 @@ a {
     position: relative;
     -webkit-transition: border-color .2s ease-out;
     transition: border-color .2s ease-out;
+    background: #f4f6f8;
 }
 
 .button-loading, .button-loading:hover, .button-loading:focus, .button-loading:active {
@@ -259,11 +260,6 @@ a {
 .btn-info.button-loading:before {
     border-color: #ffffff;
     border-bottom-color: transparent
-}
-
-.button-loading {
-    background: #f4f6f8;
-    border-color: #c4cdd5
 }
 
 .btn-info.button-loading {

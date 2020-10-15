@@ -10,8 +10,8 @@
                 <header class="post__header">
                     <h3 class="post__title"><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
                     <div class="post__meta"><span class="post__created-at"><i class="ion-clock"></i>{{ $post->created_at->format('M d, Y') }}</span>
-                        @if ($post->user->username)
-                            <span class="post__author"><i class="ion-android-person"></i><span>{{ $post->user->getFullName() }}</span></span>
+                        @if ($post->author->username)
+                            <span class="post__author"><i class="ion-android-person"></i><span>{{ $post->author->getFullName() }}</span></span>
                         @endif
                         <span class="post-category"><i class="ion-cube"></i>
                             @if ($post->categories->first())

@@ -39,8 +39,8 @@ class SystemController extends Controller
     {
         page_title()->setTitle(trans('core/base::system.info.title'));
 
-        Assets::addScriptsDirectly('vendor/core/js/system-info.js')
-            ->addStylesDirectly(['vendor/core/css/system-info.css']);
+        Assets::addScriptsDirectly('vendor/core/core/base/js/system-info.js')
+            ->addStylesDirectly(['vendor/core/core/base/css/system-info.css']);
 
         $composerArray = SystemManagement::getComposerArray();
         $packages = SystemManagement::getPackagesAndDependencies($composerArray['require']);
@@ -69,7 +69,7 @@ class SystemController extends Controller
     {
         page_title()->setTitle(trans('core/base::cache.cache_management'));
 
-        Assets::addScriptsDirectly('vendor/core/js/cache.js');
+        Assets::addScriptsDirectly('vendor/core/core/base/js/cache.js');
 
         return view('core/base::system.cache');
     }

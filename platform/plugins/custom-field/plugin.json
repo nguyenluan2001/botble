@@ -4,6 +4,6 @@
     "provider": "Platform\\CustomField\\Providers\\CustomFieldServiceProvider",
     "author": "Laravel Technologies",
     "url": "https://laravel-cms.gistensal.com",
-    "version": "5.7",
+    "version": "5.8",
     "description": "Custom Fields"
 }

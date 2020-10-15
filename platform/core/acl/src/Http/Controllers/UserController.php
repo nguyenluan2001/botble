@@ -193,7 +193,7 @@ class UserController extends BaseController
     public function getUserProfile($id, Request $request, FormBuilder $formBuilder)
     {
         Assets::addScripts(['bootstrap-pwstrength', 'cropper'])
-            ->addScriptsDirectly('vendor/core/js/profile.js');
+            ->addScriptsDirectly('vendor/core/core/acl/js/profile.js');
 
         $user = $this->userRepository->findOrFail($id);
 

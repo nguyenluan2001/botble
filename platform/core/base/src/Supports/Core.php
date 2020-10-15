@@ -116,7 +116,7 @@ class Core
                 'Accept'       => 'application/json',
                 'LB-API-KEY'   => $this->apiKey,
                 'LB-URL'       => rtrim(url('/'), '/'),
-                'LB-IP'        => request()->ip(),
+                'LB-IP'        => Helper::getIpFromThirdParty(),
                 'LB-LANG'      => 'english',
             ],
             'json'    => $data,

@@ -108,6 +108,7 @@ class BaseServiceProvider extends ServiceProvider
                 ],
             ],
             'datatables-buttons.pdf_generator' => 'excel',
+            'excel.exports.csv.use_bom'        => true,
         ]);
 
         date_default_timezone_set($config->get('app.timezone', 'UTC'));
@@ -146,8 +147,9 @@ class BaseServiceProvider extends ServiceProvider
 
             $config = $this->app->make('config');
             $config->set([
-                'app.locale'                                         => setting('locale', $config->get('core.base.general.locale',
-                    $config->get('app.locale'))),
+                'app.locale'                                         => setting('locale',
+                    $config->get('core.base.general.locale',
+                        $config->get('app.locale'))),
                 'purifier.settings.default.AutoFormat.AutoParagraph' => false,
                 'purifier.settings.default.AutoFormat.RemoveEmpty'   => false,
             ]);

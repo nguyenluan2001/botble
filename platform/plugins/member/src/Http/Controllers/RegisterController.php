@@ -10,7 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Platform\ACL\Traits\RegistersUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use SeoHelper;
 use URL;
 use Illuminate\Support\Facades\Validator;
@@ -104,7 +103,7 @@ class RegisterController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard('member');
+        return auth('member');
     }
 
     /**

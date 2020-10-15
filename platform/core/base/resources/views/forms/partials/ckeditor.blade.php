@@ -1,7 +1,7 @@
 @php
 Assets::addScriptsDirectly([
-    'vendor/core/libraries/ckeditor/ckeditor.js',
-    'vendor/core/js/editor.js',
+    'vendor/core/core/base/libraries/ckeditor/ckeditor.js',
+    'vendor/core/core/base/js/editor.js',
 ]);
 
 $attributes['class'] = Arr::get($attributes, 'class', '') . ' form-control editor-ckeditor';

@@ -6,7 +6,6 @@ use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Table\Supports\TableExportHandler;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
-use PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing;
 
 class PostExport extends TableExportHandler
 {
@@ -24,42 +23,19 @@ class PostExport extends TableExportHandler
             ->getAlignment()
             ->setHorizontal(Alignment::HORIZONTAL_CENTER);
 
+        $event->sheet
+            ->getDelegate()
+            ->getStyle('C1:C' . $totalRows)
+            ->getAlignment()
+            ->setHorizontal(Alignment::HORIZONTAL_LEFT);
+
+        $event->sheet->getDelegate()
+            ->getColumnDimension('C')
+            ->setWidth(40);
+
         for ($index = 2; $index <= $totalRows; $index++) {
-            $image = $event->sheet->getDelegate()
-                ->getCell('B' . $index)
-                ->getValue();
 
-            $drawing = new MemoryDrawing;
-            $drawing->setName('Image')
-                ->setWorksheet($event->sheet->getDelegate());
-
-            $drawing
-                ->setRenderingFunction(MemoryDrawing::RENDERING_PNG)
-                ->setMimeType(MemoryDrawing::MIMETYPE_PNG)
-                ->setImageResource($this->getImageResourceFromURL($image))
-                ->setCoordinates('B' . $index)
-                ->setWidth(70)
-                ->setHeight(70)
-                ->setOffsetX(10)
-                ->setOffsetY(10);
-
-            $event->sheet->getDelegate()
-                ->getCell('B' . $index)
-                ->setValue(null);
-            $event->sheet->getDelegate()
-                ->getColumnDimension('B')
-                ->setWidth(11);
-            $event->sheet->getDelegate()
-                ->getColumnDimension('C')
-                ->setWidth(40);
-            $event->sheet
-                ->getDelegate()
-                ->getStyle('C1:C' . $totalRows)
-                ->getAlignment()
-                ->setHorizontal(Alignment::HORIZONTAL_LEFT);
-            $event->sheet->getDelegate()
-                ->getRowDimension($index)
-                ->setRowHeight(65);
+            $this->drawingImage($event, 'B', $index);
 
             $status = $event->sheet->getDelegate()
                 ->getStyle('G' . $index)

@@ -1,7 +1,7 @@
 <nav id="admin_bar">
     <div class="admin-bar-container">
         <div class="admin-bar-logo">
-            <a href="{{ route('dashboard.index') }}" title="Go to dashboard">
+            <a href="{{ route('dashboard.index') }}" title="{{ __('Go to dashboard') }}">
                 <img src="{{ setting('admin_logo') ? RvMedia::getImageUrl(setting('admin_logo')) : url(config('core.base.general.logo')) }}" alt="logo"/>
             </a>
         </div>
@@ -13,7 +13,6 @@
                             {{ Arr::get($group, 'title') }}
                         </a>
                         <ul class="admin-bar-dropdown-menu">
-                            <li><a href="{{ route('dashboard.index') }}" title="Go to dashboard">{{ __('Dashboard') }}</a></li>
                             @foreach (Arr::get($group, 'items', []) as $title => $link)
                                 <li>
                                     <a href="{{ $link ?? '' }}">
@@ -33,11 +32,11 @@
         </ul>
         <ul class="admin-navbar-nav admin-navbar-nav-right">
             <li class="admin-bar-dropdown">
-                <a href="{{ route('user.profile.view', ['id' => Auth::user()->getKey()]) }}" class="dropdown-toggle">
+                <a href="{{ route('user.profile.view', ['id' => Auth::user()->getAuthIdentifier()]) }}" class="dropdown-toggle">
                     {{ Auth::user()->getFullName() }}
                 </a>
                 <ul class="admin-bar-dropdown-menu">
-                    <li><a href="{{ route('user.profile.view', Auth::user()->getKey()) }}"><i class="icon-user"></i> {{ trans('core/base::layouts.profile') }}</a></li>
+                    <li><a href="{{ route('user.profile.view', Auth::user()->getAuthIdentifier()) }}"><i class="icon-user"></i> {{ trans('core/base::layouts.profile') }}</a></li>
                     <li><a href="{{ route('access.logout') }}">{{ trans('core/base::layouts.logout') }}</a></li>
                 </ul>
             </li>

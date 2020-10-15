@@ -4,7 +4,6 @@ namespace Platform\SocialLogin\Http\Controllers;
 
 use Assets;
 use Platform\Member\Repositories\Interfaces\MemberInterface;
-use Illuminate\Support\Facades\Auth;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Setting\Supports\SettingStore;
@@ -55,11 +54,9 @@ class SocialLoginController extends BaseController
                 ->setMessage(__('Cannot login, no email provided!'));
         }
 
-        $user = app(MemberInterface::class)->getFirstBy(['email' => $oAuth->getEmail()]);
+        $account = app(MemberInterface::class)->getFirstBy(['email' => $oAuth->getEmail()]);
 
-        if (!$user) {
-            $firstName = implode(' ', explode(' ', $oAuth->getName(), -1));
-
+        if (!$account) {
             $avatarId = null;
             try {
                 $url = $oAuth->getAvatar();
@@ -73,7 +70,9 @@ class SocialLoginController extends BaseController
                 info($exception->getMessage());
             }
 
-            $user = app(MemberInterface::class)->createOrUpdate([
+            $firstName = implode(' ', explode(' ', $oAuth->getName(), -1));
+
+            $account = app(MemberInterface::class)->createOrUpdate([
                 'first_name'  => $firstName,
                 'last_name'   => trim(str_replace($firstName, '', $oAuth->getName())),
                 'email'       => $oAuth->getEmail(),
@@ -83,7 +82,7 @@ class SocialLoginController extends BaseController
             ]);
         }
 
-        Auth::guard('member')->login($user, true);
+        auth('member')->login($account, true);
 
         return $response
             ->setNextUrl(route('public.member.dashboard'))

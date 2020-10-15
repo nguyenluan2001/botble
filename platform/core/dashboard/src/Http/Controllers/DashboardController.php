@@ -58,8 +58,8 @@ class DashboardController extends BaseController
         page_title()->setTitle(trans('core/dashboard::dashboard.title'));
 
         Assets::addScripts(['blockui', 'sortable', 'equal-height', 'counterup'])
-            ->addScriptsDirectly('vendor/core/js/dashboard.js')
-            ->addStylesDirectly('vendor/core/css/dashboard.css');
+            ->addScriptsDirectly('vendor/core/core/dashboard/js/dashboard.js')
+            ->addStylesDirectly('vendor/core/core/dashboard/css/dashboard.css');
 
         do_action(DASHBOARD_ACTION_REGISTER_SCRIPTS);
 

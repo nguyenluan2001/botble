@@ -5,7 +5,6 @@ namespace Platform\Member\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Platform\ACL\Traits\ResetsPasswords;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use SeoHelper;
 
@@ -76,6 +75,6 @@ class ResetPasswordController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard('member');
+        return auth('member');
     }
 }

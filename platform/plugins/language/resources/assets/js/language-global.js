@@ -66,4 +66,12 @@ class LanguageGlobalManagement {
 
 $(document).ready(() => {
     new LanguageGlobalManagement().init();
+
+    $.ajaxSetup({
+        data: {
+            'ref_from': $('meta[name="ref_from"]').attr('content'),
+            'ref_lang': $('meta[name="ref_lang"]').attr('content'),
+        }
+    });
+
 });

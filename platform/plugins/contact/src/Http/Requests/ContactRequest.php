@@ -36,12 +36,10 @@ class ContactRequest extends Request
     public function messages()
     {
         return [
-            'name.required'                 => trans('plugins/contact::contact.form.name.required'),
-            'email.required'                => trans('plugins/contact::contact.form.email.required'),
-            'email.email'                   => trans('plugins/contact::contact.form.email.email'),
-            'content.required'              => trans('plugins/contact::contact.form.content.required'),
-            'g-recaptcha-response.required' => trans('plugins/contact::contact.form.g-recaptcha-response.required'),
-            'g-recaptcha-response.captcha'  => trans('plugins/contact::contact.form.g-recaptcha-response.captcha'),
+            'name.required'    => trans('plugins/contact::contact.form.name.required'),
+            'email.required'   => trans('plugins/contact::contact.form.email.required'),
+            'email.email'      => trans('plugins/contact::contact.form.email.email'),
+            'content.required' => trans('plugins/contact::contact.form.content.required'),
         ];
     }
 }

@@ -14,5 +14,5 @@ mix
     .sass(source + '/resources/assets/sass/translation.scss', dist + '/css')
     .sass(source + '/resources/assets/sass/theme-translations.scss', dist + '/css')
 
-    .copy(dist + '/js', source + '/public/js')
-    .copy(dist + '/css', source + '/public/css');
+    .copyDirectory(dist + '/js', source + '/public/js')
+    .copyDirectory(dist + '/css', source + '/public/css');

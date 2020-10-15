@@ -21,7 +21,7 @@
         @endif
     </div>
 </header>
-{!! clean($post->content) !!}
+{!! clean($post->content, 'youtube') !!}
 <br />
 {!! apply_filters(BASE_FILTER_PUBLIC_COMMENT_AREA, null) !!}
 <footer>

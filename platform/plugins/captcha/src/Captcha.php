@@ -92,7 +92,7 @@ class Captcha
             $attributes['data-sitekey'] = $this->optionOrConfig($options, 'site_key');
         }
 
-        return $html . '<div class="g-recaptcha"' . $this->buildAttributes($attributes) . '></div>';
+        return $html . '<script>var refreshRecaptcha = function () { grecaptcha.reset(); };</script><div class="g-recaptcha" ' . $this->buildAttributes($attributes) . '></div>';
     }
 
     /**

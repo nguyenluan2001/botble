@@ -31,10 +31,6 @@ return [
         'content'              => [
             'required' => 'Content is required',
         ],
-        'g-recaptcha-response' => [
-            'required' => 'Please confirm you are not a robot before sending the message.',
-            'captcha'  => 'You are not confirm robot yet.',
-        ],
     ],
     'contact_sent_from'   => 'This contact information sent from',
     'sender'              => 'Sender',

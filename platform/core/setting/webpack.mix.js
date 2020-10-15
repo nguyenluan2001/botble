@@ -11,12 +11,15 @@ let mix = require('laravel-mix');
  |
  */
 
-const source = 'platform/core/setting';
-const dist = 'public/vendor/core';
+const path = require('path');
+let directory = path.basename(path.resolve(__dirname));
+
+const source = 'platform/core/' + directory;
+const dist = 'public/vendor/core/core/' + directory;
 
 mix
     .js(source + '/resources/assets/js/setting.js', dist + '/js')
-    .copy(dist + '/js/setting.js', source + '/public/js')
-
     .sass(source + '/resources/assets/sass/setting.scss', dist + '/css')
-    .copy(dist + '/css/setting.css', source + '/public/css')
+
+    .copyDirectory(dist + '/js', source + '/public/js')
+    .copyDirectory(dist + '/css', source + '/public/css')

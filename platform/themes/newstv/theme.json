@@ -3,7 +3,7 @@
     "namespace": "Theme\\NewsTv\\",
     "description": "A magazine theme",
     "author": "Laravel Technologies",
-    "version": "5.7",
+    "version": "5.8",
     "required_plugins": [
         "blog",
         "contact",

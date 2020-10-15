@@ -10,7 +10,7 @@
 
 @if ($showField)
     {!! Form::mediaFile($name, $options['value']) !!}
-    @include('core/base::forms.partials.help_block')
+    @include('core/base::forms.partials.help-block')
 @endif
 
 @include('core/base::forms.partials.errors')

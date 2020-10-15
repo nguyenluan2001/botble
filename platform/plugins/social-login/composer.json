@@ -3,6 +3,6 @@
   "description": "Social login plugin",
   "type": "package",
   "require": {
-    "laravel/socialite": "^4.4"
+    "laravel/socialite": "^5.0"
   }
 }

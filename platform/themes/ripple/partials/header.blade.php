@@ -52,12 +52,12 @@
                     <div class="pull-right">
                         @if (is_plugin_active('member'))
                             <ul class="pull-left">
-                                @if (Auth::guard('member')->check())
-                                    <li><a href="{{ route('public.member.dashboard') }}" rel="nofollow"><img src="{{ Auth::guard('member')->user()->avatar_url }}" class="img-circle" width="20" alt="{{ Auth::guard('member')->user()->getFullName() }}"> <span>{{ Auth::guard('member')->user()->getFullName() }}</span></a></li>
+                                @auth('member')
+                                    <li><a href="{{ route('public.member.dashboard') }}" rel="nofollow"><img src="{{ auth('member')->user()->avatar_url }}" class="img-circle" width="20" alt="{{ auth('member')->user()->getFullName() }}"> &nbsp;<span>{{ auth('member')->user()->getFullName() }}</span></a></li>
                                     <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fa fa-sign-out"></i> {{ __('Logout') }}</a></li>
-                                @else
+                                @elseauth
                                     <li><a href="{{ route('public.member.login') }}" rel="nofollow"><i class="fa fa-sign-in"></i> {{ __('Login') }}</a></li>
-                                @endif
+                                @endauth
                             </ul>
                             @auth('member')
                                 <form id="logout-form" action="{{ route('public.member.logout') }}" method="POST" style="display: none;">

@@ -83,7 +83,7 @@ class MenuServiceProvider extends ServiceProvider
             }
 
             if (function_exists('admin_bar')) {
-                admin_bar()->registerLink('Menu', route('menus.index'), 'appearance');
+                admin_bar()->registerLink(trans('packages/menu::menu.name'), route('menus.index'), 'appearance');
             }
         });
     }

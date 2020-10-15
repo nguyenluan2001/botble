@@ -25,14 +25,14 @@ return [
                 'use_cdn'  => false,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/js/core.js',
+                    'local' => '/vendor/core/core/base/js/core.js',
                 ],
             ],
             'app'                 => [
                 'use_cdn'  => false,
                 'location' => 'header',
                 'src'      => [
-                    'local' => '/vendor/core/js/app.js',
+                    'local' => '/vendor/core/core/base/js/app.js',
                 ],
             ],
             'jquery-validation'   => [
@@ -40,8 +40,8 @@ return [
                 'location' => 'footer',
                 'src'      => [
                     'local' => [
-                        '/vendor/core/libraries/jquery-validation/jquery.validate.min.js',
-                        '/vendor/core/libraries/jquery-validation/additional-methods.min.js',
+                        '/vendor/core/core/base/libraries/jquery-validation/jquery.validate.min.js',
+                        '/vendor/core/core/base/libraries/jquery-validation/additional-methods.min.js',
                     ],
                 ],
             ],
@@ -49,7 +49,7 @@ return [
                 'use_cdn'  => true,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/jquery-ui/jquery-ui.min.js',
+                    'local' => '/vendor/core/core/base/libraries/jquery-ui/jquery-ui.min.js',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
                 ],
             ],
@@ -57,7 +57,7 @@ return [
                 'use_cdn'  => false,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/fancybox/jquery.fancybox.min.js',
+                    'local' => '/vendor/core/core/base/libraries/fancybox/jquery.fancybox.min.js',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js',
                 ],
             ],
@@ -65,14 +65,14 @@ return [
                 'use_cdn'  => false,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/jquery.are-you-sure/jquery.are-you-sure.js',
+                    'local' => '/vendor/core/core/base/libraries/jquery.are-you-sure/jquery.are-you-sure.js',
                 ],
             ],
             'toastr'              => [
                 'use_cdn'  => true,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/toastr/toastr.min.js',
+                    'local' => '/vendor/core/core/base/libraries/toastr/toastr.min.js',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.2/toastr.min.js',
                 ],
             ],
@@ -81,10 +81,10 @@ return [
                 'location' => 'footer',
                 'src'      => [
                     'local' => [
-                        '/vendor/core/libraries/datatables/media/js/jquery.dataTables.min.js',
-                        '/vendor/core/libraries/datatables/media/js/dataTables.bootstrap.min.js',
-                        '/vendor/core/libraries/datatables/extensions/Buttons/js/dataTables.buttons.min.js',
-                        '/vendor/core/libraries/datatables/extensions/Buttons/js/buttons.bootstrap.min.js',
+                        '/vendor/core/core/base/libraries/datatables/media/js/jquery.dataTables.min.js',
+                        '/vendor/core/core/base/libraries/datatables/media/js/dataTables.bootstrap.min.js',
+                        '/vendor/core/core/base/libraries/datatables/extensions/Buttons/js/dataTables.buttons.min.js',
+                        '/vendor/core/core/base/libraries/datatables/extensions/Buttons/js/buttons.bootstrap.min.js',
                     ],
                 ],
             ],
@@ -92,14 +92,14 @@ return [
                 'use_cdn'  => false,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+                    'local' => '/vendor/core/core/base/libraries/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
                 ],
             ],
             'moment'              => [
                 'use_cdn'  => true,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/moment-with-locales.min.js',
+                    'local' => '/vendor/core/core/base/libraries/moment-with-locales.min.js',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.min.js',
                 ],
             ],
@@ -107,7 +107,7 @@ return [
                 'use_cdn'  => true,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/select2/js/select2.min.js',
+                    'local' => '/vendor/core/core/base/libraries/select2/js/select2.min.js',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
             ],
@@ -115,7 +115,7 @@ return [
                 'use_cdn'  => false,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/js/js-validation.js',
+                    'local' => '/vendor/core/core/js-validation/js/js-validation.js',
                 ],
             ],
             // End JS
@@ -126,7 +126,7 @@ return [
                 'use_cdn'  => true,
                 'location' => 'header',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/font-awesome/css/fontawesome.min.css',
+                    'local' => '/vendor/core/core/base/libraries/font-awesome/css/fontawesome.min.css',
                     'cdn'   => '//use.fontawesome.com/releases/v5.0.13/css/all.css',
                 ],
             ],
@@ -134,14 +134,14 @@ return [
                 'use_cdn'  => false,
                 'location' => 'header',
                 'src'      => [
-                    'local' => '/vendor/core/css/core.css',
+                    'local' => '/vendor/core/core/base/css/core.css',
                 ],
             ],
             'jquery-ui'           => [
                 'use_cdn'  => true,
                 'location' => 'footer',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/jquery-ui/jquery-ui.min.css',
+                    'local' => '/vendor/core/core/base/libraries/jquery-ui/jquery-ui.min.css',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.theme.css',
                 ],
             ],
@@ -149,7 +149,7 @@ return [
                 'use_cdn'  => true,
                 'location' => 'header',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/pace/pace-theme-minimal.css',
+                    'local' => '/vendor/core/core/base/libraries/pace/pace-theme-minimal.css',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.css',
                 ],
             ],
@@ -157,7 +157,7 @@ return [
                 'use_cdn'  => false,
                 'location' => 'header',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/fancybox/jquery.fancybox.min.css',
+                    'local' => '/vendor/core/core/base/libraries/fancybox/jquery.fancybox.min.css',
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css',
                 ],
             ],
@@ -166,7 +166,7 @@ return [
                 'location' => 'header',
                 'src'      => [
                     'local' => [
-                        '/vendor/core/libraries/datatables/media/css/dataTables.bootstrap.min.css',
+                        '/vendor/core/core/base/libraries/datatables/media/css/dataTables.bootstrap.min.css',
                     ],
                 ],
             ],
@@ -174,7 +174,7 @@ return [
                 'use_cdn'  => false,
                 'location' => 'header',
                 'src'      => [
-                    'local' => '/vendor/core/libraries/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
+                    'local' => '/vendor/core/core/base/libraries/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
                 ],
             ],
             'select2'             => [
@@ -182,8 +182,8 @@ return [
                 'location' => 'header',
                 'src'      => [
                     'local' => [
-                        '/vendor/core/libraries/select2/css/select2.min.css',
-                        '/vendor/core/libraries/select2/css/select2-bootstrap.min.css',
+                        '/vendor/core/core/base/libraries/select2/css/select2.min.css',
+                        '/vendor/core/core/base/libraries/select2/css/select2-bootstrap.min.css',
                     ],
                     'cdn'   => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css',
                 ],

@@ -52,6 +52,7 @@ return [
         'select'                                => '— Select —',
         'show_site_name'                        => 'Show site name after page title, separate with "-"?',
         'locale'                                => 'Site language',
+        'locale_direction'                      => 'Language direction',
     ],
     'email'                        => [
         'subject'                       => 'Subject',

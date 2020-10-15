@@ -12,7 +12,7 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
-                    <td>@if ($post->slug) <a href="{{ $post->url }}" target="_blank">{{ Str::limit($post->name, 100) }}</a> @else <strong>{{ Str::limit($post->name, 100) }}</strong> @endif</td>
+                    <td>@if ($post->slug) <a href="{{ $post->url }}" target="_blank">{{ Str::limit($post->name, 80) }}</a> @else <strong>{{ Str::limit($post->name, 80) }}</strong> @endif</td>
                     <td>{{ BaseHelper::formatDate($post->created_at, 'd-m-Y') }}</td>
                 </tr>
             @endforeach

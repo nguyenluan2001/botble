@@ -4,6 +4,6 @@
     "provider": "Platform\\Gallery\\Providers\\GalleryServiceProvider",
     "author": "Laravel Technologies",
     "url": "https://laravel-cms.gistensal.com",
-    "version": "5.7",
+    "version": "5.8",
     "description": "Create or easy to add gallery images to posts, pages..."
 }

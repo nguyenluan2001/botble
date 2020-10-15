@@ -389,7 +389,7 @@ class LanguageServiceProvider extends ServiceProvider
         $code = null;
         if ($request->has('ref_lang')) {
             $code = $request->input('ref_lang');
-        } elseif (!empty($data)) {
+        } elseif (!empty($data) && $data->id) {
             $meta = $this->app->make(LanguageMetaInterface::class)->getFirstBy([
                 'reference_id'   => $data->id,
                 'reference_type' => get_class($data),

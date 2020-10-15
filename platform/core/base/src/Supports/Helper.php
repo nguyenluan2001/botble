@@ -38,7 +38,7 @@ class Helper
     {
         if (!array_key_exists($object->id, session()->get($sessionName, []))) {
             try {
-                $object->newQuery()->increment('views');
+                $object->increment('views');
                 session()->put($sessionName . '.' . $object->id, time());
                 return true;
             } catch (Exception $exception) {
@@ -458,5 +458,22 @@ class Helper
         }
 
         return Arr::get(self::countries(), $countryCode, $countryCode);
+    }
+
+    /**
+     * @return bool|string
+     */
+    public static function getIpFromThirdParty()
+    {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'http://ipecho.net/plain');
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        return $response;
     }
 }

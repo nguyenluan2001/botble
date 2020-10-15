@@ -806,3 +806,17 @@ figure.image {
         margin-right: 5px;
     }
 }
+
+.page-content {
+    .gallery-wrap {
+        .gallery-item {
+            .gallery-detail {
+                a {
+                    &:hover {
+                        color: $color-1st !important;
+                    }
+                }
+            }
+        }
+    }
+}

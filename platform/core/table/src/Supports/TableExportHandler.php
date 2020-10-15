@@ -5,9 +5,11 @@ namespace Platform\Table\Supports;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Events\BeforeSheet;
+use Maatwebsite\Excel\Events\Event;
 use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\PageSetup;
 use Yajra\DataTables\Services\DataTablesExportHandler;
 
@@ -140,5 +142,49 @@ class TableExportHandler extends DataTablesExportHandler implements WithEvents
         } catch (Exception $exception) {
             return null;
         }
+    }
+
+    /**
+     * @param Event $event
+     * @param string $cell
+     * @throws Exception
+     */
+    protected function drawingImage(Event $event, string $column, int $row)
+    {
+        if (request()->input('action') !== 'excel') {
+            return false;
+        }
+
+        $image = $event->sheet->getDelegate()
+            ->getCell($column . $row)
+            ->getValue();
+
+        $drawing = new MemoryDrawing;
+        $drawing->setName('Image')
+            ->setWorksheet($event->sheet->getDelegate());
+
+        $drawing
+            ->setRenderingFunction(MemoryDrawing::RENDERING_PNG)
+            ->setMimeType(MemoryDrawing::MIMETYPE_PNG)
+            ->setImageResource($this->getImageResourceFromURL($image))
+            ->setCoordinates($column . $row)
+            ->setWidth(70)
+            ->setHeight(70)
+            ->setOffsetX(10)
+            ->setOffsetY(10);
+
+        $event->sheet->getDelegate()
+            ->getCell($column . $row)
+            ->setValue(null);
+
+        $event->sheet->getDelegate()
+            ->getRowDimension($row)
+            ->setRowHeight(65);
+
+        $event->sheet->getDelegate()
+            ->getColumnDimension($column)
+            ->setWidth(11);
+
+        return true;
     }
 }

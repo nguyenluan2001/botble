@@ -55,15 +55,8 @@
                         </div>
                         <div class="form-group" style="margin-bottom: 1em;">
                             <label class="text-title-field" for="email_encryption">{{ trans('core/setting::setting.email.encryption') }}</label>
-                            <div class="ui-select-wrapper">
-                                <select name="email_encryption" class="ui-select" id="email_encryption">
-                                    <option value="tls" @if (setting('email_encryption', config('mail.mailers.smtp.encryption')) == 'tls') selected @endif>TLS</option>
-                                    <option value="ssl" @if (setting('email_encryption', config('mail.mailers.smtp.encryption')) == 'ssl') selected @endif>SSL</option>
-                                </select>
-                                <svg class="svg-next-icon svg-next-icon-size-16">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select-chevron"></use>
-                                </svg>
-                            </div>
+                            <input data-counter="20" type="text" class="next-input" name="email_encryption" id="email_encryption"
+                                   value="{{ setting('email_encryption', config('mail.mailers.smtp.encryption')) }}" placeholder="{{ __('Encryption: ssl or tls') }}">
                         </div>
                     </div>
 

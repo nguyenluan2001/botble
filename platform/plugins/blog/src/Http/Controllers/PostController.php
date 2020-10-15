@@ -209,6 +209,7 @@ class PostController extends BaseController
         $limit = $request->input('paginate', 10);
         $posts = $this->postRepository->getModel()
             ->orderBy('posts.created_at', 'desc')
+            ->with('slugable')
             ->paginate($limit);
 
         return $response

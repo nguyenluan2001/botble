@@ -4,6 +4,7 @@ namespace Platform\Theme;
 
 use Exception;
 use File;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -16,26 +17,26 @@ class AssetContainer
      *
      * @var boolean
      */
-    public $usePath = false;
+    protected $usePath = false;
 
     /**
      * Path to theme.
      *
      * @var string
      */
-    public $path;
+    protected $path;
 
     /**
      * The asset container name.
      *
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * @var array
      */
-    public $assets = [];
+    protected $assets = [];
 
     /**
      * Create a new asset container instance.
@@ -188,10 +189,33 @@ class AssetContainer
     }
 
     /**
+     * @param string|array $name
+     * @return $this
+     */
+    public function remove($name): self
+    {
+        if (!is_array($name)) {
+            $name = [$name];
+        }
+
+        foreach ($name as $item) {
+            foreach ($this->assets as $typeKey => $type) {
+                foreach ($type as $assetKey => $asset) {
+                    if ($assetKey == $item) {
+                        Arr::forget($this->assets, $typeKey . '.' . $assetKey);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * Write a script to the container.
      *
      * @param string $name
-     * @param string string
      * @param string $source
      * @param array $dependencies
      * @return AssetContainer

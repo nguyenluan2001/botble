@@ -14,7 +14,7 @@ class SocialService
             $model = [$model];
         }
         config([
-            'plugins.social-login.general.supported' => array_merge(config('plugins.social-login.general.supported', []), $model),
+            'plugins.social-login.general.supported' => array_merge($this->supportedModules(), $model),
         ]);
 
         return $this;

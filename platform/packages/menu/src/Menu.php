@@ -3,6 +3,7 @@
 namespace Platform\Menu;
 
 use Platform\Base\Enums\BaseStatusEnum;
+use Platform\Base\Models\BaseModel;
 use Platform\Menu\Repositories\Eloquent\MenuRepository;
 use Platform\Menu\Repositories\Interfaces\MenuInterface;
 use Platform\Menu\Repositories\Interfaces\MenuLocationInterface;
@@ -341,5 +342,25 @@ class Menu
         }
 
         return view('packages/menu::partials.default', $data)->render();
+    }
+
+    /**
+     * @param string $model
+     * @param string $name
+     * @throws FileNotFoundException
+     * @throws Throwable
+     */
+    public function registerMenuOptions(string $model, string $name)
+    {
+        $options = Menu::generateSelect([
+            'model'   => new $model,
+            'type'    => $model,
+            'theme'   => false,
+            'options' => [
+                'class' => 'list-item',
+            ],
+        ]);
+
+        echo view('packages/menu::menu-options', compact('options', 'name'));
     }
 }

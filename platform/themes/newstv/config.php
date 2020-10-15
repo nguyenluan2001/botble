@@ -48,19 +48,11 @@ return [
                 ->container('footer')
                 ->usePath()->add('modernizr-js', 'js/modernizr.js')
                 ->usePath()->add('core-js', 'js/core.min.js')
-                ->usePath()->add('app-js', 'js/app.min.js')
-                ->usePath()->add('sweet-alert-js', 'js/sweetalert.min.js', ['jquery']);
+                ->usePath()->add('app-js', 'js/app.min.js');
 
             $theme
                 ->asset()
-                ->usePath()->add('style-css', 'css/style.css')
-                ->usePath()->add('red-theme-css', 'css/' . theme_option('theme_color', 'red') . '.css', [], ['id' => 'style_color'])
-                ->usePath()->add('custom-css', 'css/custom.css');
-
-            if (app()->environment() != 'production') {
-                $theme->asset()->container('footer')->usePath()->add('demo-js', 'js/demo.js');
-                $theme->asset()->usePath()->add('demo-css', 'css/demo.min.css');
-            }
+                ->usePath()->add('style-css', 'css/style.css');
 
             if (function_exists('shortcode')) {
                 $theme->composer(['page', 'post', 'index'], function (\Platform\Shortcode\View\View $view) {

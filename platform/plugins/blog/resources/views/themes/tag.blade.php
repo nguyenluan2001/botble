@@ -14,7 +14,7 @@
                     <header>
                         <h3><a href="{{ $post->url }}">{{ $post->name }}</a></h3>
                         <div>
-                            {{ $post->created_at->format('M d, Y') }} - <span>{{ $post->user->getFullName() }}</span>>
+                            {{ $post->created_at->format('M d, Y') }} - <span>{{ $post->author->getFullName() }}</span>>
                             @if ($post->categories->first())
                                 <a href="{{ $post->categories->first()->url }}">{{ $post->categories->first()->name }}</a>
                             @endif

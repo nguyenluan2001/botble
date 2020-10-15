@@ -4,15 +4,9 @@ namespace Platform\Setting\Supports;
 
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\Manager;
-use Illuminate\Foundation\Application;
 
 class SettingsManager extends Manager
 {
-    /**
-     * @var Application
-     */
-    protected $app;
-
     /**
      * @return string
      */
@@ -26,7 +20,7 @@ class SettingsManager extends Manager
      */
     public function createJsonDriver()
     {
-        return new JsonSettingStore($this->app['files']);
+        return new JsonSettingStore(app('files'));
     }
 
     /**
@@ -34,7 +28,7 @@ class SettingsManager extends Manager
      */
     public function createDatabaseDriver()
     {
-        $connection = $this->app->make(DatabaseManager::class)->connection();
+        $connection = app(DatabaseManager::class)->connection();
         $table = 'settings';
         $keyColumn = 'key';
         $valueColumn = 'value';

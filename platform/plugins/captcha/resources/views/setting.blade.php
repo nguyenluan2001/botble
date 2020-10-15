@@ -44,6 +44,22 @@
 
             <div class="form-group">
                 <label class="text-title-field"
+                       for="captcha_hide_badge">{{ trans('plugins/captcha::captcha.settings.hide_badge') }}
+                </label>
+                <label class="hrv-label">
+                    <input type="radio" name="captcha_hide_badge" class="hrv-radio"
+                           value="1"
+                           @if (setting('captcha_hide_badge')) checked @endif>{{ trans('core/setting::setting.general.yes') }}
+                </label>
+                <label class="hrv-label">
+                    <input type="radio" name="captcha_hide_badge" class="hrv-radio"
+                           value="0"
+                           @if (!setting('captcha_hide_badge')) checked @endif>{{ trans('core/setting::setting.general.no') }}
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label class="text-title-field"
                        for="captcha_site_key">{{ trans('plugins/captcha::captcha.settings.captcha_site_key') }}</label>
                 <input data-counter="120" type="text" class="next-input" name="captcha_site_key" id="captcha_site_key"
                        value="{{ setting('captcha_site_key', config('plugins.captcha.general.site_key')) }}" placeholder="{{ trans('plugins/captcha::captcha.settings.captcha_site_key') }}">

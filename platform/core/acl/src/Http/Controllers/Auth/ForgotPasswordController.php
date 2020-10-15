@@ -49,8 +49,8 @@ class ForgotPasswordController extends BaseController
         page_title()->setTitle(trans('core/acl::auth.forgot_password.title'));
 
         Assets::addScripts(['jquery-validation'])
-            ->addScriptsDirectly('vendor/core/js/login.js')
-            ->addStylesDirectly('vendor/core/css/login.css')
+            ->addScriptsDirectly('vendor/core/core/acl/js/login.js')
+            ->addStylesDirectly('vendor/core/core/acl/css/login.css')
             ->removeStyles([
                 'select2',
                 'fancybox',

@@ -48,7 +48,6 @@ class ThemeServiceProvider extends ServiceProvider
             ->loadAndPublishConfigurations(['general', 'permissions'])
             ->loadAndPublishViews()
             ->loadAndPublishTranslations()
-            ->loadMigrations()
             ->loadRoutes(['web'])
             ->publishAssets();
 
@@ -93,7 +92,9 @@ class ThemeServiceProvider extends ServiceProvider
                     'permissions' => ['theme.custom-css'],
                 ]);
 
-            admin_bar()->registerLink('Theme', route('theme.index'), 'appearance');
+            admin_bar()
+                ->registerLink(trans('packages/theme::theme.name'), route('theme.index'), 'appearance')
+                ->registerLink(trans('packages/theme::theme.theme_options'), route('theme.options'), 'appearance');
         });
 
         $this->app->booted(function () {

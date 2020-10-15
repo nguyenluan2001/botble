@@ -76,6 +76,6 @@
 @endsection
 @push('scripts')
     <!-- Laravel Javascript Validation -->
-    <script type="text/javascript" src="{{ asset('vendor/core/js/js-validation.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/core/core/js-validation/js/js-validation.js')}}"></script>
     {!! JsValidator::formRequest(\Platform\Member\Http\Requests\RegisterRequest::class); !!}
 @endpush

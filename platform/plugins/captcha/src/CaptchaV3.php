@@ -5,6 +5,7 @@ namespace Platform\Captcha;
 use GuzzleHttp\Client;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Arr;
+use Theme;
 
 class CaptchaV3
 {
@@ -22,6 +23,11 @@ class CaptchaV3
      * @var string
      */
     protected $origin;
+
+    /**
+     * @var bool
+     */
+    protected $rendered = false;
 
     /**
      * @param Application $app
@@ -85,31 +91,54 @@ class CaptchaV3
             return null;
         }
 
-        $action = Arr::get($attributes, 'action', 'form');
         $name = Arr::get($options, 'name', 'g-recaptcha-response');
 
         $fieldId = uniqid($name . '-', false);
-        $html = '<input type="hidden" name="' . $name . '" id="' . $fieldId . '">';
+        $action = Arr::get($attributes, 'action', 'form');
 
-        if (Arr::get($attributes, 'add-js', true)) {
-            $html .= $this->initJs();
+        $input = '<input type="hidden" name="' . $name . '" id="' . $fieldId . '">';
+
+        if (!$this->rendered && Arr::get($attributes, 'add-js', true)) {
+            $this->initJs($fieldId, $action);
         }
 
-        $html .= "<script>
-  grecaptcha.ready(function() {
-      grecaptcha.execute('" . $this->siteKey . "', {action: '" . $action . "'}).then(function(token) {
-         document.getElementById('" . $fieldId . "').value = token;
-      });
-  });
-  </script>";
-        return $html;
+        $html = "grecaptcha.ready(function() { refreshRecaptcha('" . $fieldId . "'); });";
+
+        Theme::asset()->container('footer')->writeScript('google-recaptcha-' . $fieldId, $html, ['google-recaptcha']);
+
+        $this->rendered = true;
+
+        return $input;
     }
 
     /**
-     * @return string
+     * @return \Platform\Theme\AssetContainer
      */
-    public function initJs()
+    public function initJs($fieldId = null, $action = 'form')
     {
-        return '<script src="' . $this->origin . '/api.js?render=' . $this->siteKey . '&hl=' . app()->getLocale() . '"></script>';
+        if ($fieldId && $action) {
+            $script = "
+                var refreshRecaptcha = function (fieldId) {
+                   if (!fieldId) {
+                       fieldId = '" . $fieldId . "';
+                   }
+
+                   var field = document.getElementById(fieldId);
+
+                   if (field) {
+                      grecaptcha.execute('" . $this->siteKey . "', {action: '" . $action . "'}).then(function(token) {
+                         field.value = token;
+                      });
+                   }
+               };";
+
+            Theme::asset()
+                ->container('footer')
+                ->writeScript('google-recaptcha-script-' . $fieldId, $script, ['google-recaptcha']);
+        }
+
+        return Theme::asset()
+            ->container('footer')
+            ->add('google-recaptcha', $this->origin . '/api.js?render=' . $this->siteKey . '&hl=' . app()->getLocale());
     }
 }

@@ -35,7 +35,7 @@
                         <br>
                     @else
                         @php
-                            $queryString ='ref_from=' . (!empty($args[0]) ? $args[0]->id : 0) . '&ref_lang=' . $language->lang_code;
+                            $queryString ='ref_from=' . (!empty($args[0]) && $args[0]->id ? $args[0]->id : 0) . '&ref_lang=' . $language->lang_code;
                             $currentQueryString = remove_query_string_var(Request::getQueryString(), ['ref_from', 'ref_lang']);
                             if (!empty($currentQueryString)) {
                                 $queryString = $currentQueryString . '&' . $queryString;
@@ -50,7 +50,7 @@
     </div>
 
     <input type="hidden" id="lang_meta_created_from" name="ref_from" value="{{ Request::get('ref_from') }}">
-    <input type="hidden" id="reference_id" value="{{ $args[0] ? $args[0]->id : '' }}">
+    <input type="hidden" id="reference_id" value="{{ $args[0] && $args[0]->id ? $args[0]->id : 0 }}">
     <input type="hidden" id="reference_type" value="{{ $args[1] }}">
     <input type="hidden" id="route_create" value="{{ Route::has($route['create']) ? route($route['create']) : '#' }}">
     <input type="hidden" id="route_edit" value="{{ Route::has($route['edit']) ? route($route['edit'], $args[0] && $args[0]->id ? $args[0]->id : '') : '#' }}">
@@ -60,3 +60,8 @@
 
     {!! Form::modalAction('confirm-change-language-modal', trans('plugins/language::language.confirm-change-language'), 'warning', trans('plugins/language::language.confirm-change-language-message'), 'confirm-change-language-button', trans('plugins/language::language.confirm-change-language-btn')) !!}
 @endif
+
+@push('header')
+    <meta name="ref_from" content="{{ (!empty($args[0]) && $args[0]->id ? $args[0]->id : 0) }}">
+    <meta name="ref_lang" content="{{ $currentLanguage->lang_code }}">
+@endpush

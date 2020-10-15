@@ -101,7 +101,7 @@ class WidgetServiceProvider extends ServiceProvider
                 ]);
 
             if (function_exists('admin_bar')) {
-                admin_bar()->registerLink('Widget', route('widgets.index'), 'appearance');
+                admin_bar()->registerLink(trans('core/base::layouts.widgets'), route('widgets.index'), 'appearance');
             }
         });
     }

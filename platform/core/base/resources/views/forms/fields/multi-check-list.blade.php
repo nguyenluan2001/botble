@@ -24,7 +24,7 @@
                                 </li>
                             @endforeach
                         </ul>
-                        @include('core/base::forms.partials.help_block')
+                        @include('core/base::forms.partials.help-block')
                     </div>
                 </div>
             @endif
