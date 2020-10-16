@@ -178,10 +178,21 @@ PHPCOPTS="-d memory_limit=-1"
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php'  -print0 | xargs -0 $PERL -i -pe 's/botble_cookie_consent/cms_cookie_consent/g')
 
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../resources/ -type f -name '.env.example'  -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md'  -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md'  -print0 | xargs -0 $PERL -i -pe 's/botble.com/laravel-cms.gistensal.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md' -print0 | xargs -0 $PERL -i -pe 's/1\.envato\.market\/LWRBY/mailto\:toan\@visualweber.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md' -print0 | xargs -0 $PERL -i -pe 's/https\:\/\/codecanyon\.net\/item\/botble-cms-php-platform-based-on-laravel-framework\/16928182/laravel-cms.gistensal.com/g')
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/1\.envato\.market\/LWRBY/mailto\:toan\@visualweber.com/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/https\:\/\/codecanyon\.net\/item\/botble-cms-php-platform-based-on-laravel-framework\/16928182/laravel-cms.gistensal.com/g')
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '.env.example'  -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
+
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../resources/ -type f -name '*.php'  -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
+
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php'  -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
+
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
 #($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\\Botble\\/\\Platform\\/g' $SCRIPT_PATH/../_ide_helper.php)
 #($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/Botble\\/Platform\\/g' $SCRIPT_PATH/../_ide_helper.php)
