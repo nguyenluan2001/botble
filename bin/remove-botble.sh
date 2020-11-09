@@ -181,6 +181,10 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json'  -print0 | xargs -0 $PERL -i -pe 's/dev-botble/dev-laravel/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql'  -print0 | xargs -0 $PERL -i -pe 's/dev-botble/dev-laravel/g')
 
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json'  -print0 | xargs -0 $PERL -i -pe 's/shopwise/laravel-ecommerce/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql'  -print0 | xargs -0 $PERL -i -pe 's/shopwise/laravel-ecommerce/g')
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md'  -print0 | xargs -0 $PERL -i -pe 's/Shopwise/Laravel Ecommerce/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md'  -print0 | xargs -0 $PERL -i -pe 's/Botble CMS/Laravel CMS/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md'  -print0 | xargs -0 $PERL -i -pe 's/botble.com/laravel-cms.gistensal.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md' -print0 | xargs -0 $PERL -i -pe 's/1\.envato\.market\/LWRBY/mailto\:toan\@visualweber.com/g')
@@ -213,6 +217,7 @@ PHPCOPTS="-d memory_limit=-1"
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/\$2y\$10\$A\.uOgqPJthpIKaaUQ3QaueO19\/dtXbntkRuNCRM4DA1D0wN33Jsd6/\$2y\$10\$lZKL3LWN0qQzmvpE08ZHFevJ03KUxZLF3WNhF4vjm7QvClpGHfN4G/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/T6oMhHkxtgcWaK5vAGmrYZydpt4wfGcRPmk9JNAK8lrXbsMyrbAN1QHBXExJ/p06LuSjwHLbW8B52cMsAaMiIpXviS8uPBjhJukECiUjIfwcLr6i5TuCh4mgd/g')
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/admin\@botble.com - 159357/admin\@gistensal.com - Viweb\@\@1234/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/botble - 159357/admin\@gistensal.com - Viweb\@\@1234/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/A young team in Vietnam/Laravel is the best/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 $PERL -i -pe 's/\"botble\"/\"Laravel Framework\"/g')
@@ -318,12 +323,12 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 $PERL -i -pe "s/'botble'/'admin\@gistensal\.com'/g")
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 $PERL -i -pe "s/'botble'/'admin\@gistensal\.com'/g")
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 $PERL -i -pe "s/'botble'/'admin\@gistensal\.com'/g")
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/admin\@botble\.com/admin\@gistensal\.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe "s/'botble'/'admin\@gistensal\.com'/g")
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 $PERL -i -pe 's/admin\@botble\.com/admin\@gistensal\.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 $PERL -i -pe 's/admin\@botble\.com/admin\@gistensal\.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.stub' -print0 | xargs -0 $PERL -i -pe 's/admin\@botble\.com/admin\@gistensal\.com/g')
-($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql' -print0 | xargs -0 $PERL -i -pe 's/admin\@botble\.com/admin\@gistensal\.com/g')
 
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.php' -print0 | xargs -0 $PERL -i -pe 's/botble\.cms\@gmail\.com/developer-team\@gistensal\.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json' -print0 | xargs -0 $PERL -i -pe 's/botble\.cms\@gmail\.com/developer-team\@gistensal\.com/g')
