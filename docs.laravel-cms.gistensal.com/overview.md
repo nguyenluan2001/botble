@@ -12,35 +12,35 @@ PHP platform based on Laravel Framework 7.x
 
 Created: `07/06/2016`
 
-By: [Botble Technologies](https://botble.com)
+By: [Botble Technologies](https://laravel-cms.gistensal.com)
 
-Email: [contact@botble.com](mailto:contact@botble.com)
+Email: [contact@laravel-cms.gistensal.com](mailto:contact@laravel-cms.gistensal.com)
 
 Thank you for purchasing this CMS. If you have any questions that are beyond the scope of this help file, 
-please feel free to email via my user page contact form [here](https://codecanyon.net/user/botble) for quickly support. Thank you so much!
+please feel free to email via my user page contact form [here](get-quote@visualweber.com) for quickly support. Thank you so much!
 		
 <a name="demo"></a>
 ## Demo
 
-Homepage: [https://cms.botble.com](https://cms.botble.com)
+Homepage: [https://cms.laravel-cms.gistensal.com](https://cms.laravel-cms.gistensal.com)
 
-Admin Area: [https://cms.botble.com/admin](https://cms.botble.com/admin)
+Admin Area: [https://cms.laravel-cms.gistensal.com/admin](https://cms.laravel-cms.gistensal.com/admin)
 
-Username: `botble`
+Username: admin@gistensal.com
 
-Password: `159357`
+Password: Viweb@@1234
 
 <a name="why_choose_us"></a>
 ## Why choose us
 
 Coding Standard: All code follow coding standards PSR-2 and best practices. Validated by [Codeship](https://codeship.com)
 
-![Coding standard](https://botble.com/storage/envato/codeship.png)
+![Coding standard](https://laravel-cms.gistensal.com/storage/envato/codeship.png)
 
 
 Fully Responsive: Compatible with all screen resolutions
 
-![Responsive](https://botble.com/storage/envato/responsive.png)
+![Responsive](https://laravel-cms.gistensal.com/storage/envato/responsive.png)
 			
 			
 Powerful Permission System: Manage user, team, role by permissions. Easy to manage user by permissions.
@@ -53,54 +53,54 @@ Admin template comes with color schemes to match your taste.
 
 Blog module
 
-![Blog module](https://botble.com/storage/envato/blog1.png)
+![Blog module](https://laravel-cms.gistensal.com/storage/envato/blog1.png)
 
-![Image](https://botble.com/storage/envato/blog2.png)
+![Image](https://laravel-cms.gistensal.com/storage/envato/blog2.png)
 
-![Image](https://botble.com/storage/envato/blog3.png)
+![Image](https://laravel-cms.gistensal.com/storage/envato/blog3.png)
 
-![Image](https://botble.com/storage/envato/blog4.png)
+![Image](https://laravel-cms.gistensal.com/storage/envato/blog4.png)
 
 Dashboard with Google Analytics, recent posts, error logs
 
-![Dashboard](https://botble.com/storage/uploads/1/docs/screenshots/dashboard.png)
+![Dashboard](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/dashboard.png)
 
 CRUD
 
-![CRUD](https://botble.com/storage/uploads/1/docs/screenshots/edit-page.png)
+![CRUD](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/edit-page.png)
 
 2 themes ready now
-![Theme](https://botble.com/storage/uploads/1/docs/screenshots/theme.png)
+![Theme](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/theme.png)
 
 Roles and Permissions
 
-![Role & permission](https://botble.com/storage/uploads/1/docs/screenshots/role-permission.png)
+![Role & permission](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/role-permission.png)
 
 Media Management
 
-![Media](https://botble.com/storage/uploads/1/docs/screenshots/media.png)
+![Media](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/media.png)
 
 Menu Management
 
-![Menu](https://botble.com/storage/uploads/1/docs/screenshots/menu.png)
+![Menu](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/menu.png)
 			
 Widgets
 
-![Widgets](https://botble.com/storage/uploads/1/docs/screenshots/widget.png)
+![Widgets](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/widget.png)
 
 Theme options
 
-![Translation](https://botble.com/storage/uploads/1/docs/screenshots/theme-option.png)
+![Translation](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/theme-option.png)
 
 Gallery
 
-![Gallery](https://botble.com/storage/uploads/1/docs/screenshots/gallery.png)
+![Gallery](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/gallery.png)
 			
 Plugin management
 
-![Plugin](https://botble.com/storage/uploads/1/docs/screenshots/plugin.png)
+![Plugin](https://laravel-cms.gistensal.com/storage/uploads/1/docs/screenshots/plugin.png)
 		
 <a name="botble_team"></a>
 ## Botble Team
 
-Visit us at [https://botble.com](botble.com)
+Visit us at [https://laravel-cms.gistensal.com](laravel-cms.gistensal.com)

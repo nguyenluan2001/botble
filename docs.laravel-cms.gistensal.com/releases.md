@@ -218,7 +218,7 @@ $this->setupModel(new Post);
 ### 20-07-2019
 
 - Fix bug repeater field with image, file in custom fields plugin.
-- Move plugin management into /packages. Now it's a optional feature, you can remove `botble/plugin-management` and run composer update to remove plugin feature.
+- Move plugin management into /packages. Now it's a optional feature, you can remove `platform/plugin-management` and run composer update to remove plugin feature.
 - Update `composer.json`. Add package `wikimedia/composer-merge-plugin`.
 - Add command to regenerate image sizes: `php artisan cms:media:thumnail:generate`.
 - Add default theme options: site title, SEO meta tags.
@@ -303,12 +303,12 @@ Example:
 <a name="version_3_3_1"></a>
 ## Botble 3.3.1
 ### 18-10-2018
-- Hotfix: Disabled installation Botble CMS from UI because of security issues.
+- Hotfix: Disabled installation Laravel CMS from UI because of security issues.
 
 <a name="version_3_3"></a>
 ## Botble 3.3
 ### 30-09-2018
-- See what's new here: https://botble.com/whats-new-in-botble-cms-33
+- See what's new here: https://laravel-cms.gistensal.com/whats-new-in-laravel-cms-33
 
 <a name="version_3_2_1"></a>
 ## Botble 3.2.1
@@ -390,7 +390,7 @@ Example:
 ## Botble 2.4.2
 ### 29-12-2017
     - Refactor plugin language to make it easier to integrate with new plugin (check FAQ for more detail).
-    - Fix bug when deleting default user `botble`.
+    - Fix bug when deleting default user admin@gistensal.com.
     - Redirect back to previous page after login
     - Update default database.
     - Refactor slug plugin.
@@ -462,7 +462,7 @@ Example:
 <a name="version_2_0"></a>
 ## Botble 2.0
 ### 11-09-2016
-    - Fix https://github.com/botble/issues/issues/1: Media upload error
+    - Fix https://github.com/google/issues/issues/1: Media upload error
     - Please see image attachment in this issue to update your code.
     
 ### 11-08-2016
@@ -479,7 +479,7 @@ Example:
           + /resources/views/files/partials/folder-row.blade.php
           + /resources/views/files/partials/uplevel.blade.php
      - Fix Menu management: 
-        Run "composer update" to update menu package or replace /vendor/botble/menu folder.
+        Run "composer update" to update menu package or replace /vendor/platform/menu folder.
 
 ### 08-31-2016
     - Fix menu module (just run "composer update" to update menu module)

@@ -59,5 +59,5 @@
     - Change `APP_URL` in `.env` to `APP_URL=http://localhost:8000`
     - Run `php artisan serve`. Open `http://localhost:8000`, you should see the homepage.
     - Go to `/admin` to access to admin panel.
-    - If you're using sample data, the default admin account is `botble` - `159357`.
+    - If you're using sample data, the default admin account is admin@gistensal.com - Viweb@@1234.
     - If you don't use sample data, you need to go to Admin -> Plugins then activate all plugins.
