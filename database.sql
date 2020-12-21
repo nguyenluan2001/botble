@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.26, for osx10.10 (x86_64)
 --
--- Host: localhost    Database: botble
+-- Host: localhost    Database: laravel
 -- ------------------------------------------------------
 -- Server version	5.7.26
 
@@ -1448,7 +1448,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin@gistensal.com',NULL,'$2y$10$3P7T72wDWVqws8PyZecGpuf22O3wTvLhlLx2Nuvj4QxQPW.Jn8e9.',NULL,'2020-11-27 21:42:04','2020-11-27 21:42:04','System','Admin','admin@gistensal.com',NULL,1,1,NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin@gistensal.com',NULL,'$2y$10$lZKL3LWN0qQzmvpE08ZHFevJ03KUxZLF3WNhF4vjm7QvClpGHfN4G',NULL,'2020-11-27 21:42:04','2020-11-27 21:42:04','System','Admin','admin@gistensal.com',NULL,1,1,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

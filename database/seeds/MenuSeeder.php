@@ -31,7 +31,7 @@ class MenuSeeder extends BaseSeeder
                         ],
                         [
                             'title'     => 'Purchase',
-                            'url'       => 'https://botble.com/go/download-cms',
+                            'url'       => 'mailto:get-quote@visualweber.com',
                             'target'    => '_blank',
                             'parent_id' => 0,
                         ],
@@ -193,7 +193,7 @@ class MenuSeeder extends BaseSeeder
                         ],
                         [
                             'title'     => 'Mua ngay',
-                            'url'       => 'https://botble.com/go/download-cms',
+                            'url'       => 'mailto:get-quote@visualweber.com',
                             'target'    => '_blank',
                             'parent_id' => 0,
                         ],

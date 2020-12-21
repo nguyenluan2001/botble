@@ -33,11 +33,11 @@ class ThemeOptionSeeder extends BaseSeeder
                     ],
                     [
                         'key'   => 'theme-' . $theme . '-website',
-                        'value' => 'https://botble.com',
+                        'value' => 'mailto:get-quote@visualweber.com',
                     ],
                     [
                         'key'   => 'theme-' . $theme . '-contact_email',
-                        'value' => 'support@botble.com',
+                        'value' => 'get-quote@visualweber.com',
                     ],
                     [
                         'key'   => 'theme-' . $theme . '-site_description',
@@ -96,11 +96,11 @@ class ThemeOptionSeeder extends BaseSeeder
                     ],
                     [
                         'key'   => 'theme-' . $theme . '-vi-website',
-                        'value' => 'https://botble.com',
+                        'value' => 'mailto:get-quote@visualweber.com',
                     ],
                     [
                         'key'   => 'theme-' . $theme . '-vi-contact_email',
-                        'value' => 'support@botble.com',
+                        'value' => 'get-quote@visualweber.com',
                     ],
                     [
                         'key'   => 'theme-' . $theme . '-vi-site_description',
