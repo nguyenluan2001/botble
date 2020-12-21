@@ -24,6 +24,7 @@
                                                         <a href="{{ $post->url }}" class="post__overlay"></a></div>
                                                     <header class="post__header">
                                                         <h5 class="post__title"><a href="{{ $post->url }}" data-number-line="2">{{ $post->name }}</a></h5>
+                                                        <div class="post__meta"><span class="post__created-at">{{ $post->created_at->format('M d, Y') }}</span></div>
                                                     </header>
                                                 </article>
                                             @endif

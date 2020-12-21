@@ -79,7 +79,7 @@ class LanguageController extends BaseController
             if ($language) {
                 return $response
                     ->setError()
-                    ->setMessage(__('This language was added already!'));
+                    ->setMessage(trans('plugins/language::language.added_already'));
             }
 
             if ($this->languageRepository->count() == 0) {

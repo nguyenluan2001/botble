@@ -6,7 +6,6 @@ use Assets;
 use Platform\Base\Forms\FormBuilder;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
-use Platform\Setting\Supports\SettingStore;
 use Platform\Theme\Forms\CustomCSSForm;
 use Platform\Theme\Http\Requests\CustomCssRequest;
 use Platform\Theme\Services\ThemeService;
@@ -44,7 +43,7 @@ class ThemeController extends BaseController
     {
         page_title()->setTitle(trans('packages/theme::theme.theme_options'));
 
-        Assets::addScripts(['are-you-sure', 'colorpicker'])
+        Assets::addScripts(['are-you-sure', 'colorpicker', 'jquery-ui'])
             ->addStyles(['colorpicker'])
             ->addStylesDirectly([
                 'vendor/core/packages/theme/css/theme-options.css',
@@ -66,6 +65,10 @@ class ThemeController extends BaseController
     public function postUpdate(Request $request, BaseHttpResponse $response)
     {
         foreach ($request->except(['_token', 'ref_lang']) as $key => $value) {
+            if (is_array($value)) {
+                $value = json_encode($value);
+            }
+
             ThemeOption::setOption($key, $value);
         }
 
@@ -128,9 +131,14 @@ class ThemeController extends BaseController
         $file = public_path('themes/' . Theme::getThemeName() . '/css/style.integration.css');
         $css = $request->input('custom_css');
         $css = htmlspecialchars(htmlentities(strip_tags($css)));
-        save_file_data($file, $css, false);
 
-        return $response->setMessage(__('Update custom CSS successfully!'));
+        if (empty($css)) {
+            File::delete($file);
+        } else {
+            save_file_data($file, $css, false);
+        }
+
+        return $response->setMessage(trans('packages/theme::theme.update_custom_css_success'));
     }
 
     /**
@@ -163,6 +171,6 @@ class ThemeController extends BaseController
 
         return $response
             ->setError()
-            ->setMessage(trans('packages/theme::theme.theme_is_note_existed'));
+            ->setMessage(trans('packages/theme::theme.theme_is_not_existed'));
     }
 }

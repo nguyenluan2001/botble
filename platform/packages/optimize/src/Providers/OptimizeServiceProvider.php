@@ -22,8 +22,6 @@ class OptimizeServiceProvider extends ServiceProvider
             ->loadAndPublishTranslations()
             ->loadAndPublishViews();
 
-        $this->app->register(HookServiceProvider::class);
-
         /**
          * @var Router $router
          */
@@ -36,5 +34,9 @@ class OptimizeServiceProvider extends ServiceProvider
         }
         $router->pushMiddlewareToGroup('web', RemoveComments::class);
         $router->pushMiddlewareToGroup('web', InlineCss::class);
+
+        $this->app->booted(function () {
+            $this->app->register(HookServiceProvider::class);
+        });
     }
 }

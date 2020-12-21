@@ -75,6 +75,12 @@ return [
         ],
     ],
 
-    'import' => 'Import',
-    'export' => 'Export',
+    'import'             => 'Import',
+    'export'             => 'Export',
+    'publish'            => 'Publish',
+    'remove_this_line'   => 'Remove this line',
+    'collapse_this_line' => 'Collapse this line',
+    'error_occurred'     => 'Error occurred',
+    'request_completed'  => 'Request completed',
+    'item_not_existed'   => 'Item is not exists',
 ];

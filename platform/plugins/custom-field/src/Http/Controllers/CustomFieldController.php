@@ -3,6 +3,7 @@
 namespace Platform\CustomField\Http\Controllers;
 
 use Assets;
+use Platform\Base\Events\BeforeEditContentEvent;
 use Platform\Base\Forms\FormBuilder;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
@@ -109,10 +110,10 @@ class CustomFieldController extends BaseController
     /**
      * @param int $id
      * @param FormBuilder $formBuilder
+     * @param Request $request
      * @return string
-     * @throws Throwable
      */
-    public function edit($id, FormBuilder $formBuilder)
+    public function edit($id, FormBuilder $formBuilder, Request $request)
     {
 
         Assets::addStylesDirectly([
@@ -122,13 +123,15 @@ class CustomFieldController extends BaseController
             ->addScriptsDirectly('vendor/core/plugins/custom-field/js/edit-field-group.js')
             ->addScripts(['jquery-ui']);
 
-        $object = $this->fieldGroupRepository->findOrFail($id);
+        $fieldGroup = $this->fieldGroupRepository->findOrFail($id);
 
-        page_title()->setTitle(trans('plugins/custom-field::base.form.edit_field_group') . ' "' . $object->title . '"');
+        event(new BeforeEditContentEvent($request, $fieldGroup));
 
-        $object->rules_template = CustomField::renderRules();
+        page_title()->setTitle(trans('plugins/custom-field::base.form.edit_field_group') . ' "' . $fieldGroup->title . '"');
 
-        return $formBuilder->create(CustomFieldForm::class, ['model' => $object])->renderForm();
+        $fieldGroup->rules_template = CustomField::renderRules();
+
+        return $formBuilder->create(CustomFieldForm::class, ['model' => $fieldGroup])->renderForm();
     }
 
     /**

@@ -86,7 +86,7 @@ class TagController extends BaseController
      * @param FormBuilder $formBuilder
      * @return string
      */
-    public function edit($id, Request $request, FormBuilder $formBuilder)
+    public function edit($id, FormBuilder $formBuilder, Request $request)
     {
         $tag = $this->tagRepository->findOrFail($id);
 

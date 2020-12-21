@@ -1,37 +1,43 @@
 .table-language {
-    background : #f1f1f1;
+    background: #f1f1f1;
+
     thead, tbody, tr {
-        width : 100% !important;
+        width: 100% !important;
     }
+
     th {
-        background-color : lighten(#32c5d2, 1%);
-        color            : #ffffff !important;
+        background-color: lighten(#32c5d2, 1%);
+        color: #ffffff !important;
     }
+
     th, td {
-        text-align : center;
+        text-align: center;
     }
+
     .text-left {
-        text-align : left;
+        text-align: left;
     }
+
     tr {
         .set-language-default {
-            display : none;
+            display: none;
         }
+
         &:hover {
             .set-language-default {
-                display : block;
+                display: block;
             }
         }
     }
 }
 
 #btn-language-submit, #btn-language-submit-edit {
-    margin : 10px 0;
+    margin: 10px 0;
 }
 
 .select-language-table {
     tr {
-        border-bottom : 10px solid transparent;
+        border-bottom: 10px solid transparent;
     }
 }
 
@@ -39,20 +45,22 @@
     .dataTables_wrapper {
         .language-column {
             a {
-                display : inline-block;
-                margin  : 0 7px;
+                display: inline-block;
+                margin: 0 7px;
             }
         }
+
         .language-header {
             img {
-                margin-right : 7px;
+                margin-right: 7px;
             }
         }
     }
+
     #added-widget {
         .admin-list-language-chooser {
-            display : inline-block;
-            margin  : 28px 0 10px 0;
+            display: inline-block;
+            margin: 28px 0 10px 0;
         }
     }
 }
@@ -61,6 +69,7 @@
     background: #4d97c1;
     border-color: #2d8ec5;
     color: #fff;
+
     &.button-loading:before {
         border-color: #ffffff;
         border-bottom-color: transparent

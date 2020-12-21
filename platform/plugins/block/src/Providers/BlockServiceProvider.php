@@ -35,8 +35,6 @@ class BlockServiceProvider extends ServiceProvider
             ->loadAndPublishViews()
             ->loadMigrations();
 
-        $this->app->register(HookServiceProvider::class);
-
         Event::listen(RouteMatched::class, function () {
             dashboard_menu()->registerItem([
                 'id'          => 'cms-plugins-block',
@@ -65,6 +63,8 @@ class BlockServiceProvider extends ServiceProvider
                         ];
                     });
             }
+
+            $this->app->register(HookServiceProvider::class);
         });
     }
 }

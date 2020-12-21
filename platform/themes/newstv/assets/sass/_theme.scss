@@ -752,7 +752,8 @@ fieldset[disabled] .btn-primary-outline.focus {
     .header .navbar-default .navbar-nav > li > a {
         color: #032140;
     }
-    .header .navbar-default .navbar-nav > li > a:hover {
+    .header .navbar-default .navbar-nav > li > a:hover,
+    .header .navbar-default .navbar-nav > li.active > a {
         color: $color-1st;
     }
 }

@@ -57,7 +57,6 @@ class GalleryServiceProvider extends ServiceProvider
             ->loadMigrations()
             ->publishAssets();
 
-        $this->app->register(HookServiceProvider::class);
         $this->app->register(EventServiceProvider::class);
 
         Event::listen(RouteMatched::class, function () {
@@ -78,6 +77,8 @@ class GalleryServiceProvider extends ServiceProvider
             }
 
             SeoHelper::registerModule([Gallery::class]);
+
+            $this->app->register(HookServiceProvider::class);
         });
     }
 }

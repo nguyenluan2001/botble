@@ -25,7 +25,6 @@ class RenderingSiteMapListener
      * Handle the event.
      *
      * @return void
-     *
      */
     public function handle()
     {

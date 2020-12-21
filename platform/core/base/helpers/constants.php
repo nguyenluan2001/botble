@@ -137,3 +137,7 @@ if (!defined('BASE_FILTER_ENUM_ARRAY')) {
 if (!defined('BASE_FILTER_ENUM_HTML')) {
     define('BASE_FILTER_ENUM_HTML', 'base_filter_enum_html');
 }
+
+if (!defined('BASE_FILTER_SITE_LANGUAGE_DIRECTION')) {
+    define('BASE_FILTER_SITE_LANGUAGE_DIRECTION', 'base_filter_site_language_direction');
+}

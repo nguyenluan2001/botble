@@ -45,9 +45,9 @@ class RequestHandlerListener
         ]);
 
         if ($referrer = $this->request->header('referrer')) {
-            $referrers = (array)$this->requestLog->referer ?: [];
+            $referrers = (array)$this->requestLog->referrer ?: [];
             $referrers[] = $referrer;
-            $this->requestLog->referer = $referrers;
+            $this->requestLog->referrer = $referrers;
         }
 
         if (Auth::check()) {

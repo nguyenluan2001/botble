@@ -28,7 +28,7 @@ class RenderingSiteMapListener
      */
     public function handle()
     {
-        SiteMapManager::add(route('public.galleries'), '2018-10-10 00:00', '0.8', 'weekly');
+        SiteMapManager::add(route('public.galleries'), '2020-11-15 00:00', '0.8', 'weekly');
 
         $galleries = $this->galleryRepository->getDataSiteMap();
 

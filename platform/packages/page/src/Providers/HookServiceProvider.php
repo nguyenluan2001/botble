@@ -20,6 +20,7 @@ class HookServiceProvider extends ServiceProvider
     public function boot()
     {
         if (defined('MENU_ACTION_SIDEBAR_OPTIONS')) {
+            Menu::addMenuOptionModel(Page::class);
             add_action(MENU_ACTION_SIDEBAR_OPTIONS, [$this, 'registerMenuOptions'], 10);
         }
         add_filter(DASHBOARD_FILTER_ADMIN_LIST, [$this, 'addPageStatsWidget'], 15, 2);

@@ -21,4 +21,5 @@ return [
     //
     'hideDefaultLocaleInURL'  => env('LANGUAGE_HIDE_DEFAULT_LOCALE_IN_URL', true),
 
+    'localesMapping' => [],
 ];

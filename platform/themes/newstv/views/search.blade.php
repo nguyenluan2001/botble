@@ -1,13 +1,12 @@
-{!! Theme::breadcrumb()->render() !!}
-<br>
 <section class="main-box">
     <div class="main-box-header">
-        <h2>
-            <i class="fa fa-leaf"></i>
-            {{ __('Search result for: ') }} "{{ Request::input('q') }}"
-        </h2>
+        {!! Theme::breadcrumb()->render() !!}
     </div>
     <div class="main-box-content">
+        <h1 class="article-content-title">
+            <i class="fa fa-leaf"></i>
+            {{ __('Search result for: ') }} "{{ Request::input('q') }}"
+        </h1>
         <div class="box-style box-style-3">
             @if ($posts->count() > 0)
                 @foreach ($posts as $post)
@@ -41,6 +40,6 @@
 
 @if ($posts->count() > 0)
     <nav class="pagination-wrap">
-        {!! $posts->appends(request()->query())->links() !!}
+        {!! $posts->withQueryString()->links() !!}
     </nav>
 @endif

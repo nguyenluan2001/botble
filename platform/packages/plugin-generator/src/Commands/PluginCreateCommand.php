@@ -14,7 +14,7 @@ class PluginCreateCommand extends BaseMakeCommand
      *
      * @var string
      */
-    protected $signature = 'cms:plugin:create {name : The plugin that you want to create} {--force : Overwrite any existing files.}';
+    protected $signature = 'cms:plugin:create {name : The plugin that you want to create}';
 
     /**
      * The console command description.
@@ -71,13 +71,7 @@ class PluginCreateCommand extends BaseMakeCommand
      */
     protected function removeUnusedFiles(string $location)
     {
-        $files = [
-            'composer.json',
-        ];
-
-        foreach ($files as $file) {
-            File::delete($location . '/' . $file);
-        }
+        File::delete($location . '/composer.json');
     }
 
     /**

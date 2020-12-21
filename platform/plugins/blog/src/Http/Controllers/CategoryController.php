@@ -89,7 +89,7 @@ class CategoryController extends BaseController
      * @param FormBuilder $formBuilder
      * @return string
      */
-    public function edit(Request $request, $id, FormBuilder $formBuilder)
+    public function edit($id, FormBuilder $formBuilder, Request $request)
     {
         $category = $this->categoryRepository->findOrFail($id);
 

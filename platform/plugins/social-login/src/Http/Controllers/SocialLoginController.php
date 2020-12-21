@@ -3,9 +3,9 @@
 namespace Platform\SocialLogin\Http\Controllers;
 
 use Assets;
-use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Platform\Setting\Supports\SettingStore;
 use Platform\SocialLogin\Http\Requests\SocialLoginRequest;
 use Exception;

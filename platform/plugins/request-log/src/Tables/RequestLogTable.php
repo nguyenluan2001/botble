@@ -119,7 +119,7 @@ class RequestLogTable extends TableAbstract
         $buttons = [
             'empty' => [
                 'link' => route('request-log.empty'),
-                'text' => Html::tag('i', '', ['class' => 'fa fa-trash'])->toHtml() . ' ' . __('Delete all records'),
+                'text' => Html::tag('i', '', ['class' => 'fa fa-trash'])->toHtml() . ' ' . trans('plugins/request-log::request-log.delete_all'),
             ],
         ];
 

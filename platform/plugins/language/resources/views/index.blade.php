@@ -30,9 +30,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="lang_name" class="control-label required">{{ trans('plugins/language::language.full_name') }}</label>
+                                    <label for="lang_name" class="control-label required">{{ trans('plugins/language::language.language_name') }}</label>
                                     <input id="lang_name" type="text" class="form-control">
-                                    {!! Form::helper(trans('plugins/language::language.full_name_helper')) !!}
+                                    {!! Form::helper(trans('plugins/language::language.language_name_helper')) !!}
                                 </div>
 
                                 <div class="form-group">
@@ -59,7 +59,7 @@
                                 <div class="form-group">
                                     <label for="flag_list" class="control-label">{{ trans('plugins/language::language.flag') }}</label>
                                     <select id="flag_list" class="form-control select-search-language">
-                                        <option>{{ __('Select a flag...') }}</option>
+                                        <option>{{ trans('plugins/language::language.select_flag') }}</option>
                                         @foreach ($flags as $key => $flag)
                                             <option value="{{ $key }}">{{ $flag }}</option>
                                         @endforeach
@@ -85,7 +85,7 @@
                             <table class="table table-hover table-language">
                                 <thead>
                                 <tr>
-                                    <th class="text-left"><span>{{ trans('plugins/language::language.full_name') }}</span></th>
+                                    <th class="text-left"><span>{{ trans('plugins/language::language.language_name') }}</span></th>
                                     <th class="text-center"><span>{{ trans('plugins/language::language.locale') }}</span></th>
                                     <th class="text-center"><span>{{ trans('plugins/language::language.code') }}</span></th>
                                     <th class="text-center"><span>{{ trans('plugins/language::language.default_language') }}</span></th>
@@ -189,10 +189,10 @@
         </div>
     </div>
     @include('core/table::partials.modal-item', [
-        'type' => 'danger',
-        'name' => 'modal-confirm-delete',
-        'title' => trans('core/base::tables.confirm_delete'),
-        'content' => __('Do you really want to delete this language? It also deletes all items in this language and cannot rollback!'),
+        'type'        => 'danger',
+        'name'        => 'modal-confirm-delete',
+        'title'       => trans('core/base::tables.confirm_delete'),
+        'content'     => trans('plugins/language::language.delete_confirmation_message'),
         'action_name' => trans('core/base::tables.delete'),
         'action_button_attributes' => [
             'class' => 'delete-crud-entry',

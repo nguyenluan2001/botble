@@ -68,11 +68,11 @@
                             </label>
                             <label class="hrv-label">
                                 <input type="radio" name="locale_direction" class="hrv-radio" value="ltr"
-                                       @if (setting('locale_direction', 'ltr') == 'ltr') checked @endif>{{ __('Left to Right') }}
+                                       @if (setting('locale_direction', 'ltr') == 'ltr') checked @endif>{{ trans('core/setting::setting.locale_direction_ltr') }}
                             </label>
                             <label class="hrv-label">
                                 <input type="radio" name="locale_direction" class="hrv-radio" value="rtl"
-                                       @if (setting('locale_direction', 'ltr') == 'rtl') checked @endif>{{ __('Right to Left') }}
+                                       @if (setting('locale_direction', 'ltr') == 'rtl') checked @endif>{{ trans('core/setting::setting.locale_direction_rtl') }}
                             </label>
                         </div>
 
@@ -133,11 +133,11 @@
                             </label>
                             <label class="hrv-label">
                                 <input type="radio" name="rich_editor" class="hrv-radio" value="ckeditor"
-                                       @if (setting('rich_editor', 'ckeditor') == 'ckeditor') checked @endif>{{ __('CKEditor') }}
+                                       @if (setting('rich_editor', 'ckeditor') == 'ckeditor') checked @endif>CkEditor
                             </label>
                             <label class="hrv-label">
                                 <input type="radio" name="rich_editor" class="hrv-radio" value="tinymce"
-                                       @if (setting('rich_editor', 'ckeditor') == 'tinymce') checked @endif>{{ __('TinyMCE') }}
+                                       @if (setting('rich_editor', 'ckeditor') == 'tinymce') checked @endif>TinyMCE
                             </label>
                         </div>
 

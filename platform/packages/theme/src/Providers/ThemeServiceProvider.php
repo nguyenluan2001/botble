@@ -51,15 +51,13 @@ class ThemeServiceProvider extends ServiceProvider
             ->loadRoutes(['web'])
             ->publishAssets();
 
-        $this->app->register(HookServiceProvider::class);
-
         Event::listen(RouteMatched::class, function () {
             dashboard_menu()
                 ->registerItem([
                     'id'          => 'cms-core-appearance',
                     'priority'    => 996,
                     'parent_id'   => null,
-                    'name'        => 'core/base::layouts.appearance',
+                    'name'        => 'packages/theme::theme.appearance',
                     'icon'        => 'fa fa-paint-brush',
                     'url'         => '#',
                     'permissions' => [],
@@ -98,15 +96,15 @@ class ThemeServiceProvider extends ServiceProvider
         });
 
         $this->app->booted(function () {
-            $theme = ThemeFacade::getThemeName();
-            if ($theme) {
-                $file = 'themes/' . $theme . '/css/style.integration.css';
-                if (File::exists(public_path($file))) {
-                    ThemeFacade::asset()
-                        ->container('after_header')
-                        ->add('theme-style-integration-css', $file);
-                }
+            $file = public_path(ThemeFacade::path() . '/css/style.integration.css');
+            if (File::exists($file)) {
+                ThemeFacade::asset()
+                    ->container('after_header')
+                    ->usePath()
+                    ->add('theme-style-integration-css', 'css/style.integration.css', [], [], filectime($file));
             }
+
+            $this->app->register(HookServiceProvider::class);
         });
 
         $this->app->register(ThemeManagementServiceProvider::class);

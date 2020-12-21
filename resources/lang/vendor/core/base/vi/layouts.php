@@ -3,8 +3,6 @@
 return [
     'platform_admin'     => 'Quản trị hệ thống',
     'dashboard'          => 'Bảng điều khiển',
-    'appearance'         => 'Hiển thị',
-    'menu'               => 'Trình đơn',
     'widgets'            => 'Tiện ích',
     'plugins'            => 'Tiện ích mở rộng',
     'settings'           => 'Cài đặt',

@@ -5,12 +5,10 @@ namespace Platform\Gallery\Models;
 use Platform\ACL\Models\User;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Traits\EnumCastable;
-use Platform\Slug\Traits\SlugTrait;
 use Platform\Base\Models\BaseModel;
 
 class Gallery extends BaseModel
 {
-    use SlugTrait;
     use EnumCastable;
 
     /**
@@ -38,7 +36,6 @@ class Gallery extends BaseModel
     protected $fillable = [
         'name',
         'description',
-        'parent_id',
         'is_featured',
         'order',
         'image',

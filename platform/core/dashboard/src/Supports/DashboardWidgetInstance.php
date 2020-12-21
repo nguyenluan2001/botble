@@ -298,7 +298,7 @@ class DashboardWidgetInstance
     }
 
     /**
-     * @param $widgets
+     * @param array $widgets
      * @param Collection $widgetSettings
      * @return array
      * @throws Throwable

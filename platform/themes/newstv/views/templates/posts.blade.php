@@ -20,7 +20,7 @@
         </div>
     @endforeach
     <nav class="pagination-wrap">
-        {!! $posts->appends(request()->query())->links() !!}
+        {!! $posts->withQueryString()->links() !!}
     </nav>
 
     <style>

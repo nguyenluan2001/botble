@@ -36,8 +36,11 @@
                             <input type="text" class="next-input" v-model="purchaseCode" id="purchase_code" placeholder="Ex: 10101010-10aa-0101-a1b1010a01b10">
                         </div>
                         <div class="form-group">
-                            <label class="text-title-field" for="buyer">Buyer</label>
-                            <input type="text" class="next-input" v-model="buyer" id="buyer" placeholder="Your username on Envato. Ex: botble">
+                            <label class="text-title-field" for="buyer">Your username on Envato</label>
+                            <input type="text" class="next-input" v-model="buyer" id="buyer" placeholder="Your Envato's username (https://codecanyon.net/user/{username})">
+                            <div>
+                                <small>Ex: Your profile page is https://codecanyon.net/user/john-smith, then your Envato username is <strong>john-smith</strong></small>
+                            </div>
                         </div>
                         <div class="form-group">
                             <button :class="activating ? 'btn btn-info button-loading' : 'btn btn-info'" type="button" @click="activateLicense()">Activate license</button>

@@ -78,48 +78,52 @@ class LanguageServiceProvider extends ServiceProvider
             ->loadMigrations()
             ->publishAssets();
 
-        if ($this->app->runningInConsole()) {
-            $this->app->register(CommandServiceProvider::class);
-        } else {
-            $this->app->register(EventServiceProvider::class);
+        $this->app->register(CommandServiceProvider::class);
+        $this->app->register(EventServiceProvider::class);
 
-            Event::listen(RouteMatched::class, function () {
-                dashboard_menu()
-                    ->registerItem([
-                        'id'          => 'cms-plugins-language',
-                        'priority'    => 2,
-                        'parent_id'   => 'cms-core-settings',
-                        'name'        => 'plugins/language::language.name',
-                        'icon'        => null,
-                        'url'         => route('languages.index'),
-                        'permissions' => ['languages.index'],
-                    ]);
+        if (!is_in_admin()) {
+            add_filter(BASE_FILTER_GROUP_PUBLIC_ROUTE, [$this, 'addLanguageMiddlewareToPublicRoute'], 958, 1);
+        }
 
-                Assets::addScriptsDirectly('vendor/core/plugins/language/js/language-global.js')
-                    ->addStylesDirectly(['vendor/core/plugins/language/css/language.css']);
-            });
+        Event::listen(RouteMatched::class, function () {
+            dashboard_menu()
+                ->registerItem([
+                    'id'          => 'cms-plugins-language',
+                    'priority'    => 2,
+                    'parent_id'   => 'cms-core-settings',
+                    'name'        => 'plugins/language::language.name',
+                    'icon'        => null,
+                    'url'         => route('languages.index'),
+                    'permissions' => ['languages.index'],
+                ]);
 
-            $this->app->booted(function () {
-                if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
-                    Language::registerModule(THEME_OPTIONS_MODULE_SCREEN_NAME);
-                }
+            Assets::addScriptsDirectly('vendor/core/plugins/language/js/language-global.js')
+                ->addStylesDirectly(['vendor/core/plugins/language/css/language.css']);
+        });
 
-                if (defined('WIDGET_MANAGER_MODULE_SCREEN_NAME')) {
-                    Language::registerModule(WIDGET_MANAGER_MODULE_SCREEN_NAME);
-                }
-            });
+        $this->app->booted(function () {
+            if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
+                Language::registerModule(THEME_OPTIONS_MODULE_SCREEN_NAME);
+            }
 
-            $defaultLanguage = Language::getDefaultLanguage(['lang_id']);
-            if (!empty($defaultLanguage)) {
-                add_action(BASE_ACTION_META_BOXES, [$this, 'addLanguageBox'], 50, 2);
-                add_filter(FILTER_SLUG_PREFIX, [$this, 'setSlugPrefix'], 500, 1);
-                add_action(BASE_ACTION_TOP_FORM_CONTENT_NOTIFICATION, [$this, 'addCurrentLanguageEditingAlert'], 55, 3);
-                add_action(BASE_ACTION_BEFORE_EDIT_CONTENT, [$this, 'getCurrentAdminLanguage'], 55, 2);
-                if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
+            if (defined('WIDGET_MANAGER_MODULE_SCREEN_NAME')) {
+                Language::registerModule(WIDGET_MANAGER_MODULE_SCREEN_NAME);
+            }
+        });
+
+        $defaultLanguage = Language::getDefaultLanguage(['lang_id']);
+        if (!empty($defaultLanguage)) {
+            add_action(BASE_ACTION_META_BOXES, [$this, 'addLanguageBox'], 50, 2);
+            add_filter(FILTER_SLUG_PREFIX, [$this, 'setSlugPrefix'], 500, 1);
+            add_action(BASE_ACTION_TOP_FORM_CONTENT_NOTIFICATION, [$this, 'addCurrentLanguageEditingAlert'], 55, 3);
+            add_action(BASE_ACTION_BEFORE_EDIT_CONTENT, [$this, 'getCurrentAdminLanguage'], 55, 2);
+            if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
+                if (!$this->app->isDownForMaintenance()) {
                     $this->app->booted(function () {
                         Theme::asset()
                             ->usePath(false)
-                            ->add('language-css', asset('vendor/core/plugins/language/css/language-public.css'), [], [], '1.0.0');
+                            ->add('language-css', asset('vendor/core/plugins/language/css/language-public.css'), [],
+                                [], '1.0.0');
 
                         Theme::asset()
                             ->container('footer')
@@ -128,35 +132,53 @@ class LanguageServiceProvider extends ServiceProvider
                                 ['jquery'], [], '1.0.0');
                     });
                 }
-
-                add_filter(BASE_FILTER_GET_LIST_DATA, [$this, 'addLanguageColumn'], 50, 2);
-                add_filter(BASE_FILTER_TABLE_HEADINGS, [$this, 'addLanguageTableHeading'], 50, 2);
-                add_filter(LANGUAGE_FILTER_SWITCHER, [$this, 'languageSwitcher']);
-                add_filter(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, [$this, 'checkItemLanguageBeforeShow'], 50, 2);
-                if (setting('language_show_default_item_if_current_version_not_existed', true) && !is_in_admin()) {
-                    add_filter(BASE_FILTER_BEFORE_GET_SINGLE, [$this, 'getRelatedDataForOtherLanguage'], 50, 4);
-                }
-                if (!is_in_admin()) {
-                    add_filter(BASE_FILTER_GROUP_PUBLIC_ROUTE, [$this, 'addLanguageMiddlewareToPublicRoute'], 958, 1);
-                }
-                add_filter(BASE_FILTER_TABLE_BUTTONS, [$this, 'addLanguageSwitcherToTable'], 247, 2);
-                add_filter(BASE_FILTER_TABLE_QUERY, [$this, 'getDataByCurrentLanguage'], 157, 3);
-                add_filter(BASE_FILTER_BEFORE_GET_ADMIN_LIST_ITEM, [$this, 'checkItemLanguageBeforeGetAdminListItem'],
-                    50, 3);
-
-                if (defined('THEME_OPTIONS_ACTION_META_BOXES')) {
-                    add_filter(THEME_OPTIONS_ACTION_META_BOXES, [$this, 'addLanguageMetaBoxForThemeOptionsAndWidgets'],
-                        55, 2);
-                }
-
-                if (defined('WIDGET_TOP_META_BOXES')) {
-                    add_filter(WIDGET_TOP_META_BOXES, [$this, 'addLanguageMetaBoxForThemeOptionsAndWidgets'], 55, 2);
-                }
-
-                if (defined('THEME_FRONT_HEADER')) {
-                    add_filter(THEME_FRONT_HEADER, [$this, 'addLanguageRefLangTags'], 55, 1);
-                }
             }
+
+            add_filter(BASE_FILTER_GET_LIST_DATA, [$this, 'addLanguageColumn'], 50, 2);
+            add_filter(BASE_FILTER_TABLE_HEADINGS, [$this, 'addLanguageTableHeading'], 50, 2);
+            add_filter(LANGUAGE_FILTER_SWITCHER, [$this, 'languageSwitcher']);
+            add_filter(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, [$this, 'checkItemLanguageBeforeShow'], 50, 2);
+            if (setting('language_show_default_item_if_current_version_not_existed', true) && !is_in_admin()) {
+                add_filter(BASE_FILTER_BEFORE_GET_SINGLE, [$this, 'getRelatedDataForOtherLanguage'], 50, 4);
+            }
+
+            add_filter(BASE_FILTER_TABLE_BUTTONS, [$this, 'addLanguageSwitcherToTable'], 247, 2);
+            add_filter(BASE_FILTER_TABLE_QUERY, [$this, 'getDataByCurrentLanguage'], 157, 3);
+            add_filter(BASE_FILTER_BEFORE_GET_ADMIN_LIST_ITEM, [$this, 'checkItemLanguageBeforeGetAdminListItem'],
+                50, 3);
+
+            if (defined('THEME_OPTIONS_ACTION_META_BOXES')) {
+                add_filter(THEME_OPTIONS_ACTION_META_BOXES, [$this, 'addLanguageMetaBoxForThemeOptionsAndWidgets'],
+                    55, 2);
+            }
+
+            if (defined('WIDGET_TOP_META_BOXES')) {
+                add_filter(WIDGET_TOP_META_BOXES, [$this, 'addLanguageMetaBoxForThemeOptionsAndWidgets'], 55, 2);
+            }
+
+            if (defined('THEME_FRONT_HEADER')) {
+                add_filter(THEME_FRONT_HEADER, [$this, 'addLanguageRefLangTags'], 55, 1);
+            }
+
+            add_filter(BASE_FILTER_SITE_LANGUAGE_DIRECTION, function ($direction) {
+                if (Language::getCurrentLocaleRTL()) {
+                    return 'rtl';
+                }
+
+                return $direction;
+            }, 1, 1);
+
+            add_filter(MENU_FILTER_NODE_URL, function ($value) {
+                if (is_in_admin()) {
+                    return $value;
+                }
+
+                return filter_var($value, FILTER_VALIDATE_URL) ? $value : Language::localizeURL($value);
+            }, 1, 1);
+        }
+
+        if (version_compare(get_cms_version(), '5.12') > 0) {
+            Language::setRoutesCachePath();
         }
     }
 
@@ -475,6 +497,7 @@ class LanguageServiceProvider extends ServiceProvider
                                 }
                             }
                         }
+
                         if (!$added) {
                             $data .= view('plugins/language::partials.status.plus',
                                 compact('route', 'item', 'language'))->render();
@@ -596,6 +619,7 @@ class LanguageServiceProvider extends ServiceProvider
                 }
             }
         }
+
         return $query;
     }
 

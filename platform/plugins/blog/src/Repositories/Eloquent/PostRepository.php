@@ -122,7 +122,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     public function getByTag($tag, $paginate = 12)
     {
         $data = $this->model
-            ->with('slugable')
+            ->with('slugable', 'categories', 'categories.slugable', 'author')
             ->where('posts.status', BaseStatusEnum::PUBLISHED)
             ->whereHas('tags', function ($query) use ($tag) {
                 /**
@@ -183,10 +183,10 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     /**
      * {@inheritDoc}
      */
-    public function getAllPosts($perPage = 12, $active = true)
+    public function getAllPosts($perPage = 12, $active = true, array $with = ['slugable'])
     {
         $data = $this->model->select('posts.*')
-            ->with('slugable')
+            ->with($with)
             ->orderBy('posts.created_at', 'desc');
 
         if ($active) {

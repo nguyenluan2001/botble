@@ -37,6 +37,7 @@ return [
     'read_image_failed'          => 'Không đọc được nội dung của hình ảnh',
     'update_avatar_success'      => 'Cập nhật ảnh đại diện thành công!',
     'users'                      => 'Quản trị viên',
+    'user'                       => 'Quản trị viên',
     'info'                       => [
         'title'                => 'Thông tin người dùng',
         'first_name'           => 'Họ',

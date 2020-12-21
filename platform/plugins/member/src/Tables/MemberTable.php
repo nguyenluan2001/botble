@@ -4,11 +4,11 @@ namespace Platform\Member\Tables;
 
 use BaseHelper;
 use Platform\Member\Models\Member;
-use Html;
-use Illuminate\Support\Facades\Auth;
 use Platform\Member\Repositories\Interfaces\MemberInterface;
 use Platform\Table\Abstracts\TableAbstract;
+use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class MemberTable extends TableAbstract
@@ -144,12 +144,12 @@ class MemberTable extends TableAbstract
     {
         return [
             'members.first_name' => [
-                'title'    => __('First name'),
+                'title'    => trans('plugins/member::member.first_name'),
                 'type'     => 'text',
                 'validate' => 'required|max:120',
             ],
-            'members.last_name' => [
-                'title'    => __('Last name'),
+            'members.last_name'  => [
+                'title'    => trans('plugins/member::member.last_name'),
                 'type'     => 'text',
                 'validate' => 'required|max:120',
             ],

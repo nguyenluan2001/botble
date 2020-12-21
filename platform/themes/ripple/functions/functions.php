@@ -7,57 +7,43 @@ register_page_template([
 register_sidebar([
     'id'          => 'top_sidebar',
     'name'        => __('Top sidebar'),
-    'description' => __('This is top sidebar section'),
+    'description' => __('Area for widgets on the top sidebar'),
 ]);
 
 register_sidebar([
     'id'          => 'footer_sidebar',
     'name'        => __('Footer sidebar'),
-    'description' => __('This is footer sidebar section'),
+    'description' => __('Area for footer widgets'),
 ]);
 
-add_shortcode('google-map', 'Google map', 'Custom map', function ($shortCode) {
+add_shortcode('google-map', __('Google map'), __('Custom map'), function ($shortCode) {
     return Theme::partial('short-codes.google-map', ['address' => $shortCode->content]);
 });
 
-add_shortcode('youtube-video', 'Youtube video', 'Add youtube video', function ($shortCode) {
+add_shortcode('youtube-video', __('Youtube video'), __('Add youtube video'), function ($shortCode) {
     return Theme::partial('short-codes.video', ['url' => $shortCode->content]);
 });
 
 shortcode()->setAdminConfig('google-map', Theme::partial('short-codes.google-map-admin-config'));
 shortcode()->setAdminConfig('youtube-video', Theme::partial('short-codes.youtube-admin-config'));
 
-add_shortcode('featured-posts', 'Featured posts', 'Featured posts', function () {
+add_shortcode('featured-posts', __('Featured posts'), __('Featured posts'), function () {
     return Theme::partial('short-codes.featured-posts');
 });
 
-add_shortcode('what-new-posts', 'What\'s new posts', 'What\'s new posts', function () {
+add_shortcode('what-new-posts', __('What\'s new posts'), __('What\'s new posts'), function () {
     return Theme::partial('short-codes.what-new-posts');
 });
 
-add_shortcode('best-for-you-posts', 'Best for you posts', 'Best for you posts', function () {
+add_shortcode('best-for-you-posts', __('Best for you posts'), __('Best for you posts'), function () {
     return Theme::partial('short-codes.best-for-you-posts');
 });
 
-add_shortcode('all-galleries', 'All Galleries', 'All Galleries', function () {
+add_shortcode('all-galleries', __('All Galleries'), __('All Galleries'), function () {
     return Theme::partial('short-codes.all-galleries');
 });
 
 theme_option()
-    ->setField([
-        'id'         => 'site_description',
-        'section_id' => 'opt-text-subsection-general',
-        'type'       => 'text',
-        'label'      => __('Site description'),
-        'attributes' => [
-            'name'    => 'site_description',
-            'value'   => __('A young team in Vietnam'),
-            'options' => [
-                'class'        => 'form-control',
-                'data-counter' => 255,
-            ],
-        ],
-    ])
     ->setField([
         'id'         => 'primary_font',
         'section_id' => 'opt-text-subsection-general',
@@ -79,13 +65,27 @@ theme_option()
         ],
     ])
     ->setField([
+        'id'         => 'site_description',
+        'section_id' => 'opt-text-subsection-general',
+        'type'       => 'textarea',
+        'label'      => __('Site description'),
+        'attributes' => [
+            'name'    => 'site_description',
+            'value'   => null,
+            'options' => [
+                'class'        => 'form-control',
+                'data-counter' => 255,
+            ],
+        ],
+    ])
+    ->setField([
         'id'         => 'address',
         'section_id' => 'opt-text-subsection-general',
         'type'       => 'text',
         'label'      => __('Address'),
         'attributes' => [
             'name'    => 'address',
-            'value'   => __('Go Vap District, HCM City, Vietnam'),
+            'value'   => null,
             'options' => [
                 'class'        => 'form-control',
                 'data-counter' => 255,
@@ -176,7 +176,7 @@ theme_option()
         'label'      => __('Copyright'),
         'attributes' => [
             'name'    => 'copyright',
-            'value'   => __('© 2020 Laravel Technologies. All right reserved. Designed by Developer Team'),
+            'value'   => null,
             'options' => [
                 'class'        => 'form-control',
                 'placeholder'  => __('Change copyright'),
@@ -193,8 +193,8 @@ theme_option()
         'attributes' => [
             'name'    => 'facebook_chat_enabled',
             'list'    => [
-                'yes' => 'Yes',
-                'no'  => 'No',
+                'yes' => trans('core/base::base.yes'),
+                'no'  => trans('core/base::base.no'),
             ],
             'value'   => 'yes',
             'options' => [
@@ -223,8 +223,8 @@ theme_option()
         'attributes' => [
             'name'    => 'facebook_comment_enabled_in_post',
             'list'    => [
-                'yes' => 'Yes',
-                'no'  => 'No',
+                'yes' => trans('core/base::base.yes'),
+                'no'  => trans('core/base::base.no'),
             ],
             'value'   => 'yes',
             'options' => [

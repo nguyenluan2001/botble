@@ -38,8 +38,6 @@ class PageServiceProvider extends ServiceProvider
             ->loadAndPublishTranslations()
             ->loadMigrations();
 
-        $this->app->register(HookServiceProvider::class);
-
         Event::listen(RouteMatched::class, function () {
             dashboard_menu()->registerItem([
                 'id'          => 'cms-core-page',
@@ -61,5 +59,11 @@ class PageServiceProvider extends ServiceProvider
                 $view->withShortcodes();
             });
         }
+
+        $this->app->booted(function () {
+            $this->app->register(HookServiceProvider::class);
+        });
+
+        $this->app->register(EventServiceProvider::class);
     }
 }

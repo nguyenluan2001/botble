@@ -50,6 +50,7 @@ return [
     'app_size'                        => 'App Size',
     'server_environment'              => 'Server Environment',
     'php_version'                     => 'PHP Version',
+    'php_version_error'               => 'PHP must be >= :version',
     'server_software'                 => 'Server Software',
     'server_os'                       => 'Server OS',
     'database'                        => 'Database',
@@ -72,4 +73,5 @@ return [
     'dependency_name'                 => 'Dependency Name',
     'version'                         => 'Version',
     'cms_version'                     => 'CMS Version',
+    'imagick_or_gd_ext'               => 'Imagick/GD Ext',
 ];

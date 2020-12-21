@@ -27,7 +27,7 @@
         </article>
     @endforeach
     <div class="page-pagination text-right">
-        {!! $posts->appends(request()->query())->links() !!}
+        {!! $posts->withQueryString()->links() !!}
     </div>
 @else
     <div class="alert alert-warning">

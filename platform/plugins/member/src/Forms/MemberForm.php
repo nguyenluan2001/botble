@@ -22,7 +22,7 @@ class MemberForm extends FormAbstract
             ->setValidatorClass(MemberCreateRequest::class)
             ->withCustomFields()
             ->add('first_name', 'text', [
-                'label'      => __('First Name'),
+                'label'      => trans('plugins/member::member.first_name'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
                     'placeholder'  => trans('core/base::forms.name_placeholder'),
@@ -30,7 +30,7 @@ class MemberForm extends FormAbstract
                 ],
             ])
             ->add('last_name', 'text', [
-                'label'      => __('Last Name'),
+                'label'      => trans('plugins/member::member.last_name'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
                     'placeholder'  => trans('core/base::forms.name_placeholder'),
@@ -41,7 +41,7 @@ class MemberForm extends FormAbstract
                 'label'      => trans('plugins/member::member.form.email'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr'       => [
-                    'placeholder'  => __('Ex: example@gmail.com'),
+                    'placeholder'  => trans('plugins/member::member.email_placeholder'),
                     'data-counter' => 60,
                 ],
             ])

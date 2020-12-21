@@ -137,8 +137,8 @@
 
 <script id="_render_custom_field_repeater_item_template" type="text/x-custom-template">
     <li class="ui-sortable-handle" data-position="__position__">
-        <a href="#" class="remove-field-line" title="{{ __('Remove this line') }}"><span>&nbsp;</span></a>
-        <a href="#" class="collapse-field-line" title="{{ __('Collapse this line') }}"><i class="fa fa-bars"></i></a>
+        <a href="#" class="remove-field-line" title="{{ trans('plugins/custom-field::base.remove_this_line') }}"><span>&nbsp;</span></a>
+        <a href="#" class="collapse-field-line" title="{{ trans('plugins/custom-field::base.collapse_this_line') }}"><i class="fa fa-bars"></i></a>
         <div class="col-12 field-line-wrapper clearfix">
             <ul class="field-group"></ul>
         </div>

@@ -1,11 +1,11 @@
-.footer-menu>li:first-child {
-    display : block;
+.footer-menu > li:first-child {
+    display: block;
 }
 
 .footer-menu > li {
-    float : none;
+    float: none;
     width: 100%;
-    margin-top : 10px;
+    margin-top: 10px;
 }
 
 
@@ -132,7 +132,7 @@
     font-size: 14px;
     vertical-align: middle;
     height: 19px;
-    margin-top : 8px;
+    margin-top: 8px;
 }
 
 .post-star {
@@ -156,22 +156,25 @@
     float: left;
     margin-left: 5px;
 }
+
 .language_bar_chooser.dropdown-menu {
     display: none;
     border-radius: 0 !important;
 }
-.dropdown.open .language_bar_chooser.dropdown-menu{
+
+.dropdown.open .language_bar_chooser.dropdown-menu {
     display: block;
 }
+
 .language_bar_chooser.dropdown-menu li {
     width: 100%;
     margin: 0;
-    display : block;
+    display: block;
 }
 
 .language_bar_chooser.dropdown-menu li a {
-    display : block !important;
-    margin-right : 0 !important;
+    display: block !important;
+    margin-right: 0 !important;
 }
 
 .language_bar_chooser.dropdown-menu li.active a {
@@ -186,20 +189,48 @@
     color: #fff !important;
     background: none !important;
 }
+
 .language_bar_list li {
     display: inline-block;
-    margin-left : 5px;
+    margin-left: 5px;
 }
+
 .language_bar_list li a {
     text-align: left;
+
+    img {
+        margin-top: 13px;
+    }
+
+    span {
+        color: #fff;
+    }
 }
 
+/* purgecss start ignore */
 figure.image {
-    margin : 10px 0;
+    margin: 10px 0;
+    display: inline-block;
+
+    figcaption {
+        background: #f5f5f5;
+        padding: 10px;
+        font-size: 90%;
+        text-align: center;
+    }
+}
+/* purgecss end ignore */
+
+.footer-end {
+    p {
+        margin-bottom: 0;
+    }
 }
 
-figure.image figcaption {
-    background: #f5f5f5;
-    padding: 10px;
-    font-size: 90%;
+.btn-group {
+    &.open {
+        .dropdown-menu {
+            display: block;
+        }
+    }
 }

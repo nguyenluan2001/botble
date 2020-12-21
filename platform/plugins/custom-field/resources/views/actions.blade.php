@@ -1,7 +1,7 @@
 <div class="widget meta-boxes form-actions form-actions-default action-{{ $direction ?? 'horizontal' }}">
     <div class="widget-title">
         <h4>
-            <span>{{ __('Publish') }}</span>
+            <span>{{ trans('plugins/custom-field::base.publish') }}</span>
         </h4>
     </div>
     <div class="widget-body">

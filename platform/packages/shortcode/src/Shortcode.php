@@ -120,7 +120,7 @@ class Shortcode
     {
         $parsedAttributes = '';
         foreach ($attributes as $key => $attribute) {
-            $parsedAttributes .= ' ' . $key . '="' . Str::slug($attribute) . '"';
+            $parsedAttributes .= ' ' . $key . '="' . $attribute . '"';
         }
 
         return '[' . $name . $parsedAttributes . '][/' . $name . ']';

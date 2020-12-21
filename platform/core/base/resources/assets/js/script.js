@@ -77,7 +77,7 @@ class Botble {
         }
     }
 
-    static showNotice(messageType, message) {
+    static showNotice(messageType, message, messageHeader = '') {
         toastr.clear();
 
         toastr.options = {
@@ -94,25 +94,26 @@ class Botble {
             hideMethod: 'fadeOut'
         };
 
-        let messageHeader = '';
-
-        switch (messageType) {
-            case 'error':
-                messageHeader = BotbleVariables.languages.notices_msg.error;
-                break;
-            case 'success':
-                messageHeader = BotbleVariables.languages.notices_msg.success;
-                break;
+        if (!messageHeader) {
+            switch (messageType) {
+                case 'error':
+                    messageHeader = BotbleVariables.languages.notices_msg.error;
+                    break;
+                case 'success':
+                    messageHeader = BotbleVariables.languages.notices_msg.success;
+                    break;
+            }
         }
+
         toastr[messageType](message, messageHeader);
     }
 
-    static showError(message) {
-        this.showNotice('error', message);
+    static showError(message, messageHeader = '') {
+        this.showNotice('error', message, messageHeader);
     }
 
-    static showSuccess(message) {
-        this.showNotice('success', message);
+    static showSuccess(message, messageHeader = '') {
+        this.showNotice('success', message, messageHeader);
     }
 
     static handleError(data) {
@@ -603,6 +604,75 @@ class Botble {
                 event.preventDefault();
                 $(event.currentTarget).closest('.attachment-wrapper').find('.attachment-details a').remove();
                 $(event.currentTarget).closest('.attachment-wrapper').find('.attachment-url').val('');
+            });
+
+            new RvMediaStandAlone('.js-btn-trigger-add-image', {
+                onSelectFiles: (files, $el) => {
+                    let $currentBoxList = $el.closest('.gallery-images-wrapper').find('.images-wrapper .list-gallery-media-images');
+
+                    $currentBoxList.removeClass('hidden');
+
+                    $('.default-placeholder-gallery-image').addClass('hidden');
+
+                    _.forEach(files, (file) => {
+                        let template = $(document).find('#gallery_select_image_template').html();
+
+                        let imageBox = template
+                            .replace(/__name__/gi, $el.attr('data-name'));
+
+                        let $template = $('<li class="gallery-image-item-handler">' + imageBox + '</li>');
+
+                        $template.find('.image-data').val(file.url);
+                        $template.find('.preview_image').attr('src', file.thumb).show();
+
+                        $currentBoxList.append($template);
+                    });
+                }
+            });
+
+            new RvMediaStandAlone('.images-wrapper .btn-trigger-edit-gallery-image', {
+                onSelectFiles: (files, $el) => {
+                    let firstItem = _.first(files);
+
+                    let $currentBox = $el.closest('.gallery-image-item-handler').find('.image-box');
+                    let $currentBoxList = $el.closest('.list-gallery-media-images');
+
+                    $currentBox.find('.image-data').val(firstItem.url);
+                    $currentBox.find('.preview_image').attr('src', firstItem.thumb).show();
+
+                    _.forEach(files, (file, index) => {
+                        if (!index) {
+                            return;
+                        }
+                        let template = $(document).find('#gallery_select_image_template').html();
+
+                        let imageBox = template
+                            .replace(/__name__/gi, $currentBox.find('.image-data').attr('name'));
+
+                        let $template = $('<li class="gallery-image-item-handler">' + imageBox + '</li>');
+
+                        $template.find('.image-data').val(file.url);
+                        $template.find('.preview_image').attr('src', file.thumb).show();
+
+                        $currentBoxList.append($template);
+                    });
+                }
+            });
+
+            $(document).on('click', '.btn-trigger-remove-gallery-image', event => {
+                event.preventDefault();
+                $(event.currentTarget).closest('.gallery-image-item-handler').remove();
+                if ($('.list-gallery-media-images').find('.gallery-image-item-handler').length === 0) {
+                    $('.default-placeholder-gallery-image').removeClass('hidden');
+                }
+            });
+
+            $('.list-gallery-media-images').each((index, item) => {
+                let $current = $(item);
+                if ($current.data('ui-sortable')) {
+                    $current.sortable('destroy');
+                }
+                $current.sortable();
             });
         }
     }

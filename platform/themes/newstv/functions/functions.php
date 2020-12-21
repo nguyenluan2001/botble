@@ -10,23 +10,23 @@ register_sidebar([
     'description' => __('This is footer sidebar section'),
 ]);
 
-add_shortcode('google-map', 'Google map', 'Custom map', function ($shortCode) {
+add_shortcode('google-map', __('Google map'), __('Custom map'), function ($shortCode) {
     return Theme::partial('short-codes.google-map', ['address' => $shortCode->content]);
 });
 
-add_shortcode('youtube-video', 'Youtube video', 'Add youtube video', function ($shortCode) {
+add_shortcode('youtube-video', __('Youtube video'), __('Add youtube video'), function ($shortCode) {
     return Theme::partial('short-codes.video', ['url' => $shortCode->content]);
 });
 
-add_shortcode('featured-posts', 'Featured posts', 'Featured posts', function () {
+add_shortcode('featured-posts', __('Featured posts'), __('Featured posts'), function () {
     return Theme::partial('short-codes.featured-posts');
 });
 
-add_shortcode('category-posts', 'Category posts', 'Category posts', function () {
+add_shortcode('category-posts', __('Category posts'), __('Category posts'), function () {
     return Theme::partial('short-codes.category-posts');
 });
 
-add_shortcode('all-galleries', 'All Galleries', 'All Galleries', function () {
+add_shortcode('all-galleries', __('All Galleries'), __('All Galleries'), function () {
     return Theme::partial('short-codes.all-galleries');
 });
 
@@ -34,7 +34,6 @@ shortcode()->setAdminConfig('google-map', Theme::partial('short-codes.google-map
 shortcode()->setAdminConfig('youtube-video', Theme::partial('short-codes.youtube-admin-config'));
 
 theme_option()
-    ->setArgs(['debug' => config('app.debug')])
     ->setField([
         'id'         => 'copyright',
         'section_id' => 'opt-text-subsection-general',
@@ -141,8 +140,8 @@ theme_option()
         'attributes' => [
             'name'    => 'facebook_chat_enabled',
             'list'    => [
-                'yes' => 'Yes',
-                'no'  => 'No',
+                'yes' => trans('core/base::base.yes'),
+                'no'  => trans('core/base::base.no'),
             ],
             'value'   => 'yes',
             'options' => [
@@ -171,8 +170,8 @@ theme_option()
         'attributes' => [
             'name'    => 'facebook_comment_enabled_in_post',
             'list'    => [
-                'yes' => 'Yes',
-                'no'  => 'No',
+                'yes' => trans('core/base::base.yes'),
+                'no'  => trans('core/base::base.no'),
             ],
             'value'   => 'yes',
             'options' => [

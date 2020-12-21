@@ -34,7 +34,7 @@ class {Widget}Widget extends AbstractWidget
     {
         parent::__construct([
             'name'        => '{Widget}',
-            'description' => __('This is a sample widget'),
+            'description' => __('Widget description'),
         ]);
     }
 }

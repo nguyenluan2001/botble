@@ -1,6 +1,13 @@
 @if (is_plugin_active('blog'))
     @php
-        $featured = get_featured_posts(5, ['user', 'categories' => function ($query) { $query->limit(1); }]);
+        $featured = get_featured_posts(5, [
+            'author',
+            'categories' => function ($query) {
+                        $query->limit(1);
+                    },
+                ]
+            );
+
         $featuredList = [];
         if (!empty($featured)) {
             $featuredList = $featured->pluck('id')->all();
@@ -24,8 +31,8 @@
                                                 @if (!$featureItem->categories->isEmpty())<a href="{{ $featureItem->categories->first()->url }}">{{ $featureItem->categories->first()->name }}</a>@endif
                                         </span>
                                             <span class="created_at"><i class="ion-clock"></i>{{ $featureItem->created_at->format('M d Y') }}</span>
-                                            @if ($featureItem->user->username)
-                                                <span class="post-author"><i class="ion-android-person"></i><span>{{ $featureItem->user->getFullName() }}</span></span>
+                                            @if ($featureItem->author->getFullName())
+                                                <span class="post-author"><i class="ion-android-person"></i><span>{{ $featureItem->author->getFullName() }}</span></span>
                                             @endif
                                         </div>
                                     </header>

@@ -45,6 +45,7 @@ class ThemeCreateCommand extends BaseMakeCommand
      * Create a new command instance.
      *
      * @param File $files
+     * @param ThemeService $themeService
      */
     public function __construct(File $files, ThemeService $themeService)
     {

@@ -42,4 +42,23 @@ class LanguageMeta extends BaseModel
     {
         return $this->morphTo();
     }
+
+    /**
+     * @param BaseModel $model
+     * @param string $locale
+     * @param string|null $originValue
+     */
+    public static function saveMetaData(BaseModel $model, string $locale, string $originValue = null)
+    {
+        if (!$originValue) {
+            $originValue = md5($model->id . get_class($model) . time());
+        }
+
+        LanguageMeta::insert([
+            'reference_id'     => $model->id,
+            'reference_type'   => get_class($model),
+            'lang_meta_code'   => $locale,
+            'lang_meta_origin' => $originValue,
+        ]);
+    }
 }

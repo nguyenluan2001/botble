@@ -13,19 +13,13 @@ export class Ripple {
             $.ajax({
                 type: 'GET',
                 cache: false,
-                url: '/api/v1/search',
+                url: superSearch.data('search-url'),
                 data: {
                     'q': keyword
                 },
                 success: res => {
                     if (!res.error) {
-                        let html = '<p class="search-result-title">Search from: </p>';
-                        $.each(res.data.items, (index, el) => {
-                            html += '<p class="search-item">' + index + '</p>';
-                            html += el;
-                        });
-                        html += '<div class="clearfix"></div>';
-                        searchResult.html(html);
+                        searchResult.html(res.data.items);
                         superSearch.addClass('search-finished');
                     } else {
                         searchResult.html(res.message);

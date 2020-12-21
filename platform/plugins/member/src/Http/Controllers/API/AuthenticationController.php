@@ -40,6 +40,7 @@ class AuthenticationController extends Controller
      * @bodyParam email string required The email of the user.
      * @bodyParam phone string required The phone of the user.
      * @bodyParam password string  required The password of user to create.
+     * @bodyParam password_confirmation string  required The password confirmation.
      *
      * @response {
      * "error": false,

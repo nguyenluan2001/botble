@@ -30,7 +30,8 @@ class HookServiceProvider extends ServiceProvider
         if (defined('THEME_OPTIONS_MODULE_SCREEN_NAME')) {
             Theme::asset()
                 ->usePath(false)
-                ->add('social-login-css', asset('vendor/core/plugins/social-login/css/social-login.css'), [], [], '1.0.0');
+                ->add('social-login-css', asset('vendor/core/plugins/social-login/css/social-login.css'), [], [],
+                    '1.0.0');
         }
 
         return $html . view('plugins/social-login::login-options')->render();

@@ -4,7 +4,6 @@ namespace Theme\Ripple\Http\Controllers;
 
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
-use Platform\Page\Repositories\Interfaces\PageInterface;
 use Platform\Theme\Http\Controllers\PublicController;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
@@ -15,17 +14,17 @@ class RippleController extends PublicController
     /**
      * {@inheritDoc}
      */
-    public function getIndex(BaseHttpResponse $response)
+    public function getIndex()
     {
-        return parent::getIndex($response);
+        return parent::getIndex();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getView(BaseHttpResponse $response, $key = null)
+    public function getView($key = null)
     {
-        return parent::getView($response, $key);
+        return parent::getView($key);
     }
 
     /**
@@ -45,30 +44,21 @@ class RippleController extends PublicController
      *
      * @param Request $request
      * @param PostInterface $postRepository
-     * @param PageInterface $pageRepository
      * @param BaseHttpResponse $response
      * @return BaseHttpResponse
      *
      * @throws FileNotFoundException
      */
-    public function getSearch(
-        Request $request,
-        PostInterface $postRepository,
-        PageInterface $pageRepository,
-        BaseHttpResponse $response
-    ) {
+    public function getSearch(Request $request, PostInterface $postRepository, BaseHttpResponse $response)
+    {
         $query = $request->input('q');
         if (!empty($query)) {
             $posts = $postRepository->getSearch($query);
-            $pages = $pageRepository->getSearch($query);
 
             $data = [
-                'items' => [
-                    'Posts' => Theme::partial('search.post', compact('posts')),
-                    'Pages' => Theme::partial('search.page', compact('pages')),
-                ],
+                'items' => Theme::partial('search', compact('posts')),
                 'query' => $query,
-                'count' => $posts->count() + $pages->count(),
+                'count' => $posts->count(),
             ];
 
             if ($data['count'] > 0) {
@@ -78,6 +68,6 @@ class RippleController extends PublicController
 
         return $response
             ->setError()
-            ->setMessage(trans('core/base::layouts.no_search_result'));
+            ->setMessage(__('No results found, please try with different keywords.'));
     }
 }

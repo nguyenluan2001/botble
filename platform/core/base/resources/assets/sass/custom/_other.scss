@@ -496,3 +496,27 @@ h4.modal-title {
 .fade.in {
     opacity: 1;
 }
+
+.gallery-images-wrapper {
+    position: relative;
+    border: 1px dashed #ccc;
+    padding: 10px;
+    ul {
+        &.list-gallery-media-images {
+            margin-bottom: 0;
+            > li {
+                float: left;
+                width: 12.15%;
+                border: 1px solid #e4e4e4;
+                margin: 2px;
+                cursor: move;
+            }
+        }
+    }
+}
+
+.filter-column-value-wrap {
+    .ui-select-wrapper {
+        margin-bottom: 0 !important;
+    }
+}

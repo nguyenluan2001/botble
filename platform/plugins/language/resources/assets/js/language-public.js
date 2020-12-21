@@ -1,6 +1,6 @@
 class LanguagePublicManagement {
     init() {
-        $('.language-wrapper .dropdown .dropdown-toggle').on('click', event =>  {
+        $('.language-wrapper .dropdown .dropdown-toggle').on('click', event => {
             event.preventDefault();
             if ($(event.currentTarget).hasClass('active')) {
                 $('.language-wrapper .dropdown .dropdown-menu').hide();
@@ -10,7 +10,7 @@ class LanguagePublicManagement {
                 $(event.currentTarget).addClass('active');
             }
         });
-        $(document).on('click', event =>  {
+        $(document).on('click', event => {
             if ($(event.currentTarget).closest('.language-wrapper').length === 0) {
                 $('.language-wrapper .dropdown .dropdown-menu').hide();
                 $('.language-wrapper .dropdown .dropdown-toggle').removeClass('active');
@@ -20,5 +20,5 @@ class LanguagePublicManagement {
 }
 
 $(document).ready(() => {
-   new LanguagePublicManagement().init();
+    new LanguagePublicManagement().init();
 });

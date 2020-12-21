@@ -58,7 +58,7 @@ class PostForm extends \Platform\Blog\Forms\PostForm
                 'label_attr' => ['class' => 'control-label'],
                 'value'      => $tags,
                 'attr'       => [
-                    'placeholder' => __('Write some tags'),
+                    'placeholder' => trans('plugins/blog::base.write_some_tags'),
                     'data-url'    => route('public.member.tags.all'),
                 ],
             ], true)

@@ -7,6 +7,7 @@ return [
     'active_success'               => 'Kích hoạt giao diện thành công!',
     'author'                       => 'Tác giả',
     'description'                  => 'Mô tả',
+    'appearance'                   => 'Hiển thị',
     'theme'                        => 'Giao diện',
     'theme_options'                => 'Tuỳ chọn giao diện',
     'version'                      => 'Phiên bản',
@@ -25,4 +26,5 @@ return [
     'show_admin_bar'               => 'Hiển thị admin bar (khi admin đã đăng nhập, vẫn hiển thị admin bar trên website)?',
     'theme_is_note_existed'        => 'Giao diện này không tồn tại!',
     'total_themes'                 => 'Tổng số giao diện',
+    'add_new'                      => 'Thêm mới',
 ];

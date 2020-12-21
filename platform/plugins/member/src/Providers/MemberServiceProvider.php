@@ -90,7 +90,7 @@ class MemberServiceProvider extends ServiceProvider
         });
 
         $this->app->booted(function () {
-            EmailHandler::addTemplateSettings(MEMBER_MODULE_SCREEN_NAME, config('plugins.member.email'));
+            EmailHandler::addTemplateSettings(MEMBER_MODULE_SCREEN_NAME, config('plugins.member.email', []));
         });
 
         $this->app->register(EventServiceProvider::class);

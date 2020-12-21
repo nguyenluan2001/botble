@@ -94,14 +94,14 @@ return [
         'errors'  => 'Unable to save the .env file, Please create it manually.',
     ],
 
-    'install' => 'Install',
+    'install'               => 'Install',
 
     /**
      *
      * Final page translations.
      *
      */
-    'final'   => [
+    'final'                 => [
         'title'         => 'Installation Finished',
         'templateTitle' => 'Installation Finished',
         'finished'      => 'Application has been successfully installed.',
@@ -111,4 +111,15 @@ return [
         'env'           => 'Final .env File:',
         'exit'          => 'Click here to exit',
     ],
+    'create_account'        => 'Create account',
+    'first_name'            => 'First name',
+    'last_name'             => 'Last name',
+    'username'              => 'Username',
+    'email'                 => 'Email',
+    'password'              => 'Password',
+    'password_confirmation' => 'Password confirmation',
+    'install_sample_data'   => 'Install sample data?',
+    'create'                => 'Create',
+    'install_success'       => 'Install Laravel CMS successfully!',
+    'wrong_database_config' => 'Wrong database config',
 ];

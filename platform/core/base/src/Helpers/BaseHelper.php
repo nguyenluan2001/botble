@@ -87,4 +87,12 @@ class BaseHelper
     {
         return config('core.base.general.admin_dir');
     }
+
+    /**
+     * @return string
+     */
+    public function siteLanguageDirection()
+    {
+        return apply_filters(BASE_FILTER_SITE_LANGUAGE_DIRECTION, setting('locale_direction', 'ltr'));
+    }
 }

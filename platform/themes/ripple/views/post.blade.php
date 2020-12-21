@@ -40,7 +40,10 @@
                             <div class="post__thumbnail"><a href="{{ $relatedItem->url }}" class="post__overlay"></a>
                                 <img src="{{ RvMedia::getImageUrl($relatedItem->image, 'thumb', false, RvMedia::getDefaultImage()) }}" alt="{{ $relatedItem->name }}">
                             </div>
-                            <header class="post__header"><a href="{{ $relatedItem->url }}" class="post__title"> {{ $relatedItem->name }}</a></header>
+                            <header class="post__header">
+                                <p><a href="{{ $relatedItem->url }}" class="post__title"> {{ $relatedItem->name }}</a></p>
+                                <div class="post__meta"><span class="post__created-at">{{ $post->created_at->format('M d, Y') }}</span></div>
+                            </header>
                         </article>
                     </div>
                 </div>

@@ -15,4 +15,6 @@ return [
     'menu_name'                            => 'Galleries',
     'gallery_images'                       => 'Gallery images',
     'add_gallery_short_code'               => 'Add a gallery',
+    'shortcode_name'                       => 'Gallery images',
+    'limit_display'                        => 'Limit number display',
 ];

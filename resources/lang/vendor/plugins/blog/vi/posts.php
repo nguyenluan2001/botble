@@ -22,6 +22,7 @@ return [
     'edit_this_post'      => 'Sửa bài viết này',
     'no_new_post_now'     => 'Hiện tại không có bài viết mới!',
     'posts'               => 'Bài viết',
+    'post'                => 'Bài viết',
     'widget_posts_recent' => 'Bài viết gần đây',
     'author'              => 'Tác giả',
     'categories'          => 'Danh mục',

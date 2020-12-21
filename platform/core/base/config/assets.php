@@ -173,6 +173,7 @@ return [
                         '/vendor/core/core/base/libraries/datatables/media/js/dataTables.bootstrap.min.js',
                         '/vendor/core/core/base/libraries/datatables/extensions/Buttons/js/dataTables.buttons.min.js',
                         '/vendor/core/core/base/libraries/datatables/extensions/Buttons/js/buttons.bootstrap.min.js',
+                        '/vendor/core/core/base/libraries/datatables/extensions/Responsive/js/dataTables.responsive.min.js',
                     ],
                 ],
             ],
@@ -380,6 +381,8 @@ return [
                 'src'      => [
                     'local' => [
                         '/vendor/core/core/base/libraries/datatables/media/css/dataTables.bootstrap.min.css',
+                        '/vendor/core/core/base/libraries/datatables/extensions/Buttons/css/buttons.bootstrap.min.css',
+                        '/vendor/core/core/base/libraries/datatables/extensions/Responsive/css/responsive.bootstrap.min.css',
                     ],
                 ],
             ],

@@ -162,6 +162,17 @@ if (!function_exists('get_popular_posts')) {
     }
 }
 
+if (!function_exists('get_popular_categories')) {
+    /**
+     * @param integer $limit
+     * @return array
+     */
+    function get_popular_categories($limit = 10)
+    {
+        return app(CategoryInterface::class)->getPopularCategories($limit);
+    }
+}
+
 if (!function_exists('get_category_by_id')) {
     /**
      * @param integer $id

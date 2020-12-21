@@ -82,7 +82,7 @@ class PostCacheDecorator extends CacheAbstractDecorator implements PostInterface
     /**
      * {@inheritDoc}
      */
-    public function getAllPosts($perPage = 12, $active = true)
+    public function getAllPosts($perPage = 12, $active = true, array $with = ['slugable'])
     {
         return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
     }

@@ -2,6 +2,7 @@
 
 namespace Platform\Base\Supports;
 
+use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
 
@@ -110,17 +111,24 @@ class Core
     {
         $client = new Client;
 
-        $result = $client->post($url, [
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'Accept'       => 'application/json',
-                'LB-API-KEY'   => $this->apiKey,
-                'LB-URL'       => rtrim(url('/'), '/'),
-                'LB-IP'        => Helper::getIpFromThirdParty(),
-                'LB-LANG'      => 'english',
-            ],
-            'json'    => $data,
-        ]);
+        try {
+            $result = $client->post($url, [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept'       => 'application/json',
+                    'LB-API-KEY'   => $this->apiKey,
+                    'LB-URL'       => rtrim(url('/'), '/'),
+                    'LB-IP'        => Helper::getIpFromThirdParty(),
+                    'LB-LANG'      => 'english',
+                ],
+                'json'    => $data,
+            ]);
+        } catch (Exception $exception) {
+            return [
+                'status'  => false,
+                'message' => $exception->getMessage(),
+            ];
+        }
 
         if (!$result && config('app.debug')) {
             return [

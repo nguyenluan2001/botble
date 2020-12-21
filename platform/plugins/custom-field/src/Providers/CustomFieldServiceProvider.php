@@ -83,7 +83,6 @@ class CustomFieldServiceProvider extends ServiceProvider
             ->loadMigrations()
             ->publishAssets();
 
-        $this->app->register(HookServiceProvider::class);
         $this->app->register(EventServiceProvider::class);
 
         Event::listen(RouteMatched::class, function () {
@@ -99,7 +98,14 @@ class CustomFieldServiceProvider extends ServiceProvider
 
             $this->registerUsersFields();
             $this->registerPagesFields();
-            $this->registerBlogFields();
+
+            if (is_plugin_active('blog')) {
+                $this->registerBlogFields();
+            }
+        });
+
+        $this->app->booted(function () {
+            $this->app->register(HookServiceProvider::class);
         });
     }
 

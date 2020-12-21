@@ -73,7 +73,7 @@ class PostController extends Controller
      */
     public function index(PostTable $postTable)
     {
-        SeoHelper::setTitle(__('Posts'));
+        SeoHelper::setTitle(trans('plugins/blog::posts.posts'));
 
         return $postTable->render('plugins/member::table.base');
     }
@@ -85,7 +85,7 @@ class PostController extends Controller
      */
     public function create(FormBuilder $formBuilder)
     {
-        SeoHelper::setTitle(__('Write a post'));
+        SeoHelper::setTitle(trans('plugins/member::member.write_a_post'));
 
         return $formBuilder->create(PostForm::class)->renderForm();
     }
@@ -259,7 +259,7 @@ class PostController extends Controller
             'reference_name' => $post->name,
         ]);
 
-        return $response->setMessage(__('Delete post successfully!'));
+        return $response->setMessage(trans('core/base::notices.delete_success_message'));
     }
 
     /**

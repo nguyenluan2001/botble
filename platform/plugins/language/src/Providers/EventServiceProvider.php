@@ -2,6 +2,7 @@
 
 namespace Platform\Language\Providers;
 
+use Artisan;
 use Platform\Base\Events\CreatedContentEvent;
 use Platform\Base\Events\DeletedContentEvent;
 use Platform\Base\Events\UpdatedContentEvent;
@@ -10,6 +11,7 @@ use Platform\Language\Listeners\DeletedContentListener;
 use Platform\Language\Listeners\ThemeRemoveListener;
 use Platform\Language\Listeners\UpdatedContentListener;
 use Platform\Theme\Events\ThemeRemoveEvent;
+use Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -33,4 +35,15 @@ class EventServiceProvider extends ServiceProvider
             ThemeRemoveListener::class,
         ],
     ];
+
+    public function boot()
+    {
+        parent::boot();
+
+        if (version_compare(get_cms_version(), '5.12') > 0) {
+            Event::listen(['cache:cleared'], function () {
+                Artisan::call('route:trans:clear');
+            });
+        }
+    }
 }

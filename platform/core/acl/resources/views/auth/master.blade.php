@@ -16,7 +16,7 @@
                         <div class="logo-title-container">
                             <div class="copy animated fadeIn">
                                 <h1>{{ setting('admin_title') }}</h1>
-                                <p>{!! clean(trans('core/base::layouts.copyright', ['year' => now(config('app.timezone'))->format('Y'), 'company' => setting('admin_title', config('core.base.general.base_name')), 'version' => get_cms_version()])) !!}</p>
+                                <p>{!! clean(trans('core/base::layouts.copyright', ['year' => now()->format('Y'), 'company' => setting('admin_title', config('core.base.general.base_name')), 'version' => get_cms_version()])) !!}</p>
                                 <div class="copyright">
                                     @if (setting('enable_multi_language_in_admin') != false && count(Assets::getAdminLocales()) > 1)
                                         <p> {{ trans('core/acl::auth.languages') }}:

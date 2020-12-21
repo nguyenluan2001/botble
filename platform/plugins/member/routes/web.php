@@ -3,7 +3,7 @@
 Route::group([
     'namespace'  => 'Platform\Member\Http\Controllers',
     'prefix'     => BaseHelper::getAdminPrefix(),
-    'middleware' => ['web', 'auth'],
+    'middleware' => ['web', 'core', 'auth'],
 ], function () {
 
     Route::group(['prefix' => 'members', 'as' => 'member.'], function () {
@@ -23,7 +23,7 @@ if (defined('THEME_MODULE_SCREEN_NAME')) {
 
         Route::group([
             'namespace'  => 'Platform\Member\Http\Controllers',
-            'middleware' => ['web'],
+            'middleware' => ['web', 'core'],
             'as'         => 'public.member.',
         ], function () {
 
@@ -54,7 +54,7 @@ if (defined('THEME_MODULE_SCREEN_NAME')) {
 
         Route::group([
             'namespace'  => 'Platform\Member\Http\Controllers',
-            'middleware' => ['web', 'member'],
+            'middleware' => ['web', 'core', 'member'],
             'as'         => 'public.member.',
         ], function () {
             Route::group([
@@ -107,47 +107,49 @@ if (defined('THEME_MODULE_SCREEN_NAME')) {
                 ]);
             });
 
-            Route::group([
-                'prefix' => 'account/posts',
-            ], function () {
+            if (is_plugin_active('blog')) {
+                Route::group([
+                    'prefix' => 'account/posts',
+                ], function () {
 
-                Route::get('', [
-                    'as'   => 'posts.index',
-                    'uses' => 'PostController@index',
-                ]);
+                    Route::get('', [
+                        'as'   => 'posts.index',
+                        'uses' => 'PostController@index',
+                    ]);
 
-                Route::get('create', [
-                    'as'   => 'posts.create',
-                    'uses' => 'PostController@create',
-                ]);
+                    Route::get('create', [
+                        'as'   => 'posts.create',
+                        'uses' => 'PostController@create',
+                    ]);
 
-                Route::post('create', [
-                    'as'   => 'posts.create',
-                    'uses' => 'PostController@store',
-                ]);
+                    Route::post('create', [
+                        'as'   => 'posts.create.post',
+                        'uses' => 'PostController@store',
+                    ]);
 
-                Route::get('edit/{id}', [
-                    'as'   => 'posts.edit',
-                    'uses' => 'PostController@edit',
-                ]);
+                    Route::get('edit/{id}', [
+                        'as'   => 'posts.edit',
+                        'uses' => 'PostController@edit',
+                    ]);
 
-                Route::post('edit/{id}', [
-                    'as'   => 'posts.edit',
-                    'uses' => 'PostController@update',
-                ]);
+                    Route::post('edit/{id}', [
+                        'as'   => 'posts.edit.post',
+                        'uses' => 'PostController@update',
+                    ]);
 
-            });
+                });
 
-            Route::group(['prefix' => 'ajax/members'], function () {
-                Route::delete('delete/{id}', [
-                    'as'   => 'posts.destroy',
-                    'uses' => 'PostController@delete',
-                ]);
-                Route::get('tags/all', [
-                    'as'   => 'tags.all',
-                    'uses' => 'PostController@getAllTags',
-                ]);
-            });
+                Route::group(['prefix' => 'ajax/members'], function () {
+                    Route::delete('delete/{id}', [
+                        'as'   => 'posts.destroy',
+                        'uses' => 'PostController@delete',
+                    ]);
+                    Route::get('tags/all', [
+                        'as'   => 'tags.all',
+                        'uses' => 'PostController@getAllTags',
+                    ]);
+                });
+            }
         });
 
     });

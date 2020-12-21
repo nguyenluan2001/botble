@@ -15,14 +15,16 @@ class HookServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        add_filter(BASE_FILTER_TOP_HEADER_LAYOUT, [$this, 'registerTopHeaderNotification'], 120);
-        add_filter(BASE_FILTER_APPEND_MENU_NAME, [$this, 'getUnReadCount'], 120, 2);
+        $this->app->booted(function () {
+            add_filter(BASE_FILTER_TOP_HEADER_LAYOUT, [$this, 'registerTopHeaderNotification'], 120);
+            add_filter(BASE_FILTER_APPEND_MENU_NAME, [$this, 'getUnreadCount'], 120, 2);
 
-        if (function_exists('add_shortcode')) {
-            add_shortcode('contact-form', __('Contact form'), __('Add contact form'), [$this, 'form']);
-            shortcode()
-                ->setAdminConfig('contact-form', view('plugins/contact::partials.short-code-admin-config')->render());
-        }
+            if (function_exists('add_shortcode')) {
+                add_shortcode('contact-form', trans('plugins/contact::contact.shortcode_name'), trans('plugins/contact::contact.shortcode_description'), [$this, 'form']);
+                shortcode()
+                    ->setAdminConfig('contact-form', view('plugins/contact::partials.short-code-admin-config')->render());
+            }
+        });
     }
 
     /**
@@ -43,7 +45,8 @@ class HookServiceProvider extends ServiceProvider
 
             return $options . view('plugins/contact::partials.notification', compact('contacts'))->render();
         }
-        return null;
+
+        return $options;
     }
 
     /**
@@ -52,7 +55,7 @@ class HookServiceProvider extends ServiceProvider
      * @return string
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function getUnReadCount($number, $menuId)
+    public function getUnreadCount($number, $menuId)
     {
         if ($menuId == 'cms-plugins-contact') {
             $unread = $this->app->make(ContactInterface::class)->countUnread();
@@ -89,6 +92,7 @@ class HookServiceProvider extends ServiceProvider
         if ($shortcode->view && view()->exists($shortcode->view)) {
             $view = $shortcode->view;
         }
+
         return view($view)->render();
     }
 }

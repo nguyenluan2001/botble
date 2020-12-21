@@ -6,7 +6,6 @@ use Platform\Theme\Contracts\Theme as ThemeContract;
 use Platform\Theme\Exceptions\UnknownLayoutFileException;
 use Platform\Theme\Exceptions\UnknownPartialFileException;
 use Platform\Theme\Exceptions\UnknownThemeException;
-use Platform\Widget\Repositories\Interfaces\WidgetInterface;
 use Closure;
 use Exception;
 use File;
@@ -17,10 +16,8 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\View\Factory;
-use Language;
 use SeoHelper;
 use Symfony\Component\HttpFoundation\Cookie;
-use WidgetGroup;
 
 class Theme implements ThemeContract
 {
@@ -864,9 +861,9 @@ class Theme implements ThemeContract
     protected function handleViewNotFound($path)
     {
         if (app()->isLocal()) {
-            dd('Theme is not support this view, please create file ' . theme_path() . '/' . str_replace($this->getThemeNamespace(),
-                    $this->getThemeName(),
-                    str_replace('::', '/', str_replace('.', '/', $path))) . '.blade.php" to render this page!');
+            $path = str_replace($this->getThemeNamespace(), $this->getThemeName(), $path);
+            $file = str_replace('::', '/', str_replace('.', '/', $path));
+            dd('Theme is not support this view, please create file "' . theme_path($file) . '.blade.php" to render this page!');
         }
 
         abort(404);
@@ -1035,33 +1032,5 @@ class Theme implements ThemeContract
     public function routes()
     {
         return File::requireOnce(package_path('theme/routes/public.php'));
-    }
-
-    /**
-     * @param string $sidebarId
-     * @return string
-     * @throws FileNotFoundException
-     */
-    public function renderWidgetGroup($sidebarId)
-    {
-        if (!$this->widgets) {
-            $languageCode = null;
-            if (is_plugin_active('language')) {
-                $currentLocale = is_in_admin() ? Language::getCurrentAdminLocaleCode() : Language::getCurrentLocaleCode();
-                $languageCode = $currentLocale && $currentLocale != Language::getDefaultLocaleCode() ? '-' . $currentLocale : null;
-            }
-
-            $widgets = app(WidgetInterface::class)->getByTheme(Theme::getThemeName() . $languageCode);
-
-            foreach ($widgets as $widget) {
-                WidgetGroup::group($widget->sidebar_id)
-                    ->position($widget->position)
-                    ->addWidget($widget->widget_id, $widget->data);
-            }
-
-            $this->widgets = $widgets;
-        }
-
-        return WidgetGroup::group($sidebarId)->display();
     }
 }

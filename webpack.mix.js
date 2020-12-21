@@ -18,6 +18,6 @@ glob.sync('./platform/**/**/webpack.mix.js').forEach(item => require(item));
 // Run only for a plugin
 // require('./platform/plugins/[plugin]/webpack.mix.js');
 
-// Run only for a theme
-// require('./platform/themes/[theme]/webpack.mix.js');
+// Run only for themes
+// glob.sync('./platform/themes/**/webpack.mix.js').forEach(item => require(item));
 

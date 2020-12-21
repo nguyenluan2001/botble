@@ -11,7 +11,7 @@
                            title="{{ $feature_item->name }}"
                            style="display: block">
                             <img class="img-full img-bg" src="{{ RvMedia::getImageUrl($feature_item->image, $loop->first ? 'featured' : 'medium') }}" alt="{{ $feature_item->name }}"
-                                 style="background-image: url('{{ RvMedia::getImageUrl($feature_item->image) }}');">
+                                 style="background-image: url('{{ RvMedia::getImageUrl($feature_item->image) }}'); background-size: 100%;">
                             <span class="feature-item-link"
                                   title="{{ $feature_item->name }}">
                                         <span>{{ $feature_item->name }}</span>

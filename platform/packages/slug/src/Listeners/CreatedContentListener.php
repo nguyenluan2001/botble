@@ -18,7 +18,7 @@ class CreatedContentListener
     protected $slugRepository;
 
     /**
-     * SlugService constructor.
+     * CreatedContentListener constructor.
      * @param SlugInterface $slugRepository
      */
     public function __construct(SlugInterface $slugRepository)

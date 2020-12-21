@@ -44,7 +44,7 @@ abstract class ApiRequest extends FormRequest
 
         $response = (new BaseHttpResponse)
             ->setError(true)
-            ->setMessage(__('The given data is invalid'))
+            ->setMessage('The given data is invalid')
             ->setData($errors)
             ->setCode(422);
 

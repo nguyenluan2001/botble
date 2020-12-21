@@ -26,10 +26,10 @@ class CreateLanguagesTable extends Migration
 
         Schema::create('language_meta', function (Blueprint $table) {
             $table->increments('lang_meta_id');
-            $table->integer('lang_meta_content_id')->unsigned()->index();
             $table->text('lang_meta_code')->nullable();
-            $table->string('lang_meta_reference', 120);
             $table->string('lang_meta_origin', 255);
+            $table->integer('reference_id')->unsigned()->index();
+            $table->string('reference_type', 120);
         });
     }
 

@@ -11,6 +11,7 @@ use File;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Menu;
 use Request;
 use Schema;
 
@@ -68,18 +69,6 @@ class Helper
             'class'     => $class,
             'userAgent' => Request::header('User-Agent'),
         ]);
-    }
-
-    /**
-     * @param string $plugin
-     *
-     * @return boolean
-     * @since 3.3
-     * @deprecated
-     */
-    public static function removePluginData(string $plugin): bool
-    {
-        return self::removeModuleFiles($plugin, 'plugins');
     }
 
     /**
@@ -160,6 +149,8 @@ class Helper
                     File::delete($file);
                 }
             }
+
+            Menu::clearCacheMenuItems();
         } catch (Exception $exception) {
             info($exception->getMessage());
         }

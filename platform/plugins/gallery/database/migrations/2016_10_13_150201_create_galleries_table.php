@@ -27,9 +27,9 @@ class CreateGalleriesTable extends Migration
 
         Schema::create('gallery_meta', function (Blueprint $table) {
             $table->id();
-            $table->integer('content_id')->unsigned()->index();
             $table->text('images')->nullable();
-            $table->string('reference', 120);
+            $table->integer('reference_id')->unsigned()->index();
+            $table->string('reference_type', 120);
             $table->timestamps();
         });
     }

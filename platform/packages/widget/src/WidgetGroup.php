@@ -246,10 +246,13 @@ class WidgetGroup
 
     /**
      * @param string $name
+     * @return $this
      */
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -260,9 +263,15 @@ class WidgetGroup
         return $this->description;
     }
 
-    public function setDescription($description)
+    /**
+     * @param string $description
+     * @return $this
+     */
+    public function setDescription($description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**

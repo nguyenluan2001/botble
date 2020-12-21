@@ -24,13 +24,13 @@
         "platform/shortcode": "*@dev",
         "platform/theme": "*@dev",
         "platform/plugin-management": "*@dev",
-        "wikimedia/composer-merge-plugin": "^1.4",
+        "wikimedia/composer-merge-plugin": "dev-feature/composer-v2 as 1.5.0",
         "doctrine/dbal": "^2.9",
         "league/flysystem-aws-s3-v3": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
-        "fzaninotto/faker": "^1.9.1",
+        "fakerphp/faker": "^1.10",
         "mockery/mockery": "1.3.1",
         "nunomaduro/collision": "^4.1",
         "phpunit/phpunit": "^8.5",
@@ -62,8 +62,8 @@
         "merge-plugin": {
             "include": [
                 "./platform/plugins/*/composer.json",
-            	"./platform/themes/*/composer.json"
-	    ],
+                "./platform/themes/*/composer.json"
+            ],
             "recurse": false,
             "replace": false,
             "ignore-duplicates": false,
@@ -100,6 +100,10 @@
         {
             "type": "path",
             "url": "./platform/packages/*"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/botble/composer-merge-plugin"
         }
     ]
 }

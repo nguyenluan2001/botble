@@ -48,17 +48,15 @@ return [
                 ->container('footer')
                 ->usePath()->add('jquery', 'plugins/jquery/jquery.min.js')
                 ->usePath()->add('bootstrap-js', 'plugins/bootstrap/js/bootstrap.min.js', ['jquery'])
-                ->usePath()->add('overflow-text', 'plugins/overflow-text.js', ['jquery'])
-                ->usePath()->add('jquery.parallax', 'plugins/jquery.parallax-1.1.3.js', ['jquery'])
-                ->usePath()->add('custom', 'js/custom.min.js', ['jquery'])
-                ->usePath()->add('ripple.js', 'js/ripple.js', ['jquery']);
+                ->usePath()->add('custom', 'js/custom.min.js', ['jquery'], [], '5.11')
+                ->usePath()->add('ripple.js', 'js/ripple.js', ['jquery'], [], '5.11');
 
             $theme
                 ->asset()
                 ->usePath()->add('bootstrap-css', 'plugins/bootstrap/css/bootstrap.min.css')
                 ->usePath()->add('font-awesome', 'plugins/font-awesome/css/font-awesome.min.css')
                 ->usePath()->add('ionicons', 'plugins/ionicons/css/ionicons.min.css')
-                ->usePath()->add('style', 'css/style.css', [], [], '5.5');
+                ->usePath()->add('style', 'css/style.css', [], [], '5.11');
 
             if (function_exists('shortcode')) {
                 $theme->composer(['page', 'post', 'index'], function (\Platform\Shortcode\View\View $view) {

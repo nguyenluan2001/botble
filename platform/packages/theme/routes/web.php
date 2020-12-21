@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Platform\Theme\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Platform\Theme\Http\Controllers', 'middleware' => ['web', 'core']], function () {
     Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'theme'], function () {
             Route::get('all', [
@@ -29,8 +29,9 @@ Route::group(['namespace' => 'Platform\Theme\Http\Controllers', 'middleware' => 
             ]);
 
             Route::post('', [
-                'as'   => 'theme.options',
-                'uses' => 'ThemeController@postUpdate',
+                'as'         => 'theme.options.post',
+                'uses'       => 'ThemeController@postUpdate',
+                'permission' => 'theme.options',
             ]);
         });
 

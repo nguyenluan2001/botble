@@ -16,7 +16,7 @@
 
         <style>
             :root {
-                --color-1st: {{ theme_option('primary_color', '#ff2b4a') }};
+                --color-1st: {{ theme_option('primary_color', '#bead8e') }};
                 --primary-font: '{{ theme_option('primary_font', 'Roboto') }}', sans-serif;
             }
         </style>
@@ -31,7 +31,7 @@
     <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
     <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
     <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
-    <body @if (class_exists('Language', false) && Language::getCurrentLocaleRTL()) dir="rtl" @endif>
+    <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif>
     <header class="header" id="header">
         <div class="header-wrap">
             <nav class="nav-top">
@@ -52,18 +52,18 @@
                     <div class="pull-right">
                         @if (is_plugin_active('member'))
                             <ul class="pull-left">
-                                @auth('member')
+                                @if (auth('member')->check())
                                     <li><a href="{{ route('public.member.dashboard') }}" rel="nofollow"><img src="{{ auth('member')->user()->avatar_url }}" class="img-circle" width="20" alt="{{ auth('member')->user()->getFullName() }}"> &nbsp;<span>{{ auth('member')->user()->getFullName() }}</span></a></li>
                                     <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fa fa-sign-out"></i> {{ __('Logout') }}</a></li>
-                                @elseauth
+                                @else
                                     <li><a href="{{ route('public.member.login') }}" rel="nofollow"><i class="fa fa-sign-in"></i> {{ __('Login') }}</a></li>
-                                @endauth
+                                @endif
                             </ul>
-                            @auth('member')
+                            @if (auth('member')->check())
                                 <form id="logout-form" action="{{ route('public.member.logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                            @endauth
+                            @endif
                         @endif
                         <div class="pull-left">
                             <div class="pull-right">
@@ -80,13 +80,13 @@
     <header data-sticky="false" data-sticky-checkpoint="200" data-responsive="991" class="page-header page-header--light">
         <div class="container">
             <!-- LOGO-->
-            <div class="page-header__left"><a href="{{ route('public.single') }}" class="page-logo">
-                    @if (!theme_option('logo'))
-                        <span>Bot</span>ble
-                    @else
+            <div class="page-header__left">
+                <a href="{{ route('public.single') }}" class="page-logo">
+                    @if (theme_option('logo'))
                         <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" height="50">
                     @endif
-                </a></div>
+                </a>
+            </div>
             <div class="page-header__right">
                 <!-- MOBILE MENU-->
                 <div class="navigation-toggle navigation-toggle--dark" style="display: none"><span></span></div>
@@ -107,7 +107,7 @@
             </div>
         </div>
         @if (is_plugin_active('blog'))
-            <div class="super-search hide">
+            <div class="super-search hide" data-search-url="{{ route('public.ajax.search') }}">
                 <form class="quick-search" action="{{ route('public.search') }}">
                     <input type="text" name="q" placeholder="{{ __('Type to search...') }}" class="form-control search-input" autocomplete="off">
                     <span class="close-search">&times;</span>

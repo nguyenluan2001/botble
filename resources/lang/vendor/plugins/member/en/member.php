@@ -24,4 +24,8 @@ return [
             'description' => 'Member email configuration',
         ],
     ],
+    'first_name'                 => 'First Name',
+    'last_name'                  => 'Last Name',
+    'email_placeholder'          => 'Ex: example@gmail.com',
+    'write_a_post'               => 'Write a post',
 ];

@@ -75,7 +75,7 @@ class MenuServiceProvider extends ServiceProvider
                         'id'          => 'cms-core-appearance',
                         'priority'    => 996,
                         'parent_id'   => null,
-                        'name'        => 'core/base::layouts.appearance',
+                        'name'        => 'packages/theme::theme.appearance',
                         'icon'        => 'fa fa-paint-brush',
                         'url'         => '#',
                         'permissions' => [],
@@ -86,5 +86,8 @@ class MenuServiceProvider extends ServiceProvider
                 admin_bar()->registerLink(trans('packages/menu::menu.name'), route('menus.index'), 'appearance');
             }
         });
+
+        $this->app->register(EventServiceProvider::class);
+        $this->app->register(CommandServiceProvider::class);
     }
 }

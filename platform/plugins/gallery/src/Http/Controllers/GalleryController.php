@@ -84,7 +84,7 @@ class GalleryController extends BaseController
      * @param FormBuilder $formBuilder
      * @return string
      */
-    public function edit($id, Request $request, FormBuilder $formBuilder)
+    public function edit($id, FormBuilder $formBuilder, Request $request)
     {
         $gallery = $this->galleryRepository->findOrFail($id);
 

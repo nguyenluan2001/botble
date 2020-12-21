@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Member\Models\Member;
 use Platform\Member\Repositories\Interfaces\MemberInterface;
-use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Platform\ACL\Traits\RegistersUsers;
 use Illuminate\Http\Request;
@@ -86,7 +85,7 @@ class RegisterController extends Controller
             abort(404);
         }
 
-        $member->confirmed_at = Carbon::now(config('app.timezone'));
+        $member->confirmed_at = now();
         $this->memberRepository->createOrUpdate($member);
 
         $this->guard()->login($member);
@@ -163,7 +162,7 @@ class RegisterController extends Controller
                 ?: $response->setNextUrl($this->redirectPath())->setMessage(trans('plugins/member::member.confirmation_info'));
         }
 
-        $member->confirmed_at = Carbon::now(config('app.timezone'));
+        $member->confirmed_at = now();
         $this->memberRepository->createOrUpdate($member);
         $this->guard()->login($member);
         return $this->registered($request, $member)

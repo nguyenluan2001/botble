@@ -9,7 +9,8 @@ class Plugin extends PluginOperationAbstract
 {
     public static function remove()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('member_activity_logs');
         Schema::dropIfExists('member_password_resets');
+        Schema::dropIfExists('members');
     }
 }

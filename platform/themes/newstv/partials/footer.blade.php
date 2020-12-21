@@ -6,7 +6,7 @@
         <div class="footer-txt">
             <p>
                 <a href=".">
-                    <img src="{{ RvMedia::getImageUrl(theme_option('logo', Theme::asset()->url('images/logo.png'))) }}" alt="{{ theme_option('site_title') }}">
+                    <img src="{{ theme_option('logo') ? RvMedia::getImageUrl(theme_option('logo')) : Theme::asset()->url('images/logo.png') }}" alt="{{ theme_option('site_title') }}">
                 </a>
             </p>
             <p>{{ theme_option('site_title') }}</p>

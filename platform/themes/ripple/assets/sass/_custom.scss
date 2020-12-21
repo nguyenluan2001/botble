@@ -18,7 +18,7 @@
 }
 
 .super-search.active .search-input {
-    color: #32c5d2 !important;
+    color: $color-1st !important;
     font-size: 60px;
 }
 
@@ -45,6 +45,7 @@
     margin: 20px auto;
 }
 
+/* purgecss start ignore */
 .super-search .search-list li {
     display: none;
     opacity: 0;
@@ -205,10 +206,11 @@
     display: block;
     opacity: 1;
 }
+/* purgecss end ignore */
 
 .search-result-title {
     padding: 10px 0;
-    margin-bottom: 22px;
+    margin-bottom: 0;
     font-size: 16px;
     font-weight: 700;
     color: #1d9977;
@@ -470,6 +472,8 @@
 }
 
 .language-wrapper {
+    height: 40px;
+    line-height: 30px;
     .language_bar_chooser {
         display: block;
         float: right;
@@ -523,6 +527,7 @@
 
             a {
                 text-align: left;
+
                 img {
                     float: left;
                     margin-right: 8px;
@@ -540,61 +545,84 @@
     }
 }
 
-.header .header-wrap .nav-top ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none
-}
+.header {
+    .header-wrap {
+        .nav-top {
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
 
-.header .header-wrap .nav-top ul:after, .header .header-wrap .nav-top ul:before {
-    content: " ";
-    display: table
-}
+                &:after, &:before {
+                    content: " ";
+                    display: table
+                }
 
-.header .header-wrap .nav-top ul:after {
-    clear: both
-}
+                &:after {
+                    clear: both
+                }
 
-.header .header-wrap .nav-top ul li {
-    float: left
-}
+                li {
+                    float: left;
 
-.header .header-wrap .nav-top ul li a {
-    display: inline-block;
-    line-height: 42px;
-    font-size: 13px;
-    margin-right: 25px
-}
+                    a {
+                        display: inline-block;
+                        line-height: 42px;
+                        font-size: 13px;
+                        margin-right: 25px;
 
-.header .header-wrap .nav-top .hi-icon-wrap {
-    margin-top: 6px
-}
+                        &:hover {
+                            color: $color-1st;
+                        }
+                    }
+                }
+            }
 
-.header .header-wrap .nav-top .hi-icon-wrap a {
-    margin-left: 10px
-}
+            .hi-icon-wrap {
+                margin-top: 10px;
 
-.header .header-wrap .header-content {
-    padding: 10px 0
-}
+                a {
+                    margin-left: 5px;
+                    color: #ffffff;
+                    background-color: #9d9d9d;
+                    border-radius: 50%;
+                    width: 25px;
+                    height: 25px;
+                    line-height: 26px;
+                    text-align: center;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    &:hover {
+                        background-color: $color-1st;
+                    }
+                }
+            }
+        }
 
-.header .header-wrap .header-content .header-content-right {
-    float: right
-}
+        .header-content {
+            padding: 10px 0;
 
-.header .header-wrap .logo {
-    margin: 0;
-    padding: 0;
-    float: left;
-    position: relative;
-    height: 90px
-}
+            .header-content-right {
+                float: right
+            }
+        }
 
-.header .header-wrap .logo img {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%)
+        .logo {
+            margin: 0;
+            padding: 0;
+            float: left;
+            position: relative;
+            height: 90px;
+
+            img {
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%)
+            }
+        }
+    }
 }
 
 .hi-icon-effect-3a .hi-icon {
@@ -671,15 +699,19 @@
     color: #b12136;
 }
 
+/* purgecss start ignore */
 figure.image {
     margin: 10px 0;
+    display: inline-block;
 
     figcaption {
         background: #f5f5f5;
         padding: 10px;
         font-size: 90%;
+        text-align: center;
     }
 }
+/* purgecss end ignore */
 
 .post__content {
     ol, ul {
@@ -802,6 +834,7 @@ figure.image {
     display: flex;
     align-items: center;
     justify-content: center;
+
     i {
         margin-right: 5px;
     }
@@ -818,5 +851,14 @@ figure.image {
                 }
             }
         }
+    }
+}
+
+.post__widget {
+    .post__created-at {
+        font-weight: 400;
+        color: #666666;
+        font-size: 12px;
+        letter-spacing: 0.02em;
     }
 }

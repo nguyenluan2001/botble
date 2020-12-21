@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Platform\Block\Http\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Platform\Block\Http\Controllers', 'middleware' => ['web', 'core']], function () {
     Route::group(['prefix' => BaseHelper::getAdminPrefix(), 'middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'blocks', 'as' => 'block.'], function () {

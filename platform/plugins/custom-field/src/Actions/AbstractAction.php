@@ -12,7 +12,7 @@ abstract class AbstractAction
     protected function error($message = null, array $data = null): array
     {
         if (!$message) {
-            $message = __('Error occurred');
+            $message = trans('plugins/custom-field::base.error_occurred');
         }
         return response_with_messages($message, true, 500, $data);
     }
@@ -25,7 +25,7 @@ abstract class AbstractAction
     protected function success($message = null, array $data = null): array
     {
         if (!$message) {
-            $message = __('Request completed');
+            $message = trans('plugins/custom-field::base.request_completed');
         }
         return response_with_messages(
             $message,

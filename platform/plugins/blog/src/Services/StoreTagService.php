@@ -35,7 +35,7 @@ class StoreTagService extends StoreTagServiceAbstract
                 if ($tag === null && !empty($tagName)) {
                     $tag = $this->tagRepository->createOrUpdate([
                         'name'      => $tagName,
-                        'author_id' => Auth::user()->getKey(),
+                        'author_id' => Auth::check() ? Auth::user()->getKey() : 0,
                     ]);
 
                     $request->merge(['slug' => $tagName]);

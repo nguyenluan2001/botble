@@ -5,7 +5,6 @@ namespace Platform\Gallery\Http\Controllers;
 use Platform\Gallery\Models\Gallery as GalleryModel;
 use Platform\Gallery\Repositories\Interfaces\GalleryInterface;
 use Platform\Gallery\Services\GalleryService;
-use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -22,19 +21,12 @@ class PublicController extends Controller
     protected $galleryRepository;
 
     /**
-     * @var SlugInterface
-     */
-    protected $slugRepository;
-
-    /**
      * PublicController constructor.
      * @param GalleryInterface $galleryRepository
-     * @param SlugInterface $slugRepository
      */
-    public function __construct(GalleryInterface $galleryRepository, SlugInterface $slugRepository)
+    public function __construct(GalleryInterface $galleryRepository)
     {
         $this->galleryRepository = $galleryRepository;
-        $this->slugRepository = $slugRepository;
     }
 
     /**
@@ -62,10 +54,7 @@ class PublicController extends Controller
      */
     public function getGallery($slug, GalleryService $galleryService)
     {
-        $slug = $this->slugRepository->getFirstBy([
-            'key'    => $slug,
-            'prefix' => SlugHelper::getPrefix(GalleryModel::class),
-        ]);
+        $slug = SlugHelper::getSlug($slug, SlugHelper::getPrefix(GalleryModel::class));
 
         if (!$slug) {
             abort(404);

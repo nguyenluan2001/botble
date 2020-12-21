@@ -2,6 +2,7 @@
 
 namespace Platform\Base\Http\Controllers;
 
+use Arr;
 use Assets;
 use Platform\ACL\Models\UserMeta;
 use Platform\Base\Http\Responses\BaseHttpResponse;
@@ -54,11 +55,19 @@ class SystemController extends Controller
         $systemEnv = SystemManagement::getSystemEnv();
         $serverEnv = SystemManagement::getServerEnv();
 
+        $requiredPhpVersion = Arr::get($composerArray, 'require.php', '^7.2.5');
+        $requiredPhpVersion = str_replace('^', '', $requiredPhpVersion);
+        $requiredPhpVersion = str_replace('~', '', $requiredPhpVersion);
+
+        $matchPHPRequirement = version_compare(phpversion(), $requiredPhpVersion) > 0;
+
         return view('core/base::system.info', compact(
             'packages',
             'infoTable',
             'systemEnv',
-            'serverEnv'
+            'serverEnv',
+            'matchPHPRequirement',
+            'requiredPhpVersion'
         ));
     }
 
