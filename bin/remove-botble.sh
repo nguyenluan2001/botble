@@ -43,6 +43,7 @@ if [[ "$platform" != 'window' ]]; then
   CHOWN="$($BIN/which chown)"
   CHMOD="$($BIN/which chmod)"
   GZIP="$($BIN/which gzip)"
+  ZIP="$($BIN/which zip)"
   FIND="$($BIN/which find)"
   TOUCH="$($BIN/which touch)"
   PHP="$($BIN/which php)"
@@ -64,6 +65,7 @@ else
   CHOWN="chown"
   CHMOD="chmod"
   GZIP="gzip"
+  ZIP="zip"
   TOUCH="touch"
   #end no support
   FIND="find"
@@ -469,3 +471,6 @@ PHPCOPTS="-d memory_limit=-1"
 
 ############################ END: make sure all botble.com domain already have replaced by gistensal.com
 #
+
+
+($CD $SCRIPT_PATH/../ && LC_ALL=C $ZIP -r botble.zip . -x \*.buildpath/\* \*.idea/\* \*.project/\* \*nbproject/\* \*.git/\* \*.svn/\* \*.gitignore\* \*.gitattributes\* \*.md \*.MD \*.log \*.tar.gz \*.gz \*.tar \*.rar \*.DS_Store \*.lock \*desktop.ini vhost-nginx.conf \*.tmp \*.bat delivery.sh remove-botble.sh readme.html composer.lock wp-config.secure.php \*.yml\* \*.editorconfig\* \*.rnd\*)
