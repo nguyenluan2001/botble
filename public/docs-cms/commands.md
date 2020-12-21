@@ -11,7 +11,7 @@
 - [Theme commands](#theme-commands)
 - [Widget commands](#widget-commands)
     
-List of commands are used in Laravel CMS
+List of commands are used in Botble CMS
 
 <a name="install"></a>
 ## CMS Install
@@ -121,7 +121,7 @@ That command will deactivate plugin, remove that plugin's assets, tables...
 <a name="theme-commands"></a>
 ## Theme commands
 
-- Create a theme. It's used to create a front theme for Laravel CMS. The theme created will be located in `/platform/themes`
+- Create a theme. It's used to create a front theme for Botble CMS. The theme created will be located in `/platform/themes`
 ```
 php artisan cms:theme:create <theme>
 ```

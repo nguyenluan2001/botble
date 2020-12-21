@@ -1,5 +1,9 @@
 # Upgrade Guide
 
+- [Upgrade To 5.11](#upgrade-5.11)
+- [Upgrade To 5.10](#upgrade-5.10)
+- [Upgrade To 5.9](#upgrade-5.9)
+- [Upgrade To 5.8](#upgrade-5.8)
 - [Upgrade To 5.7](#upgrade-5.7)
 - [Upgrade To 5.6](#upgrade-5.6)
 - [Upgrade To 5.5](#upgrade-5.5)
@@ -30,6 +34,73 @@
 - [Upgrade To 2.2.1](#upgrade-2.2.1)
 - [Upgrade To 2.2](#upgrade-2.2)
 - [Upgrading To 2.1](#upgrade-2.1)
+
+<a name="upgrade-5.11"></a>
+## Upgrade to 5.11
+
+- Override folder `app`, `config`, and `platform` from the latest version.
+
+- For developers:
+  - Update file `composer.json` and `composer.lock` from new source code.
+  - Delete folder `/vendor` then run `composer install` to upgrade vendor packages.
+  - Delete folder `public/vendor` and run command `php artisan vendor:publish --tag=cms-public --force`
+  - Delete folder `public/themes` and run command `php artisan cms:theme:assets:publish`
+  - Run command `php artisan vendor:publish --tag=cms-lang --force` to update translations.
+  - Run `php artisan optimize:clear` to clear cache.
+
+- For non-developers:
+  - Override folder `public/themes`, `public/vendor`, `bootstrap`, `vendor` from the latest version.
+  - Delete all files in `storage/framework/views` and `storage/framework/cache`.
+  - Go to Admin -> Translations -> Admin translations then click on `Import group` to update translations.
+
+- Important changes: 
+  - Delete function `getIndex()`, `getViews`, and `getSitemap()` in your theme controller (platform/themes/[your-theme]/src/Http/Controllers/[YourTheme]Controller.php).
+  
+<a name="upgrade-5.10"></a>
+## Upgrade to 5.10
+
+- Override folder `app`, `config`, and `platform` from the latest version.
+
+- For developers:
+    - Update file `composer.json` and `composer.lock` from new source code.
+    - Delete folder `/vendor` then run `composer install` to upgrade vendor packages.
+    - Delete folder `public/vendor` and run command `php artisan vendor:publish --tag=cms-public --force`
+    - Delete folder `public/themes` and run command `php artisan cms:theme:assets:publish`
+    - Run command `php artisan vendor:publish --tag=cms-lang --force` to update translations.
+    - Run `php artisan optimize:clear` to clear cache.
+    
+- For non-developers:
+    - Override folder `public/themes`, `public/vendor`, `bootstrap`, `vendor` from the latest version.
+    - Delete all files in `storage/framework/views` and `storage/framework/cache`.
+    - Go to Admin -> Translations -> Admin translations then click on `Import group` to update translations.
+    
+<a name="upgrade-5.9"></a>
+## Upgrade to 5.9
+
+- Override folder `app`, `config`, and `platform` from the latest version.
+
+- For developers:
+    - Update file `composer.json` and `composer.lock` from new source code.
+    - Delete folder `/vendor` then run `composer install` to upgrade vendor packages.
+    - Delete folder `public/vendor` and run command `php artisan vendor:publish --tag=cms-public --force`
+    - Delete folder `public/themes` and run command `php artisan cms:theme:assets:publish`
+    - Run command `php artisan vendor:publish --tag=cms-lang --force` to update translations.
+    - Run `php artisan optimize:clear` to clear cache.
+    
+- For non-developers:
+    - Override folder `public/themes`, `public/vendor`, `bootstrap`, `vendor` from the latest version.
+    - Delete all files in `storage/framework/views` and `storage/framework/cache`.
+    - Go to Admin -> Translations -> Admin translations then click on `Import group` to update translations.
+
+
+<a name="upgrade-5.8"></a>
+## Upgrade to 5.8
+
+- Override folder `app`, `config`, `platform`, `resources/lang` from the update source code.
+- Override file `composer.json` `and composer.lock` from the update source code.
+- Delete folder `vendor` then run `composer install` to re-install vendor packages
+- Run `php artisan migrate` to update database.
+- Delete folder `public/vendor` and run command `php artisan vendor:publish --tag=cms-public --force`
 
 <a name="upgrade-5.7"></a>
 ## Upgrade to 5.7
@@ -327,7 +398,7 @@ with new ones which downloaded from Codecanyon
 - Run `composer install` to update vendor packages.
 - Run `php artisan migrate` to update database.
 
-> {warning} Old custom plugins which you built with Laravel CMS v2.6 will not work on v3.0.
+> {warning} Old custom plugins which you built with Botble CMS v2.6 will not work on v3.0.
 
 <a name="upgrade-2.5"></a>
 ## Upgrade from 2.5 to 2.6

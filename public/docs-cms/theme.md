@@ -43,7 +43,7 @@ Example:
     'before' => function($theme)
     {
         // You can remove this line anytime.
-        $theme->setTitle('Copyright ©  2017 - Laravel CMS');
+        $theme->setTitle('Copyright ©  2017 - Botble CMS');
     },
     
     // Listen on event before render a theme,

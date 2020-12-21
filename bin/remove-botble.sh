@@ -183,6 +183,7 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../platform/ -type f -name '*.json'  -print0 | xargs -0 $PERL -i -pe 's/dev-botble/dev-laravel/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.sql'  -print0 | xargs -0 $PERL -i -pe 's/dev-botble/dev-laravel/g')
 
+($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md' -print0 | xargs -0 $PERL -i -pe 's/https\:\/\/botble\.com\/storage\/uploads\/1/https\:\/\/docs\.laravel-cms\.gistensal\.com\/images\/analytics/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md' -print0 | xargs -0 $PERL -i -pe 's/contact\@botble\.com/get-quote\@visualweber\.com/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md' -print0 | xargs -0 $PERL -i -pe 's/\`botble\` - \`159357\`/admin\@gistensal.com - Viweb\@\@1234/g')
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $FIND $SCRIPT_PATH/../ -type f -name '*.md' -print0 | xargs -0 $PERL -i -pe 's/\`botble\`/admin\@gistensal.com/g')

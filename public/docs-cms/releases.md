@@ -1,5 +1,9 @@
 # Release Notes
 
+- [Botble 5.11](#version_5_11)
+- [Botble 5.10](#version_5_10)
+- [Botble 5.9](#version_5_9)
+- [Botble 5.8](#version_5_8)
 - [Botble 5.7](#version_5_7)
 - [Botble 5.6](#version_5_6)
 - [Botble 5.5](#version_5_5)
@@ -35,6 +39,65 @@
 - [Botble 2.1](#version_2_1)
 - [Botble 2.0](#version_2_0)
 - [Botble 1.0](#version_1_0)
+
+## Botble 5.11
+### Dec 11, 2020
+- Improve Cookie Consent plugin.
+- Improve responsive.
+- Update translations, added missing keys.
+- Improve DO Spaces integration.
+- Fix roles & permissions.
+- Update UI for Ripple theme.
+- Update seeders, easy to generate sample data using command db:seed.
+- Update setting page & system info.
+- Optimize page speed and performance.
+
+## Botble 5.10
+### Nov 14, 2020
+- Update menu: optimize queries, cache menu URL for better performance.
+- Optimize queries on menu & widgets.
+- Update Cookie consent: Add option to change background color, text color.
+- Update error pages, make it more beautiful.
+- Update UI contact form, galleries.
+- Improve permalink & custom CSS page.
+- Improve Analytics plugin, make it compatible with PHP 7.4.
+- Fix theme translations: new keys in English doesn't show in other languages.
+- Fix IP in activity logs, allow IP v6.
+- Add seeders: easy to create sample data with command php artisan db:seed.
+- Add command to activate all plugins in one time: php artisan cms:plugin:activate:all
+- Add functions to get popular blog categories.
+- Add mediaImages fields.
+- Refactor code.
+
+## Botble 5.9
+### Oct 15, 2020
+- Fix multi-language with Ajax.
+- Fix views count.
+- Update contact form with Ajax.
+- Update email encryption settings.
+- Improve Recaptcha: add an option to hide the v3 badge.
+- Improve export posts to CSV, Excel.
+- Apply PurgeCSS to remove unused CSS, make it loads faster.
+- Improve theme UI.
+- Refactor code.
+
+## Botble 5.8
+### 15-09-2020
+
+- Update to Laravel version 7.28
+- Update homepage & blog page settings. Now, it's moved into Appearance -> Theme options.
+- Move settings for Cookie Consent into Appearance -> Theme options.
+- Add theme options to enable/disable Facebook chat, Facebook comment.
+- Add settings for watermark. Now, you can add watermark by changing setting in Admin -> Settings -> Media.
+- Allow to change permalink in Admin -> Settings -> Permalinks.
+- Add language settings. Allow to set default language in Admin -> Settings -> General.
+- Allow admin to login using email or username.
+- Optimize queries to make site loads faster.
+- Update UI.
+- Refactor code.
+- Fix webpack.mix.js config, issue with path on Windows.
+- Fix assets path.
+- Fix copy folder in Admin -> Media.
 
 ## Botble 5.7
 ### 05-08-2020
@@ -218,7 +281,7 @@ $this->setupModel(new Post);
 ### 20-07-2019
 
 - Fix bug repeater field with image, file in custom fields plugin.
-- Move plugin management into /packages. Now it's a optional feature, you can remove `platform/plugin-management` and run composer update to remove plugin feature.
+- Move plugin management into /packages. Now it's a optional feature, you can remove `botble/plugin-management` and run composer update to remove plugin feature.
 - Update `composer.json`. Add package `wikimedia/composer-merge-plugin`.
 - Add command to regenerate image sizes: `php artisan cms:media:thumnail:generate`.
 - Add default theme options: site title, SEO meta tags.
@@ -303,12 +366,12 @@ Example:
 <a name="version_3_3_1"></a>
 ## Botble 3.3.1
 ### 18-10-2018
-- Hotfix: Disabled installation Laravel CMS from UI because of security issues.
+- Hotfix: Disabled installation Botble CMS from UI because of security issues.
 
 <a name="version_3_3"></a>
 ## Botble 3.3
 ### 30-09-2018
-- See what's new here: https://laravel-cms.gistensal.com/whats-new-in-laravel-cms-33
+- See what's new here: https://botble.com/whats-new-in-botble-cms-33
 
 <a name="version_3_2_1"></a>
 ## Botble 3.2.1
@@ -390,7 +453,7 @@ Example:
 ## Botble 2.4.2
 ### 29-12-2017
     - Refactor plugin language to make it easier to integrate with new plugin (check FAQ for more detail).
-    - Fix bug when deleting default user admin@gistensal.com.
+    - Fix bug when deleting default user `botble`.
     - Redirect back to previous page after login
     - Update default database.
     - Refactor slug plugin.
@@ -462,7 +525,7 @@ Example:
 <a name="version_2_0"></a>
 ## Botble 2.0
 ### 11-09-2016
-    - Fix https://github.com/google/issues/issues/1: Media upload error
+    - Fix https://github.com/botble/issues/issues/1: Media upload error
     - Please see image attachment in this issue to update your code.
     
 ### 11-08-2016
@@ -479,7 +542,7 @@ Example:
           + /resources/views/files/partials/folder-row.blade.php
           + /resources/views/files/partials/uplevel.blade.php
      - Fix Menu management: 
-        Run "composer update" to update menu package or replace /vendor/platform/menu folder.
+        Run "composer update" to update menu package or replace /vendor/botble/menu folder.
 
 ### 08-31-2016
     - Fix menu module (just run "composer update" to update menu module)
