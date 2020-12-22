@@ -398,7 +398,7 @@ with new ones which downloaded from Codecanyon
 - Run `composer install` to update vendor packages.
 - Run `php artisan migrate` to update database.
 
-> {warning} Old custom plugins which you built with Botble CMS v2.6 will not work on v3.0.
+> {warning} Old custom plugins which you built with Laravel CMS v2.6 will not work on v3.0.
 
 <a name="upgrade-2.5"></a>
 ## Upgrade from 2.5 to 2.6
