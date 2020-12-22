@@ -183,6 +183,7 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/admin\@botble\.com/get-quote\@visualweber\.com/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/admin\@botble.com - 159357/admin\@gistensal.com - Viweb\@\@1234/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/botble - 159357/admin\@gistensal.com - Viweb\@\@1234/g' $SCRIPT_PATH/../database.sql)
+
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/A young team in Vietnam/Laravel is the best/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/dev-botble/dev-laravel/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/1\.envato\.market\/LWRBY/mailto\:get-quote\@visualweber\.co/g' $SCRIPT_PATH/../database.sql)
@@ -208,12 +209,14 @@ PHPCOPTS="-d memory_limit=-1"
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/Botble since v2.0/Laravel CMS since v2.0/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/\"botble\//\"platform\//g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/84988606928/84943999819/g' $SCRIPT_PATH/../database.sql)
-($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe "s/'botble'/'get-quote\@visualweber\.com'/g")
+
+## ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe "s/\'botble\'/\'get-quote\@visualweber\.com\'/g")
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/botble\.cms\@gmail\.com/get-quote@visualweber.com/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/nghiadev\.com/laravel-cms\.gistensal\.com/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/The Botble/The Laravel/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/minhsang2603\@gmail\.com/get-quote@visualweber.com/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/sangplus\.com/laravel-cms\.gistensal\.com\/docs-cms/g' $SCRIPT_PATH/../database.sql)
+
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/Botble\\\\/Platform\\\\/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/Botble\\/Platform\\/g' $SCRIPT_PATH/../database.sql)
 ($CD $SCRIPT_PATH/../ && LC_ALL=C $PERL -i -pe 's/Botble\\\\/Platform\\\\/g' $SCRIPT_PATH/../database.sql)
@@ -476,4 +479,4 @@ PHPCOPTS="-d memory_limit=-1"
 #
 
 
-($CD $SCRIPT_PATH/../ && LC_ALL=C $ZIP -r botble.zip . -x \*.buildpath/\* \*.idea/\* \*.project/\* \*nbproject/\* \*.git/\* \*.svn/\* \*.gitignore\* \*.gitattributes\* \*.md \*.MD \*.log \*.tar.gz \*.gz \*.tar \*.rar \*.DS_Store \*.lock \*desktop.ini vhost-nginx.conf \*.tmp \*.bat delivery.sh remove-botble.sh readme.html composer.lock wp-config.secure.php \*.yml\* \*.editorconfig\* \*.rnd\*)
+## ($CD $SCRIPT_PATH/../ && LC_ALL=C $ZIP -r botble.zip . -x \*.buildpath/\* \*.idea/\* \*.project/\* \*nbproject/\* \*.git/\* \*.svn/\* \*.gitignore\* \*.gitattributes\* \*.md \*.MD \*.log \*.tar.gz \*.gz \*.tar \*.rar \*.DS_Store \*.lock \*desktop.ini vhost-nginx.conf \*.tmp \*.bat delivery.sh remove-botble.sh readme.html composer.lock wp-config.secure.php \*.yml\* \*.editorconfig\* \*.rnd\*)
