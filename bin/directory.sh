@@ -237,14 +237,21 @@ if [ -f "$SCRIPT_PATH/../artisan" ]; then
 
   [ ! -d "$SCRIPT_PATH/../bootstrap/cache" ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../bootstrap/cache
   [ -f "$SCRIPT_PATH/../bootstrap/cache/.gitignore" ] && $ECHO "Found: bootstrap/cache/.gitignore" || $TOUCH $SCRIPT_PATH/../bootstrap/cache/.gitignore && echo -e "*\n!.gitignore"$'\r' >$SCRIPT_PATH/../bootstrap/cache/.gitignore
+fi
 
-  ## [ ! -d "$SCRIPT_PATH/../storage/DoctrineModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineModule && touch $SCRIPT_PATH/../storage/DoctrineModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineModule/.gitignore
-  ## [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineORMModule && touch $SCRIPT_PATH/../storage/DoctrineORMModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineORMModule/.gitignore
-  ## [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator && touch $SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineORMModule/Hydrator/.gitignore
-  ## [ ! -d "$SCRIPT_PATH/../storage/DoctrineORMModule/Proxy"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineORMModule/Proxy && touch $SCRIPT_PATH/../storage/DoctrineORMModule/Proxy/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineORMModule/Proxy/.gitignore
-  ## [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule && touch $SCRIPT_PATH/../storage/DoctrineMongoODMModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineMongoODMModule/.gitignore
-  ## [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator && touch $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Hydrator/.gitignore
-  ## [ ! -d "$SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy && touch $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../storage/DoctrineMongoODMModule/Proxy/.gitignore
+################ FOR Zend Framework & Doctrine
+if [ -d "$SCRIPT_PATH/../data/DoctrineModule" ]; then
+  $RM -rf $SCRIPT_PATH/../data/cache/*
+  $RM -rf $SCRIPT_PATH/../data/Doctrine*
+  $RM -rf $SCRIPT_PATH/../composer.lock
+
+  [ ! -d "$SCRIPT_PATH/../data/DoctrineModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../data/DoctrineModule && touch $SCRIPT_PATH/../data/DoctrineModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../data/DoctrineModule/.gitignore
+  [ ! -d "$SCRIPT_PATH/../data/DoctrineORMModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../data/DoctrineORMModule && touch $SCRIPT_PATH/../data/DoctrineORMModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../data/DoctrineORMModule/.gitignore
+  [ ! -d "$SCRIPT_PATH/../data/DoctrineORMModule/Hydrator"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../data/DoctrineORMModule/Hydrator && touch $SCRIPT_PATH/../data/DoctrineORMModule/Hydrator/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../data/DoctrineORMModule/Hydrator/.gitignore
+  [ ! -d "$SCRIPT_PATH/../data/DoctrineORMModule/Proxy"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../data/DoctrineORMModule/Proxy && touch $SCRIPT_PATH/../data/DoctrineORMModule/Proxy/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../data/DoctrineORMModule/Proxy/.gitignore
+  [ ! -d "$SCRIPT_PATH/../data/DoctrineMongoODMModule"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../data/DoctrineMongoODMModule && touch $SCRIPT_PATH/../data/DoctrineMongoODMModule/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../data/DoctrineMongoODMModule/.gitignore
+  [ ! -d "$SCRIPT_PATH/../data/DoctrineMongoODMModule/Hydrator"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../data/DoctrineMongoODMModule/Hydrator && touch $SCRIPT_PATH/../data/DoctrineMongoODMModule/Hydrator/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../data/DoctrineMongoODMModule/Hydrator/.gitignore
+  [ ! -d "$SCRIPT_PATH/../data/DoctrineMongoODMModule/Proxy"  ] && $MKDIR -m $FDMODE -p $SCRIPT_PATH/../data/DoctrineMongoODMModule/Proxy && touch $SCRIPT_PATH/../data/DoctrineMongoODMModule/Proxy/.gitignore && echo -e "*\n!.gitignore"$'\r' > $SCRIPT_PATH/../data/DoctrineMongoODMModule/Proxy/.gitignore
 fi
 
 ## ($CD $SCRIPT_PATH && $FIND $SCRIPT_PATH -type d -exec touch {}/index.html \;)
@@ -277,6 +284,12 @@ fi
 ################ FOR LARAVEL
 if [ -f "$SCRIPT_PATH/../artisan" ]; then
   ($CD $SCRIPT_PATH && $CHMOD -R 0777 $SCRIPT_PATH/../storage/ && $CHMOD 0777 $SCRIPT_PATH/../bootstrap/cache/)
+  echo -e "$BLUE All paths created $NORMAL"
+fi
+
+################ FOR Zend Framework & Doctrine
+if [ -d "$SCRIPT_PATH/../data/DoctrineModule" ]; then
+  ($CD $SCRIPT_PATH && $CHMOD -R 0777 $SCRIPT_PATH/../data/ && $CHMOD 0777 $SCRIPT_PATH/../data/cache/)
   echo -e "$BLUE All paths created $NORMAL"
 fi
 
