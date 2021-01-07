@@ -1,20 +1,11 @@
 #!/bin/bash
 platform='unknown'
-os=${OSTYPE//[0-9.-]*/}
-if [[ "$os" == 'darwin' ]]; then
-  platform='MAC OSX'
-elif [[ "$os" == 'msys' ]]; then
-  platform='window'
-elif [[ "$os" == 'linux' ]]; then
-  platform='linux'
-fi
+
 NORMAL="\\033[0;39m"
 VERT="\\033[1;32m"
 ROUGE="\\033[1;31m"
 BLUE="\\033[1;34m"
 ORANGE="\\033[1;33m"
-echo -e "$ROUGE Removing Botble NOW $NORMAL"
-echo -e "$ROUGE You are using $platform $NORMAL"
 ESC_SEQ="\x1b["
 COL_RESET=$ESC_SEQ"39;49;00m"
 COL_RED=$ESC_SEQ"31;01m"
@@ -25,53 +16,31 @@ COL_MAGENTA=$ESC_SEQ"35;01m"
 COL_CYAN=$ESC_SEQ"36;01m"
 
 # Linux bin paths, change this if it can not be autodetected via which command
-
-if [[ "$platform" != 'window' ]]; then
-  BIN="/usr/bin"
-  CP="$($BIN/which cp)"
-  SSH="$($BIN/which ssh)"
-  CD="$($BIN/which cd)"
-  GIT="$($BIN/which git)"
-  ECHO="$($BIN/which echo)"
-  LN="$($BIN/which ln)"
-  MV="$($BIN/which mv)"
-  RM="$($BIN/which rm)"
-  NGINX="/etc/init.d/nginx"
-  MKDIR="$($BIN/which mkdir)"
-  MYSQL="$($BIN/which mysql)"
-  MYSQLDUMP="$($BIN/which mysqldump)"
-  CHOWN="$($BIN/which chown)"
-  CHMOD="$($BIN/which chmod)"
-  GZIP="$($BIN/which gzip)"
-  ZIP="$($BIN/which zip)"
-  FIND="$($BIN/which find)"
-  TOUCH="$($BIN/which touch)"
-  PHP="$($BIN/which php)"
-  PERL="$($BIN/which perl)"
-else
-  CP="cp"
-  SSH="ssh"
-  CD="cd"
-  GIT="git"
-  ECHO="echo"
-  LN="ln"
-  MV="mv"
-  RM="rm"
-  NGINX="/etc/init.d/nginx"
-  MKDIR="mkdir"
-  MYSQL="mysql"
-  MYSQLDUMP="mysqldump"
-  #no support
-  CHOWN="chown"
-  CHMOD="chmod"
-  GZIP="gzip"
-  ZIP="zip"
-  TOUCH="touch"
-  #end no support
-  FIND="find"
-  PHP="$($BIN/which php)"
-  PERL="$($BIN/which perl)"
-fi
+BIN="/usr/bin"
+CP="$($BIN/which cp)"
+SSH="$($BIN/which ssh)"
+CD="$($BIN/which cd)"
+GIT="$($BIN/which git)"
+ECHO="$($BIN/which echo)"
+LN="$($BIN/which ln)"
+MV="$($BIN/which mv)"
+RM="$($BIN/which rm)"
+NGINX="/etc/init.d/nginx"
+MKDIR="$($BIN/which mkdir)"
+MYSQL="$($BIN/which mysql)"
+MYSQLDUMP="$($BIN/which mysqldump)"
+CHOWN="$($BIN/which chown)"
+CHMOD="$($BIN/which chmod)"
+GZIP="$($BIN/which gzip)"
+ZIP="$($BIN/which zip)"
+FIND="$($BIN/which find)"
+TOUCH="$($BIN/which touch)"
+PHP="$($BIN/which php)"
+PERL="$($BIN/which perl)"
+CURL="$($BIN/which curl)"
+HASCURL=1
+DEVMODE="--dev"
+PHPCOPTS=" -d memory_limit=-1 "
 
 ### directory and file modes for cron and mirror files
 FDMODE=0777
@@ -79,6 +48,16 @@ CDMODE=0700
 CFMODE=600
 MDMODE=0755
 MFMODE=644
+
+os=${OSTYPE//[0-9.-]*/}
+if [[ "$os" == 'darwin' ]]; then
+  platform='macosx'
+elif [[ "$os" == 'msys' ]]; then
+  platform='window'
+elif [[ "$os" == 'linux' ]]; then
+  platform='linux'
+fi
+echo -e "$ROUGE You are using $platform $NORMAL"
 
 ###
 ## SOURCE="${BASH_SOURCE[0]}"
@@ -91,7 +70,6 @@ MFMODE=644
 ## cd $DIR
 ## SCRIPT_PATH=`pwd -P` # return wrong path if you are calling this script with wrong location
 SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" # return /path/bin
-echo -e "$VERT--> Booting now ... $NORMAL"
 echo -e "$VERT--> Your path: $SCRIPT_PATH $NORMAL"
 
 # Usage info
@@ -479,4 +457,4 @@ PHPCOPTS="-d memory_limit=-1"
 #
 
 
-## ($CD $SCRIPT_PATH/../ && LC_ALL=C $ZIP -r botble.zip . -x \*.buildpath/\* \*.idea/\* \*.project/\* \*nbproject/\* \*.git/\* \*.svn/\* \*.gitignore\* \*.gitattributes\* \*.md \*.MD \*.log \*.tar.gz \*.gz \*.tar \*.rar \*.DS_Store \*.lock \*desktop.ini vhost-nginx.conf \*.tmp \*.bat delivery.sh remove-botble.sh readme.html composer.lock wp-config.secure.php \*.yml\* \*.editorconfig\* \*.rnd\*)
+## ($CD $SCRIPT_PATH/../ && LC_ALL=C $ZIP -r botble.zip . -x \*.buildpath/\* \*.idea/\* \*.project/\* \*nbproject/\* \*.git/\* \*.svn/\* \*.gitignore\* \*.gitattributes\* \*.md \*.MD \*.log \*.tar.gz \*.gz \*.tar \*.rar \*.DS_Store \*.lock \*desktop.ini vhost-nginx.conf \*.tmp \*.bat bin/delivery.sh bin/remove-botble.sh readme.html composer.lock wp-config.secure.php \*.yml\* \*.editorconfig\* \*.rnd\*)
