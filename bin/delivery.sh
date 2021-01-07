@@ -178,8 +178,8 @@ if [ $HASCURL == 1 ]; then
   echo -e "$VERT--> Your WebDav: $WEBDAV $NORMAL"
 fi
 
-BACKUP_SOURCENAME={GIT_REPOSITORY_NAME}-$(date +"%Y-%m-%d_%H.%I.%S").zip
-BACKUP_SQLNAME={GIT_REPOSITORY_NAME}-$(date +"%Y-%m-%d_%H.%I.%S").sql
+BACKUP_SOURCENAME={GIT_REPOSITORY_NAME}_source-$(date +"%Y-%m-%d_%H.%I.%S").zip
+BACKUP_SQLNAME={GIT_REPOSITORY_NAME}_dbs-$(date +"%Y-%m-%d_%H.%I.%S").sql
 
 if [ -f "$SCRIPT_PATH/../$BACKUP_SOURCENAME" ]; then
   (cd $SCRIPT_PATH/../ && $RM -f $BACKUP_SOURCENAME \;)
@@ -285,30 +285,30 @@ fi
 ## ($CD $SCRIPT_PATH/../ && $FIND $SCRIPT_PATH/../ -type d -exec touch {}/index.html \;)
 
 ## get last composer
-if [ -f composer.phar ]; then
+## if [ -f composer.phar ]; then
   ## $PHP $PHPCOPTS composer.phar config --global discard-changes true
-  $PHP $PHPCOPTS composer.phar self-update
-else
-  if [ $HASCURL == 1 ]; then
-    curl -sS https://getcomposer.org/installer | $PHP
-  else
-    $PHP $PHPCOPTS -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
-  fi
-fi
+##   $PHP $PHPCOPTS composer.phar self-update
+## else
+##   if [ $HASCURL == 1 ]; then
+##     curl -sS https://getcomposer.org/installer | $PHP
+##   else
+##     $PHP $PHPCOPTS -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
+##   fi
+## fi
 
 ## install or update with composer
-if [ -f composer.lock ]; then
+## if [ -f composer.lock ]; then
   ## $PHP $PHPCOPTS composer.phar config --global discard-changes true
   ## echo "$PHP $PHPCOPTS composer.phar config --global discard-changes true"
-  $PHP $PHPCOPTS composer.phar $DEVMODE update -o -a
-  echo "$PHP $PHPCOPTS composer.phar $DEVMODE update -o -a"
+##   $PHP $PHPCOPTS composer.phar $DEVMODE update -o -a
+##   echo "$PHP $PHPCOPTS composer.phar $DEVMODE update -o -a"
   ########### $PHP $PHPCOPTS composer.phar $DEVMODE update -o -a;
-else
+## else
   ## $PHP $PHPCOPTS composer.phar config --global discard-changes true
   ## echo "$PHP $PHPCOPTS composer.phar config --global discard-changes true"
-  $PHP $PHPCOPTS composer.phar $DEVMODE install -o -a
-  echo "$PHP $PHPCOPTS composer.phar $DEVMODE install -o -a"
-fi
+##   $PHP $PHPCOPTS composer.phar $DEVMODE install -o -a
+##   echo "$PHP $PHPCOPTS composer.phar $DEVMODE install -o -a"
+## fi
 
 ## for laravel
 if [ -f "$SCRIPT_PATH/../artisan" ]; then
@@ -325,7 +325,7 @@ fi
 
 (cd $SCRIPT_PATH/../ && $MYSQLDUMP -u{DBUSER} -p{DBPWD} --default-character-set utf8 {DBNAME} > $BACKUP_SQLNAME)
 
-(cd $SCRIPT_PATH/../ && $CHOWN -R {HOME_USER}:{HOME_USER} .)
+## (cd $SCRIPT_PATH/../ && $CHOWN -R {HOME_USER}:{HOME_USER} .)
 
 echo "Backup Source size: $(du -h $BACKUP_SOURCENAME | awk '{printf "%s",$1}')"
 echo "Backup SQL size: $(du -h $BACKUP_SQLNAME | awk '{printf "%s",$1}')"
