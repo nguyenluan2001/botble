@@ -13,7 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Platform\Blog\Models\Category;
 use SlugHelper;
-
+use Platform\Blog\Models\Post;
 class CategoryController extends Controller
 {
     /**

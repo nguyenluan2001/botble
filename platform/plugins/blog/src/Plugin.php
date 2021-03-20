@@ -1,7 +1,7 @@
 <?php
 
 namespace Platform\Blog;
-
+use Platform\Blog\Models\Post;
 use Platform\Blog\Models\Category;
 use Platform\Blog\Models\Tag;
 use Platform\Dashboard\Repositories\Interfaces\DashboardWidgetInterface;

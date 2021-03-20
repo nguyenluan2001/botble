@@ -6,7 +6,7 @@ use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Forms\FormAbstract;
 use Platform\Blog\Http\Requests\TagRequest;
 use Platform\Blog\Models\Tag;
-
+use Platform\Blog\Models\Post;
 class TagForm extends FormAbstract
 {
 

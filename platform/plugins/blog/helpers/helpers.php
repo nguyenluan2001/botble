@@ -7,6 +7,7 @@ use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Blog\Repositories\Interfaces\TagInterface;
 use Platform\Blog\Supports\PostFormat;
 use Illuminate\Support\Arr;
+use Platform\Blog\Models\Post;
 
 if (!function_exists('get_featured_posts')) {
     /**

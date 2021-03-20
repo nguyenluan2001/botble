@@ -1,0 +1,11 @@
+.container{
+    width: 85%;
+    margin: 0px auto;
+}
+header{
+    padding-top: 10px;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+}

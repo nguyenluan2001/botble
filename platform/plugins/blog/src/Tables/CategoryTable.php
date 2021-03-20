@@ -11,7 +11,7 @@ use Platform\Blog\Repositories\Interfaces\CategoryInterface;
 use Platform\Table\Abstracts\TableAbstract;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Yajra\DataTables\DataTables;
-
+use Platform\Blog\Models\Post;
 class CategoryTable extends TableAbstract
 {
 

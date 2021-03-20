@@ -19,7 +19,7 @@ use Platform\Base\Events\DeletedContentEvent;
 use Platform\Base\Events\UpdatedContentEvent;
 use Illuminate\View\View;
 use Throwable;
-
+use Platform\Blog\Models\Post;
 class CategoryController extends BaseController
 {
 

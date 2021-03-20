@@ -6,6 +6,7 @@ use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Forms\FormAbstract;
 use Platform\Blog\Http\Requests\CategoryRequest;
 use Platform\Blog\Models\Category;
+use Platform\Blog\Models\Post;
 
 class CategoryForm extends FormAbstract
 {

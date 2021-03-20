@@ -1,0 +1,6 @@
+#content .container{
+    display: flex;
+}
+#content{
+    padding-top: 20px;
+}

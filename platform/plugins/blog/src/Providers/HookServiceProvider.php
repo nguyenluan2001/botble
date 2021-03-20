@@ -24,7 +24,7 @@ use Menu;
 use stdClass;
 use Theme;
 use Throwable;
-
+use Platform\Blog\Models\Post;
 class HookServiceProvider extends ServiceProvider
 {
     /**

@@ -8,7 +8,7 @@ use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Blog\Http\Resources\TagResource;
 use Platform\Blog\Repositories\Interfaces\TagInterface;
 use Illuminate\Http\Request;
-
+use Platform\Blog\Models\Post;
 class TagController extends Controller
 {
     /**

@@ -67,53 +67,53 @@ class SlugServiceProvider extends ServiceProvider
                 ]);
         });
 
-        $this->app->booted(function () {
-            foreach (array_keys($this->app->make(SlugHelper::class)->supportedModels()) as $item) {
-                $item::resolveRelationUsing('slugable', function ($model) {
-                    return $model->morphOne(Slug::class, 'reference');
-                });
+        // $this->app->booted(function () {
+        //     foreach (array_keys($this->app->make(SlugHelper::class)->supportedModels()) as $item) {
+        //         $item::resolveRelationUsing('slugable', function ($model) {
+        //             return $model->morphOne(Slug::class, 'reference');
+        //         });
 
-                MacroableModels::addMacro($item, 'getSlugAttribute', function () {
-                    /**
-                     * @var BaseModel $this
-                     */
-                    return $this->slugable ? $this->slugable->key : '';
-                });
+        //         MacroableModels::addMacro($item, 'getSlugAttribute', function () {
+        //             /**
+        //              * @var BaseModel $this
+        //              */
+        //             return $this->slugable ? $this->slugable->key : '';
+        //         });
 
-                MacroableModels::addMacro($item, 'getSlugIdAttribute', function () {
-                    /**
-                     * @var BaseModel $this
-                     */
-                    return $this->slugable ? $this->slugable->id : '';
-                });
+        //         MacroableModels::addMacro($item, 'getSlugIdAttribute', function () {
+        //             /**
+        //              * @var BaseModel $this
+        //              */
+        //             return $this->slugable ? $this->slugable->id : '';
+        //         });
 
-                MacroableModels::addMacro($item,
-                    'getUrlAttribute',
-                    function () {
-                        /**
-                         * @var BaseModel $this
-                         */
-                        $prefix = $this->slugable ? $this->slugable->prefix : null;
-                        $prefix = apply_filters(FILTER_SLUG_PREFIX, $prefix);
+        //         MacroableModels::addMacro($item,
+        //             'getUrlAttribute',
+        //             function () {
+        //                 /**
+        //                  * @var BaseModel $this
+        //                  */
+        //                 $prefix = $this->slugable ? $this->slugable->prefix : null;
+        //                 $prefix = apply_filters(FILTER_SLUG_PREFIX, $prefix);
 
-                        if (!$this->slug) {
-                            return url('');
-                        }
+        //                 if (!$this->slug) {
+        //                     return url('');
+        //                 }
 
-                        if (get_class($this) == Page::class &&
-                            $this->id &&
-                            theme_option('homepage_id', setting('show_on_front')) &&
-                            $this->id == theme_option('homepage_id', setting('show_on_front'))
-                        ) {
-                            return url('');
-                        }
+        //                 if (get_class($this) == Page::class &&
+        //                     $this->id &&
+        //                     theme_option('homepage_id', setting('show_on_front')) &&
+        //                     $this->id == theme_option('homepage_id', setting('show_on_front'))
+        //                 ) {
+        //                     return url('');
+        //                 }
 
-                        return url($prefix ? $prefix . '/' . $this->slug : $this->slug);
-                    });
-            }
+        //                 return url($prefix ? $prefix . '/' . $this->slug : $this->slug);
+        //             });
+        //     }
 
-            $this->app->register(HookServiceProvider::class);
-        });
+        //     $this->app->register(HookServiceProvider::class);
+        // });
     }
 
     /**

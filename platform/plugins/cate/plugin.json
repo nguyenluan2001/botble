@@ -1,0 +1,9 @@
+{
+    "name": "Cate",
+    "namespace": "Platform\\Cate\\",
+    "provider": "Platform\\Cate\\Providers\\CateServiceProvider",
+    "author": "N/A",
+    "url": "N/A",
+    "version": "1.0",
+    "description": "The description for module cate"
+}

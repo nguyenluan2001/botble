@@ -6,7 +6,7 @@ use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Table\Supports\TableExportHandler;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
-
+use Platform\Blog\Models\Post;
 class PostExport extends TableExportHandler
 {
     /**

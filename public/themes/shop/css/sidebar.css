@@ -1,0 +1,30 @@
+ #sidebar {
+        width: 20%;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 10px;
+        border-bottom: 1px solid black
+    }
+
+    li:hover {
+        background-color: gainsboro;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    #title{
+        background-color: #f8f4e1;
+        padding: 10px 5px;
+        text-align: center;
+    }
+    #title span{
+        font-size: 25px;
+        font-weight: bold;
+    }

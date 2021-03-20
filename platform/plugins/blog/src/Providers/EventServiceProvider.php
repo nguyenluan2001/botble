@@ -5,7 +5,7 @@ namespace Platform\Blog\Providers;
 use Platform\Theme\Events\RenderingSiteMapEvent;
 use Platform\Blog\Listeners\RenderingSiteMapListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-
+use Platform\Blog\Models\Post;
 class EventServiceProvider extends ServiceProvider
 {
     /**
